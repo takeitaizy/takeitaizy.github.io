@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>takeitaizy — Coming Soon</title>
+  <meta name="description" content="takeitaizy — AI-powered workflows and automation. Something aizy is on its way.">
+  <meta property="og:title" content="takeitaizy">
+  <meta property="og:description" content="AI-powered workflows and automation. Coming soon.">
+  <meta property="og:url" content="https://takeitaizy.dev">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230b0b0f'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='%23d8ff3e' font-family='Arial,sans-serif' font-weight='bold'%3Eaz%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0b0f;
+      --ink: #f4f4f0;
+      --muted: #8a8a93;
+      --accent: #d8ff3e;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .glow {
+      position: fixed;
+      width: 60vmax; height: 60vmax;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(216,255,62,0.07) 0%, transparent 60%);
+      top: -20vmax; right: -20vmax;
+      pointer-events: none;
+    }
+    .glow.two {
+      top: auto; right: auto; bottom: -25vmax; left: -20vmax;
+      background: radial-gradient(circle, rgba(216,255,62,0.05) 0%, transparent 60%);
+    }
+    main {
+      text-align: center;
+      padding: 2rem;
+      animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid rgba(216,255,62,0.35);
+      border-radius: 999px;
+      padding: 0.45rem 1.1rem;
+      margin-bottom: 2.2rem;
+    }
+    h1 {
+      font-size: clamp(2.6rem, 9vw, 5.5rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.02;
+    }
+    h1 .az { color: var(--accent); }
+    .tagline {
+      margin-top: 1.4rem;
+      font-size: clamp(1rem, 2.4vw, 1.25rem);
+      color: var(--muted);
+      font-weight: 400;
+    }
+    .contact {
+      margin-top: 3.2rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .contact a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(216,255,62,0.5);
+      padding-bottom: 2px;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+    .contact a:hover { color: var(--accent); border-color: var(--accent); }
+    footer {
+      position: fixed;
+      bottom: 1.4rem;
+      width: 100%;
+      text-align: center;
+      font-size: 0.75rem;
+      color: #55555e;
+      letter-spacing: 0.06em;
+    }
+  </style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="glow two"></div>
+  <main>
+    <span class="badge">Coming soon</span>
+    <h1>take it <span class="az">aizy</span><span class="az">.</span></h1>
+    <p class="tagline">AI-powered workflows and automation. We're building something — it'll be aizy.</p>
+    <p class="contact">Say hello — <a href="mailto:hello@takeitaizy.dev">hello@takeitaizy.dev</a></p>
+  </main>
+  <footer>© 2026 takeitaizy · takeitaizy.dev</footer>
+</body>
+</html>
