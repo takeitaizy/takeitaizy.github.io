@@ -1,114 +1,677 @@
 <!doctype html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>takeitaizy — Coming Soon</title>
-  <meta name="description" content="takeitaizy — AI-powered workflows and automation. Something aizy is on its way.">
-  <meta property="og:title" content="takeitaizy">
-  <meta property="og:description" content="AI-powered workflows and automation. Coming soon.">
+  <title>takeitaizy — מערכות AI ואוטומציה לעסקים</title>
+  <meta name="description" content="takeitaizy בונה מערכות AI ואוטומציה בהתאמה אישית לעסקים: בוטים לשירות לקוחות בעברית, מערכות ניהול, אוטומציית משרד אחורי וסוכני AI תפעוליים.">
+  <meta property="og:title" content="takeitaizy — מערכות AI ואוטומציה לעסקים">
+  <meta property="og:description" content="מחליפים שעות של עבודה ידנית במערכות שנבנות סביב איך שהעסק שלכם באמת עובד.">
   <meta property="og:url" content="https://takeitaizy.dev">
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="he_IL">
+  <meta property="og:locale:alternate" content="en_US">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230b0b0f'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='%23d8ff3e' font-family='Arial,sans-serif' font-weight='bold'%3Eaz%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #0b0b0f;
+      --bg-raise: #111117;
       --ink: #f4f4f0;
-      --muted: #8a8a93;
+      --muted: #9a9aa3;
+      --faint: #55555e;
       --accent: #d8ff3e;
+      --accent-dim: rgba(216, 255, 62, 0.35);
+      --accent-ghost: rgba(216, 255, 62, 0.07);
+      --line: rgba(244, 244, 240, 0.09);
+      --max: 1120px;
+      --radius: 14px;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { height: 100%; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { animation: none !important; transition: none !important; }
+    }
     body {
       background: var(--bg);
       color: var(--ink);
-      font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
+      font-family: "Space Grotesk", "Heebo", system-ui, sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    ::selection { background: var(--accent); color: #0b0b0f; }
+
+    .wrap { max-width: var(--max); margin-inline: auto; padding-inline: 24px; }
+
+    /* ---------- nav ---------- */
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(11, 11, 15, 0.82);
+      backdrop-filter: blur(14px);
+      border-block-end: 1px solid var(--line);
+    }
+    .nav-inner {
+      display: flex; align-items: center; gap: 28px;
+      padding-block: 14px;
+    }
+    .brand {
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 700; font-size: 1.15rem; letter-spacing: -0.02em;
+      color: var(--ink); text-decoration: none; white-space: nowrap;
+      direction: ltr; unicode-bidi: isolate;
+    }
+    .brand b { color: var(--accent); font-weight: 700; }
+    .nav-links { display: flex; gap: 22px; margin-inline-start: auto; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: 0.92rem;
+      transition: color 0.2s ease;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .lang-toggle {
+      background: none; border: 1px solid var(--line); border-radius: 999px;
+      color: var(--muted); font: inherit; font-size: 0.8rem;
+      padding: 4px 14px; cursor: pointer; transition: color .2s, border-color .2s;
+      direction: ltr; unicode-bidi: isolate;
+    }
+    .lang-toggle:hover { color: var(--accent); border-color: var(--accent-dim); }
+    .nav-cta {
+      background: var(--accent); color: #0b0b0f !important; font-weight: 500;
+      padding: 7px 18px; border-radius: 999px; font-size: 0.9rem !important;
+      transition: transform .15s ease, box-shadow .2s ease;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 24px var(--accent-dim); }
+    @media (max-width: 720px) { .nav-links a:not(.nav-cta) { display: none; } }
+
+    /* ---------- hero ---------- */
+    header.hero {
+      position: relative; overflow: hidden;
+      padding-block: clamp(80px, 14vh, 150px) clamp(60px, 10vh, 110px);
+      text-align: center;
     }
     .glow {
-      position: fixed;
-      width: 60vmax; height: 60vmax;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(216,255,62,0.07) 0%, transparent 60%);
-      top: -20vmax; right: -20vmax;
-      pointer-events: none;
+      position: absolute; border-radius: 50%; pointer-events: none;
+      width: 62vmax; height: 62vmax;
+      background: radial-gradient(circle, var(--accent-ghost) 0%, transparent 62%);
     }
-    .glow.two {
-      top: auto; right: auto; bottom: -25vmax; left: -20vmax;
-      background: radial-gradient(circle, rgba(216,255,62,0.05) 0%, transparent 60%);
-    }
-    main {
-      text-align: center;
-      padding: 2rem;
-      animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
-    }
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(14px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    .glow.g1 { inset-block-start: -28vmax; inset-inline-end: -22vmax; }
+    .glow.g2 { inset-block-end: -34vmax; inset-inline-start: -24vmax; opacity: 0.7; }
     .badge {
-      display: inline-block;
-      font-size: 0.72rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--accent);
-      border: 1px solid rgba(216,255,62,0.35);
-      border-radius: 999px;
-      padding: 0.45rem 1.1rem;
-      margin-bottom: 2.2rem;
+      display: inline-block; font-size: 0.72rem; text-transform: uppercase;
+      color: var(--accent); border: 1px solid var(--accent-dim);
+      border-radius: 999px; padding: 6px 18px; margin-block-end: 28px;
     }
+    .badge:lang(en) { letter-spacing: 0.2em; }
     h1 {
-      font-size: clamp(2.6rem, 9vw, 5.5rem);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.02;
+      font-size: clamp(2.2rem, 6.4vw, 4.2rem);
+      font-weight: 800; line-height: 1.15; letter-spacing: normal;
+      max-width: 20ch; margin-inline: auto;
+      text-wrap: balance;
     }
-    h1 .az { color: var(--accent); }
-    .tagline {
-      margin-top: 1.4rem;
-      font-size: clamp(1rem, 2.4vw, 1.25rem);
-      color: var(--muted);
-      font-weight: 400;
+    h1:lang(en) { letter-spacing: -0.02em; font-weight: 700; }
+    h1 .hl { color: var(--accent); }
+    .hero-sub {
+      margin-block-start: 22px; color: var(--muted);
+      font-size: clamp(1.02rem, 2.2vw, 1.25rem);
+      max-width: 52ch; margin-inline: auto; text-wrap: balance;
     }
-    .contact {
-      margin-top: 3.2rem;
-      font-size: 0.9rem;
-      color: var(--muted);
+    .hero-ctas { margin-block-start: 40px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; text-decoration: none; font-weight: 500;
+      border-radius: 999px; padding: 13px 32px; font-size: 1rem;
+      transition: transform .15s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
     }
-    .contact a {
-      color: var(--ink);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(216,255,62,0.5);
-      padding-bottom: 2px;
-      transition: color 0.2s ease, border-color 0.2s ease;
+    .btn-primary { background: var(--accent); color: #0b0b0f; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 32px var(--accent-dim); }
+    .btn-ghost { border: 1px solid var(--line); color: var(--ink); }
+    .btn-ghost:hover { border-color: var(--accent-dim); color: var(--accent); }
+    .hero-domain {
+      margin-block-start: 46px; font-size: 0.8rem; color: var(--faint);
+      direction: ltr; unicode-bidi: isolate;
     }
-    .contact a:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ---------- sections ---------- */
+    section { padding-block: clamp(64px, 9vh, 110px); position: relative; }
+    .sec-label {
+      font-size: 0.75rem; text-transform: uppercase; color: var(--accent);
+      margin-block-end: 14px;
+    }
+    .sec-label:lang(en) { letter-spacing: 0.18em; }
+    .sec-title {
+      font-size: clamp(1.6rem, 3.6vw, 2.4rem); font-weight: 700; line-height: 1.25;
+      max-width: 26ch; text-wrap: balance;
+    }
+    .sec-sub { color: var(--muted); margin-block-start: 12px; max-width: 60ch; }
+
+    /* pain strip */
+    .pains {
+      margin-block-start: 44px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;
+    }
+    .pain {
+      border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 22px 24px; background: var(--bg-raise);
+      color: var(--muted); font-size: 0.98rem;
+      position: relative;
+    }
+    .pain::before {
+      content: "✗"; color: var(--faint); font-size: 0.85rem;
+      display: block; margin-block-end: 10px;
+    }
+    .pain-hook { margin-block-start: 26px; font-size: 1.15rem; color: var(--ink); font-weight: 500; }
+    .pain-hook .hl { color: var(--accent); }
+
+    /* services */
+    .cards {
+      margin-block-start: 44px;
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px;
+    }
+    @media (max-width: 680px) { .cards { grid-template-columns: 1fr; } }
+    .card {
+      border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 28px 26px; background: var(--bg-raise);
+      transition: border-color .25s ease, transform .25s ease;
+    }
+    .card:hover { border-color: var(--accent-dim); transform: translateY(-3px); }
+    .card .num {
+      font-family: "Space Grotesk", monospace; color: var(--accent);
+      font-size: 0.8rem; letter-spacing: 0.12em;
+      display: block; margin-block-end: 16px;
+      direction: ltr; unicode-bidi: isolate; text-align: start;
+    }
+    .card h3 { font-size: 1.12rem; font-weight: 700; margin-block-end: 10px; }
+    .card p { color: var(--muted); font-size: 0.93rem; }
+
+    /* case studies */
+    .cases {
+      margin-block-start: 44px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 18px;
+    }
+    .case {
+      border: 1px solid var(--line); border-radius: var(--radius);
+      background: linear-gradient(180deg, var(--bg-raise) 0%, rgba(216,255,62,0.03) 100%);
+      padding: 30px 28px; display: flex; flex-direction: column; gap: 16px;
+    }
+    .case .tag {
+      align-self: flex-start; font-size: 0.72rem; color: var(--accent);
+      border: 1px solid var(--accent-dim); border-radius: 999px; padding: 3px 12px;
+    }
+    .case h3 { font-size: 1.15rem; font-weight: 700; line-height: 1.35; }
+    .case .row { font-size: 0.92rem; color: var(--muted); }
+    .case .row b { color: var(--ink); font-weight: 500; display: block; margin-block-end: 2px; }
+    .case .stat {
+      margin-block-start: auto; padding-block-start: 16px;
+      border-block-start: 1px solid var(--line);
+      font-size: 0.95rem; color: var(--accent);
+    }
+
+    /* how we work */
+    .steps {
+      margin-block-start: 44px; display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px;
+      counter-reset: step;
+    }
+    .step { border-inline-start: 2px solid var(--accent-dim); padding-inline-start: 18px; }
+    .step::before {
+      counter-increment: step; content: "0" counter(step);
+      font-family: "Space Grotesk", monospace; color: var(--accent);
+      font-size: 0.8rem; letter-spacing: 0.12em; display: block; margin-block-end: 8px;
+      direction: ltr; unicode-bidi: isolate; text-align: start;
+    }
+    .step h3 { font-size: 1.05rem; font-weight: 700; margin-block-end: 6px; }
+    .step p { color: var(--muted); font-size: 0.9rem; }
+    .principles {
+      margin-block-start: 48px; display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px;
+    }
+    .principle {
+      display: flex; gap: 12px; align-items: baseline;
+      font-size: 0.95rem; color: var(--muted);
+      border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 20px;
+    }
+    .principle::before { content: "→"; color: var(--accent); flex-shrink: 0; }
+    .principle:dir(rtl)::before { content: "←"; }
+    .principle b { color: var(--ink); font-weight: 500; }
+
+    /* form */
+    #contact { border-block-start: 1px solid var(--line); }
+    .form-grid {
+      margin-block-start: 40px; display: grid; gap: 16px;
+      grid-template-columns: 1fr 1fr; max-width: 720px;
+    }
+    @media (max-width: 640px) { .form-grid { grid-template-columns: 1fr; } }
+    .field { display: flex; flex-direction: column; gap: 7px; }
+    .field.full { grid-column: 1 / -1; }
+    .field label { font-size: 0.85rem; color: var(--muted); }
+    .field label .req { color: var(--accent); }
+    .field input, .field textarea {
+      background: var(--bg-raise); border: 1px solid var(--line); border-radius: 10px;
+      color: var(--ink); font: inherit; font-size: 0.98rem;
+      padding: 12px 16px; outline: none;
+      transition: border-color .2s ease;
+    }
+    .field input:focus, .field textarea:focus { border-color: var(--accent-dim); }
+    .field textarea { min-height: 120px; resize: vertical; }
+    .hp-field {
+      position: absolute; inset-inline-start: -9999px;
+      inline-size: 1px; block-size: 1px; overflow: hidden;
+    }
+    .form-actions { grid-column: 1 / -1; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+    .form-actions button {
+      font: inherit; border: none; cursor: pointer;
+    }
+    .form-note { font-size: 0.82rem; color: var(--faint); }
+    .form-msg { grid-column: 1 / -1; border-radius: 10px; padding: 16px 20px; font-size: 0.95rem; display: none; }
+    .form-msg.ok { display: block; background: var(--accent-ghost); border: 1px solid var(--accent-dim); color: var(--ink); }
+    .form-msg.err { display: block; background: rgba(255, 92, 92, 0.06); border: 1px solid rgba(255, 92, 92, 0.3); color: var(--ink); }
+    .form-msg a { color: var(--accent); }
+
+    /* footer */
     footer {
-      position: fixed;
-      bottom: 1.4rem;
-      width: 100%;
-      text-align: center;
-      font-size: 0.75rem;
-      color: #55555e;
-      letter-spacing: 0.06em;
+      border-block-start: 1px solid var(--line);
+      padding-block: 34px; font-size: 0.82rem; color: var(--faint);
     }
+    .foot-inner { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+    .foot-inner a { color: var(--muted); text-decoration: none; }
+    .foot-inner a:hover { color: var(--accent); }
+    .foot-domain { margin-inline-start: auto; direction: ltr; unicode-bidi: isolate; }
+
+    /* reveal animation */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* LTR fixed content inside RTL */
+    .ltr { direction: ltr; unicode-bidi: isolate; }
   </style>
 </head>
 <body>
-  <div class="glow"></div>
-  <div class="glow two"></div>
-  <main>
-    <span class="badge">Coming soon</span>
-    <h1>take it <span class="az">aizy</span><span class="az">.</span></h1>
-    <p class="tagline">AI-powered workflows and automation. We're building something — it'll be aizy.</p>
-    <p class="contact">Say hello — <a href="mailto:hello@takeitaizy.dev">hello@takeitaizy.dev</a></p>
-  </main>
-  <footer>© 2026 takeitaizy · takeitaizy.dev</footer>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">take it <b>aizy.</b></a>
+    <div class="nav-links">
+      <a href="#services" data-i18n="nav_services">מה אנחנו בונים</a>
+      <a href="#cases" data-i18n="nav_cases">פרויקטים</a>
+      <a href="#how" data-i18n="nav_how">איך זה עובד</a>
+      <a class="nav-cta" href="#contact" data-i18n="nav_cta">דברו איתנו</a>
+    </div>
+    <button class="lang-toggle" id="langToggle" aria-label="Switch language">EN</button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="glow g1"></div>
+  <div class="glow g2"></div>
+  <div class="wrap">
+    <span class="badge" data-i18n="hero_badge">AI · אוטומציה · מערכות בהתאמה אישית</span>
+    <h1 data-i18n-html="hero_title">העסק שלכם רץ על עבודה ידנית. <span class="hl">אנחנו מחליפים אותה במערכת.</span></h1>
+    <p class="hero-sub" data-i18n="hero_sub">בוטים לשירות לקוחות בעברית, מערכות ניהול תפורות למידה, ואוטומציות שמחזירות לכם שעות ביום - בנויים סביב איך שהעסק שלכם באמת עובד, לא להפך.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="#contact" data-i18n="hero_cta1">ספרו לנו מה כואב</a>
+      <a class="btn btn-ghost" href="#cases" data-i18n="hero_cta2">מה כבר בנינו</a>
+    </div>
+    <div class="hero-domain">takeitaizy.dev</div>
+  </div>
+</header>
+
+<section id="pain">
+  <div class="wrap">
+    <div class="sec-label reveal" data-i18n="pain_label">הבעיה</div>
+    <h2 class="sec-title reveal" data-i18n="pain_title">כמה שעות ביום העסק שלכם מבזבז על דברים שמחשב עושה יותר טוב?</h2>
+    <div class="pains">
+      <div class="pain reveal" data-i18n="pain_1">כל פנייה של לקוח נפתחת ידנית ב-CRM. רבע שעה לפנייה, כמה פניות ביום - שעתיים נעלמות.</div>
+      <div class="pain reveal" data-i18n="pain_2">שכר העובדים מחושב ידנית מתוך היומן, כל חודש מחדש, עם טעויות שמתגלות באיחור.</div>
+      <div class="pain reveal" data-i18n="pain_3">אישורים ומסמכים מתנהלים בוואטסאפ חופשי - בלי תיעוד, בלי בקרה, וחשופים לניצול.</div>
+      <div class="pain reveal" data-i18n="pain_4">הדוח החודשי לרואת החשבון נבנה ידנית באקסל. שוב. כמו בחודש שעבר.</div>
+    </div>
+    <p class="pain-hook reveal" data-i18n-html="pain_hook">נשמע מוכר? <span class="hl">בדיוק בשביל זה אנחנו קיימים.</span></p>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-label reveal" data-i18n="svc_label">מה אנחנו בונים</div>
+    <h2 class="sec-title reveal" data-i18n="svc_title">מערכות בהתאמה אישית, לא תבניות מדף</h2>
+    <p class="sec-sub reveal" data-i18n="svc_sub">כל עסק עובד אחרת. אנחנו לומדים את התהליכים שלכם ובונים בדיוק את מה שחסר - לא פחות, ובטח שלא יותר.</p>
+    <div class="cards">
+      <div class="card reveal">
+        <span class="num">/01</span>
+        <h3 data-i18n="svc_1_t">שירות לקוחות אוטומטי</h3>
+        <p data-i18n="svc_1_p">בוט וואטסאפ ומייל בעברית שמנהל פניות מקצה לקצה: זיהוי מוצר, איסוף פרטים ומסמכים, שיבוץ טכנאים - עם אישור אנושי לכל פעולה רגישה.</p>
+      </div>
+      <div class="card reveal">
+        <span class="num">/02</span>
+        <h3 data-i18n="svc_2_t">מערכות ניהול תפורות</h3>
+        <p data-i18n="svc_2_p">מנויים, תלמידים, מלגאים, טכנאים, מלאי - מערכת שמדברת את השפה של העסק שלכם, עם המסכים שאתם צריכים ובלי אלה שלא.</p>
+      </div>
+      <div class="card reveal">
+        <span class="num">/03</span>
+        <h3 data-i18n="svc_3_t">אוטומציית משרד אחורי</h3>
+        <p data-i18n="svc_3_p">דוחות לרואה החשבון בלחיצת כפתור, שערי מסמכים שמזהים חשבוניות, חישובי שכר מהיומן - הדברים שגוזלים ערבים שלמים.</p>
+      </div>
+      <div class="card reveal">
+        <span class="num">/04</span>
+        <h3 data-i18n="svc_4_t">סוכני AI תפעוליים</h3>
+        <p data-i18n="svc_4_p">הפקת קטלוגים מאקסל מוצרים, עדכוני SEO לאתר, תכנון קווי חלוקה - סוכנים שעושים עבודה אמיתית, לא צ'אטבוטים לקישוט.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cases">
+  <div class="wrap">
+    <div class="sec-label reveal" data-i18n="case_label">פרויקטים</div>
+    <h2 class="sec-title reveal" data-i18n="case_title">עבודות מהזמן האחרון</h2>
+    <div class="cases">
+      <article class="case reveal">
+        <span class="tag" data-i18n="case_1_tag">מגזר ציבורי</span>
+        <h3 data-i18n="case_1_t">מערכת ניהול מלגאים למרכז צעירים ברשות מקומית</h3>
+        <div class="row"><b data-i18n="case_1_pain_b">הכאב:</b><span data-i18n="case_1_pain">מעקב ידני אחרי עשרות מלגאים, שעות התנדבות ודיווחים - בטבלאות מפוזרות.</span></div>
+        <div class="row"><b data-i18n="case_1_sol_b">הפתרון:</b><span data-i18n="case_1_sol">מערכת ניהול מקצה לקצה: מלגאים, שעות, התראות ודוחות במקום אחד.</span></div>
+        <div class="stat" data-i18n="case_1_stat">POC עובד הוצג ללקוח תוך ימים מהאפיון</div>
+      </article>
+      <article class="case reveal">
+        <span class="tag" data-i18n="case_2_tag">חינוך</span>
+        <h3 data-i18n="case_2_t">מערכת מנויים, קבוצות ושכר לרשת שיעורי מתמטיקה</h3>
+        <div class="row"><b data-i18n="case_2_pain_b">הכאב:</b><span data-i18n="case_2_pain">מאות תלמידים, 23 קבוצות ו-7 מורים מנוהלים באקסלים - מנויים ושכר מחושבים ידנית.</span></div>
+        <div class="row"><b data-i18n="case_2_sol_b">הפתרון:</b><span data-i18n="case_2_sol">אפיון מלא של מערכת ניהול עם אוטומציית וואטסאפ, על בסיס הנתונים האמיתיים של העסק.</span></div>
+        <div class="stat" data-i18n="case_2_stat">נוסחת המנוי אומתה על 398 רשומות אמת - עד האגורה</div>
+      </article>
+      <article class="case reveal">
+        <span class="tag" data-i18n="case_3_tag">יבוא והפצה</span>
+        <h3 data-i18n="case_3_t">מערך שירות לקוחות אוטומטי ליבואן מוצרי חשמל</h3>
+        <div class="row"><b data-i18n="case_3_pain_b">הכאב:</b><span data-i18n="case_3_pain">10-15 דקות של הזנה ידנית לכל פנייה, אישורי החלפה בוואטסאפ חופשי, שיבוץ טכנאים ידני.</span></div>
+        <div class="row"><b data-i18n="case_3_sol_b">הפתרון:</b><span data-i18n="case_3_sol">בוט עברית מקצה לקצה עם שער חשבוניות, שיבוץ טכנאים ואישורים מאובטחים - הכול עם בקרה אנושית.</span></div>
+        <div class="stat" data-i18n="case_3_stat">משעתיים ביום של הזנה ידנית - לתהליך מנוהל ומתועד</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="sec-label reveal" data-i18n="how_label">איך זה עובד</div>
+    <h2 class="sec-title reveal" data-i18n="how_title">בשלבים, בשקיפות, בלי הפתעות</h2>
+    <div class="steps">
+      <div class="step reveal">
+        <h3 data-i18n="how_1_t">אפיון ממוקד</h3>
+        <p data-i18n="how_1_p">יושבים על התהליכים האמיתיים, ממפים כל משימה ידנית וכמה היא עולה לכם בחודש. יוצאים עם מסמך אפיון שאתם מאשרים.</p>
+      </div>
+      <div class="step reveal">
+        <h3 data-i18n="how_2_t">פיתוח בשלבים</h3>
+        <p data-i18n="how_2_p">מתחילים מהכאב הכי גדול. כל שלב עומד בפני עצמו ומביא ערך לפני שממשיכים הלאה.</p>
+      </div>
+      <div class="step reveal">
+        <h3 data-i18n="how_3_t">פיילוט מבוקר</h3>
+        <p data-i18n="how_3_p">הרצה אמיתית בסביבה שלכם, כשכל פעולה רגישה עוברת אישור אנושי עד שסומכים על המערכת.</p>
+      </div>
+      <div class="step reveal">
+        <h3 data-i18n="how_4_t">עלייה לאוויר</h3>
+        <p data-i18n="how_4_p">הדרכה, מעבר מלא, ואחזקה שוטפת - אתם אף פעם לא נשארים לבד עם המערכת.</p>
+      </div>
+    </div>
+    <div class="principles">
+      <div class="principle"><span data-i18n-html="pr_1"><b>אדם בלולאה.</b> שום פעולה רגישה לא יוצאת ללקוח בלי אישור אנושי.</span></div>
+      <div class="principle"><span data-i18n-html="pr_2"><b>אבטחה ובידוד.</b> שרת ייעודי, הצפנה, גיבויים - והמידע הרגיש שלכם לא נוגע במערכת.</span></div>
+      <div class="principle"><span data-i18n-html="pr_3"><b>תמחור שקוף.</b> הקמה חד-פעמית, ריטיינר אחזקה, ובנק שעות לשינויים. בלי אותיות קטנות.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-label reveal" data-i18n="form_label">דברו איתנו</div>
+    <h2 class="sec-title reveal" data-i18n="form_title">ספרו לנו מה גוזל לכם הכי הרבה זמן</h2>
+    <p class="sec-sub reveal" data-i18n="form_sub">משאירים פרטים, ואנחנו חוזרים אליכם תוך יום עסקים עם מחשבות ראשונות - בלי התחייבות.</p>
+    <form class="form-grid" id="leadForm" novalidate>
+      <div class="field">
+        <label for="f-name"><span data-i18n="f_name">שם מלא</span> <span class="req">*</span></label>
+        <input id="f-name" name="name" type="text" autocomplete="name" dir="auto" required maxlength="120">
+      </div>
+      <div class="field">
+        <label for="f-phone"><span data-i18n="f_phone">טלפון</span> <span class="req">*</span></label>
+        <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required maxlength="20">
+      </div>
+      <div class="field">
+        <label for="f-email" data-i18n="f_email">אימייל</label>
+        <input id="f-email" name="email" type="email" autocomplete="email" dir="ltr" maxlength="200">
+      </div>
+      <div class="field">
+        <label for="f-business" data-i18n="f_business">שם העסק</label>
+        <input id="f-business" name="business" type="text" autocomplete="organization" dir="auto" maxlength="200">
+      </div>
+      <div class="field full">
+        <label for="f-message" data-i18n="f_message">מה גוזל לכם הכי הרבה זמן?</label>
+        <textarea id="f-message" name="message" dir="auto" maxlength="1000" data-i18n-ph="f_message_ph" placeholder="שכר, תיאום תורים, גבייה, פניות לקוחות, דוחות..."></textarea>
+      </div>
+      <div class="hp-field" aria-hidden="true">
+        <label for="f-website">Website</label>
+        <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+      <div class="form-msg" id="formMsg" role="status"></div>
+      <div class="form-actions">
+        <button class="btn btn-primary" type="submit" id="submitBtn" data-i18n="f_submit">שלחו</button>
+        <span class="form-note" data-i18n-html="f_note">או פשוט כתבו לנו: <a href="mailto:hello@takeitaizy.dev" class="ltr" style="color:var(--accent)">hello@takeitaizy.dev</a></span>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span class="ltr">© 2026 takeitaizy</span>
+    <a href="mailto:hello@takeitaizy.dev" class="ltr">hello@takeitaizy.dev</a>
+    <span class="foot-domain">takeitaizy.dev</span>
+  </div>
+</footer>
+
+<script>
+/* ---------------- i18n ---------------- */
+var EN = {
+  nav_services: "What we build",
+  nav_cases: "Work",
+  nav_how: "How it works",
+  nav_cta: "Talk to us",
+  hero_badge: "AI · Automation · Custom systems",
+  hero_title: 'Your business runs on manual work. <span class="hl">We replace it with a system.</span>',
+  hero_sub: "Hebrew-first customer-service bots, management systems tailored to the millimeter, and automations that give you hours back every day - built around how your business actually works, not the other way around.",
+  hero_cta1: "Tell us what hurts",
+  hero_cta2: "See our work",
+  pain_label: "The problem",
+  pain_title: "How many hours a day does your business burn on things a computer does better?",
+  pain_1: "Every customer inquiry is keyed into the CRM by hand. Fifteen minutes each, a few a day - two hours gone.",
+  pain_2: "Payroll is computed manually from the calendar, every month, with errors that surface late.",
+  pain_3: "Approvals and documents live in free-form WhatsApp - no record, no control, open to abuse.",
+  pain_4: "The monthly report for the accountant is built by hand in Excel. Again. Like last month.",
+  pain_hook: 'Sound familiar? <span class="hl">That’s exactly why we exist.</span>',
+  svc_label: "What we build",
+  svc_title: "Custom systems, not off-the-shelf templates",
+  svc_sub: "Every business works differently. We learn your processes and build exactly what’s missing - no less, and certainly no more.",
+  svc_1_t: "Automated customer service",
+  svc_1_p: "A Hebrew WhatsApp & email bot that handles inquiries end to end: product identification, detail and document collection, technician dispatch - with human approval on every sensitive action.",
+  svc_2_t: "Tailored management systems",
+  svc_2_p: "Subscriptions, students, scholars, technicians, inventory - a system that speaks your business’s language, with the screens you need and none you don’t.",
+  svc_3_t: "Back-office automation",
+  svc_3_p: "One-click accountant reports, document gates that read invoices, payroll computed from the calendar - the things that eat whole evenings.",
+  svc_4_t: "Operational AI agents",
+  svc_4_p: "Catalog generation from a product sheet, SEO updates for your site, distribution-route planning - agents that do real work, not decorative chatbots.",
+  case_label: "Work",
+  case_title: "Recent projects",
+  case_1_tag: "Public sector",
+  case_1_t: "Scholarship-program management system for a municipal young-adults center",
+  case_1_pain_b: "The pain:", case_1_pain: "Manually tracking dozens of scholars, volunteer hours and reports - across scattered spreadsheets.",
+  case_1_sol_b: "The fix:", case_1_sol: "An end-to-end management system: scholars, hours, alerts and reports in one place.",
+  case_1_stat: "Working POC shown to the client within days of the spec",
+  case_2_tag: "Education",
+  case_2_t: "Subscriptions, groups & payroll system for a math-tutoring network",
+  case_2_pain_b: "The pain:", case_2_pain: "Hundreds of students, 23 groups and 7 teachers run on spreadsheets - subscriptions and payroll computed by hand.",
+  case_2_sol_b: "The fix:", case_2_sol: "A full system spec with WhatsApp automation, grounded in the business’s real data.",
+  case_2_stat: "Subscription formula verified against 398 real records - to the agora",
+  case_3_tag: "Import & distribution",
+  case_3_t: "Automated customer-service operation for a home-appliances importer",
+  case_3_pain_b: "The pain:", case_3_pain: "10-15 minutes of manual entry per inquiry, replacement approvals in free-form WhatsApp, manual technician dispatch.",
+  case_3_sol_b: "The fix:", case_3_sol: "An end-to-end Hebrew bot with an invoice gate, technician dispatch and secured approvals - all with human oversight.",
+  case_3_stat: "From two hours a day of manual entry - to a managed, documented flow",
+  how_label: "How it works",
+  how_title: "In stages, transparently, no surprises",
+  how_1_t: "Focused discovery",
+  how_1_p: "We sit on your real processes, map every manual task and what it costs you monthly. You leave with a spec document you approve.",
+  how_2_t: "Staged build",
+  how_2_p: "We start with the biggest pain. Each stage stands on its own and delivers value before we move on.",
+  how_3_t: "Controlled pilot",
+  how_3_p: "A real run in your environment, with every sensitive action human-approved until you trust the system.",
+  how_4_t: "Go live",
+  how_4_p: "Training, full handover, and ongoing maintenance - you’re never left alone with the system.",
+  pr_1: "<b>Human in the loop.</b> No sensitive action reaches a customer without human approval.",
+  pr_2: "<b>Security & isolation.</b> Dedicated server, encryption, backups - and your sensitive data never touches the system.",
+  pr_3: "<b>Transparent pricing.</b> One-time setup, maintenance retainer, and an hour bank for changes. No fine print.",
+  form_label: "Talk to us",
+  form_title: "Tell us what eats most of your time",
+  form_sub: "Leave your details and we’ll get back to you within one business day with first thoughts - no strings attached.",
+  f_name: "Full name",
+  f_phone: "Phone",
+  f_email: "Email",
+  f_business: "Business name",
+  f_message: "What eats most of your time?",
+  f_message_ph: "Payroll, scheduling, collections, customer inquiries, reports...",
+  f_submit: "Send",
+  f_note: 'Or just write to us: <a href="mailto:hello@takeitaizy.dev" class="ltr" style="color:var(--accent)">hello@takeitaizy.dev</a>',
+  msg_ok: "Got it! We’ll get back to you within one business day.",
+  msg_err: 'Something went wrong sending the form. Write to us directly: <a href="mailto:hello@takeitaizy.dev">hello@takeitaizy.dev</a>',
+  msg_rate: "Too many attempts right now - try again in a few minutes, or email us.",
+  msg_val: "Please fill in a name and a valid phone number.",
+  title: "takeitaizy — Custom AI & automation systems for business",
+  desc: "takeitaizy builds custom AI and automation systems: Hebrew customer-service bots, tailored management systems, back-office automation and operational AI agents."
+};
+var HE = {
+  msg_ok: "קיבלנו! נחזור אליכם תוך יום עסקים.",
+  msg_err: 'משהו השתבש בשליחה. כתבו לנו ישירות: <a href="mailto:hello@takeitaizy.dev">hello@takeitaizy.dev</a>',
+  msg_rate: "יותר מדי ניסיונות כרגע - נסו שוב בעוד כמה דקות, או שלחו לנו מייל.",
+  msg_val: "צריך למלא שם וטלפון תקין.",
+  title: "takeitaizy — מערכות AI ואוטומציה לעסקים",
+  desc: "takeitaizy בונה מערכות AI ואוטומציה בהתאמה אישית לעסקים: בוטים לשירות לקוחות בעברית, מערכות ניהול, אוטומציית משרד אחורי וסוכני AI תפעוליים."
+};
+
+var currentLang = "he";
+var heCache = {};
+
+function cacheHebrew() {
+  document.querySelectorAll("[data-i18n]").forEach(function (el) {
+    heCache[el.getAttribute("data-i18n")] = el.textContent;
+  });
+  document.querySelectorAll("[data-i18n-html]").forEach(function (el) {
+    heCache[el.getAttribute("data-i18n-html")] = el.innerHTML;
+  });
+  document.querySelectorAll("[data-i18n-ph]").forEach(function (el) {
+    heCache[el.getAttribute("data-i18n-ph")] = el.getAttribute("placeholder");
+  });
+}
+
+function setLang(lang) {
+  currentLang = lang;
+  var dict = lang === "en" ? EN : heCache;
+  document.querySelectorAll("[data-i18n]").forEach(function (el) {
+    var k = el.getAttribute("data-i18n");
+    if (dict[k] != null) el.textContent = dict[k];
+  });
+  document.querySelectorAll("[data-i18n-html]").forEach(function (el) {
+    var k = el.getAttribute("data-i18n-html");
+    if (dict[k] != null) el.innerHTML = dict[k];
+  });
+  document.querySelectorAll("[data-i18n-ph]").forEach(function (el) {
+    var k = el.getAttribute("data-i18n-ph");
+    if (dict[k] != null) el.setAttribute("placeholder", dict[k]);
+  });
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === "en" ? "ltr" : "rtl";
+  document.title = lang === "en" ? EN.title : HE.title;
+  var d = document.querySelector('meta[name="description"]');
+  if (d) d.setAttribute("content", lang === "en" ? EN.desc : HE.desc);
+  document.getElementById("langToggle").textContent = lang === "en" ? "עב" : "EN";
+  try { localStorage.setItem("taizy-lang", lang); } catch (e) {}
+}
+
+cacheHebrew();
+document.getElementById("langToggle").addEventListener("click", function () {
+  setLang(currentLang === "he" ? "en" : "he");
+});
+try {
+  var saved = localStorage.getItem("taizy-lang");
+  if (saved === "en") setLang("en");
+} catch (e) {}
+
+/* ---------------- reveal ---------------- */
+var io = new IntersectionObserver(function (entries) {
+  entries.forEach(function (e) {
+    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+
+/* ---------------- lead form ---------------- */
+/* Set to the deployed Cloudflare Worker URL to activate direct submission.
+   While empty, the form falls back to a prefilled email draft. */
+var LEAD_ENDPOINT = "";
+
+var loadedAt = Date.now();
+var form = document.getElementById("leadForm");
+var msg = document.getElementById("formMsg");
+var btn = document.getElementById("submitBtn");
+
+function showMsg(kind, key) {
+  var dict = currentLang === "en" ? EN : HE;
+  msg.className = "form-msg " + kind;
+  msg.innerHTML = dict[key];
+  msg.scrollIntoView({ block: "nearest", behavior: "smooth" });
+}
+
+form.addEventListener("submit", function (ev) {
+  ev.preventDefault();
+  var data = {
+    name: form.name.value.trim(),
+    phone: form.phone.value.trim(),
+    email: form.email.value.trim(),
+    business: form.business.value.trim(),
+    message: form.message.value.trim(),
+    website: form.website.value,
+    t: Date.now() - loadedAt
+  };
+  var digits = data.phone.replace(/[\s\-()]/g, "");
+  if (data.name.length < 2 || !/^\+?\d{7,15}$/.test(digits)) {
+    showMsg("err", "msg_val");
+    return;
+  }
+  if (!LEAD_ENDPOINT) {
+    var body = "שם: " + data.name + "\nטלפון: " + data.phone +
+      (data.email ? "\nאימייל: " + data.email : "") +
+      (data.business ? "\nעסק: " + data.business : "") +
+      (data.message ? "\n\n" + data.message : "");
+    location.href = "mailto:hello@takeitaizy.dev?subject=" +
+      encodeURIComponent("פנייה מהאתר - " + data.name) +
+      "&body=" + encodeURIComponent(body);
+    showMsg("ok", "msg_ok");
+    return;
+  }
+  btn.disabled = true;
+  fetch(LEAD_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  }).then(function (res) {
+    if (res.ok) { showMsg("ok", "msg_ok"); form.reset(); }
+    else if (res.status === 429) { showMsg("err", "msg_rate"); }
+    else if (res.status === 400) { showMsg("err", "msg_val"); }
+    else { showMsg("err", "msg_err"); }
+  }).catch(function () {
+    showMsg("err", "msg_err");
+  }).finally(function () {
+    btn.disabled = false;
+  });
+});
+</script>
 </body>
 </html>
