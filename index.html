@@ -237,38 +237,53 @@
     .principle:dir(rtl)::before { content: "←"; }
     .principle b { color: var(--ink); font-weight: 500; }
 
-    /* form */
-    #contact { border-block-start: 1px solid var(--line); }
-    .form-grid {
-      margin-block-start: 40px; display: grid; gap: 16px;
-      grid-template-columns: 1fr 1fr; max-width: 720px;
+    /* intake: every CTA scrolls to #contact, where the intake form from
+       os.takeitaizy.dev is embedded. Lead capture lives in that app. */
+    .btn:active { transform: scale(0.97); transition-duration: .1s; }
+    .btn-lg { padding: 17px 40px; font-size: 1.1rem; font-weight: 700; }
+    .cta-note { margin-block-start: 14px; font-size: 0.85rem; color: var(--faint); }
+    .inline-cta { margin-block-start: 30px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+    .inline-cta span { color: var(--muted); font-size: 0.95rem; }
+
+    #contact { border-block-start: 1px solid var(--line); scroll-margin-block-start: 60px; }
+    .next-steps {
+      list-style: none; margin-block-start: 30px; counter-reset: ns;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 22px;
     }
-    @media (max-width: 640px) { .form-grid { grid-template-columns: 1fr; } }
-    .field { display: flex; flex-direction: column; gap: 7px; }
-    .field.full { grid-column: 1 / -1; }
-    .field label { font-size: 0.85rem; color: var(--muted); }
-    .field label .req { color: var(--accent); }
-    .field input, .field textarea {
-      background: var(--bg-raise); border: 1px solid var(--line); border-radius: 10px;
-      color: var(--ink); font: inherit; font-size: 0.98rem;
-      padding: 12px 16px; outline: none;
-      transition: border-color .2s ease;
+    .next-steps li { display: flex; gap: 14px; align-items: baseline; color: var(--muted); font-size: 0.95rem; }
+    .next-steps li::before {
+      counter-increment: ns; content: "0" counter(ns);
+      font-family: "Space Grotesk", monospace; color: var(--accent); font-size: 0.8rem; letter-spacing: 0.12em;
+      flex-shrink: 0; direction: ltr; unicode-bidi: isolate;
     }
-    .field input:focus, .field textarea:focus { border-color: var(--accent-dim); }
-    .field textarea { min-height: 120px; resize: vertical; }
-    .hp-field {
-      position: absolute; inset-inline-start: -9999px;
-      inline-size: 1px; block-size: 1px; overflow: hidden;
+    .next-steps b { color: var(--ink); font-weight: 500; display: block; }
+    /* The intake app has no auto-resize, so the frame height is fixed per
+       layout: its form goes two-column once the frame is 640px+ wide. Heights
+       leave room for validation messages so the frame never scrolls. */
+    .intake-frame {
+      margin-block-start: 34px; overflow: hidden;
+      border: 1px solid var(--accent-dim); border-radius: 22px;
+      background: rgb(17, 17, 24); box-shadow: 0 0 60px var(--accent-ghost);
     }
-    .form-actions { grid-column: 1 / -1; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
-    .form-actions button {
-      font: inherit; border: none; cursor: pointer;
+    .intake-frame iframe { display: block; inline-size: 100%; block-size: 860px; border: 0; }
+    @media (max-width: 689px) { .intake-frame iframe { block-size: 1130px; } }
+    .contact-alt { margin-block-start: 18px; font-size: 0.85rem; color: var(--faint); }
+    .contact-alt a { color: var(--accent); }
+
+    /* sticky mobile CTA: appears after the hero, hides at the contact section */
+    .sticky-cta { display: none; }
+    @media (max-width: 720px) {
+      .sticky-cta {
+        display: block; position: fixed; z-index: 60; inset-inline: 0; inset-block-end: 0;
+        padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+        background: rgba(11, 11, 15, 0.86); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+        border-block-start: 1px solid var(--line);
+        transform: translateY(110%); transition: transform .3s cubic-bezier(.2,.7,.2,1);
+      }
+      .sticky-cta.show { transform: none; }
+      .sticky-cta .btn { display: block; text-align: center; }
+      footer { padding-block-end: 96px; }
     }
-    .form-note { font-size: 0.82rem; color: var(--faint); }
-    .form-msg { grid-column: 1 / -1; border-radius: 10px; padding: 16px 20px; font-size: 0.95rem; display: none; }
-    .form-msg.ok { display: block; background: var(--accent-ghost); border: 1px solid var(--accent-dim); color: var(--ink); }
-    .form-msg.err { display: block; background: rgba(255, 92, 92, 0.06); border: 1px solid rgba(255, 92, 92, 0.3); color: var(--ink); }
-    .form-msg a { color: var(--accent); }
 
     /* footer */
     footer {
@@ -297,7 +312,7 @@
       <a href="#services" data-i18n="nav_services">מה אנחנו בונים</a>
       <a href="#cases" data-i18n="nav_cases">פרויקטים</a>
       <a href="#how" data-i18n="nav_how">איך זה עובד</a>
-      <a class="nav-cta" href="#contact" data-i18n="nav_cta">דברו איתנו</a>
+      <a class="nav-cta" href="#contact" data-i18n="nav_cta">השאירו פרטים</a>
     </div>
     <button class="lang-toggle" id="langToggle" aria-label="Switch language">EN</button>
   </div>
@@ -311,9 +326,10 @@
     <h1 data-i18n-html="hero_title">העסק שלכם רץ על עבודה ידנית. <span class="hl">אנחנו מחליפים אותה במערכת.</span></h1>
     <p class="hero-sub" data-i18n="hero_sub">בוטים לשירות לקוחות בעברית, מערכות ניהול תפורות למידה, ואוטומציות שמחזירות לכם שעות ביום - בנויים סביב איך שהעסק שלכם באמת עובד, לא להפך.</p>
     <div class="hero-ctas">
-      <a class="btn btn-primary" href="#contact" data-i18n="hero_cta1">ספרו לנו מה כואב</a>
+      <a class="btn btn-primary btn-lg" href="#contact" data-i18n="hero_cta1">ספרו לנו מה צריך</a>
       <a class="btn btn-ghost" href="#cases" data-i18n="hero_cta2">מה כבר בנינו</a>
     </div>
+    <p class="cta-note" data-i18n="hero_note">טופס קצר שמגיע ישר אלינו. בלי התחייבות.</p>
     <div class="hero-domain">takeitaizy.dev</div>
   </div>
 </header>
@@ -329,6 +345,9 @@
       <div class="pain reveal" data-i18n="pain_4">הדוח החודשי לרואת החשבון נבנה ידנית באקסל. שוב. כמו בחודש שעבר.</div>
     </div>
     <p class="pain-hook reveal" data-i18n-html="pain_hook">נשמע מוכר? <span class="hl">בדיוק בשביל זה אנחנו קיימים.</span></p>
+    <div class="inline-cta reveal">
+      <a class="btn btn-primary" href="#contact" data-i18n="pain_cta">ספרו לנו מה גוזל לכם זמן</a>
+    </div>
   </div>
 </section>
 
@@ -389,6 +408,10 @@
         <div class="stat" data-i18n="case_3_stat">משעתיים ביום של הזנה ידנית - לתהליך מנוהל ומתועד</div>
       </article>
     </div>
+    <div class="inline-cta reveal">
+      <a class="btn btn-ghost" href="#contact" data-i18n="cases_cta">רוצים משהו כזה אצלכם?</a>
+      <span data-i18n="cases_cta_note">ספרו לנו על התהליך, ונחזור עם כיוון.</span>
+    </div>
   </div>
 </section>
 
@@ -426,40 +449,21 @@
   <div class="wrap">
     <div class="sec-label reveal" data-i18n="form_label">דברו איתנו</div>
     <h2 class="sec-title reveal" data-i18n="form_title">ספרו לנו מה גוזל לכם הכי הרבה זמן</h2>
-    <p class="sec-sub reveal" data-i18n="form_sub">משאירים פרטים, ואנחנו חוזרים אליכם תוך יום עסקים עם מחשבות ראשונות - בלי התחייבות.</p>
-    <form class="form-grid" id="leadForm" novalidate>
-      <div class="field">
-        <label for="f-name"><span data-i18n="f_name">שם מלא</span> <span class="req">*</span></label>
-        <input id="f-name" name="name" type="text" autocomplete="name" dir="auto" required maxlength="120">
-      </div>
-      <div class="field">
-        <label for="f-phone"><span data-i18n="f_phone">טלפון</span> <span class="req">*</span></label>
-        <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required maxlength="20">
-      </div>
-      <div class="field">
-        <label for="f-email" data-i18n="f_email">אימייל</label>
-        <input id="f-email" name="email" type="email" autocomplete="email" dir="ltr" maxlength="200">
-      </div>
-      <div class="field">
-        <label for="f-business" data-i18n="f_business">שם העסק</label>
-        <input id="f-business" name="business" type="text" autocomplete="organization" dir="auto" maxlength="200">
-      </div>
-      <div class="field full">
-        <label for="f-message" data-i18n="f_message">מה גוזל לכם הכי הרבה זמן?</label>
-        <textarea id="f-message" name="message" dir="auto" maxlength="1000" data-i18n-ph="f_message_ph" placeholder="שכר, תיאום תורים, גבייה, פניות לקוחות, דוחות..."></textarea>
-      </div>
-      <div class="hp-field" aria-hidden="true">
-        <label for="f-website">Website</label>
-        <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
-      </div>
-      <div class="form-msg" id="formMsg" role="status"></div>
-      <div class="form-actions">
-        <button class="btn btn-primary" type="submit" id="submitBtn" data-i18n="f_submit">שלחו</button>
-        <span class="form-note" data-i18n-html="f_note">או פשוט כתבו לנו: <a href="mailto:hello@takeitaizy.dev" class="ltr" style="color:var(--accent)">hello@takeitaizy.dev</a></span>
-      </div>
-    </form>
+    <ol class="next-steps reveal">
+      <li><span data-i18n-html="ns_1"><b>ממלאים טופס קצר</b>מה העסק עושה, מה לוקח יותר מדי זמן, ומה הייתם רוצים שיקרה מעצמו.</span></li>
+      <li><span data-i18n-html="ns_2"><b>אחד משנינו חוזר אליכם</b>בדרך כלל באותו יום, עם שאלות ראשונות ומחשבות.</span></li>
+      <li><span data-i18n-html="ns_3"><b>שיחת היכרות קצרה</b>יוצאים ממנה עם כיוון ברור: מה שווה לבנות קודם, ואם בכלל צריך.</span></li>
+    </ol>
+    <div class="intake-frame">
+      <iframe src="https://os.takeitaizy.dev/intake?utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=embed" title="טופס פנייה ל-Take It AIZY" data-i18n-title="intake_title" loading="lazy"></iframe>
+    </div>
+    <p class="contact-alt" data-i18n-html="contact_alt">הטופס לא נטען? <a href="https://os.takeitaizy.dev/intake?utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=fallback" target="_blank" rel="noopener">פתחו אותו בחלון נפרד</a> · מעדיפים מייל? <a href="mailto:hello@takeitaizy.dev" class="ltr">hello@takeitaizy.dev</a></p>
   </div>
 </section>
+
+<div class="sticky-cta" id="stickyCta">
+  <a class="btn btn-primary" href="#contact" data-i18n="sticky_cta">השאירו פרטים, נחזור אליכם</a>
+</div>
 
 <footer>
   <div class="wrap foot-inner">
@@ -475,12 +479,13 @@ var EN = {
   nav_services: "What we build",
   nav_cases: "Work",
   nav_how: "How it works",
-  nav_cta: "Talk to us",
+  nav_cta: "Get in touch",
   hero_badge: "AI · Automation · Custom systems",
   hero_title: 'Your business runs on manual work. <span class="hl">We replace it with a system.</span>',
   hero_sub: "Hebrew-first customer-service bots, management systems tailored to the millimeter, and automations that give you hours back every day - built around how your business actually works, not the other way around.",
-  hero_cta1: "Tell us what hurts",
+  hero_cta1: "Tell us what you need",
   hero_cta2: "See our work",
+  hero_note: "A short form that comes straight to us. No commitment.",
   pain_label: "The problem",
   pain_title: "How many hours a day does your business burn on things a computer does better?",
   pain_1: "Every customer inquiry is keyed into the CRM by hand. Fifteen minutes each, a few a day - two hours gone.",
@@ -488,6 +493,7 @@ var EN = {
   pain_3: "Approvals and documents live in free-form WhatsApp - no record, no control, open to abuse.",
   pain_4: "The monthly report for the accountant is built by hand in Excel. Again. Like last month.",
   pain_hook: 'Sound familiar? <span class="hl">That’s exactly why we exist.</span>',
+  pain_cta: "Tell us what eats your time",
   svc_label: "What we build",
   svc_title: "Custom systems, not off-the-shelf templates",
   svc_sub: "Every business works differently. We learn your processes and build exactly what’s missing - no less, and certainly no more.",
@@ -516,6 +522,8 @@ var EN = {
   case_3_pain_b: "The pain:", case_3_pain: "10-15 minutes of manual entry per inquiry, replacement approvals in free-form WhatsApp, manual technician dispatch.",
   case_3_sol_b: "The fix:", case_3_sol: "An end-to-end Hebrew bot with an invoice gate, technician dispatch and secured approvals - all with human oversight.",
   case_3_stat: "From two hours a day of manual entry - to a managed, documented flow",
+  cases_cta: "Want something like this?",
+  cases_cta_note: "Tell us about the process, and we’ll come back with a direction.",
   how_label: "How it works",
   how_title: "In stages, transparently, no surprises",
   how_1_t: "Focused discovery",
@@ -531,27 +539,16 @@ var EN = {
   pr_3: "<b>Transparent pricing.</b> One-time setup, maintenance retainer, and an hour bank for changes. No fine print.",
   form_label: "Talk to us",
   form_title: "Tell us what eats most of your time",
-  form_sub: "Leave your details and we’ll get back to you within one business day with first thoughts - no strings attached.",
-  f_name: "Full name",
-  f_phone: "Phone",
-  f_email: "Email",
-  f_business: "Business name",
-  f_message: "What eats most of your time?",
-  f_message_ph: "Payroll, scheduling, collections, customer inquiries, reports...",
-  f_submit: "Send",
-  f_note: 'Or just write to us: <a href="mailto:hello@takeitaizy.dev" class="ltr" style="color:var(--accent)">hello@takeitaizy.dev</a>',
-  msg_ok: "Got it! We’ll get back to you within one business day.",
-  msg_err: 'Something went wrong sending the form. Write to us directly: <a href="mailto:hello@takeitaizy.dev">hello@takeitaizy.dev</a>',
-  msg_rate: "Too many attempts right now - try again in a few minutes, or email us.",
-  msg_val: "Please fill in a name and a valid phone number.",
+  intake_title: "Contact form for Take It AIZY",
+  contact_alt: 'Form not loading? <a href="https://os.takeitaizy.dev/intake?utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=fallback" target="_blank" rel="noopener">Open it in a new window</a> · Prefer email? <a href="mailto:hello@takeitaizy.dev" class="ltr">hello@takeitaizy.dev</a>',
+  ns_1: "<b>Fill in a short form</b>What your business does, what takes too long, and what you wish happened on its own.",
+  ns_2: "<b>One of us gets back to you</b>Usually the same day, with first questions and thoughts.",
+  ns_3: "<b>A short intro call</b>You leave with a clear direction: what’s worth building first, and whether you need it at all.",
+  sticky_cta: "Leave your details, we’ll get back to you",
   title: "takeitaizy — Custom AI & automation systems for business",
   desc: "takeitaizy builds custom AI and automation systems: Hebrew customer-service bots, tailored management systems, back-office automation and operational AI agents."
 };
 var HE = {
-  msg_ok: "קיבלנו! נחזור אליכם תוך יום עסקים.",
-  msg_err: 'משהו השתבש בשליחה. כתבו לנו ישירות: <a href="mailto:hello@takeitaizy.dev">hello@takeitaizy.dev</a>',
-  msg_rate: "יותר מדי ניסיונות כרגע - נסו שוב בעוד כמה דקות, או שלחו לנו מייל.",
-  msg_val: "צריך למלא שם וטלפון תקין.",
   title: "takeitaizy — מערכות AI ואוטומציה לעסקים",
   desc: "takeitaizy בונה מערכות AI ואוטומציה בהתאמה אישית לעסקים: בוטים לשירות לקוחות בעברית, מערכות ניהול, אוטומציית משרד אחורי וסוכני AI תפעוליים."
 };
@@ -566,8 +563,8 @@ function cacheHebrew() {
   document.querySelectorAll("[data-i18n-html]").forEach(function (el) {
     heCache[el.getAttribute("data-i18n-html")] = el.innerHTML;
   });
-  document.querySelectorAll("[data-i18n-ph]").forEach(function (el) {
-    heCache[el.getAttribute("data-i18n-ph")] = el.getAttribute("placeholder");
+  document.querySelectorAll("[data-i18n-title]").forEach(function (el) {
+    heCache[el.getAttribute("data-i18n-title")] = el.getAttribute("title");
   });
 }
 
@@ -582,9 +579,9 @@ function setLang(lang) {
     var k = el.getAttribute("data-i18n-html");
     if (dict[k] != null) el.innerHTML = dict[k];
   });
-  document.querySelectorAll("[data-i18n-ph]").forEach(function (el) {
-    var k = el.getAttribute("data-i18n-ph");
-    if (dict[k] != null) el.setAttribute("placeholder", dict[k]);
+  document.querySelectorAll("[data-i18n-title]").forEach(function (el) {
+    var k = el.getAttribute("data-i18n-title");
+    if (dict[k] != null) el.setAttribute("title", dict[k]);
   });
   document.documentElement.lang = lang;
   document.documentElement.dir = lang === "en" ? "ltr" : "rtl";
@@ -612,66 +609,18 @@ var io = new IntersectionObserver(function (entries) {
 }, { threshold: 0.12 });
 document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
 
-/* ---------------- lead form ---------------- */
-/* Set to the deployed Cloudflare Worker URL to activate direct submission.
-   While empty, the form falls back to a prefilled email draft. */
-var LEAD_ENDPOINT = "";
-
-var loadedAt = Date.now();
-var form = document.getElementById("leadForm");
-var msg = document.getElementById("formMsg");
-var btn = document.getElementById("submitBtn");
-
-function showMsg(kind, key) {
-  var dict = currentLang === "en" ? EN : HE;
-  msg.className = "form-msg " + kind;
-  msg.innerHTML = dict[key];
-  msg.scrollIntoView({ block: "nearest", behavior: "smooth" });
-}
-
-form.addEventListener("submit", function (ev) {
-  ev.preventDefault();
-  var data = {
-    name: form.name.value.trim(),
-    phone: form.phone.value.trim(),
-    email: form.email.value.trim(),
-    business: form.business.value.trim(),
-    message: form.message.value.trim(),
-    website: form.website.value,
-    t: Date.now() - loadedAt
-  };
-  var digits = data.phone.replace(/[\s\-()]/g, "");
-  if (data.name.length < 2 || !/^\+?\d{7,15}$/.test(digits)) {
-    showMsg("err", "msg_val");
-    return;
-  }
-  if (!LEAD_ENDPOINT) {
-    var body = "שם: " + data.name + "\nטלפון: " + data.phone +
-      (data.email ? "\nאימייל: " + data.email : "") +
-      (data.business ? "\nעסק: " + data.business : "") +
-      (data.message ? "\n\n" + data.message : "");
-    location.href = "mailto:hello@takeitaizy.dev?subject=" +
-      encodeURIComponent("פנייה מהאתר - " + data.name) +
-      "&body=" + encodeURIComponent(body);
-    showMsg("ok", "msg_ok");
-    return;
-  }
-  btn.disabled = true;
-  fetch(LEAD_ENDPOINT, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
-  }).then(function (res) {
-    if (res.ok) { showMsg("ok", "msg_ok"); form.reset(); }
-    else if (res.status === 429) { showMsg("err", "msg_rate"); }
-    else if (res.status === 400) { showMsg("err", "msg_val"); }
-    else { showMsg("err", "msg_err"); }
-  }).catch(function () {
-    showMsg("err", "msg_err");
-  }).finally(function () {
-    btn.disabled = false;
-  });
-});
+/* ---------------- sticky mobile CTA ----------------
+   Shown once the hero is out of view, hidden again while the contact
+   section (which has its own big CTA) is on screen. */
+var sticky = document.getElementById("stickyCta");
+var heroGone = false, contactIn = false;
+function syncSticky() { sticky.classList.toggle("show", heroGone && !contactIn); }
+new IntersectionObserver(function (es) {
+  heroGone = !es[0].isIntersecting; syncSticky();
+}).observe(document.getElementById("top"));
+new IntersectionObserver(function (es) {
+  contactIn = es[0].isIntersecting; syncSticky();
+}, { threshold: 0.15 }).observe(document.getElementById("contact"));
 </script>
 </body>
 </html>
