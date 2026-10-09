@@ -237,25 +237,19 @@
     .principle:dir(rtl)::before { content: "←"; }
     .principle b { color: var(--ink); font-weight: 500; }
 
-    /* intake CTAs: every lead goes to the intake form at os.takeitaizy.dev */
+    /* intake: every CTA scrolls to #contact, where the intake form from
+       os.takeitaizy.dev is embedded. Lead capture lives in that app. */
     .btn:active { transform: scale(0.97); transition-duration: .1s; }
     .btn-lg { padding: 17px 40px; font-size: 1.1rem; font-weight: 700; }
     .cta-note { margin-block-start: 14px; font-size: 0.85rem; color: var(--faint); }
     .inline-cta { margin-block-start: 30px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
     .inline-cta span { color: var(--muted); font-size: 0.95rem; }
 
-    #contact { border-block-start: 1px solid var(--line); }
-    .cta-panel {
-      margin-block-start: 40px; position: relative; overflow: hidden;
-      border: 1px solid var(--accent-dim); border-radius: 22px;
-      background: linear-gradient(180deg, var(--accent-ghost) 0%, var(--bg-raise) 70%);
-      padding: clamp(28px, 5vw, 56px);
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; align-items: center;
+    #contact { border-block-start: 1px solid var(--line); scroll-margin-block-start: 60px; }
+    .next-steps {
+      list-style: none; margin-block-start: 30px; counter-reset: ns;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 22px;
     }
-    .cta-panel h3 { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 700; line-height: 1.25; }
-    .cta-panel .cta-sub { color: var(--muted); margin-block-start: 10px; }
-    .cta-panel .btn { margin-block-start: 26px; }
-    .next-steps { list-style: none; display: flex; flex-direction: column; gap: 18px; counter-reset: ns; }
     .next-steps li { display: flex; gap: 14px; align-items: baseline; color: var(--muted); font-size: 0.95rem; }
     .next-steps li::before {
       counter-increment: ns; content: "0" counter(ns);
@@ -263,7 +257,17 @@
       flex-shrink: 0; direction: ltr; unicode-bidi: isolate;
     }
     .next-steps b { color: var(--ink); font-weight: 500; display: block; }
-    .contact-alt { margin-block-start: 22px; font-size: 0.85rem; color: var(--faint); }
+    /* The intake app has no auto-resize, so the frame height is fixed per
+       layout: its form goes two-column once the frame is 640px+ wide. Heights
+       leave room for validation messages so the frame never scrolls. */
+    .intake-frame {
+      margin-block-start: 34px; overflow: hidden;
+      border: 1px solid var(--accent-dim); border-radius: 22px;
+      background: rgb(17, 17, 24); box-shadow: 0 0 60px var(--accent-ghost);
+    }
+    .intake-frame iframe { display: block; inline-size: 100%; block-size: 860px; border: 0; }
+    @media (max-width: 689px) { .intake-frame iframe { block-size: 1130px; } }
+    .contact-alt { margin-block-start: 18px; font-size: 0.85rem; color: var(--faint); }
     .contact-alt a { color: var(--accent); }
 
     /* sticky mobile CTA: appears after the hero, hides at the contact section */
@@ -308,7 +312,7 @@
       <a href="#services" data-i18n="nav_services">מה אנחנו בונים</a>
       <a href="#cases" data-i18n="nav_cases">פרויקטים</a>
       <a href="#how" data-i18n="nav_how">איך זה עובד</a>
-      <a class="nav-cta" href="https://os.takeitaizy.dev/intake?utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=nav" data-i18n="nav_cta">השאירו פרטים</a>
+      <a class="nav-cta" href="#contact" data-i18n="nav_cta">השאירו פרטים</a>
     </div>
     <button class="lang-toggle" id="langToggle" aria-label="Switch language">EN</button>
   </div>
@@ -322,7 +326,7 @@
     <h1 data-i18n-html="hero_title">העסק שלכם רץ על עבודה ידנית. <span class="hl">אנחנו מחליפים אותה במערכת.</span></h1>
     <p class="hero-sub" data-i18n="hero_sub">בוטים לשירות לקוחות בעברית, מערכות ניהול תפורות למידה, ואוטומציות שמחזירות לכם שעות ביום - בנויים סביב איך שהעסק שלכם באמת עובד, לא להפך.</p>
     <div class="hero-ctas">
-      <a class="btn btn-primary btn-lg" href="https://os.takeitaizy.dev/intake?utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=hero" data-i18n="hero_cta1">ספרו לנו מה צריך</a>
+      <a class="btn btn-primary btn-lg" href="#contact" data-i18n="hero_cta1">ספרו לנו מה צריך</a>
       <a class="btn btn-ghost" href="#cases" data-i18n="hero_cta2">מה כבר בנינו</a>
     </div>
     <p class="cta-note" data-i18n="hero_note">טופס קצר שמגיע ישר אלינו. בלי התחייבות.</p>
@@ -342,7 +346,7 @@
     </div>
     <p class="pain-hook reveal" data-i18n-html="pain_hook">נשמע מוכר? <span class="hl">בדיוק בשביל זה אנחנו קיימים.</span></p>
     <div class="inline-cta reveal">
-      <a class="btn btn-primary" href="https://os.takeitaizy.dev/intake?utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=pain" data-i18n="pain_cta">ספרו לנו מה גוזל לכם זמן</a>
+      <a class="btn btn-primary" href="#contact" data-i18n="pain_cta">ספרו לנו מה גוזל לכם זמן</a>
     </div>
   </div>
 </section>
@@ -405,7 +409,7 @@
       </article>
     </div>
     <div class="inline-cta reveal">
-      <a class="btn btn-ghost" href="https://os.takeitaizy.dev/intake?utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=cases" data-i18n="cases_cta">רוצים משהו כזה אצלכם?</a>
+      <a class="btn btn-ghost" href="#contact" data-i18n="cases_cta">רוצים משהו כזה אצלכם?</a>
       <span data-i18n="cases_cta_note">ספרו לנו על התהליך, ונחזור עם כיוון.</span>
     </div>
   </div>
@@ -445,24 +449,20 @@
   <div class="wrap">
     <div class="sec-label reveal" data-i18n="form_label">דברו איתנו</div>
     <h2 class="sec-title reveal" data-i18n="form_title">ספרו לנו מה גוזל לכם הכי הרבה זמן</h2>
-    <div class="cta-panel reveal">
-      <div>
-        <h3 data-i18n="panel_title">טופס קצר אחד, ואנחנו על זה</h3>
-        <p class="cta-sub" data-i18n="panel_sub">הטופס מגיע ישר אלינו, ואחד משנינו עונה, בדרך כלל באותו יום. בלי התחייבות.</p>
-        <a class="btn btn-primary btn-lg" href="https://os.takeitaizy.dev/intake?utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=contact" data-i18n="panel_cta">להשאיר פרטים</a>
-        <p class="contact-alt" data-i18n-html="contact_alt">מעדיפים מייל? <a href="mailto:hello@takeitaizy.dev" class="ltr">hello@takeitaizy.dev</a></p>
-      </div>
-      <ol class="next-steps">
-        <li><span data-i18n-html="ns_1"><b>ממלאים טופס קצר</b>מה העסק עושה, מה לוקח יותר מדי זמן, ומה הייתם רוצים שיקרה מעצמו.</span></li>
-        <li><span data-i18n-html="ns_2"><b>אחד משנינו חוזר אליכם</b>בדרך כלל באותו יום, עם שאלות ראשונות ומחשבות.</span></li>
-        <li><span data-i18n-html="ns_3"><b>שיחת היכרות קצרה</b>יוצאים ממנה עם כיוון ברור: מה שווה לבנות קודם, ואם בכלל צריך.</span></li>
-      </ol>
+    <ol class="next-steps reveal">
+      <li><span data-i18n-html="ns_1"><b>ממלאים טופס קצר</b>מה העסק עושה, מה לוקח יותר מדי זמן, ומה הייתם רוצים שיקרה מעצמו.</span></li>
+      <li><span data-i18n-html="ns_2"><b>אחד משנינו חוזר אליכם</b>בדרך כלל באותו יום, עם שאלות ראשונות ומחשבות.</span></li>
+      <li><span data-i18n-html="ns_3"><b>שיחת היכרות קצרה</b>יוצאים ממנה עם כיוון ברור: מה שווה לבנות קודם, ואם בכלל צריך.</span></li>
+    </ol>
+    <div class="intake-frame">
+      <iframe src="https://os.takeitaizy.dev/intake?utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=embed" title="טופס פנייה ל-Take It AIZY" data-i18n-title="intake_title" loading="lazy"></iframe>
     </div>
+    <p class="contact-alt" data-i18n-html="contact_alt">הטופס לא נטען? <a href="https://os.takeitaizy.dev/intake?utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=fallback" target="_blank" rel="noopener">פתחו אותו בחלון נפרד</a> · מעדיפים מייל? <a href="mailto:hello@takeitaizy.dev" class="ltr">hello@takeitaizy.dev</a></p>
   </div>
 </section>
 
 <div class="sticky-cta" id="stickyCta">
-  <a class="btn btn-primary" href="https://os.takeitaizy.dev/intake?utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=sticky" data-i18n="sticky_cta">השאירו פרטים, נחזור אליכם</a>
+  <a class="btn btn-primary" href="#contact" data-i18n="sticky_cta">השאירו פרטים, נחזור אליכם</a>
 </div>
 
 <footer>
@@ -539,10 +539,8 @@ var EN = {
   pr_3: "<b>Transparent pricing.</b> One-time setup, maintenance retainer, and an hour bank for changes. No fine print.",
   form_label: "Talk to us",
   form_title: "Tell us what eats most of your time",
-  panel_title: "One short form, and we’re on it",
-  panel_sub: "The form comes straight to us, and one of us replies, usually the same day. No commitment.",
-  panel_cta: "Leave your details",
-  contact_alt: 'Prefer email? <a href="mailto:hello@takeitaizy.dev" class="ltr">hello@takeitaizy.dev</a>',
+  intake_title: "Contact form for Take It AIZY",
+  contact_alt: 'Form not loading? <a href="https://os.takeitaizy.dev/intake?utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=fallback" target="_blank" rel="noopener">Open it in a new window</a> · Prefer email? <a href="mailto:hello@takeitaizy.dev" class="ltr">hello@takeitaizy.dev</a>',
   ns_1: "<b>Fill in a short form</b>What your business does, what takes too long, and what you wish happened on its own.",
   ns_2: "<b>One of us gets back to you</b>Usually the same day, with first questions and thoughts.",
   ns_3: "<b>A short intro call</b>You leave with a clear direction: what’s worth building first, and whether you need it at all.",
@@ -565,8 +563,8 @@ function cacheHebrew() {
   document.querySelectorAll("[data-i18n-html]").forEach(function (el) {
     heCache[el.getAttribute("data-i18n-html")] = el.innerHTML;
   });
-  document.querySelectorAll("[data-i18n-ph]").forEach(function (el) {
-    heCache[el.getAttribute("data-i18n-ph")] = el.getAttribute("placeholder");
+  document.querySelectorAll("[data-i18n-title]").forEach(function (el) {
+    heCache[el.getAttribute("data-i18n-title")] = el.getAttribute("title");
   });
 }
 
@@ -581,9 +579,9 @@ function setLang(lang) {
     var k = el.getAttribute("data-i18n-html");
     if (dict[k] != null) el.innerHTML = dict[k];
   });
-  document.querySelectorAll("[data-i18n-ph]").forEach(function (el) {
-    var k = el.getAttribute("data-i18n-ph");
-    if (dict[k] != null) el.setAttribute("placeholder", dict[k]);
+  document.querySelectorAll("[data-i18n-title]").forEach(function (el) {
+    var k = el.getAttribute("data-i18n-title");
+    if (dict[k] != null) el.setAttribute("title", dict[k]);
   });
   document.documentElement.lang = lang;
   document.documentElement.dir = lang === "en" ? "ltr" : "rtl";
