@@ -609,7 +609,8 @@ try {
 
 /* ---------------- intake form (os.takeitaizy.dev, Studio OS P34) ----------------
    The iframe src carries embed=1, the theme, the site's current language and
-   the visitor's own utm_* tags (the fixed site tags only when there are none).
+   the visitor's own utm_* tags (the fixed site tags only when there are none)
+   and, from P35, ref: the origin of the page before this site.
    The form posts {type: "takeitaizy:intake", event: "height"|"submitted"} to
    https://takeitaizy.dev only; anything else is ignored. INTAKE_ORIGIN is
    declared at the top: setLang() can run before this block. */
@@ -627,7 +628,19 @@ function intakeSrc(lang) {
     params.set("utm_medium", "website");
     params.set("utm_content", "embed");
   }
+  var ref = referrerOrigin();
+  if (ref) params.set("ref", ref);
   return INTAKE_ORIGIN + "/intake?" + params.toString();
+}
+
+/* Studio OS P35: where the visitor was before this site, as an origin only
+   (no path, no query). Nothing when there is no referrer or it is this site. */
+function referrerOrigin() {
+  var url;
+  try { url = new URL(document.referrer); } catch (e) { return null; }
+  if (url.protocol !== "https:" && url.protocol !== "http:") return null;
+  if (url.origin === location.origin || /^(www\.)?takeitaizy\.dev$/.test(url.hostname)) return null;
+  return url.origin;
 }
 
 function syncIntakeFrame(lang) {
