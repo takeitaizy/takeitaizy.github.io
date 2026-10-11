@@ -257,15 +257,17 @@
       flex-shrink: 0; direction: ltr; unicode-bidi: isolate;
     }
     .next-steps b { color: var(--ink); font-weight: 500; display: block; }
-    /* The intake app has no auto-resize, so the frame height is fixed per
-       layout: its form goes two-column once the frame is 640px+ wide. Heights
-       leave room for validation messages so the frame never scrolls. */
+    /* The embedded form (Studio OS P34) has no background or padding of its
+       own, so the panel supplies both. It posts its height (see the script);
+       until the first message the frame keeps a fixed height per layout: the
+       form goes two-column once the frame is 640px+ wide. */
     .intake-frame {
       margin-block-start: 34px; overflow: hidden;
       border: 1px solid var(--accent-dim); border-radius: 22px;
       background: rgb(17, 17, 24); box-shadow: 0 0 60px var(--accent-ghost);
+      padding: clamp(16px, 3vw, 28px);
     }
-    .intake-frame iframe { display: block; inline-size: 100%; block-size: 860px; border: 0; }
+    .intake-frame iframe { display: block; inline-size: 100%; block-size: 860px; border: 0; scroll-margin-block-start: 90px; }
     @media (max-width: 689px) { .intake-frame iframe { block-size: 1130px; } }
     .contact-alt { margin-block-start: 18px; font-size: 0.85rem; color: var(--faint); }
     .contact-alt a { color: var(--accent); }
@@ -455,7 +457,7 @@
       <li><span data-i18n-html="ns_3"><b>שיחת היכרות קצרה</b>יוצאים ממנה עם כיוון ברור: מה שווה לבנות קודם, ואם בכלל צריך.</span></li>
     </ol>
     <div class="intake-frame">
-      <iframe src="https://os.takeitaizy.dev/intake?utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=embed" title="טופס פנייה ל-Take It AIZY" data-i18n-title="intake_title" loading="lazy"></iframe>
+      <iframe id="intakeFrame" src="https://os.takeitaizy.dev/intake?embed=1&amp;theme=dark&amp;lang=he&amp;utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=embed" title="טופס פנייה ל-Take It AIZY" data-i18n-title="intake_title" loading="lazy"></iframe>
     </div>
     <p class="contact-alt" data-i18n-html="contact_alt">הטופס לא נטען? <a href="https://os.takeitaizy.dev/intake?utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=fallback" target="_blank" rel="noopener">פתחו אותו בחלון נפרד</a> · מעדיפים מייל? <a href="mailto:hello@takeitaizy.dev" class="ltr">hello@takeitaizy.dev</a></p>
   </div>
@@ -474,6 +476,9 @@
 </footer>
 
 <script>
+/* The intake form's origin (Studio OS). Used by setLang() and the form bridge below. */
+var INTAKE_ORIGIN = "https://os.takeitaizy.dev";
+
 /* ---------------- i18n ---------------- */
 var EN = {
   nav_services: "What we build",
@@ -589,6 +594,7 @@ function setLang(lang) {
   var d = document.querySelector('meta[name="description"]');
   if (d) d.setAttribute("content", lang === "en" ? EN.desc : HE.desc);
   document.getElementById("langToggle").textContent = lang === "en" ? "עב" : "EN";
+  syncIntakeFrame(lang);
   try { localStorage.setItem("taizy-lang", lang); } catch (e) {}
 }
 
@@ -600,6 +606,55 @@ try {
   var saved = localStorage.getItem("taizy-lang");
   if (saved === "en") setLang("en");
 } catch (e) {}
+
+/* ---------------- intake form (os.takeitaizy.dev, Studio OS P34) ----------------
+   The iframe src carries embed=1, the theme, the site's current language and
+   the visitor's own utm_* tags (the fixed site tags only when there are none).
+   The form posts {type: "takeitaizy:intake", event: "height"|"submitted"} to
+   https://takeitaizy.dev only; anything else is ignored. INTAKE_ORIGIN is
+   declared at the top: setLang() can run before this block. */
+
+function intakeSrc(lang) {
+  var params = new URLSearchParams({ embed: "1", theme: "dark", lang: lang === "en" ? "en" : "he" });
+  var own = new URLSearchParams(location.search);
+  var tagged = false;
+  ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"].forEach(function (key) {
+    var value = own.get(key);
+    if (value) { params.set(key, value); tagged = true; }
+  });
+  if (!tagged) {
+    params.set("utm_source", "takeitaizy.dev");
+    params.set("utm_medium", "website");
+    params.set("utm_content", "embed");
+  }
+  return INTAKE_ORIGIN + "/intake?" + params.toString();
+}
+
+function syncIntakeFrame(lang) {
+  var frame = document.getElementById("intakeFrame");
+  var src = intakeSrc(lang);
+  if (frame && frame.src !== src) frame.src = src;
+}
+syncIntakeFrame(currentLang);
+
+/* A conversion is reported only to a tag that is on the page; there is none today. */
+function reportLead() {
+  if (typeof window.gtag === "function") window.gtag("event", "generate_lead", { form: "intake" });
+  if (typeof window.fbq === "function") window.fbq("track", "Lead");
+}
+
+window.addEventListener("message", function (e) {
+  if (e.origin !== INTAKE_ORIGIN || !e.data || e.data.type !== "takeitaizy:intake") return;
+  var frame = document.getElementById("intakeFrame");
+  if (e.data.event === "height") {
+    var height = Number(e.data.height);
+    if (height > 0 && height < 5000) frame.style.height = Math.ceil(height) + "px";
+  } else if (e.data.event === "submitted") {
+    reportLead();
+    // The form shrinks to its thank-you message; keep that message in view.
+    if (frame.getBoundingClientRect().top < 0) frame.scrollIntoView({ block: "start" });
+  }
+});
 
 /* ---------------- reveal ---------------- */
 var io = new IntersectionObserver(function (entries) {
