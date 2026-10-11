@@ -279,9 +279,15 @@
 
     /* ---------- work ---------- */
     .work { background: var(--mist); }
-    .case-grid { margin-block-start: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; }
+    .case-grid { margin-block-start: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 16px; }
     .case { background: var(--white); border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 14px; }
     .case .tag { align-self: flex-start; }
+    .case.feature { grid-column: 1 / -1; padding: 40px; }
+    .case.feature h3 { font-size: clamp(24px, 3vw, 32px); }
+    .feature-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 10px 28px; margin-block-start: 8px; }
+    .feature-list li { position: relative; padding-inline-start: 22px; color: var(--body); }
+    .feature-list li::before { content: ""; position: absolute; inset-inline-start: 0; inset-block-start: 0.6em; inline-size: 8px; block-size: 8px; border-radius: 50%; background: var(--sand); }
+    .work-more { margin-block-start: 28px; text-align: center; font-size: 19px; font-weight: 600; color: var(--muted); }
     .case .tags { display: flex; gap: 8px; flex-wrap: wrap; }
     .case .tag.wip { background: var(--sand-soft); color: var(--sand-ink); }
     .case h3 { font-size: 21px; line-height: 1.3; }
@@ -408,7 +414,7 @@
     <p class="sub" data-en="We build systems that do a business’s repetitive work for it: a Hebrew service bot, a tailored management system, and automations that close the back office. You approve, the system does.">אנחנו בונים לעסקים מערכות שעושות את העבודה החוזרת במקומם: בוט שירות בעברית, מערכת ניהול תפורה, ואוטומציות שסוגרות את המשרד האחורי. אתם מאשרים, המערכת עושה.</p>
     <div class="hero-cta">
       <a class="btn btn-lg" href="#contact" data-en="Book a free needs call">לשיחת אפיון ללא עלות</a>
-      <a class="btn btn-text" href="#work" data-en-html="See what we’ve built <span aria-hidden='true'>→</span>">ראו מה כבר בנינו <span aria-hidden="true">←</span></a>
+      <a class="btn btn-text" href="#work" data-en-html="See examples <span aria-hidden='true'>→</span>">ראו דוגמאות <span aria-hidden="true">←</span></a>
     </div>
     <p class="hero-note" data-en="The first needs call is free of charge. No commitment.">שיחת אפיון צרכים ראשונה ללא עלות. בלי התחייבות.</p>
 
@@ -556,39 +562,33 @@
 <section class="work" id="work">
   <div class="wrap">
     <p class="eyebrow reveal" data-en="Work">פרויקטים</p>
-    <h2 class="reveal" data-en="What we’ve already built">מה כבר בנינו</h2>
+    <h2 class="reveal" data-en="Examples of what we build">דוגמאות ממה שאנחנו בונים</h2>
     <div class="case-grid">
-      <article class="case reveal">
-        <span class="tag" data-en="Education">חינוך</span>
-        <h3 data-en="A subscriptions, groups and payroll system for a math-tutoring network">מערכת מנויים, קבוצות ושכר לרשת שיעורי מתמטיקה</h3>
-        <p class="d" data-en="Hundreds of students, 23 groups and 7 teachers moved from spreadsheets to one system with WhatsApp automation.">מאות תלמידים, 23 קבוצות ו-7 מורים עברו מאקסלים למערכת אחת עם אוטומציית וואטסאפ.</p>
-        <p class="result" data-en-html="<b>The result</b>The subscription formula was checked against <strong>398 real records</strong>, down to the agora."><b>התוצאה</b>נוסחת המנוי נבדקה מול <strong>398 רשומות אמת</strong>, עד האגורה.</p>
+      <article class="case feature reveal">
+        <span class="tag" data-en="Management">ניהול</span>
+        <h3 data-en="A project and client management system for a studio">מערכת לניהול פרויקטים ולקוחות לסטודיו</h3>
+        <p class="d" data-en="One place for all the work: clients, deals, projects and tasks, documents, invoices and enquiries from the website.">מקום אחד לכל העבודה: לקוחות, עסקאות, פרויקטים ומשימות, מסמכים, חשבוניות ופניות מהאתר.</p>
+        <ul class="feature-list">
+          <li data-en="Connects to Google Calendar, so meetings land in the system on their own">מתחברת ליומן Google, כך שפגישות נכנסות למערכת לבד</li>
+          <li data-en="Connected to a meeting assistant: a transcript, a summary and action items from every call">מחוברת לעוזר שמתמלל את הפגישות: תמליל, סיכום ומשימות מכל שיחה</li>
+          <li data-en="Writes a first spec draft from the transcript of a discovery call">כותבת טיוטת אפיון ראשונה מתוך התמליל של שיחת האפיון</li>
+          <li data-en="Website enquiries arrive in a queue and become a deal in one click">פניות מהאתר נכנסות לתור והופכות לעסקה בלחיצה</li>
+          <li data-en="A sales pipeline, quotes and invoices in one place">צינור מכירות, הצעות מחיר וחשבוניות במקום אחד</li>
+          <li data-en="Notifications and a personal inbox for everyone on the team">התראות ותיבה אישית לכל אחד בצוות</li>
+        </ul>
       </article>
       <article class="case reveal">
-        <span class="tag" data-en="Import and distribution">יבוא והפצה</span>
-        <h3 data-en="Automated customer service for a home-appliances importer">שירות לקוחות אוטומטי ליבואן מוצרי חשמל</h3>
-        <p class="d" data-en="An end-to-end Hebrew bot with an invoice gate, technician dispatch and secured approvals.">בוט עברית מקצה לקצה עם שער חשבוניות, שיבוץ טכנאים ואישורים מאובטחים.</p>
-        <p class="result" data-en-html="<b>The result</b><strong>Two hours a day</strong> of manual entry became a managed, documented process."><b>התוצאה</b><strong>שעתיים ביום</strong> של הזנה ידנית הפכו לתהליך מנוהל ומתועד.</p>
+        <span class="tag" data-en="Finance">פיננסים</span>
+        <h3 data-en="A finance system that shows the full picture">מערכת לניהול כספים שמראה את התמונה המלאה</h3>
+        <p class="d" data-en="A profit and loss report, a balance sheet and expected cash flows in one system. Alongside it, a system that reads contracts and agreements, complex files and long Excel sheets, and answers questions from the documents you upload.">דוח רווח והפסד, מאזן ותזרים מזומנים צפוי במערכת אחת. לצדה מערכת שקוראת חוזים והסכמים, קבצים מורכבים ואקסלים ארוכים, ועונה על שאלות מתוך המסמכים שמעלים אליה.</p>
       </article>
       <article class="case reveal">
-        <span class="tag" data-en="Public sector">מגזר ציבורי</span>
-        <h3 data-en="A scholarship-program management system for a municipal young-adults center">מערכת ניהול מלגאים למרכז צעירים ברשות מקומית</h3>
-        <p class="d" data-en="Scholars, volunteer hours, alerts and reports in one place instead of scattered spreadsheets.">מלגאים, שעות התנדבות, התראות ודוחות. הכול במקום אחד במקום טבלאות מפוזרות.</p>
-        <p class="result" data-en-html="<b>The result</b>A working POC in front of the client <strong>days after the spec</strong>."><b>התוצאה</b>POC עובד מול הלקוח <strong>ימים ספורים אחרי האפיון</strong>.</p>
-      </article>
-      <article class="case reveal">
-        <div class="tags"><span class="tag" data-en="Real estate">נדל״ן</span><span class="tag wip" data-en="In progress">בבנייה</span></div>
-        <h3 data-en="A daily real-estate research agent">סוכן מחקר נדל״ן יומי</h3>
-        <p class="d" data-en="Every morning it scans the national planning databases, compares them with yesterday and sends a summary in Hebrew: new plans, deposits, approvals and objection deadlines.">כל בוקר הוא סורק את מאגרי התכנון הארציים, משווה מול אתמול ושולח סיכום בעברית: תכניות חדשות, הפקדות, אישורים ומועדי התנגדות.</p>
-        <p class="result" data-en-html="<b>The result</b><strong>745 plan updates</strong> nationwide in a single week. The agent filters them and sends only what matters, in one morning email."><b>התוצאה</b><strong>745 עדכוני תכניות</strong> בשבוע אחד בכל הארץ. הסוכן מסנן ושולח רק את מה שרלוונטי, במייל אחד בבוקר.</p>
-      </article>
-      <article class="case reveal">
-        <div class="tags"><span class="tag" data-en="Finance">פיננסים</span><span class="tag wip" data-en="In progress">בבנייה</span></div>
-        <h3 data-en="A paid members club for accountants and finance professionals">מועדון חברים בתשלום לרואי חשבון ואנשי כספים</h3>
-        <p class="d" data-en="A platform with sign-up, approval and a recurring monthly payment, protected lecture recordings and a library of tested Skills. Alongside it, hands-on AI workshops for finance teams.">פלטפורמה עם הרשמה, אישור ותשלום חודשי מתחדש, הקלטות הרצאות מוגנות וספריית Skills שנבדקו. לצדה סדנאות AI מעשיות לצוותי כספים.</p>
-        <p class="result" data-en-html="<b>The result</b>Renewals, invoices, pausing and cancelling <strong>happen on their own</strong>. The only manual step left is approving a new member."><b>התוצאה</b>חידוש מנוי, חשבוניות, הקפאה וביטול <strong>קורים לבד</strong>. הפעולה הידנית היחידה שנשארה היא לאשר חבר חדש.</p>
+        <span class="tag" data-en="Manufacturing">ייצור</span>
+        <h3 data-en="A CRM for a manufacturing client">מערכת CRM ללקוח מתחום הייצור</h3>
+        <p class="d" data-en="Built around the way the client already works, instead of an off-the-shelf product the business has to bend to.">נבנתה לפי הדרך שבה הלקוח כבר עובד, במקום תוכנת מדף שהעסק צריך להתאים את עצמו אליה.</p>
       </article>
     </div>
+    <p class="work-more reveal" data-en="And many more projects…">ועוד פרויקטים רבים…</p>
   </div>
 </section>
 
