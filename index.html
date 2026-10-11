@@ -2,620 +2,767 @@
 <html lang="he" dir="rtl">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>takeitaizy — מערכות AI ואוטומציה לעסקים</title>
-  <meta name="description" content="takeitaizy בונה מערכות AI ואוטומציה בהתאמה אישית לעסקים: בוטים לשירות לקוחות בעברית, מערכות ניהול, אוטומציית משרד אחורי וסוכני AI תפעוליים.">
-  <meta property="og:title" content="takeitaizy — מערכות AI ואוטומציה לעסקים">
-  <meta property="og:description" content="מחליפים שעות של עבודה ידנית במערכות שנבנות סביב איך שהעסק שלכם באמת עובד.">
-  <meta property="og:url" content="https://takeitaizy.dev">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Take It AIZY | מערכות AI ואוטומציה לעסקים</title>
+  <meta name="description" content="Take It AIZY בונה מערכות AI ואוטומציה בהתאמה אישית לעסקים: בוטים לשירות לקוחות בעברית, מערכות ניהול, אוטומציית משרד אחורי וסוכני AI תפעוליים. שיחת אפיון צרכים ראשונה ללא עלות.">
+  <meta name="theme-color" content="#0E1C30">
+  <link rel="canonical" href="https://takeitaizy.dev/">
+  <meta property="og:site_name" content="Take It AIZY">
+  <meta property="og:title" content="Take It AIZY | מערכות AI ואוטומציה לעסקים">
+  <meta property="og:description" content="העבודה הידנית נגמרת כאן. הזמן שלכם חוזר אליכם. שיחת אפיון צרכים ראשונה ללא עלות.">
+  <meta property="og:url" content="https://takeitaizy.dev/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="he_IL">
   <meta property="og:locale:alternate" content="en_US">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230b0b0f'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='%23d8ff3e' font-family='Arial,sans-serif' font-weight='bold'%3Eaz%3C/text%3E%3C/svg%3E">
+  <meta property="og:image" content="https://takeitaizy.dev/brand/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Take It AIZY">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/brand/favicon/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/brand/favicon/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/brand/favicon/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/brand/favicon/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add("js");</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Take It AIZY",
+        "url": "https://takeitaizy.dev/",
+        "logo": "https://takeitaizy.dev/brand/logo/take-it-aizy-icon.png",
+        "email": "hello@takeitaizy.dev"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "מה כוללת שיחת האפיון הראשונה?", "acceptedAnswer": {"@type": "Answer", "text": "ממפים את התהליך, מחשבים כמה הוא עולה לכם בחודש, ויוצאים עם כיוון ברור. השיחה ללא עלות וללא התחייבות."}},
+          {"@type": "Question", "name": "כמה זה עולה?", "acceptedAnswer": {"@type": "Answer", "text": "המודל קבוע: הקמה חד-פעמית, ריטיינר אחזקה ובנק שעות לשינויים. אחרי שיחת האפיון מקבלים הצעת מחיר סגורה."}},
+          {"@type": "Question", "name": "כמה זמן עד שזה עובד?", "acceptedAnswer": {"@type": "Answer", "text": "POC עובד תוך ימים מהאפיון. המערכת המלאה נבנית בשלבים, וכל שלב מביא ערך בפני עצמו."}},
+          {"@type": "Question", "name": "מה קורה אם ה-AI טועה מול לקוח?", "acceptedAnswer": {"@type": "Answer", "text": "כל פעולה רגישה עוברת אישור אנושי. המערכת מציעה, אתם מאשרים."}},
+          {"@type": "Question", "name": "איפה נשמר המידע שלנו?", "acceptedAnswer": {"@type": "Answer", "text": "שרת ייעודי, הצפנה וגיבויים. מידע רגיש לא נכנס למערכת בכלל."}},
+          {"@type": "Question", "name": "אנחנו עסק קטן. זה רלוונטי לנו?", "acceptedAnswer": {"@type": "Answer", "text": "בדיוק בשבילכם. עסק בלי צוות IT מרוויח הכי הרבה ממערכת שעושה את העבודה החוזרת."}}
+        ]
+      }
+    ]
+  }
+  </script>
   <style>
     :root {
-      --bg: #0b0b0f;
-      --bg-raise: #111117;
-      --ink: #f4f4f0;
-      --muted: #9a9aa3;
-      --faint: #55555e;
-      --accent: #d8ff3e;
-      --accent-dim: rgba(216, 255, 62, 0.35);
-      --accent-ghost: rgba(216, 255, 62, 0.07);
-      --line: rgba(244, 244, 240, 0.09);
-      --max: 1120px;
-      --radius: 14px;
+      --navy: #0E1C30;
+      --body: #2A3B52;
+      --muted: #4A5668;
+      --subtle: #5E6A7A;
+      --line: #E6E9EE;
+      --mist: #F5F6F8;
+      --sand: #E8A33D;
+      --sand-soft: #FBF1DE;
+      --sand-ink: #6B5320;
+      --white: #FFFFFF;
+      --max: 1200px;
+      --gutter: 24px;
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      * { animation: none !important; transition: none !important; }
-    }
+    *, *::before, *::after { box-sizing: border-box; }
+    * { margin: 0; }
+    html { scroll-behavior: smooth; scroll-padding-block-start: 84px; -webkit-text-size-adjust: 100%; }
     body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: "Space Grotesk", "Heebo", system-ui, sans-serif;
-      font-size: 17px;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
+      font-family: Heebo, system-ui, sans-serif; font-size: 17px; line-height: 1.6;
+      color: var(--navy); background: var(--white); -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
-    ::selection { background: var(--accent); color: #0b0b0f; }
+    img, svg { display: block; max-inline-size: 100%; }
+    a { color: inherit; }
+    button { font: inherit; color: inherit; }
+    ul, ol { padding: 0; list-style: none; }
+    ::selection { background: var(--sand); color: var(--navy); }
+    :focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; border-radius: 6px; }
+    .on-dark :focus-visible { outline-color: var(--white); }
+    .lat { font-family: Montserrat, Heebo, sans-serif; direction: ltr; unicode-bidi: isolate; }
+    .wrap { max-inline-size: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+    .skip {
+      position: absolute; inset-inline-start: 16px; inset-block-start: -80px; z-index: 100;
+      background: var(--navy); color: var(--white); padding: 10px 18px; border-radius: 10px; text-decoration: none;
+    }
+    .skip:focus { inset-block-start: 12px; }
 
-    .wrap { max-width: var(--max); margin-inline: auto; padding-inline: 24px; }
+    /* ---------- type ---------- */
+    .eyebrow { font-size: 15px; font-weight: 600; color: var(--subtle); }
+    h1, h2, h3 { font-weight: 800; text-wrap: balance; }
+    h1 { font-size: clamp(40px, 7vw, 88px); line-height: 1.04; }
+    h2 { font-size: clamp(32px, 4.4vw, 52px); line-height: 1.1; margin-block-start: 12px; }
+    h3 { font-size: 22px; line-height: 1.25; }
+    :lang(en) h1, :lang(en) h2 { letter-spacing: -0.02em; }
+    .lead { font-size: 19px; color: var(--muted); max-inline-size: 56ch; margin-block-start: 16px; }
+    section { padding-block: 96px; }
+    .tight-top { padding-block-start: 24px; }
+    .tight-bottom { padding-block-end: 24px; }
 
-    /* ---------- nav ---------- */
-    nav {
-      position: sticky; top: 0; z-index: 50;
-      background: rgba(11, 11, 15, 0.82);
-      backdrop-filter: blur(14px);
-      border-block-end: 1px solid var(--line);
+    /* ---------- buttons ---------- */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; text-align: center;
+      min-block-size: 48px; padding: 14px 30px; border-radius: 999px; border: 0; cursor: pointer;
+      font-size: 17px; font-weight: 600; text-decoration: none; background: var(--navy); color: var(--white);
+      transition: transform 100ms ease-out, background-color .2s ease, box-shadow .2s ease;
     }
-    .nav-inner {
-      display: flex; align-items: center; gap: 28px;
-      padding-block: 14px;
+    .btn:hover { background: #1B2D47; }
+    .btn:active { transform: scale(0.97); }
+    .btn-lg { padding: 17px 36px; font-size: 18px; }
+    .btn-light { background: var(--white); color: var(--navy); }
+    .btn-light:hover { background: var(--mist); }
+    .btn-ghost { background: transparent; color: var(--navy); border: 1px solid #C9CFD8; }
+    .btn-ghost:hover { background: var(--mist); }
+    .btn-text { background: none; color: var(--navy); padding-inline: 8px; gap: 8px; }
+    .btn-text:hover { background: none; text-decoration: underline; text-underline-offset: 4px; }
+
+    /* ---------- nav: translucent material, no hard divider ---------- */
+    nav.top {
+      position: sticky; inset-block-start: 0; z-index: 50;
+      background: rgba(255,255,255,0.72); box-shadow: 0 1px 0 rgba(14,28,48,0.06);
+      -webkit-backdrop-filter: blur(20px) saturate(180%); backdrop-filter: blur(20px) saturate(180%);
     }
-    .brand {
-      font-family: "Space Grotesk", sans-serif;
-      font-weight: 700; font-size: 1.15rem; letter-spacing: -0.02em;
-      color: var(--ink); text-decoration: none; white-space: nowrap;
-      direction: ltr; unicode-bidi: isolate;
+    .nav-in { display: flex; align-items: center; gap: 24px; padding-block: 10px; }
+    .nav-logo { display: block; }
+    .nav-logo img { block-size: 46px; inline-size: auto; }
+    .nav-links { display: flex; gap: 6px; margin-inline-start: auto; font-size: 15px; }
+    .nav-links a { text-decoration: none; color: var(--muted); padding: 10px 12px; border-radius: 10px; transition: color .2s, background-color .2s; }
+    .nav-links a:hover { color: var(--navy); background: var(--mist); }
+    .lang {
+      min-block-size: 44px; min-inline-size: 48px; padding: 0 14px; border-radius: 999px; cursor: pointer;
+      background: none; border: 1px solid rgba(14,28,48,0.16); font-size: 13px; color: var(--muted);
     }
-    .brand b { color: var(--accent); font-weight: 700; }
-    .nav-links { display: flex; gap: 22px; margin-inline-start: auto; }
-    .nav-links a {
-      color: var(--muted); text-decoration: none; font-size: 0.92rem;
-      transition: color 0.2s ease;
-    }
-    .nav-links a:hover { color: var(--ink); }
-    .lang-toggle {
-      background: none; border: 1px solid var(--line); border-radius: 999px;
-      color: var(--muted); font: inherit; font-size: 0.8rem;
-      padding: 4px 14px; cursor: pointer; transition: color .2s, border-color .2s;
-      direction: ltr; unicode-bidi: isolate;
-    }
-    .lang-toggle:hover { color: var(--accent); border-color: var(--accent-dim); }
-    .nav-cta {
-      background: var(--accent); color: #0b0b0f !important; font-weight: 500;
-      padding: 7px 18px; border-radius: 999px; font-size: 0.9rem !important;
-      transition: transform .15s ease, box-shadow .2s ease;
-    }
-    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 24px var(--accent-dim); }
-    @media (max-width: 720px) { .nav-links a:not(.nav-cta) { display: none; } }
+    .lang:hover { background: var(--mist); }
+    .nav-cta { padding: 10px 22px; min-block-size: 44px; font-size: 15px; }
+    @media (max-width: 880px) { .nav-links { display: none; } .nav-in { gap: 10px; } .lang { margin-inline-start: auto; } }
+    @media (max-width: 420px) { .nav-logo img { block-size: 38px; } .nav-cta { padding-inline: 14px; font-size: 14px; } }
+    @media (prefers-reduced-transparency: reduce) { nav.top { background: var(--white); -webkit-backdrop-filter: none; backdrop-filter: none; } }
+    @media (prefers-contrast: more) { nav.top { background: var(--white); box-shadow: 0 1px 0 var(--navy); } }
 
     /* ---------- hero ---------- */
-    header.hero {
-      position: relative; overflow: hidden;
-      padding-block: clamp(80px, 14vh, 150px) clamp(60px, 10vh, 110px);
-      text-align: center;
+    .hero { padding-block: 88px 24px; text-align: center; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted);
+      background: #F2F4F7; border-radius: 999px; padding: 6px 16px;
     }
-    .glow {
-      position: absolute; border-radius: 50%; pointer-events: none;
-      width: 62vmax; height: 62vmax;
-      background: radial-gradient(circle, var(--accent-ghost) 0%, transparent 62%);
+    .pill i { inline-size: 7px; block-size: 7px; border-radius: 50%; background: var(--sand); }
+    .hero h1 { margin: 28px auto 0; max-inline-size: 15ch; }
+    .hero h1 span { color: #8A94A3; }
+    .hero .sub { margin: 26px auto 0; max-inline-size: 56ch; font-size: clamp(18px, 2vw, 20px); color: var(--muted); text-wrap: balance; }
+    .hero-cta { margin-block-start: 38px; display: flex; gap: 18px; justify-content: center; align-items: center; flex-wrap: wrap; }
+    .hero-note { margin-block-start: 16px; font-size: 14px; color: var(--subtle); }
+    .stage {
+      position: relative; margin: 64px auto 0; max-inline-size: 1080px; block-size: 520px; border-radius: 40px; overflow: hidden;
+      background: radial-gradient(120% 90% at 50% 0%, #F7F8FA 0%, #ECEFF3 100%);
     }
-    .glow.g1 { inset-block-start: -28vmax; inset-inline-end: -22vmax; }
-    .glow.g2 { inset-block-end: -34vmax; inset-inline-start: -24vmax; opacity: 0.7; }
-    .badge {
-      display: inline-block; font-size: 0.72rem; text-transform: uppercase;
-      color: var(--accent); border: 1px solid var(--accent-dim);
-      border-radius: 999px; padding: 6px 18px; margin-block-end: 28px;
+    .stage .mark { position: absolute; inset-inline-start: 50%; inset-block-start: 50%; transform: translate(-50%, -50%); block-size: 300px; inline-size: auto; }
+    [dir="rtl"] .stage .mark { transform: translate(50%, -50%); }
+    .chip {
+      position: absolute; display: flex; align-items: center; gap: 12px; text-align: start;
+      background: rgba(255,255,255,0.78); border-radius: 18px; padding: 14px 18px;
+      box-shadow: 0 10px 30px rgba(14,28,48,0.08); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+      animation: float 7s ease-in-out infinite;
     }
-    .badge:lang(en) { letter-spacing: 0.2em; }
-    h1 {
-      font-size: clamp(2.2rem, 6.4vw, 4.2rem);
-      font-weight: 800; line-height: 1.15; letter-spacing: normal;
-      max-width: 20ch; margin-inline: auto;
-      text-wrap: balance;
-    }
-    h1:lang(en) { letter-spacing: -0.02em; font-weight: 700; }
-    h1 .hl { color: var(--accent); }
-    .hero-sub {
-      margin-block-start: 22px; color: var(--muted);
-      font-size: clamp(1.02rem, 2.2vw, 1.25rem);
-      max-width: 52ch; margin-inline: auto; text-wrap: balance;
-    }
-    .hero-ctas { margin-block-start: 40px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-    .btn {
-      display: inline-block; text-decoration: none; font-weight: 500;
-      border-radius: 999px; padding: 13px 32px; font-size: 1rem;
-      transition: transform .15s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
-    }
-    .btn-primary { background: var(--accent); color: #0b0b0f; }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 32px var(--accent-dim); }
-    .btn-ghost { border: 1px solid var(--line); color: var(--ink); }
-    .btn-ghost:hover { border-color: var(--accent-dim); color: var(--accent); }
-    .hero-domain {
-      margin-block-start: 46px; font-size: 0.8rem; color: var(--faint);
-      direction: ltr; unicode-bidi: isolate;
-    }
+    .chip:nth-child(2) { animation-delay: -2s; } .chip:nth-child(3) { animation-delay: -4s; } .chip:nth-child(4) { animation-delay: -5.5s; }
+    .chip .ico { inline-size: 36px; block-size: 36px; border-radius: 10px; background: var(--navy); display: grid; place-items: center; flex: none; }
+    .chip .ico.sand { background: var(--sand); }
+    .chip b { display: block; font-weight: 600; font-size: 15px; line-height: 1.3; }
+    .chip small { display: block; font-size: 13px; color: var(--subtle); line-height: 1.3; }
+    .chip .ok { margin-inline-start: 8px; background: var(--navy); color: var(--white); font-size: 13px; border-radius: 999px; padding: 5px 12px; }
+    .c1 { inset-block-start: 72px; inset-inline-end: 64px; }
+    .c2 { inset-block-end: 88px; inset-inline-end: 120px; }
+    .c3 { inset-block-start: 150px; inset-inline-start: 72px; }
+    .c4 { inset-block-end: 120px; inset-inline-start: 110px; }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    .sand-line { position: absolute; inset-inline-start: 50%; inset-block-start: 50%; inline-size: 4px; block-size: 70px; margin-block-start: 6px; margin-inline-start: -2px; border-radius: 2px; overflow: hidden; background: rgba(232,163,61,0.18); }
+    .sand-line::after { content: ""; position: absolute; inset-inline: 0; block-size: 26px; border-radius: 2px; background: linear-gradient(var(--sand), rgba(232,163,61,0)); animation: sand 2.4s linear infinite; }
+    @keyframes sand { from { transform: translateY(-26px); } to { transform: translateY(70px); } }
+    @media (max-width: 900px) { .c1, .c2, .c3, .c4 { display: none; } .stage { block-size: 340px; border-radius: 28px; margin-block-start: 44px; } .stage .mark { block-size: 210px; } .sand-line { block-size: 48px; } }
 
-    /* ---------- sections ---------- */
-    section { padding-block: clamp(64px, 9vh, 110px); position: relative; }
-    .sec-label {
-      font-size: 0.75rem; text-transform: uppercase; color: var(--accent);
-      margin-block-end: 14px;
-    }
-    .sec-label:lang(en) { letter-spacing: 0.18em; }
-    .sec-title {
-      font-size: clamp(1.6rem, 3.6vw, 2.4rem); font-weight: 700; line-height: 1.25;
-      max-width: 26ch; text-wrap: balance;
-    }
-    .sec-sub { color: var(--muted); margin-block-start: 12px; max-width: 60ch; }
+    /* ---------- sectors ---------- */
+    .sectors { padding-block: 40px 80px; text-align: center; }
+    .sectors p { font-size: 15px; color: var(--subtle); }
+    .sector-list { margin-block-start: 18px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .sector-list li { border: 1px solid var(--line); border-radius: 999px; padding: 8px 20px; font-size: 15px; color: var(--muted); }
 
-    /* pain strip */
-    .pains {
-      margin-block-start: 44px;
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;
-    }
-    .pain {
-      border: 1px solid var(--line); border-radius: var(--radius);
-      padding: 22px 24px; background: var(--bg-raise);
-      color: var(--muted); font-size: 0.98rem;
-      position: relative;
-    }
-    .pain::before {
-      content: "✗"; color: var(--faint); font-size: 0.85rem;
-      display: block; margin-block-end: 10px;
-    }
-    .pain-hook { margin-block-start: 26px; font-size: 1.15rem; color: var(--ink); font-weight: 500; }
-    .pain-hook .hl { color: var(--accent); }
+    /* ---------- pain ---------- */
+    .pain { background: var(--mist); }
+    .split { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 56px; align-items: start; }
+    .pain-list { display: flex; flex-direction: column; gap: 12px; }
+    .pain-list li { background: var(--white); border-radius: 20px; padding: 22px 24px; display: flex; gap: 16px; align-items: baseline; color: var(--body); }
+    .tag { flex: none; font-size: 13px; font-weight: 600; background: #F2F4F7; border-radius: 999px; padding: 4px 12px; color: var(--navy); }
 
-    /* services */
-    .cards {
-      margin-block-start: 44px;
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px;
-    }
-    @media (max-width: 680px) { .cards { grid-template-columns: 1fr; } }
-    .card {
-      border: 1px solid var(--line); border-radius: var(--radius);
-      padding: 28px 26px; background: var(--bg-raise);
-      transition: border-color .25s ease, transform .25s ease;
-    }
-    .card:hover { border-color: var(--accent-dim); transform: translateY(-3px); }
-    .card .num {
-      font-family: "Space Grotesk", monospace; color: var(--accent);
-      font-size: 0.8rem; letter-spacing: 0.12em;
-      display: block; margin-block-end: 16px;
-      direction: ltr; unicode-bidi: isolate; text-align: start;
-    }
-    .card h3 { font-size: 1.12rem; font-weight: 700; margin-block-end: 10px; }
-    .card p { color: var(--muted); font-size: 0.93rem; }
+    /* ---------- fit ---------- */
+    .fit-grid { margin-block-start: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 16px; }
+    .fit-grid li { border: 1px solid var(--line); border-radius: 22px; padding: 26px; }
+    .fit-grid li.not { background: var(--mist); border-color: var(--mist); }
+    .fit-grid b { display: block; font-size: 14px; font-weight: 600; color: var(--subtle); }
+    .fit-grid p { margin-block-start: 8px; font-size: 17px; }
 
-    /* case studies */
-    .cases {
-      margin-block-start: 44px;
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 18px;
+    /* ---------- calculator ---------- */
+    .calc-wrap { padding-block: 24px 96px; }
+    .calc {
+      background: var(--navy); color: var(--white); border-radius: 40px; padding: clamp(28px, 5vw, 72px);
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 56px; align-items: center;
     }
-    .case {
-      border: 1px solid var(--line); border-radius: var(--radius);
-      background: linear-gradient(180deg, var(--bg-raise) 0%, rgba(216,255,62,0.03) 100%);
-      padding: 30px 28px; display: flex; flex-direction: column; gap: 16px;
+    .calc .eyebrow { color: var(--sand); }
+    .calc h2 { max-inline-size: 16ch; font-size: clamp(30px, 4vw, 48px); }
+    .stepper-list { margin-block-start: 34px; display: flex; flex-direction: column; gap: 14px; }
+    .stepper { display: flex; align-items: center; justify-content: space-between; gap: 16px; background: rgba(255,255,255,0.07); border-radius: 18px; padding: 12px 18px; }
+    .stepper .ctl { display: flex; align-items: center; gap: 10px; }
+    .stepper button {
+      inline-size: 44px; block-size: 44px; border-radius: 50%; border: 0; cursor: pointer;
+      background: rgba(255,255,255,0.14); color: var(--white); font-size: 22px; line-height: 1;
+      transition: transform 100ms ease-out, background-color .2s;
     }
-    .case .tag {
-      align-self: flex-start; font-size: 0.72rem; color: var(--accent);
-      border: 1px solid var(--accent-dim); border-radius: 999px; padding: 3px 12px;
-    }
-    .case h3 { font-size: 1.15rem; font-weight: 700; line-height: 1.35; }
-    .case .row { font-size: 0.92rem; color: var(--muted); }
-    .case .row b { color: var(--ink); font-weight: 500; display: block; margin-block-end: 2px; }
-    .case .stat {
-      margin-block-start: auto; padding-block-start: 16px;
-      border-block-start: 1px solid var(--line);
-      font-size: 0.95rem; color: var(--accent);
-    }
+    .stepper button:hover { background: rgba(255,255,255,0.22); }
+    .stepper button:active { transform: scale(0.92); }
+    .stepper output { min-inline-size: 44px; text-align: center; font-size: 22px; font-weight: 600; }
+    .calc-out { text-align: center; }
+    .calc-out .k { color: #C4CCD7; font-size: 16px; }
+    .calc-out .big { font-size: clamp(56px, 7vw, 96px); line-height: 1; font-weight: 700; letter-spacing: -0.03em; margin-block-start: 8px; }
+    .calc-out .cost { font-size: clamp(36px, 4vw, 52px); line-height: 1; font-weight: 700; color: var(--sand); margin-block-start: 26px; padding-block-start: 26px; border-block-start: 1px solid rgba(255,255,255,0.14); max-inline-size: 300px; margin-inline: auto; }
+    .calc-out .fine { margin-block-start: 16px; font-size: 13px; color: #AEB7C4; }
+    .calc-out .btn { margin-block-start: 28px; }
 
-    /* how we work */
-    .steps {
-      margin-block-start: 44px; display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px;
-      counter-reset: step;
-    }
-    .step { border-inline-start: 2px solid var(--accent-dim); padding-inline-start: 18px; }
-    .step::before {
-      counter-increment: step; content: "0" counter(step);
-      font-family: "Space Grotesk", monospace; color: var(--accent);
-      font-size: 0.8rem; letter-spacing: 0.12em; display: block; margin-block-end: 8px;
-      direction: ltr; unicode-bidi: isolate; text-align: start;
-    }
-    .step h3 { font-size: 1.05rem; font-weight: 700; margin-block-end: 6px; }
-    .step p { color: var(--muted); font-size: 0.9rem; }
-    .principles {
-      margin-block-start: 48px; display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px;
-    }
-    .principle {
-      display: flex; gap: 12px; align-items: baseline;
-      font-size: 0.95rem; color: var(--muted);
-      border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 20px;
-    }
-    .principle::before { content: "→"; color: var(--accent); flex-shrink: 0; }
-    .principle:dir(rtl)::before { content: "←"; }
-    .principle b { color: var(--ink); font-weight: 500; }
+    /* ---------- services ---------- */
+    .cards { margin-block-start: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr)); gap: 16px; }
+    .card { background: var(--mist); border-radius: 28px; padding: 32px; }
+    .card svg { inline-size: 32px; block-size: 32px; }
+    .card h3 { margin-block-start: 20px; }
+    .card p { margin-block-start: 10px; color: var(--muted); font-size: 16px; }
 
-    /* intake: every CTA scrolls to #contact, where the intake form from
-       os.takeitaizy.dev is embedded. Lead capture lives in that app. */
-    .btn:active { transform: scale(0.97); transition-duration: .1s; }
-    .btn-lg { padding: 17px 40px; font-size: 1.1rem; font-weight: 700; }
-    .cta-note { margin-block-start: 14px; font-size: 0.85rem; color: var(--faint); }
-    .inline-cta { margin-block-start: 30px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
-    .inline-cta span { color: var(--muted); font-size: 0.95rem; }
+    /* ---------- dashboard ---------- */
+    .dash-stage { margin-block-start: 48px; display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-end; justify-content: center; padding: clamp(20px, 4vw, 48px); border-radius: 36px; background: radial-gradient(120% 90% at 50% 0%, #F7F8FA 0%, #ECEFF3 100%); }
+    .browser { flex: 1 1 520px; max-inline-size: 780px; background: var(--white); border-radius: 18px; box-shadow: 0 24px 60px rgba(14,28,48,0.12); overflow: hidden; text-align: start; }
+    .browser-bar { display: flex; align-items: center; gap: 8px; padding: 12px 16px; background: var(--mist); border-block-end: 1px solid var(--line); }
+    .browser-bar i { inline-size: 10px; block-size: 10px; border-radius: 50%; background: #D5DAE1; }
+    .browser-bar strong { margin-inline-start: 10px; font-size: 13px; color: var(--muted); }
+    .browser-bar em { margin-inline-start: auto; font-style: normal; font-size: 12px; color: var(--subtle); background: var(--white); border-radius: 999px; padding: 3px 10px; }
+    .kpis { padding: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; }
+    .kpi { background: var(--mist); border-radius: 12px; padding: 12px 14px; }
+    .kpi.hot { background: var(--sand-soft); }
+    .kpi span { display: block; font-size: 12px; color: var(--subtle); }
+    .kpi.hot span { color: var(--sand-ink); }
+    .kpi b { display: block; font-size: 28px; line-height: 1.2; font-weight: 700; }
+    .panels { padding: 0 20px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+    .panel { border: 1px solid var(--line); border-radius: 12px; padding: 14px; }
+    .panel h4 { font-size: 13px; font-weight: 700; margin-block-end: 8px; }
+    .row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-block-start: 1px solid #EEF1F5; font-size: 14px; }
+    .row span:first-child { flex: 1; }
+    .row small { font-size: 12px; color: var(--subtle); }
+    .row .ok { background: var(--navy); color: var(--white); font-size: 12px; border-radius: 999px; padding: 4px 12px; }
+    .phone { flex: 0 0 250px; background: var(--white); border: 8px solid var(--navy); border-radius: 38px; box-shadow: 0 24px 60px rgba(14,28,48,0.18); overflow: hidden; text-align: start; }
+    .phone-head { padding: 16px 14px 10px; display: flex; align-items: center; justify-content: space-between; }
+    .phone-head img { block-size: 22px; inline-size: auto; }
+    .phone-head small { font-size: 12px; color: var(--subtle); }
+    .phone .kpi { margin-inline: 12px; background: var(--sand-soft); border-radius: 14px; padding: 12px 14px; }
+    .phone .kpi b { font-size: 30px; line-height: 1.1; }
+    .phone-list { padding: 10px 12px 14px; display: flex; flex-direction: column; gap: 8px; }
+    .phone-list li { border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; }
+    .phone-list b { font-size: 13px; font-weight: 600; display: block; }
+    .phone-list span { display: block; margin-block-start: 6px; text-align: center; background: var(--navy); color: var(--white); border-radius: 999px; padding: 10px; font-size: 14px; font-weight: 600; }
+    .caption { margin-block-start: 16px; font-size: 14px; color: var(--subtle); text-align: center; }
 
-    #contact { border-block-start: 1px solid var(--line); scroll-margin-block-start: 60px; }
-    .next-steps {
-      list-style: none; margin-block-start: 30px; counter-reset: ns;
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 22px;
-    }
-    .next-steps li { display: flex; gap: 14px; align-items: baseline; color: var(--muted); font-size: 0.95rem; }
-    .next-steps li::before {
-      counter-increment: ns; content: "0" counter(ns);
-      font-family: "Space Grotesk", monospace; color: var(--accent); font-size: 0.8rem; letter-spacing: 0.12em;
-      flex-shrink: 0; direction: ltr; unicode-bidi: isolate;
-    }
-    .next-steps b { color: var(--ink); font-weight: 500; display: block; }
-    /* The embedded form (Studio OS P34) has no background or padding of its
-       own, so the panel supplies both. It posts its height (see the script);
-       until the first message the frame keeps a fixed height per layout: the
-       form goes two-column once the frame is 640px+ wide. */
-    .intake-frame {
-      margin-block-start: 34px; overflow: hidden;
-      border: 1px solid var(--accent-dim); border-radius: 22px;
-      background: rgb(17, 17, 24); box-shadow: 0 0 60px var(--accent-ghost);
-      padding: clamp(16px, 3vw, 28px);
-    }
-    .intake-frame iframe { display: block; inline-size: 100%; block-size: 860px; border: 0; scroll-margin-block-start: 90px; }
+    /* ---------- before / after ---------- */
+    .table-scroll { margin-block-start: 40px; overflow-x: auto; }
+    .ba { min-inline-size: 680px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, 1.3fr); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; }
+    .ba > div { padding: 18px 20px; border-block-start: 1px solid var(--line); }
+    .ba > .h { padding-block: 16px; background: var(--mist); font-weight: 700; border-block-start: 0; }
+    .ba > .h.was { color: var(--subtle); }
+    .ba > .h.now { background: var(--navy); color: var(--white); }
+    .ba > .p { font-weight: 600; }
+    .ba > .was { color: var(--muted); }
+    .totals { margin-block-start: 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; }
+    .total { background: var(--navy); color: var(--white); border-radius: 24px; padding: 28px 32px; }
+    .total b { display: block; font-size: clamp(44px, 5vw, 64px); line-height: 1; font-weight: 700; color: var(--sand); }
+    .total span { display: block; margin-block-start: 10px; font-size: 18px; }
+    .fine { margin-block-start: 14px; font-size: 14px; color: var(--subtle); }
+
+    /* ---------- work ---------- */
+    .work { background: var(--mist); }
+    .case-grid { margin-block-start: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; }
+    .case { background: var(--white); border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 14px; }
+    .case .n { font-size: 56px; line-height: 1; font-weight: 800; }
+    .case .n.lat { font-weight: 700; letter-spacing: -0.03em; }
+    .case .cap { color: var(--muted); }
+    .case hr { border: 0; border-block-start: 1px solid var(--line); margin-block: 8px; }
+    .case .tag { align-self: flex-start; }
+    .case h3 { font-size: 19px; line-height: 1.35; }
+    .case p.d { color: var(--subtle); font-size: 15px; }
+
+    /* ---------- how ---------- */
+    .steps { margin-block-start: 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 32px; counter-reset: s; }
+    .step .num { display: flex; align-items: center; gap: 12px; }
+    .step .num::before { counter-increment: s; content: "0" counter(s); font-family: Montserrat, sans-serif; direction: ltr; font-size: 14px; font-weight: 600; background: #F2F4F7; border-radius: 999px; padding: 4px 12px; }
+    .step:first-child .num::before { background: var(--sand); }
+    .step .num::after { content: ""; flex: 1; block-size: 1px; background: var(--line); }
+    .step h3 { font-size: 20px; margin-block-start: 20px; }
+    .step p { margin-block-start: 8px; color: var(--muted); font-size: 16px; }
+    .principles { margin-block-start: 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 16px; }
+    .principles li { border: 1px solid var(--line); border-radius: 22px; padding: 24px; }
+    .principles b { display: block; font-weight: 700; }
+    .principles p { margin-block-start: 6px; color: var(--muted); font-size: 15px; }
+
+    /* ---------- model ---------- */
+    .model-grid { margin-block-start: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 16px; }
+    .model { background: var(--mist); border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 12px; }
+    .model .no { display: flex; align-items: center; gap: 10px; font-family: Montserrat, sans-serif; direction: ltr; font-size: 14px; font-weight: 600; color: var(--subtle); }
+    .model h3 { font-size: 24px; }
+    .model p { color: var(--muted); }
+    .model .price { margin-block-start: auto; padding-block-start: 16px; border-block-start: 1px solid #DDE2E8; font-size: 19px; font-weight: 700; }
+    .model.free { background: var(--navy); color: var(--white); }
+    .model.free .no { color: var(--sand); }
+    .model.free p { color: #C4CCD7; }
+    .model.free .price { border-color: rgba(255,255,255,0.16); }
+    .free-tag { font-family: Heebo, sans-serif; font-size: 12px; font-weight: 700; background: var(--sand); color: var(--navy); border-radius: 999px; padding: 3px 12px; }
+    .model .btn { margin-block-start: 8px; align-self: flex-start; }
+    .people { margin-block-start: 40px; max-inline-size: 60ch; color: var(--muted); font-size: 18px; }
+    .people b { color: var(--navy); }
+
+    /* ---------- faq ---------- */
+    .faq { max-inline-size: 820px; }
+    .faq-list { margin-block-start: 40px; }
+    details { border-block-end: 1px solid var(--line); padding-block: 22px; }
+    summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 16px; font-size: 19px; font-weight: 600; min-block-size: 44px; align-items: center; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; font-size: 24px; color: var(--subtle); line-height: 1; }
+    details[open] summary::after { content: "\2212"; }
+    details p { margin-block-start: 12px; color: var(--muted); }
+
+    /* ---------- contact ---------- */
+    #contact { background: var(--mist); }
+    .next-steps { margin-block-start: 34px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 22px; counter-reset: ns; }
+    .next-steps li { display: flex; gap: 14px; align-items: baseline; color: var(--muted); font-size: 16px; }
+    .next-steps li::before { counter-increment: ns; content: "0" counter(ns); font-family: Montserrat, sans-serif; direction: ltr; font-size: 13px; font-weight: 600; background: var(--white); border-radius: 999px; padding: 2px 10px; color: var(--navy); flex: none; }
+    .next-steps b { display: block; color: var(--navy); font-weight: 600; }
+    /* The embedded form (Studio OS P34) draws its own card and has no page
+       background or padding, so it sits straight on this section. It posts its
+       height (see the script); until the first message the frame keeps a fixed
+       height per layout. */
+    .intake-frame { margin-block-start: 34px; }
+    .intake-frame iframe { display: block; inline-size: 100%; block-size: 860px; border: 0; color-scheme: light; }
     @media (max-width: 689px) { .intake-frame iframe { block-size: 1130px; } }
-    .contact-alt { margin-block-start: 18px; font-size: 0.85rem; color: var(--faint); }
-    .contact-alt a { color: var(--accent); }
+    .contact-alt { margin-block-start: 18px; font-size: 14px; color: var(--subtle); }
+    .contact-alt a { color: var(--navy); }
 
-    /* sticky mobile CTA: appears after the hero, hides at the contact section */
+    /* ---------- footer ---------- */
+    footer { padding-block: 36px; border-block-start: 1px solid var(--line); }
+    .foot { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; font-size: 14px; color: var(--subtle); }
+    .foot img { block-size: 36px; inline-size: auto; }
+    .foot a { color: var(--subtle); text-decoration: none; }
+    .foot a:hover { color: var(--navy); text-decoration: underline; }
+    .foot .mail { margin-inline-start: auto; }
+
+    /* ---------- sticky mobile CTA ---------- */
     .sticky-cta { display: none; }
     @media (max-width: 720px) {
       .sticky-cta {
         display: block; position: fixed; z-index: 60; inset-inline: 0; inset-block-end: 0;
         padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
-        background: rgba(11, 11, 15, 0.86); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-        border-block-start: 1px solid var(--line);
+        background: rgba(255,255,255,0.82); -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+        box-shadow: 0 -1px 0 rgba(14,28,48,0.08);
         transform: translateY(110%); transition: transform .3s cubic-bezier(.2,.7,.2,1);
       }
       .sticky-cta.show { transform: none; }
-      .sticky-cta .btn { display: block; text-align: center; }
-      footer { padding-block-end: 96px; }
+      .sticky-cta .btn { display: flex; inline-size: 100%; }
+      footer { padding-block-end: 100px; }
+      section { padding-block: 72px; }
     }
+    @media (prefers-reduced-transparency: reduce) { .sticky-cta { background: var(--white); -webkit-backdrop-filter: none; backdrop-filter: none; } }
 
-    /* footer */
-    footer {
-      border-block-start: 1px solid var(--line);
-      padding-block: 34px; font-size: 0.82rem; color: var(--faint);
+    /* ---------- reveal ---------- */
+    .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+    .js .reveal.in { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .chip, .sand-line::after { animation: none; }
+      .js .reveal { opacity: 1; transform: none; transition: none; }
+      .sticky-cta { transition: none; }
     }
-    .foot-inner { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
-    .foot-inner a { color: var(--muted); text-decoration: none; }
-    .foot-inner a:hover { color: var(--accent); }
-    .foot-domain { margin-inline-start: auto; direction: ltr; unicode-bidi: isolate; }
-
-    /* reveal animation */
-    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
-    .reveal.in { opacity: 1; transform: none; }
-
-    /* LTR fixed content inside RTL */
-    .ltr { direction: ltr; unicode-bidi: isolate; }
   </style>
 </head>
 <body>
+<a class="skip" href="#main" data-en="Skip to content">דילוג לתוכן</a>
 
-<nav>
-  <div class="wrap nav-inner">
-    <a class="brand" href="#top">take it <b>aizy.</b></a>
+<nav class="top" aria-label="ראשי" data-en-label="Main">
+  <div class="wrap nav-in">
+    <a class="nav-logo" href="#top" aria-label="Take It AIZY"><img src="/brand/logo/take-it-aizy-logo-navy.svg" alt="Take It AIZY" width="97" height="46"></a>
     <div class="nav-links">
-      <a href="#services" data-i18n="nav_services">מה אנחנו בונים</a>
-      <a href="#cases" data-i18n="nav_cases">פרויקטים</a>
-      <a href="#how" data-i18n="nav_how">איך זה עובד</a>
-      <a class="nav-cta" href="#contact" data-i18n="nav_cta">השאירו פרטים</a>
+      <a href="#services" data-en="What we build">מה אנחנו בונים</a>
+      <a href="#work" data-en="Work">פרויקטים</a>
+      <a href="#how" data-en="How we work">איך עובדים</a>
+      <a href="#faq" data-en="FAQ">שאלות</a>
     </div>
-    <button class="lang-toggle" id="langToggle" aria-label="Switch language">EN</button>
+    <button type="button" class="lang lat" id="langToggle" aria-label="Switch language">EN</button>
+    <a class="btn nav-cta" href="#contact" data-en="Free call">שיחה ללא עלות</a>
   </div>
 </nav>
 
+<main id="main">
+
 <header class="hero" id="top">
-  <div class="glow g1"></div>
-  <div class="glow g2"></div>
   <div class="wrap">
-    <span class="badge" data-i18n="hero_badge">AI · אוטומציה · מערכות בהתאמה אישית</span>
-    <h1 data-i18n-html="hero_title">העסק שלכם רץ על עבודה ידנית. <span class="hl">אנחנו מחליפים אותה במערכת.</span></h1>
-    <p class="hero-sub" data-i18n="hero_sub">בוטים לשירות לקוחות בעברית, מערכות ניהול תפורות למידה, ואוטומציות שמחזירות לכם שעות ביום - בנויים סביב איך שהעסק שלכם באמת עובד, לא להפך.</p>
-    <div class="hero-ctas">
-      <a class="btn btn-primary btn-lg" href="#contact" data-i18n="hero_cta1">ספרו לנו מה צריך</a>
-      <a class="btn btn-ghost" href="#cases" data-i18n="hero_cta2">מה כבר בנינו</a>
+    <span class="pill"><i></i><span data-en="AI and automation systems for business">מערכות AI ואוטומציה לעסקים</span></span>
+    <h1 data-en-html="The manual work ends here. <span>Your time comes back to you.</span>">העבודה הידנית נגמרת כאן. <span>הזמן שלכם חוזר אליכם.</span></h1>
+    <p class="sub" data-en="We build systems that do a business’s repetitive work for it: a Hebrew service bot, a tailored management system, and automations that close the back office. You approve, the system does.">אנחנו בונים לעסקים מערכות שעושות את העבודה החוזרת במקומם: בוט שירות בעברית, מערכת ניהול תפורה, ואוטומציות שסוגרות את המשרד האחורי. אתם מאשרים, המערכת עושה.</p>
+    <div class="hero-cta">
+      <a class="btn btn-lg" href="#contact" data-en="Book a free needs call">לשיחת אפיון ללא עלות</a>
+      <a class="btn btn-text" href="#work" data-en-html="See what we’ve built <span aria-hidden='true'>→</span>">ראו מה כבר בנינו <span aria-hidden="true">←</span></a>
     </div>
-    <p class="cta-note" data-i18n="hero_note">טופס קצר שמגיע ישר אלינו. בלי התחייבות.</p>
-    <div class="hero-domain">takeitaizy.dev</div>
+    <p class="hero-note" data-en="The first needs call is free of charge. No commitment.">שיחת אפיון צרכים ראשונה ללא עלות. בלי התחייבות.</p>
+
+    <div class="stage" aria-hidden="true">
+      <img class="mark" src="/brand/logo/take-it-aizy-mark-navy.svg" alt="" width="262" height="300">
+      <div class="sand-line"></div>
+      <div class="chip c1"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span><b data-en="New inquiry logged in the CRM">פנייה חדשה נקלטה ב-CRM</b><small data-en="Automatic · 2 min ago">אוטומטי · לפני 2 דק׳</small></span></div>
+      <div class="chip c2"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span><span><b data-en="Monthly report sent to the accountant">הדוח החודשי נשלח לרו״ח</b><small data-en="07:00 · on the 1st of every month">07:00 · ב-1 לכל חודש</small></span></div>
+      <div class="chip c3"><span class="ico sand"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E1C30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span><span><b data-en="3 technicians scheduled">3 טכנאים שובצו</b><small data-en="Waiting for your approval">ממתין לאישור שלך</small></span><span class="ok" data-en="Approve">אישור</span></div>
+      <div class="chip c4"><span><small data-en="WhatsApp · service bot">וואטסאפ · בוט שירות</small><b data-en="“We got the invoice, a technician is on the way.”">״קיבלנו את החשבונית, טכנאי בדרך.״</b></span></div>
+    </div>
   </div>
 </header>
 
-<section id="pain">
+<section class="sectors" aria-label="תחומים" data-en-label="Sectors">
   <div class="wrap">
-    <div class="sec-label reveal" data-i18n="pain_label">הבעיה</div>
-    <h2 class="sec-title reveal" data-i18n="pain_title">כמה שעות ביום העסק שלכם מבזבז על דברים שמחשב עושה יותר טוב?</h2>
-    <div class="pains">
-      <div class="pain reveal" data-i18n="pain_1">כל פנייה של לקוח נפתחת ידנית ב-CRM. רבע שעה לפנייה, כמה פניות ביום - שעתיים נעלמות.</div>
-      <div class="pain reveal" data-i18n="pain_2">שכר העובדים מחושב ידנית מתוך היומן, כל חודש מחדש, עם טעויות שמתגלות באיחור.</div>
-      <div class="pain reveal" data-i18n="pain_3">אישורים ומסמכים מתנהלים בוואטסאפ חופשי - בלי תיעוד, בלי בקרה, וחשופים לניצול.</div>
-      <div class="pain reveal" data-i18n="pain_4">הדוח החודשי לרואת החשבון נבנה ידנית באקסל. שוב. כמו בחודש שעבר.</div>
-    </div>
-    <p class="pain-hook reveal" data-i18n-html="pain_hook">נשמע מוכר? <span class="hl">בדיוק בשביל זה אנחנו קיימים.</span></p>
-    <div class="inline-cta reveal">
-      <a class="btn btn-primary" href="#contact" data-i18n="pain_cta">ספרו לנו מה גוזל לכם זמן</a>
-    </div>
+    <p data-en="We already work with businesses in the public sector, education, and import and distribution">כבר עובדים עם עסקים ממגזר ציבורי, חינוך, יבוא והפצה</p>
+    <ul class="sector-list">
+      <li data-en="Public sector">מגזר ציבורי</li>
+      <li data-en="Education">חינוך</li>
+      <li data-en="Import and distribution">יבוא והפצה</li>
+    </ul>
   </div>
 </section>
 
-<section id="services">
+<section class="pain" id="pain">
+  <div class="wrap split">
+    <div class="reveal">
+      <p class="eyebrow" data-en="The problem">הבעיה</p>
+      <h2 data-en="Where does your time disappear?">איפה הזמן שלכם נעלם?</h2>
+      <p class="lead" data-en="In most businesses it is not one big thing. It is dozens of small things someone does by hand, every day, that nobody counts.">ברוב העסקים זה לא דבר אחד גדול. זה עשרות דברים קטנים שמישהו עושה ידנית, כל יום, ושאף אחד לא סופר.</p>
+    </div>
+    <ul class="pain-list">
+      <li class="reveal"><span class="tag" data-en="Inquiries">פניות</span><span data-en="Every customer inquiry is opened by hand in the CRM. A quarter of an hour each, a few a day, and two hours vanish.">כל פנייה של לקוח נפתחת ידנית ב-CRM. רבע שעה לפנייה, כמה פניות ביום, ושעתיים נעלמות.</span></li>
+      <li class="reveal"><span class="tag" data-en="Payroll">שכר</span><span data-en="Payroll is calculated by hand from the calendar, every month again, with mistakes that surface late.">השכר מחושב ידנית מתוך היומן, כל חודש מחדש, עם טעויות שמתגלות באיחור.</span></li>
+      <li class="reveal"><span class="tag" data-en="Approvals">אישורים</span><span data-en="Approvals and documents travel through free-form WhatsApp. No record, no control.">אישורים ומסמכים עוברים בוואטסאפ חופשי. בלי תיעוד, בלי בקרה.</span></li>
+      <li class="reveal"><span class="tag" data-en="Reports">דוחות</span><span data-en="The accountant’s report is built in Excel. Again. Just like last month.">הדוח לרואה החשבון נבנה באקסל. שוב. בדיוק כמו בחודש שעבר.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="fit">
   <div class="wrap">
-    <div class="sec-label reveal" data-i18n="svc_label">מה אנחנו בונים</div>
-    <h2 class="sec-title reveal" data-i18n="svc_title">מערכות בהתאמה אישית, לא תבניות מדף</h2>
-    <p class="sec-sub reveal" data-i18n="svc_sub">כל עסק עובד אחרת. אנחנו לומדים את התהליכים שלכם ובונים בדיוק את מה שחסר - לא פחות, ובטח שלא יותר.</p>
+    <p class="eyebrow reveal" data-en="Who it is for">למי זה מתאים</p>
+    <h2 class="reveal" style="max-inline-size: 20ch" data-en="You don’t need to know what to build. You need to know what hurts.">לא צריך לדעת מה לבנות. צריך לדעת מה כואב.</h2>
+    <ul class="fit-grid">
+      <li class="reveal"><b data-en="Who">למי</b><p data-en="Business owners and operations managers whose work depends on manual copying, Excel files and one person’s memory.">בעלי עסקים ומנהלי תפעול שהעבודה אצלם תלויה בהעתקות ידניות, באקסלים ובזיכרון של אדם אחד.</p></li>
+      <li class="reveal"><b data-en="The sign it fits">סימן ההתאמה</b><p data-en="A process that repeats every day or every month, and somebody in the business already feels it takes too much.">יש תהליך שחוזר על עצמו כל יום או כל חודש, ומישהו בעסק כבר מרגיש שהוא גוזל יותר מדי.</p></li>
+      <li class="reveal"><b data-en="What you bring">מה מגיע איתכם</b><p data-en="Not a requirements document. It is enough to show us how the work is done today.">לא מסמך דרישות. מספיק להראות לנו איך העבודה נעשית היום.</p></li>
+      <li class="reveal not"><b data-en="What we won’t do">מה לא</b><p data-en="We won’t sell you a system your business has to bend itself around, and we won’t build AI where Excel does the job well.">לא נמכור לכם מערכת שהעסק צריך להתאים את עצמו אליה, ולא נבנה AI איפה שאקסל טוב עושה את העבודה.</p></li>
+    </ul>
+  </div>
+</section>
+
+<div class="calc-wrap" id="calc">
+  <div class="wrap">
+    <div class="calc on-dark reveal">
+      <div>
+        <p class="eyebrow" data-en="Time calculator">מחשבון זמן</p>
+        <h2 data-en="What does the manual work cost you?">כמה עולה לכם העבודה הידנית?</h2>
+        <div class="stepper-list">
+          <div class="stepper"><span data-en="People doing manual work">עובדים שעושים עבודה ידנית</span><span class="ctl"><button type="button" data-calc="people" data-d="-1" aria-label="פחות עובדים" data-en-label="Fewer people">−</button><output class="lat" id="vPeople">3</output><button type="button" data-calc="people" data-d="1" aria-label="יותר עובדים" data-en-label="More people">+</button></span></div>
+          <div class="stepper"><span data-en="Hours a day per person">שעות ביום לכל עובד</span><span class="ctl"><button type="button" data-calc="hours" data-d="-1" aria-label="פחות שעות" data-en-label="Fewer hours">−</button><output class="lat" id="vHours">2</output><button type="button" data-calc="hours" data-d="1" aria-label="יותר שעות" data-en-label="More hours">+</button></span></div>
+          <div class="stepper"><span data-en="Cost of an hour (₪)">עלות שעת עבודה (₪)</span><span class="ctl"><button type="button" data-calc="rate" data-d="-10" aria-label="עלות נמוכה יותר" data-en-label="Lower cost">−</button><output class="lat" id="vRate">80</output><button type="button" data-calc="rate" data-d="10" aria-label="עלות גבוהה יותר" data-en-label="Higher cost">+</button></span></div>
+        </div>
+      </div>
+      <div class="calc-out" aria-live="polite">
+        <p class="k" data-en="Your manual work, per year">העבודה הידנית שלכם בשנה</p>
+        <p class="big lat" id="oHours">1,584</p>
+        <p class="k" data-en="hours">שעות</p>
+        <p class="cost lat" id="oCost">₪126,720</p>
+        <p class="k" style="margin-block-start: 8px" data-en="a year, on tasks a computer does better">בשנה, על משימות שמחשב עושה טוב יותר</p>
+        <a class="btn btn-light" href="#contact" data-en="Let’s check your real number">בואו נבדוק את המספר האמיתי</a>
+        <p class="fine" data-en="An estimate based on 22 working days a month. The needs call pins down the exact number.">הערכה לפי 22 ימי עבודה בחודש. בשיחת האפיון ממפים את המספר המדויק.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="services" class="tight-top">
+  <div class="wrap">
+    <p class="eyebrow reveal" data-en="What we build">מה אנחנו בונים</p>
+    <h2 class="reveal" style="max-inline-size: 18ch" data-en="Custom systems. Not off-the-shelf templates.">מערכות בהתאמה אישית. לא תבניות מדף.</h2>
     <div class="cards">
-      <div class="card reveal">
-        <span class="num">/01</span>
-        <h3 data-i18n="svc_1_t">שירות לקוחות אוטומטי</h3>
-        <p data-i18n="svc_1_p">בוט וואטסאפ ומייל בעברית שמנהל פניות מקצה לקצה: זיהוי מוצר, איסוף פרטים ומסמכים, שיבוץ טכנאים - עם אישור אנושי לכל פעולה רגישה.</p>
-      </div>
-      <div class="card reveal">
-        <span class="num">/02</span>
-        <h3 data-i18n="svc_2_t">מערכות ניהול תפורות</h3>
-        <p data-i18n="svc_2_p">מנויים, תלמידים, מלגאים, טכנאים, מלאי - מערכת שמדברת את השפה של העסק שלכם, עם המסכים שאתם צריכים ובלי אלה שלא.</p>
-      </div>
-      <div class="card reveal">
-        <span class="num">/03</span>
-        <h3 data-i18n="svc_3_t">אוטומציית משרד אחורי</h3>
-        <p data-i18n="svc_3_p">דוחות לרואה החשבון בלחיצת כפתור, שערי מסמכים שמזהים חשבוניות, חישובי שכר מהיומן - הדברים שגוזלים ערבים שלמים.</p>
-      </div>
-      <div class="card reveal">
-        <span class="num">/04</span>
-        <h3 data-i18n="svc_4_t">סוכני AI תפעוליים</h3>
-        <p data-i18n="svc_4_p">הפקת קטלוגים מאקסל מוצרים, עדכוני SEO לאתר, תכנון קווי חלוקה - סוכנים שעושים עבודה אמיתית, לא צ'אטבוטים לקישוט.</p>
-      </div>
+      <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1C30" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg><h3 data-en="Automated customer service">שירות לקוחות אוטומטי</h3><p data-en="A Hebrew WhatsApp and email bot that handles inquiries end to end: product identification, document collection, technician dispatch. Every sensitive action gets human approval.">בוט וואטסאפ ומייל בעברית שמנהל פניות מקצה לקצה: זיהוי מוצר, איסוף מסמכים, שיבוץ טכנאים. כל פעולה רגישה עוברת אישור אנושי.</p></div>
+      <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1C30" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><h3 data-en="Tailored management systems">מערכות ניהול תפורות</h3><p data-en="Subscriptions, students, technicians, inventory. A system that speaks your business’s language, with the screens you need and none you don’t.">מנויים, תלמידים, טכנאים, מלאי. מערכת שמדברת את השפה של העסק, עם המסכים שאתם צריכים ובלי אלה שלא.</p></div>
+      <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1C30" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg><h3 data-en="Back-office automation">אוטומציית משרד אחורי</h3><p data-en="Accountant reports in one click, a document gate that recognizes invoices, payroll calculated from the calendar. The things that eat whole evenings.">דוחות לרואה החשבון בלחיצה, שער מסמכים שמזהה חשבוניות, שכר שמחושב מהיומן. הדברים שגוזלים ערבים שלמים.</p></div>
+      <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1C30" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3"/></svg><h3 data-en="Operational AI agents">סוכני AI תפעוליים</h3><p data-en="Catalogs from a product sheet, SEO updates, distribution-route planning. Agents that do real work, not decorative chatbots.">קטלוגים מאקסל מוצרים, עדכוני SEO, תכנון קווי חלוקה. סוכנים שעושים עבודה אמיתית, לא צ׳אטבוט לקישוט.</p></div>
     </div>
   </div>
 </section>
 
-<section id="cases">
+<section id="dash" class="tight-top">
   <div class="wrap">
-    <div class="sec-label reveal" data-i18n="case_label">פרויקטים</div>
-    <h2 class="sec-title reveal" data-i18n="case_title">עבודות מהזמן האחרון</h2>
-    <div class="cases">
-      <article class="case reveal">
-        <span class="tag" data-i18n="case_1_tag">מגזר ציבורי</span>
-        <h3 data-i18n="case_1_t">מערכת ניהול מלגאים למרכז צעירים ברשות מקומית</h3>
-        <div class="row"><b data-i18n="case_1_pain_b">הכאב:</b><span data-i18n="case_1_pain">מעקב ידני אחרי עשרות מלגאים, שעות התנדבות ודיווחים - בטבלאות מפוזרות.</span></div>
-        <div class="row"><b data-i18n="case_1_sol_b">הפתרון:</b><span data-i18n="case_1_sol">מערכת ניהול מקצה לקצה: מלגאים, שעות, התראות ודוחות במקום אחד.</span></div>
-        <div class="stat" data-i18n="case_1_stat">POC עובד הוצג ללקוח תוך ימים מהאפיון</div>
-      </article>
-      <article class="case reveal">
-        <span class="tag" data-i18n="case_2_tag">חינוך</span>
-        <h3 data-i18n="case_2_t">מערכת מנויים, קבוצות ושכר לרשת שיעורי מתמטיקה</h3>
-        <div class="row"><b data-i18n="case_2_pain_b">הכאב:</b><span data-i18n="case_2_pain">מאות תלמידים, 23 קבוצות ו-7 מורים מנוהלים באקסלים - מנויים ושכר מחושבים ידנית.</span></div>
-        <div class="row"><b data-i18n="case_2_sol_b">הפתרון:</b><span data-i18n="case_2_sol">אפיון מלא של מערכת ניהול עם אוטומציית וואטסאפ, על בסיס הנתונים האמיתיים של העסק.</span></div>
-        <div class="stat" data-i18n="case_2_stat">נוסחת המנוי אומתה על 398 רשומות אמת - עד האגורה</div>
-      </article>
-      <article class="case reveal">
-        <span class="tag" data-i18n="case_3_tag">יבוא והפצה</span>
-        <h3 data-i18n="case_3_t">מערך שירות לקוחות אוטומטי ליבואן מוצרי חשמל</h3>
-        <div class="row"><b data-i18n="case_3_pain_b">הכאב:</b><span data-i18n="case_3_pain">10-15 דקות של הזנה ידנית לכל פנייה, אישורי החלפה בוואטסאפ חופשי, שיבוץ טכנאים ידני.</span></div>
-        <div class="row"><b data-i18n="case_3_sol_b">הפתרון:</b><span data-i18n="case_3_sol">בוט עברית מקצה לקצה עם שער חשבוניות, שיבוץ טכנאים ואישורים מאובטחים - הכול עם בקרה אנושית.</span></div>
-        <div class="stat" data-i18n="case_3_stat">משעתיים ביום של הזנה ידנית - לתהליך מנוהל ומתועד</div>
-      </article>
+    <p class="eyebrow reveal" data-en="What it looks like">ככה זה נראה</p>
+    <h2 class="reveal" style="max-inline-size: 20ch" data-en="One operations board, instead of five tools.">לוח תפעול אחד, במקום חמישה כלים.</h2>
+    <p class="lead reveal" data-en="Every inquiry, document and approval in one place. You see what is happening, and approve only what is sensitive. On desktop and on your phone.">כל פנייה, מסמך ואישור במקום אחד. אתם רואים מה קורה, ומאשרים רק את מה שרגיש. במחשב ובטלפון.</p>
+    <div class="dash-stage reveal" role="img" aria-label="דוגמה לממשק לוח תפעול במחשב ובטלפון" data-en-label="An example operations board on a computer and on a phone">
+      <div class="browser" aria-hidden="true">
+        <div class="browser-bar"><i></i><i></i><i></i><strong data-en="Operations board · today">לוח תפעול · היום</strong><em data-en="Sample interface">דוגמת ממשק</em></div>
+        <div class="kpis">
+          <div class="kpi"><span data-en="Inquiries logged today">פניות שנקלטו היום</span><b class="lat">24</b></div>
+          <div class="kpi hot"><span data-en="Waiting for your approval">ממתינות לאישור שלך</span><b class="lat">3</b></div>
+          <div class="kpi"><span data-en="Documents recognized">מסמכים שזוהו</span><b class="lat">17</b></div>
+          <div class="kpi"><span data-en="Open tickets">קריאות פתוחות</span><b class="lat">6</b></div>
+        </div>
+        <div class="panels">
+          <div class="panel"><h4 data-en="Approval queue">תור אישורים</h4>
+            <div class="row"><span data-en="Technician dispatch · central area">שיבוץ טכנאי · אזור מרכז</span><span class="ok" data-en="Approve">לאשר</span></div>
+            <div class="row"><span data-en="Product replacement · invoice verified">החלפת מוצר · חשבונית אומתה</span><span class="ok" data-en="Approve">לאשר</span></div>
+            <div class="row"><span data-en="Quote · ready to send">הצעת מחיר · מוכנה לשליחה</span><span class="ok" data-en="Approve">לאשר</span></div>
+          </div>
+          <div class="panel"><h4 data-en="Recent activity">פעילות אחרונה</h4>
+            <div class="row"><span data-en="The bot opened a new ticket">הבוט פתח קריאה חדשה</span><small data-en="2 min ago">לפני 2 דק׳</small></div>
+            <div class="row"><span data-en="Invoice recognized and logged">חשבונית זוהתה ונקלטה</span><small data-en="9 min ago">לפני 9 דק׳</small></div>
+            <div class="row"><span data-en="Payroll report sent to the accountant">דוח שכר נשלח לרו״ח</span><small>07:00</small></div>
+            <div class="row"><span data-en="Technician confirmed arrival">טכנאי אישר הגעה</span><small data-en="Yesterday">אתמול</small></div>
+          </div>
+        </div>
+      </div>
+      <div class="phone" aria-hidden="true">
+        <div class="phone-head"><img src="/brand/logo/take-it-aizy-mark-navy.svg" alt="" width="19" height="22"><small data-en="Today">היום</small></div>
+        <div class="kpi"><b class="lat">3</b><span data-en="Waiting for your approval">ממתינות לאישור שלך</span></div>
+        <ul class="phone-list">
+          <li><b data-en="Technician dispatch · central">שיבוץ טכנאי · מרכז</b><span data-en="Approve">לאשר</span></li>
+          <li><b data-en="Replacement · invoice verified">החלפת מוצר · חשבונית אומתה</b><span data-en="Approve">לאשר</span></li>
+          <li><b data-en="Quote · ready">הצעת מחיר · מוכנה</b><span data-en="Approve">לאשר</span></li>
+        </ul>
+      </div>
     </div>
-    <div class="inline-cta reveal">
-      <a class="btn btn-ghost" href="#contact" data-i18n="cases_cta">רוצים משהו כזה אצלכם?</a>
-      <span data-i18n="cases_cta_note">ספרו לנו על התהליך, ונחזור עם כיוון.</span>
+    <p class="caption" data-en="A sample interface with demo data. The real screens are built around your processes.">דוגמת ממשק עם נתוני הדגמה. המסכים האמיתיים נבנים לפי התהליכים שלכם.</p>
+  </div>
+</section>
+
+<section id="ba" class="tight-top">
+  <div class="wrap">
+    <p class="eyebrow reveal" data-en="Before and after">לפני ואחרי</p>
+    <h2 class="reveal" style="max-inline-size: 18ch" data-en="Same business, same team. Someone else does the repetitive work.">אותו עסק, אותו צוות. מישהו אחר עושה את העבודה החוזרת.</h2>
+    <div class="table-scroll reveal" role="region" tabindex="0" aria-label="טבלת לפני ואחרי" data-en-label="Before and after table">
+      <div class="ba">
+        <div class="h" data-en="Process">תהליך</div><div class="h was" data-en="Today">היום</div><div class="h now" data-en="With the system">עם המערכת</div>
+        <div class="p" data-en="Customer inquiry">פניית לקוח</div><div class="was" data-en="10-15 minutes of manual CRM entry">10-15 דקות הזנה ידנית ל-CRM</div><div data-en="The bot logs it, identifies the product and opens a ticket. You approve.">הבוט קולט, מזהה מוצר ופותח קריאה. אתם מאשרים.</div>
+        <div class="p" data-en="Teacher payroll">שכר מורים</div><div class="was" data-en="Calculated by hand from the calendar, every month">חישוב ידני מהיומן, כל חודש</div><div data-en="Calculated automatically, verified on real data">מחושב אוטומטית, ומאומת על נתוני אמת</div>
+        <div class="p" data-en="Replacement approvals">אישורי החלפה</div><div class="was" data-en="Free-form WhatsApp, no record">וואטסאפ חופשי, בלי תיעוד</div><div data-en="An invoice gate and a documented approval">שער חשבוניות ואישור מתועד</div>
+        <div class="p" data-en="Accountant report">דוח לרו״ח</div><div class="was" data-en="An evening in Excel, every month">ערב באקסל, כל חודש</div><div data-en="Sent on its own on the 1st of the month">נשלח לבד ב-1 לחודש</div>
+      </div>
+    </div>
+    <div class="totals">
+      <div class="total reveal"><b data-en="~60">כ-60</b><span data-en="hours of manual work saved every month">שעות עבודה ידנית נחסכות בחודש</span></div>
+      <div class="total reveal"><b data-en="~15">כ-15</b><span data-en="fewer data-entry mistakes every month, because nobody retypes it">טעויות הזנה פחות בחודש, כי אף אחד לא מקליד את זה שוב</span></div>
+    </div>
+    <p class="fine" data-en="An estimate for a sample business with about 8 inquiries a day. Your number is calculated on the needs call.">הערכה לעסק לדוגמה, עם כ-8 פניות ביום. המספר שלכם מחושב בשיחת האפיון.</p>
+  </div>
+</section>
+
+<section class="work" id="work">
+  <div class="wrap">
+    <p class="eyebrow reveal" data-en="Work">פרויקטים</p>
+    <h2 class="reveal" data-en="What we’ve already built">מה כבר בנינו</h2>
+    <div class="case-grid">
+      <article class="case reveal">
+        <p class="n lat">398</p><p class="cap" data-en="real records the subscription formula was verified against, down to the agora">רשומות אמת שעליהן אומתה נוסחת המנוי, עד האגורה</p><hr>
+        <span class="tag" data-en="Education">חינוך</span>
+        <h3 data-en="A subscriptions, groups and payroll system for a math-tutoring network">מערכת מנויים, קבוצות ושכר לרשת שיעורי מתמטיקה</h3>
+        <p class="d" data-en="Hundreds of students, 23 groups and 7 teachers moved from spreadsheets to one system with WhatsApp automation.">מאות תלמידים, 23 קבוצות ו-7 מורים עברו מאקסלים למערכת אחת עם אוטומציית וואטסאפ.</p>
+      </article>
+      <article class="case reveal">
+        <p class="n" data-en="2 hrs a day">2 ש׳ ביום</p><p class="cap" data-en="of manual entry became a managed, documented process">של הזנה ידנית הפכו לתהליך מנוהל ומתועד</p><hr>
+        <span class="tag" data-en="Import and distribution">יבוא והפצה</span>
+        <h3 data-en="Automated customer service for a home-appliances importer">שירות לקוחות אוטומטי ליבואן מוצרי חשמל</h3>
+        <p class="d" data-en="An end-to-end Hebrew bot with an invoice gate, technician dispatch and secured approvals.">בוט עברית מקצה לקצה עם שער חשבוניות, שיבוץ טכנאים ואישורים מאובטחים.</p>
+      </article>
+      <article class="case reveal">
+        <p class="n" data-en="Days">ימים</p><p class="cap" data-en="from the spec to a working POC in front of the client">מהאפיון ועד POC עובד מול הלקוח</p><hr>
+        <span class="tag" data-en="Public sector">מגזר ציבורי</span>
+        <h3 data-en="A scholarship-program management system for a municipal young-adults center">מערכת ניהול מלגאים למרכז צעירים ברשות מקומית</h3>
+        <p class="d" data-en="Scholars, volunteer hours, alerts and reports in one place instead of scattered spreadsheets.">מלגאים, שעות התנדבות, התראות ודוחות. הכול במקום אחד במקום טבלאות מפוזרות.</p>
+      </article>
     </div>
   </div>
 </section>
 
 <section id="how">
   <div class="wrap">
-    <div class="sec-label reveal" data-i18n="how_label">איך זה עובד</div>
-    <h2 class="sec-title reveal" data-i18n="how_title">בשלבים, בשקיפות, בלי הפתעות</h2>
-    <div class="steps">
-      <div class="step reveal">
-        <h3 data-i18n="how_1_t">אפיון ממוקד</h3>
-        <p data-i18n="how_1_p">יושבים על התהליכים האמיתיים, ממפים כל משימה ידנית וכמה היא עולה לכם בחודש. יוצאים עם מסמך אפיון שאתם מאשרים.</p>
-      </div>
-      <div class="step reveal">
-        <h3 data-i18n="how_2_t">פיתוח בשלבים</h3>
-        <p data-i18n="how_2_p">מתחילים מהכאב הכי גדול. כל שלב עומד בפני עצמו ומביא ערך לפני שממשיכים הלאה.</p>
-      </div>
-      <div class="step reveal">
-        <h3 data-i18n="how_3_t">פיילוט מבוקר</h3>
-        <p data-i18n="how_3_p">הרצה אמיתית בסביבה שלכם, כשכל פעולה רגישה עוברת אישור אנושי עד שסומכים על המערכת.</p>
-      </div>
-      <div class="step reveal">
-        <h3 data-i18n="how_4_t">עלייה לאוויר</h3>
-        <p data-i18n="how_4_p">הדרכה, מעבר מלא, ואחזקה שוטפת - אתם אף פעם לא נשארים לבד עם המערכת.</p>
-      </div>
+    <p class="eyebrow reveal" data-en="How we work">איך עובדים</p>
+    <h2 class="reveal" data-en="In stages. Transparently. No surprises.">בשלבים. בשקיפות. בלי הפתעות.</h2>
+    <ol class="steps">
+      <li class="step reveal"><div class="num"></div><h3 data-en="Focused discovery">אפיון ממוקד</h3><p data-en="We map every manual task and what it costs you a month. You leave with a spec you approve.">ממפים כל משימה ידנית וכמה היא עולה לכם בחודש. יוצאים עם מסמך אפיון שאתם מאשרים.</p></li>
+      <li class="step reveal"><div class="num"></div><h3 data-en="Staged build">פיתוח בשלבים</h3><p data-en="We start with the biggest pain. Each stage stands on its own and delivers value before we continue.">מתחילים מהכאב הכי גדול. כל שלב עומד בפני עצמו ומביא ערך לפני שממשיכים.</p></li>
+      <li class="step reveal"><div class="num"></div><h3 data-en="Controlled pilot">פיילוט מבוקר</h3><p data-en="A real run at your place, and every sensitive action gets human approval until you trust the system.">הרצה אמיתית אצלכם, וכל פעולה רגישה עוברת אישור אנושי עד שסומכים על המערכת.</p></li>
+      <li class="step reveal"><div class="num"></div><h3 data-en="Going live">עלייה לאוויר</h3><p data-en="Training, a full handover, and ongoing maintenance. You are never left alone with the system.">הדרכה, מעבר מלא ואחזקה שוטפת. אתם אף פעם לא נשארים לבד עם המערכת.</p></li>
+    </ol>
+    <ul class="principles">
+      <li class="reveal"><b data-en="A human in the loop">אדם בלולאה</b><p data-en="No sensitive action reaches a customer without your approval.">שום פעולה רגישה לא יוצאת ללקוח בלי אישור שלכם.</p></li>
+      <li class="reveal"><b data-en="Security and isolation">אבטחה ובידוד</b><p data-en="A dedicated server, encryption and backups. Sensitive data never enters the system.">שרת ייעודי, הצפנה וגיבויים. מידע רגיש לא נוגע במערכת.</p></li>
+      <li class="reveal"><b data-en="Transparent pricing">תמחור שקוף</b><p data-en="A one-time setup, a maintenance retainer and an hour bank. No fine print.">הקמה חד-פעמית, ריטיינר אחזקה ובנק שעות. בלי אותיות קטנות.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section id="model" class="tight-top">
+  <div class="wrap">
+    <p class="eyebrow reveal" data-en="Working model">מודל עבודה</p>
+    <h2 class="reveal" style="max-inline-size: 18ch" data-en="The value starts on the very first call.">הערך מתחיל כבר בשיחה הראשונה.</h2>
+    <p class="lead reveal" data-en="The first needs call is free of charge. We map the process, work out what it costs you a month, and you leave with a clear direction. Even if we never work together.">שיחת אפיון הצרכים הראשונה ללא עלות. ממפים את התהליך, מחשבים כמה הוא עולה לכם בחודש, ויוצאים עם כיוון ברור. גם אם לא נעבוד יחד.</p>
+    <div class="model-grid">
+      <div class="model free on-dark reveal"><div class="no">01 <span class="free-tag" data-en="Free of charge">ללא עלות</span></div><h3 data-en="Needs call">שיחת אפיון צרכים</h3><p data-en="Mapping the process, working out the manual cost, and a clear direction on what is worth building first. The call itself is free of charge.">מיפוי התהליך, חישוב העלות הידנית וכיוון ברור למה שווה לבנות קודם. השיחה עצמה ללא עלות.</p><a class="btn btn-light" href="#contact" data-en="Book the free call">לשיחת האפיון</a></div>
+      <div class="model reveal"><div class="no">02</div><h3 data-en="Setup">הקמה</h3><p data-en="A staged build, a controlled pilot, training and going live.">בנייה בשלבים, פיילוט מבוקר, הדרכה ועלייה לאוויר.</p><p class="price" data-en="A fixed quote after the needs call">הצעת מחיר סגורה אחרי שיחת האפיון</p></div>
+      <div class="model reveal"><div class="no">03</div><h3 data-en="Maintenance and changes">אחזקה ושינויים</h3><p data-en="A monthly retainer and an hour bank for changes and improvements.">ריטיינר חודשי ובנק שעות לשינויים ולשיפורים.</p><p class="price" data-en="A fixed monthly fee">תשלום חודשי קבוע</p></div>
     </div>
-    <div class="principles">
-      <div class="principle"><span data-i18n-html="pr_1"><b>אדם בלולאה.</b> שום פעולה רגישה לא יוצאת ללקוח בלי אישור אנושי.</span></div>
-      <div class="principle"><span data-i18n-html="pr_2"><b>אבטחה ובידוד.</b> שרת ייעודי, הצפנה, גיבויים - והמידע הרגיש שלכם לא נוגע במערכת.</span></div>
-      <div class="principle"><span data-i18n-html="pr_3"><b>תמחור שקוף.</b> הקמה חד-פעמית, ריטיינר אחזקה, ובנק שעות לשינויים. בלי אותיות קטנות.</span></div>
+    <p class="people reveal" data-en-html="<b>Two people, full responsibility.</b> The person who scopes your system is the one who builds it, and the one who picks up the phone after it goes live.">‏<b>שני אנשים, אחריות מלאה.</b> מי שמאפיין את המערכת הוא מי שבונה אותה, ומי שעונה לטלפון אחרי שהיא עולה לאוויר.</p>
+  </div>
+</section>
+
+<section id="faq" class="tight-top">
+  <div class="wrap faq">
+    <p class="eyebrow reveal" data-en="Questions">שאלות</p>
+    <h2 class="reveal" data-en="What people ask us before they start">מה שואלים אותנו לפני שמתחילים</h2>
+    <div class="faq-list">
+      <details open><summary data-en="What does the first needs call include?">מה כוללת שיחת האפיון הראשונה?</summary><p data-en="We map the process, work out what it costs you a month, and you leave with a clear direction. The call is free of charge and carries no commitment.">ממפים את התהליך, מחשבים כמה הוא עולה לכם בחודש, ויוצאים עם כיוון ברור. השיחה ללא עלות וללא התחייבות.</p></details>
+      <details><summary data-en="How much does it cost?">כמה זה עולה?</summary><p data-en="The model is fixed: a one-time setup, a maintenance retainer and an hour bank for changes. After the needs call you get a fixed quote.">המודל קבוע: הקמה חד-פעמית, ריטיינר אחזקה ובנק שעות לשינויים. אחרי שיחת האפיון מקבלים הצעת מחיר סגורה.</p></details>
+      <details><summary data-en="How long until it works?">כמה זמן עד שזה עובד?</summary><p data-en="A working POC within days of the spec. The full system is built in stages, and each stage delivers value on its own.">POC עובד תוך ימים מהאפיון. המערכת המלאה נבנית בשלבים, וכל שלב מביא ערך בפני עצמו.</p></details>
+      <details><summary data-en="What happens if the AI gets it wrong in front of a customer?">מה קורה אם ה-AI טועה מול לקוח?</summary><p data-en="Every sensitive action gets human approval. The system proposes, you approve.">כל פעולה רגישה עוברת אישור אנושי. המערכת מציעה, אתם מאשרים.</p></details>
+      <details><summary data-en="Where is our data kept?">איפה נשמר המידע שלנו?</summary><p data-en="A dedicated server, encryption and backups. Sensitive data does not enter the system at all.">שרת ייעודי, הצפנה וגיבויים. מידע רגיש לא נכנס למערכת בכלל.</p></details>
+      <details><summary data-en="We’re a small business. Is this relevant to us?">אנחנו עסק קטן. זה רלוונטי לנו?</summary><p data-en="Exactly for you. A business with no IT team gains the most from a system that does the repetitive work.">בדיוק בשבילכם. עסק בלי צוות IT מרוויח הכי הרבה ממערכת שעושה את העבודה החוזרת.</p></details>
     </div>
   </div>
 </section>
 
 <section id="contact">
   <div class="wrap">
-    <div class="sec-label reveal" data-i18n="form_label">דברו איתנו</div>
-    <h2 class="sec-title reveal" data-i18n="form_title">ספרו לנו מה גוזל לכם הכי הרבה זמן</h2>
+    <p class="eyebrow reveal" data-en="Talk to us">דברו איתנו</p>
+    <h2 class="reveal" style="max-inline-size: 20ch" data-en="Tell us what eats most of your time">ספרו לנו מה גוזל לכם הכי הרבה זמן</h2>
+    <p class="lead reveal" data-en="We get back to you within one business day with first thoughts. The first needs call is free of charge.">חוזרים אליכם תוך יום עסקים עם מחשבות ראשונות. שיחת האפיון הראשונה ללא עלות.</p>
     <ol class="next-steps reveal">
-      <li><span data-i18n-html="ns_1"><b>ממלאים טופס קצר</b>מה העסק עושה, מה לוקח יותר מדי זמן, ומה הייתם רוצים שיקרה מעצמו.</span></li>
-      <li><span data-i18n-html="ns_2"><b>אחד משנינו חוזר אליכם</b>בדרך כלל באותו יום, עם שאלות ראשונות ומחשבות.</span></li>
-      <li><span data-i18n-html="ns_3"><b>שיחת היכרות קצרה</b>יוצאים ממנה עם כיוון ברור: מה שווה לבנות קודם, ואם בכלל צריך.</span></li>
+      <li><span><b data-en="Fill in a short form">ממלאים טופס קצר</b><span data-en="What your business does, what takes too long, and what you wish happened on its own.">מה העסק עושה, מה לוקח יותר מדי זמן, ומה הייתם רוצים שיקרה מעצמו.</span></span></li>
+      <li><span><b data-en="One of us gets back to you">אחד משנינו חוזר אליכם</b><span data-en="Usually the same day, with first questions and thoughts.">בדרך כלל באותו יום, עם שאלות ראשונות ומחשבות.</span></span></li>
+      <li><span><b data-en="A short intro call">שיחת היכרות קצרה</b><span data-en="You leave with a clear direction: what is worth building first, and whether you need it at all.">יוצאים ממנה עם כיוון ברור: מה שווה לבנות קודם, ואם בכלל צריך.</span></span></li>
     </ol>
     <div class="intake-frame">
-      <iframe id="intakeFrame" src="https://os.takeitaizy.dev/intake?embed=1&amp;theme=dark&amp;lang=he&amp;utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=embed" title="טופס פנייה ל-Take It AIZY" data-i18n-title="intake_title" loading="lazy"></iframe>
+      <iframe id="intakeFrame" src="https://os.takeitaizy.dev/intake?embed=1&amp;theme=light&amp;lang=he&amp;utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=embed" title="טופס פנייה ל-Take It AIZY" data-en-title="Contact form for Take It AIZY" loading="lazy"></iframe>
     </div>
-    <p class="contact-alt" data-i18n-html="contact_alt">הטופס לא נטען? <a href="https://os.takeitaizy.dev/intake?utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=fallback" target="_blank" rel="noopener">פתחו אותו בחלון נפרד</a> · מעדיפים מייל? <a href="mailto:hello@takeitaizy.dev" class="ltr">hello@takeitaizy.dev</a></p>
+    <p class="contact-alt" data-en-html="Form not loading? <a href='https://os.takeitaizy.dev/intake?utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=fallback' target='_blank' rel='noopener'>Open it in a new window</a> · Prefer email? <a href='mailto:hello@takeitaizy.dev' class='lat'>hello@takeitaizy.dev</a>">הטופס לא נטען? <a href="https://os.takeitaizy.dev/intake?utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=fallback" target="_blank" rel="noopener">פתחו אותו בחלון נפרד</a> · מעדיפים מייל? <a href="mailto:hello@takeitaizy.dev" class="lat">hello@takeitaizy.dev</a></p>
   </div>
 </section>
 
-<div class="sticky-cta" id="stickyCta">
-  <a class="btn btn-primary" href="#contact" data-i18n="sticky_cta">השאירו פרטים, נחזור אליכם</a>
-</div>
+</main>
 
 <footer>
-  <div class="wrap foot-inner">
-    <span class="ltr">© 2026 takeitaizy</span>
-    <a href="mailto:hello@takeitaizy.dev" class="ltr">hello@takeitaizy.dev</a>
-    <span class="foot-domain">takeitaizy.dev</span>
+  <div class="wrap foot">
+    <img src="/brand/logo/take-it-aizy-logo-navy.svg" alt="Take It AIZY" width="76" height="36">
+    <span class="lat">© 2026 Take It AIZY</span>
+    <a class="mail lat" href="mailto:hello@takeitaizy.dev">hello@takeitaizy.dev</a>
   </div>
 </footer>
 
+<div class="sticky-cta" id="stickyCta">
+  <a class="btn" href="#contact" data-en="Free call, we’ll get back to you">שיחה ללא עלות, נחזור אליכם</a>
+</div>
+
 <script>
-/* The intake form's origin (Studio OS). Used by setLang() and the form bridge below. */
+/* The intake form's origin (Studio OS). Used by the language switch and the form bridge below. */
 var INTAKE_ORIGIN = "https://os.takeitaizy.dev";
 
-/* ---------------- i18n ---------------- */
-var EN = {
-  nav_services: "What we build",
-  nav_cases: "Work",
-  nav_how: "How it works",
-  nav_cta: "Get in touch",
-  hero_badge: "AI · Automation · Custom systems",
-  hero_title: 'Your business runs on manual work. <span class="hl">We replace it with a system.</span>',
-  hero_sub: "Hebrew-first customer-service bots, management systems tailored to the millimeter, and automations that give you hours back every day - built around how your business actually works, not the other way around.",
-  hero_cta1: "Tell us what you need",
-  hero_cta2: "See our work",
-  hero_note: "A short form that comes straight to us. No commitment.",
-  pain_label: "The problem",
-  pain_title: "How many hours a day does your business burn on things a computer does better?",
-  pain_1: "Every customer inquiry is keyed into the CRM by hand. Fifteen minutes each, a few a day - two hours gone.",
-  pain_2: "Payroll is computed manually from the calendar, every month, with errors that surface late.",
-  pain_3: "Approvals and documents live in free-form WhatsApp - no record, no control, open to abuse.",
-  pain_4: "The monthly report for the accountant is built by hand in Excel. Again. Like last month.",
-  pain_hook: 'Sound familiar? <span class="hl">That’s exactly why we exist.</span>',
-  pain_cta: "Tell us what eats your time",
-  svc_label: "What we build",
-  svc_title: "Custom systems, not off-the-shelf templates",
-  svc_sub: "Every business works differently. We learn your processes and build exactly what’s missing - no less, and certainly no more.",
-  svc_1_t: "Automated customer service",
-  svc_1_p: "A Hebrew WhatsApp & email bot that handles inquiries end to end: product identification, detail and document collection, technician dispatch - with human approval on every sensitive action.",
-  svc_2_t: "Tailored management systems",
-  svc_2_p: "Subscriptions, students, scholars, technicians, inventory - a system that speaks your business’s language, with the screens you need and none you don’t.",
-  svc_3_t: "Back-office automation",
-  svc_3_p: "One-click accountant reports, document gates that read invoices, payroll computed from the calendar - the things that eat whole evenings.",
-  svc_4_t: "Operational AI agents",
-  svc_4_p: "Catalog generation from a product sheet, SEO updates for your site, distribution-route planning - agents that do real work, not decorative chatbots.",
-  case_label: "Work",
-  case_title: "Recent projects",
-  case_1_tag: "Public sector",
-  case_1_t: "Scholarship-program management system for a municipal young-adults center",
-  case_1_pain_b: "The pain:", case_1_pain: "Manually tracking dozens of scholars, volunteer hours and reports - across scattered spreadsheets.",
-  case_1_sol_b: "The fix:", case_1_sol: "An end-to-end management system: scholars, hours, alerts and reports in one place.",
-  case_1_stat: "Working POC shown to the client within days of the spec",
-  case_2_tag: "Education",
-  case_2_t: "Subscriptions, groups & payroll system for a math-tutoring network",
-  case_2_pain_b: "The pain:", case_2_pain: "Hundreds of students, 23 groups and 7 teachers run on spreadsheets - subscriptions and payroll computed by hand.",
-  case_2_sol_b: "The fix:", case_2_sol: "A full system spec with WhatsApp automation, grounded in the business’s real data.",
-  case_2_stat: "Subscription formula verified against 398 real records - to the agora",
-  case_3_tag: "Import & distribution",
-  case_3_t: "Automated customer-service operation for a home-appliances importer",
-  case_3_pain_b: "The pain:", case_3_pain: "10-15 minutes of manual entry per inquiry, replacement approvals in free-form WhatsApp, manual technician dispatch.",
-  case_3_sol_b: "The fix:", case_3_sol: "An end-to-end Hebrew bot with an invoice gate, technician dispatch and secured approvals - all with human oversight.",
-  case_3_stat: "From two hours a day of manual entry - to a managed, documented flow",
-  cases_cta: "Want something like this?",
-  cases_cta_note: "Tell us about the process, and we’ll come back with a direction.",
-  how_label: "How it works",
-  how_title: "In stages, transparently, no surprises",
-  how_1_t: "Focused discovery",
-  how_1_p: "We sit on your real processes, map every manual task and what it costs you monthly. You leave with a spec document you approve.",
-  how_2_t: "Staged build",
-  how_2_p: "We start with the biggest pain. Each stage stands on its own and delivers value before we move on.",
-  how_3_t: "Controlled pilot",
-  how_3_p: "A real run in your environment, with every sensitive action human-approved until you trust the system.",
-  how_4_t: "Go live",
-  how_4_p: "Training, full handover, and ongoing maintenance - you’re never left alone with the system.",
-  pr_1: "<b>Human in the loop.</b> No sensitive action reaches a customer without human approval.",
-  pr_2: "<b>Security & isolation.</b> Dedicated server, encryption, backups - and your sensitive data never touches the system.",
-  pr_3: "<b>Transparent pricing.</b> One-time setup, maintenance retainer, and an hour bank for changes. No fine print.",
-  form_label: "Talk to us",
-  form_title: "Tell us what eats most of your time",
-  intake_title: "Contact form for Take It AIZY",
-  contact_alt: 'Form not loading? <a href="https://os.takeitaizy.dev/intake?utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=fallback" target="_blank" rel="noopener">Open it in a new window</a> · Prefer email? <a href="mailto:hello@takeitaizy.dev" class="ltr">hello@takeitaizy.dev</a>',
-  ns_1: "<b>Fill in a short form</b>What your business does, what takes too long, and what you wish happened on its own.",
-  ns_2: "<b>One of us gets back to you</b>Usually the same day, with first questions and thoughts.",
-  ns_3: "<b>A short intro call</b>You leave with a clear direction: what’s worth building first, and whether you need it at all.",
-  sticky_cta: "Leave your details, we’ll get back to you",
-  title: "takeitaizy — Custom AI & automation systems for business",
-  desc: "takeitaizy builds custom AI and automation systems: Hebrew customer-service bots, tailored management systems, back-office automation and operational AI agents."
-};
-var HE = {
-  title: "takeitaizy — מערכות AI ואוטומציה לעסקים",
-  desc: "takeitaizy בונה מערכות AI ואוטומציה בהתאמה אישית לעסקים: בוטים לשירות לקוחות בעברית, מערכות ניהול, אוטומציית משרד אחורי וסוכני AI תפעוליים."
-};
-
+/* ---------------- language: Hebrew in the markup, English in data-en* ---------------- */
 var currentLang = "he";
-var heCache = {};
+var heText = new WeakMap();
 
-function cacheHebrew() {
-  document.querySelectorAll("[data-i18n]").forEach(function (el) {
-    heCache[el.getAttribute("data-i18n")] = el.textContent;
-  });
-  document.querySelectorAll("[data-i18n-html]").forEach(function (el) {
-    heCache[el.getAttribute("data-i18n-html")] = el.innerHTML;
-  });
-  document.querySelectorAll("[data-i18n-title]").forEach(function (el) {
-    heCache[el.getAttribute("data-i18n-title")] = el.getAttribute("title");
+function swap(attr, apply) {
+  document.querySelectorAll("[" + attr + "]").forEach(function (el) {
+    var cache = heText.get(el) || {};
+    if (!(attr in cache)) { cache[attr] = apply(el, null); heText.set(el, cache); }
+    var value = currentLang === "en" ? el.getAttribute(attr) : cache[attr];
+    apply(el, value);
   });
 }
 
 function setLang(lang) {
   currentLang = lang;
-  var dict = lang === "en" ? EN : heCache;
-  document.querySelectorAll("[data-i18n]").forEach(function (el) {
-    var k = el.getAttribute("data-i18n");
-    if (dict[k] != null) el.textContent = dict[k];
-  });
-  document.querySelectorAll("[data-i18n-html]").forEach(function (el) {
-    var k = el.getAttribute("data-i18n-html");
-    if (dict[k] != null) el.innerHTML = dict[k];
-  });
-  document.querySelectorAll("[data-i18n-title]").forEach(function (el) {
-    var k = el.getAttribute("data-i18n-title");
-    if (dict[k] != null) el.setAttribute("title", dict[k]);
-  });
+  swap("data-en", function (el, v) { if (v === null) return el.textContent; el.textContent = v; });
+  swap("data-en-html", function (el, v) { if (v === null) return el.innerHTML; el.innerHTML = v; });
+  swap("data-en-title", function (el, v) { if (v === null) return el.getAttribute("title"); el.setAttribute("title", v); });
+  swap("data-en-label", function (el, v) { if (v === null) return el.getAttribute("aria-label"); el.setAttribute("aria-label", v); });
   document.documentElement.lang = lang;
   document.documentElement.dir = lang === "en" ? "ltr" : "rtl";
-  document.title = lang === "en" ? EN.title : HE.title;
+  document.title = lang === "en" ? "Take It AIZY | AI and automation systems for business" : "Take It AIZY | מערכות AI ואוטומציה לעסקים";
   var d = document.querySelector('meta[name="description"]');
-  if (d) d.setAttribute("content", lang === "en" ? EN.desc : HE.desc);
+  if (d) d.setAttribute("content", lang === "en"
+    ? "Take It AIZY builds custom AI and automation systems for business: Hebrew customer-service bots, tailored management systems, back-office automation and operational AI agents. The first needs call is free of charge."
+    : "Take It AIZY בונה מערכות AI ואוטומציה בהתאמה אישית לעסקים: בוטים לשירות לקוחות בעברית, מערכות ניהול, אוטומציית משרד אחורי וסוכני AI תפעוליים. שיחת אפיון צרכים ראשונה ללא עלות.");
   document.getElementById("langToggle").textContent = lang === "en" ? "עב" : "EN";
+  document.getElementById("langToggle").setAttribute("aria-label", lang === "en" ? "מעבר לעברית" : "Switch language");
   syncIntakeFrame(lang);
   try { localStorage.setItem("taizy-lang", lang); } catch (e) {}
 }
 
-cacheHebrew();
 document.getElementById("langToggle").addEventListener("click", function () {
   setLang(currentLang === "he" ? "en" : "he");
 });
-try {
-  var saved = localStorage.getItem("taizy-lang");
-  if (saved === "en") setLang("en");
-} catch (e) {}
+try { if (localStorage.getItem("taizy-lang") === "en") setLang("en"); } catch (e) {}
+
+/* ---------------- reveal on scroll ---------------- */
+if ("IntersectionObserver" in window) {
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+} else {
+  document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
+}
+
+/* ---------------- time calculator ---------------- */
+var calc = { people: 3, hours: 2, rate: 80 };
+var limits = { people: [1, 50], hours: [1, 8], rate: [30, 400] };
+function fmt(n) { return n.toLocaleString("en-US"); }
+function renderCalc() {
+  var yearHours = calc.people * calc.hours * 22 * 12;
+  document.getElementById("vPeople").textContent = calc.people;
+  document.getElementById("vHours").textContent = calc.hours;
+  document.getElementById("vRate").textContent = calc.rate;
+  document.getElementById("oHours").textContent = fmt(yearHours);
+  document.getElementById("oCost").textContent = "₪" + fmt(yearHours * calc.rate);
+}
+document.querySelectorAll("[data-calc]").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var k = b.getAttribute("data-calc"), d = Number(b.getAttribute("data-d"));
+    calc[k] = Math.max(limits[k][0], Math.min(limits[k][1], calc[k] + d));
+    renderCalc();
+  });
+});
+renderCalc();
+
+/* ---------------- sticky mobile CTA ----------------
+   Shown once the hero is out of view, hidden again while the contact
+   section (which has its own form) is on screen. */
+var sticky = document.getElementById("stickyCta");
+var heroGone = false, contactIn = false;
+function syncSticky() { sticky.classList.toggle("show", heroGone && !contactIn); }
+if ("IntersectionObserver" in window) {
+  new IntersectionObserver(function (es) { heroGone = !es[0].isIntersecting; syncSticky(); }).observe(document.getElementById("top"));
+  new IntersectionObserver(function (es) { contactIn = es[0].isIntersecting; syncSticky(); }, { threshold: 0.15 }).observe(document.getElementById("contact"));
+}
 
 /* ---------------- intake form (os.takeitaizy.dev, Studio OS P34) ----------------
    The iframe src carries embed=1, the theme, the site's current language and
    the visitor's own utm_* tags (the fixed site tags only when there are none).
    The form posts {type: "takeitaizy:intake", event: "height"|"submitted"} to
-   https://takeitaizy.dev only; anything else is ignored. INTAKE_ORIGIN is
-   declared at the top: setLang() can run before this block. */
-
+   https://takeitaizy.dev only; anything else is ignored. */
 function intakeSrc(lang) {
-  var params = new URLSearchParams({ embed: "1", theme: "dark", lang: lang === "en" ? "en" : "he" });
+  var params = new URLSearchParams({ embed: "1", theme: "light", lang: lang === "en" ? "en" : "he" });
   var own = new URLSearchParams(location.search);
   var tagged = false;
   ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"].forEach(function (key) {
@@ -655,27 +802,6 @@ window.addEventListener("message", function (e) {
     if (frame.getBoundingClientRect().top < 0) frame.scrollIntoView({ block: "start" });
   }
 });
-
-/* ---------------- reveal ---------------- */
-var io = new IntersectionObserver(function (entries) {
-  entries.forEach(function (e) {
-    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
-  });
-}, { threshold: 0.12 });
-document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
-
-/* ---------------- sticky mobile CTA ----------------
-   Shown once the hero is out of view, hidden again while the contact
-   section (which has its own big CTA) is on screen. */
-var sticky = document.getElementById("stickyCta");
-var heroGone = false, contactIn = false;
-function syncSticky() { sticky.classList.toggle("show", heroGone && !contactIn); }
-new IntersectionObserver(function (es) {
-  heroGone = !es[0].isIntersecting; syncSticky();
-}).observe(document.getElementById("top"));
-new IntersectionObserver(function (es) {
-  contactIn = es[0].isIntersecting; syncSticky();
-}, { threshold: 0.15 }).observe(document.getElementById("contact"));
 </script>
 </body>
 </html>

@@ -4,7 +4,12 @@ Landing page for **takeitaizy** — served via GitHub Pages at [takeitaizy.dev](
 
 ## How it works
 
-- `index.html` — the coming-soon page (single file, no build step).
+- `index.html` — the landing page (single file, no build step). Hebrew in the
+  markup, English in `data-en*` attributes, swapped by the language toggle. The
+  contact form is the Studio OS intake form (`os.takeitaizy.dev/intake`) in an
+  iframe; the contract with that app is in the script at the bottom of the page.
+- `brand/` — the official logo, favicon set and share image (`brand/BRAND.md`).
+- `404.html` — the not-found page.
 - `CNAME` — tells GitHub Pages to serve this site on the custom domain `takeitaizy.dev`.
 - Pushing to `main` publishes automatically (org site repo: `takeitaizy.github.io`).
 
