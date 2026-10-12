@@ -42,10 +42,10 @@
         "@type": "FAQPage",
         "mainEntity": [
           {"@type": "Question", "name": "מה כוללת שיחת האפיון הראשונה?", "acceptedAnswer": {"@type": "Answer", "text": "ממפים את התהליך, מחשבים כמה הוא עולה לכם בחודש, ויוצאים עם כיוון ברור. השיחה ללא עלות וללא התחייבות."}},
-          {"@type": "Question", "name": "כמה זה עולה?", "acceptedAnswer": {"@type": "Answer", "text": "המודל קבוע: הקמה חד-פעמית, ריטיינר אחזקה ובנק שעות לשינויים. אחרי שיחת האפיון מקבלים הצעת מחיר סגורה."}},
-          {"@type": "Question", "name": "כמה זמן עד שזה עובד?", "acceptedAnswer": {"@type": "Answer", "text": "POC עובד תוך ימים מהאפיון. המערכת המלאה נבנית בשלבים, וכל שלב מביא ערך בפני עצמו."}},
-          {"@type": "Question", "name": "מה קורה אם ה-AI טועה מול לקוח?", "acceptedAnswer": {"@type": "Answer", "text": "כל פעולה רגישה עוברת אישור אנושי. המערכת מציעה, אתם מאשרים."}},
-          {"@type": "Question", "name": "איפה נשמר המידע שלנו?", "acceptedAnswer": {"@type": "Answer", "text": "שרת ייעודי, הצפנה וגיבויים. מידע רגיש לא נכנס למערכת בכלל."}},
+          {"@type": "Question", "name": "כמה זה עולה?", "acceptedAnswer": {"@type": "Answer", "text": "הקמה חד-פעמית, ואחר כך תשלום חודשי קבוע לאחזקה ולשינויים. אחרי שיחת האפיון מקבלים הצעת מחיר סגורה."}},
+          {"@type": "Question", "name": "כמה זמן עד שזה עובד?", "acceptedAnswer": {"@type": "Answer", "text": "מהרגע שמאשרים את הצעת המחיר מתחילים לבנות, לפי לוח הזמנים שכתוב בה. בונים בשלבים, כך שחלק מהמערכת כבר עובד אצלכם עוד לפני שהכול מוכן."}},
+          {"@type": "Question", "name": "איך יודעים שאפשר לסמוך על המערכת?", "acceptedAnswer": {"@type": "Answer", "text": "בהתחלה בודקים יחד את התוצאות שלה מול הדרך שבה עבדתם עד היום, ורק כשהן תואמות עוברים לעבוד איתה. ומה שיוצא ללקוחות שלכם יכול לחכות קודם לאישור שלכם."}},
+          {"@type": "Question", "name": "איפה נשמר המידע שלנו?", "acceptedAnswer": {"@type": "Answer", "text": "המידע נשמר מוצפן ומגובה, ורק מי שאתם מאשרים יכול לגשת אליו. אנחנו מכניסים למערכת רק את המידע שהיא צריכה כדי לעבוד."}},
           {"@type": "Question", "name": "אנחנו עסק קטן. זה רלוונטי לנו?", "acceptedAnswer": {"@type": "Answer", "text": "בדיוק בשבילכם. עסק בלי צוות IT מרוויח הכי הרבה ממערכת שעושה את העבודה החוזרת."}}
         ]
       }
@@ -182,11 +182,6 @@
     @keyframes sand { from { transform: translateY(-26px); } to { transform: translateY(70px); } }
     @media (max-width: 900px) { .c1, .c2, .c3, .c4 { display: none; } .stage { block-size: 340px; border-radius: 28px; margin-block-start: 44px; } .stage .mark { block-size: 210px; } .sand-line { block-size: 48px; } }
 
-    /* ---------- sectors ---------- */
-    .sectors { padding-block: 40px 80px; text-align: center; }
-    .sectors p { font-size: 15px; color: var(--subtle); }
-    .sector-list { margin-block-start: 18px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-    .sector-list li { border: 1px solid var(--line); border-radius: 999px; padding: 8px 20px; font-size: 15px; color: var(--muted); }
 
     /* ---------- pain ---------- */
     .pain { background: var(--mist); }
@@ -284,15 +279,22 @@
 
     /* ---------- work ---------- */
     .work { background: var(--mist); }
-    .case-grid { margin-block-start: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; }
+    .case-grid { margin-block-start: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 16px; }
     .case { background: var(--white); border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 14px; }
-    .case .n { font-size: 56px; line-height: 1; font-weight: 800; }
-    .case .n.lat { font-weight: 700; letter-spacing: -0.03em; }
-    .case .cap { color: var(--muted); }
-    .case hr { border: 0; border-block-start: 1px solid var(--line); margin-block: 8px; }
     .case .tag { align-self: flex-start; }
-    .case h3 { font-size: 19px; line-height: 1.35; }
-    .case p.d { color: var(--subtle); font-size: 15px; }
+    .case.feature { grid-column: 1 / -1; padding: 40px; }
+    .case.feature h3 { font-size: clamp(24px, 3vw, 32px); }
+    .feature-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 10px 28px; margin-block-start: 8px; }
+    .feature-list li { position: relative; padding-inline-start: 22px; color: var(--body); }
+    .feature-list li::before { content: ""; position: absolute; inset-inline-start: 0; inset-block-start: 0.6em; inline-size: 8px; block-size: 8px; border-radius: 50%; background: var(--sand); }
+    .work-more { margin-block-start: 28px; text-align: center; font-size: 19px; font-weight: 600; color: var(--muted); }
+    .case .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .case .tag.wip { background: var(--sand-soft); color: var(--sand-ink); }
+    .case h3 { font-size: 21px; line-height: 1.3; }
+    .case p.d { color: var(--muted); font-size: 16px; }
+    .case .result { margin-block-start: auto; background: var(--sand-soft); border-radius: 18px; padding: 16px 18px; font-size: 15px; color: var(--sand-ink); }
+    .case .result b { display: block; font-size: 13px; font-weight: 700; margin-block-end: 4px; }
+    .case .result strong { color: var(--navy); font-weight: 700; }
 
     /* ---------- how ---------- */
     .steps { margin-block-start: 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 32px; counter-reset: s; }
@@ -412,7 +414,7 @@
     <p class="sub" data-en="We build systems that do a business’s repetitive work for it: a Hebrew service bot, a tailored management system, and automations that close the back office. You approve, the system does.">אנחנו בונים לעסקים מערכות שעושות את העבודה החוזרת במקומם: בוט שירות בעברית, מערכת ניהול תפורה, ואוטומציות שסוגרות את המשרד האחורי. אתם מאשרים, המערכת עושה.</p>
     <div class="hero-cta">
       <a class="btn btn-lg" href="#contact" data-en="Book a free needs call">לשיחת אפיון ללא עלות</a>
-      <a class="btn btn-text" href="#work" data-en-html="See what we’ve built <span aria-hidden='true'>→</span>">ראו מה כבר בנינו <span aria-hidden="true">←</span></a>
+      <a class="btn btn-text" href="#work" data-en-html="See examples <span aria-hidden='true'>→</span>">ראו דוגמאות <span aria-hidden="true">←</span></a>
     </div>
     <p class="hero-note" data-en="The first needs call is free of charge. No commitment.">שיחת אפיון צרכים ראשונה ללא עלות. בלי התחייבות.</p>
 
@@ -426,17 +428,6 @@
     </div>
   </div>
 </header>
-
-<section class="sectors" aria-label="תחומים" data-en-label="Sectors">
-  <div class="wrap">
-    <p data-en="We already work with businesses in the public sector, education, and import and distribution">כבר עובדים עם עסקים ממגזר ציבורי, חינוך, יבוא והפצה</p>
-    <ul class="sector-list">
-      <li data-en="Public sector">מגזר ציבורי</li>
-      <li data-en="Education">חינוך</li>
-      <li data-en="Import and distribution">יבוא והפצה</li>
-    </ul>
-  </div>
-</section>
 
 <section class="pain" id="pain">
   <div class="wrap split">
@@ -571,27 +562,33 @@
 <section class="work" id="work">
   <div class="wrap">
     <p class="eyebrow reveal" data-en="Work">פרויקטים</p>
-    <h2 class="reveal" data-en="What we’ve already built">מה כבר בנינו</h2>
+    <h2 class="reveal" data-en="Examples of what we build">דוגמאות ממה שאנחנו בונים</h2>
     <div class="case-grid">
-      <article class="case reveal">
-        <p class="n lat">398</p><p class="cap" data-en="real records the subscription formula was verified against, down to the agora">רשומות אמת שעליהן אומתה נוסחת המנוי, עד האגורה</p><hr>
-        <span class="tag" data-en="Education">חינוך</span>
-        <h3 data-en="A subscriptions, groups and payroll system for a math-tutoring network">מערכת מנויים, קבוצות ושכר לרשת שיעורי מתמטיקה</h3>
-        <p class="d" data-en="Hundreds of students, 23 groups and 7 teachers moved from spreadsheets to one system with WhatsApp automation.">מאות תלמידים, 23 קבוצות ו-7 מורים עברו מאקסלים למערכת אחת עם אוטומציית וואטסאפ.</p>
+      <article class="case feature reveal">
+        <span class="tag" data-en="Management">ניהול</span>
+        <h3 data-en="A project and client management system for a studio">מערכת לניהול פרויקטים ולקוחות לסטודיו</h3>
+        <p class="d" data-en="One place for all the work: clients, deals, projects and tasks, documents, invoices and enquiries from the website.">מקום אחד לכל העבודה: לקוחות, עסקאות, פרויקטים ומשימות, מסמכים, חשבוניות ופניות מהאתר.</p>
+        <ul class="feature-list">
+          <li data-en="Connects to Google Calendar, so meetings land in the system on their own">מתחברת ליומן Google, כך שפגישות נכנסות למערכת לבד</li>
+          <li data-en="Connected to a meeting assistant: a transcript, a summary and action items from every call">מחוברת לעוזר שמתמלל את הפגישות: תמליל, סיכום ומשימות מכל שיחה</li>
+          <li data-en="Writes a first spec draft from the transcript of a discovery call">כותבת טיוטת אפיון ראשונה מתוך התמליל של שיחת האפיון</li>
+          <li data-en="Website enquiries arrive in a queue and become a deal in one click">פניות מהאתר נכנסות לתור והופכות לעסקה בלחיצה</li>
+          <li data-en="A sales pipeline, quotes and invoices in one place">צינור מכירות, הצעות מחיר וחשבוניות במקום אחד</li>
+          <li data-en="Notifications and a personal inbox for everyone on the team">התראות ותיבה אישית לכל אחד בצוות</li>
+        </ul>
       </article>
       <article class="case reveal">
-        <p class="n" data-en="2 hrs a day">2 ש׳ ביום</p><p class="cap" data-en="of manual entry became a managed, documented process">של הזנה ידנית הפכו לתהליך מנוהל ומתועד</p><hr>
-        <span class="tag" data-en="Import and distribution">יבוא והפצה</span>
-        <h3 data-en="Automated customer service for a home-appliances importer">שירות לקוחות אוטומטי ליבואן מוצרי חשמל</h3>
-        <p class="d" data-en="An end-to-end Hebrew bot with an invoice gate, technician dispatch and secured approvals.">בוט עברית מקצה לקצה עם שער חשבוניות, שיבוץ טכנאים ואישורים מאובטחים.</p>
+        <span class="tag" data-en="Finance">פיננסים</span>
+        <h3 data-en="A finance system that shows the full picture">מערכת לניהול כספים שמראה את התמונה המלאה</h3>
+        <p class="d" data-en="A profit and loss report, a balance sheet and expected cash flows in one system. Alongside it, a system that reads contracts and agreements, complex files and long Excel sheets, and answers questions from the documents you upload.">דוח רווח והפסד, מאזן ותזרים מזומנים צפוי במערכת אחת. לצדה מערכת שקוראת חוזים והסכמים, קבצים מורכבים ואקסלים ארוכים, ועונה על שאלות מתוך המסמכים שמעלים אליה.</p>
       </article>
       <article class="case reveal">
-        <p class="n" data-en="Days">ימים</p><p class="cap" data-en="from the spec to a working POC in front of the client">מהאפיון ועד POC עובד מול הלקוח</p><hr>
-        <span class="tag" data-en="Public sector">מגזר ציבורי</span>
-        <h3 data-en="A scholarship-program management system for a municipal young-adults center">מערכת ניהול מלגאים למרכז צעירים ברשות מקומית</h3>
-        <p class="d" data-en="Scholars, volunteer hours, alerts and reports in one place instead of scattered spreadsheets.">מלגאים, שעות התנדבות, התראות ודוחות. הכול במקום אחד במקום טבלאות מפוזרות.</p>
+        <span class="tag" data-en="Manufacturing">ייצור</span>
+        <h3 data-en="A CRM for a manufacturing client">מערכת CRM ללקוח מתחום הייצור</h3>
+        <p class="d" data-en="Built around the way the client already works, instead of an off-the-shelf product the business has to bend to.">נבנתה לפי הדרך שבה הלקוח כבר עובד, במקום תוכנת מדף שהעסק צריך להתאים את עצמו אליה.</p>
       </article>
     </div>
+    <p class="work-more reveal" data-en="And many more projects…">ועוד פרויקטים רבים…</p>
   </div>
 </section>
 
@@ -606,9 +603,9 @@
       <li class="step reveal"><div class="num"></div><h3 data-en="Going live">עלייה לאוויר</h3><p data-en="Training, a full handover, and ongoing maintenance. You are never left alone with the system.">הדרכה, מעבר מלא ואחזקה שוטפת. אתם אף פעם לא נשארים לבד עם המערכת.</p></li>
     </ol>
     <ul class="principles">
-      <li class="reveal"><b data-en="A human in the loop">אדם בלולאה</b><p data-en="No sensitive action reaches a customer without your approval.">שום פעולה רגישה לא יוצאת ללקוח בלי אישור שלכם.</p></li>
-      <li class="reveal"><b data-en="Security and isolation">אבטחה ובידוד</b><p data-en="A dedicated server, encryption and backups. Sensitive data never enters the system.">שרת ייעודי, הצפנה וגיבויים. מידע רגיש לא נוגע במערכת.</p></li>
-      <li class="reveal"><b data-en="Transparent pricing">תמחור שקוף</b><p data-en="A one-time setup, a maintenance retainer and an hour bank. No fine print.">הקמה חד-פעמית, ריטיינר אחזקה ובנק שעות. בלי אותיות קטנות.</p></li>
+      <li class="reveal"><b data-en="You approve">אתם מאשרים</b><p data-en="Nothing sensitive goes out to your customers without your approval.">שום דבר רגיש לא יוצא ללקוחות שלכם בלי אישור שלכם.</p></li>
+      <li class="reveal"><b data-en="Protected data">מידע מוגן</b><p data-en="Encrypted and backed up, and only people you approve can access it.">מוצפן ומגובה, ורק מי שאתם מאשרים ניגש אליו.</p></li>
+      <li class="reveal"><b data-en="Transparent pricing">תמחור שקוף</b><p data-en="A one-time setup and a fixed monthly payment. No fine print.">הקמה חד-פעמית ותשלום חודשי קבוע. בלי אותיות קטנות.</p></li>
     </ul>
   </div>
 </section>
@@ -621,7 +618,7 @@
     <div class="model-grid">
       <div class="model free on-dark reveal"><div class="no">01 <span class="free-tag" data-en="Free of charge">ללא עלות</span></div><h3 data-en="Needs call">שיחת אפיון צרכים</h3><p data-en="Mapping the process, working out the manual cost, and a clear direction on what is worth building first. The call itself is free of charge.">מיפוי התהליך, חישוב העלות הידנית וכיוון ברור למה שווה לבנות קודם. השיחה עצמה ללא עלות.</p><a class="btn btn-light" href="#contact" data-en="Book the free call">לשיחת האפיון</a></div>
       <div class="model reveal"><div class="no">02</div><h3 data-en="Setup">הקמה</h3><p data-en="A staged build, a controlled pilot, training and going live.">בנייה בשלבים, פיילוט מבוקר, הדרכה ועלייה לאוויר.</p><p class="price" data-en="A fixed quote after the needs call">הצעת מחיר סגורה אחרי שיחת האפיון</p></div>
-      <div class="model reveal"><div class="no">03</div><h3 data-en="Maintenance and changes">אחזקה ושינויים</h3><p data-en="A monthly retainer and an hour bank for changes and improvements.">ריטיינר חודשי ובנק שעות לשינויים ולשיפורים.</p><p class="price" data-en="A fixed monthly fee">תשלום חודשי קבוע</p></div>
+      <div class="model reveal"><div class="no">03</div><h3 data-en="Maintenance and changes">אחזקה ושינויים</h3><p data-en="We keep the system running and make changes and improvements as you need them.">שומרים על המערכת עובדת ועושים שינויים ושיפורים לפי הצורך.</p><p class="price" data-en="A fixed monthly fee">תשלום חודשי קבוע</p></div>
     </div>
     <p class="people reveal" data-en-html="<b>Two people, full responsibility.</b> The person who scopes your system is the one who builds it, and the one who picks up the phone after it goes live.">‏<b>שני אנשים, אחריות מלאה.</b> מי שמאפיין את המערכת הוא מי שבונה אותה, ומי שעונה לטלפון אחרי שהיא עולה לאוויר.</p>
   </div>
@@ -633,10 +630,10 @@
     <h2 class="reveal" data-en="What people ask us before they start">מה שואלים אותנו לפני שמתחילים</h2>
     <div class="faq-list">
       <details open><summary data-en="What does the first needs call include?">מה כוללת שיחת האפיון הראשונה?</summary><p data-en="We map the process, work out what it costs you a month, and you leave with a clear direction. The call is free of charge and carries no commitment.">ממפים את התהליך, מחשבים כמה הוא עולה לכם בחודש, ויוצאים עם כיוון ברור. השיחה ללא עלות וללא התחייבות.</p></details>
-      <details><summary data-en="How much does it cost?">כמה זה עולה?</summary><p data-en="The model is fixed: a one-time setup, a maintenance retainer and an hour bank for changes. After the needs call you get a fixed quote.">המודל קבוע: הקמה חד-פעמית, ריטיינר אחזקה ובנק שעות לשינויים. אחרי שיחת האפיון מקבלים הצעת מחיר סגורה.</p></details>
-      <details><summary data-en="How long until it works?">כמה זמן עד שזה עובד?</summary><p data-en="A working POC within days of the spec. The full system is built in stages, and each stage delivers value on its own.">POC עובד תוך ימים מהאפיון. המערכת המלאה נבנית בשלבים, וכל שלב מביא ערך בפני עצמו.</p></details>
-      <details><summary data-en="What happens if the AI gets it wrong in front of a customer?">מה קורה אם ה-AI טועה מול לקוח?</summary><p data-en="Every sensitive action gets human approval. The system proposes, you approve.">כל פעולה רגישה עוברת אישור אנושי. המערכת מציעה, אתם מאשרים.</p></details>
-      <details><summary data-en="Where is our data kept?">איפה נשמר המידע שלנו?</summary><p data-en="A dedicated server, encryption and backups. Sensitive data does not enter the system at all.">שרת ייעודי, הצפנה וגיבויים. מידע רגיש לא נכנס למערכת בכלל.</p></details>
+      <details><summary data-en="How much does it cost?">כמה זה עולה?</summary><p data-en="A one-time setup, then a fixed monthly payment for maintenance and changes. After the needs call you get a fixed quote.">הקמה חד-פעמית, ואחר כך תשלום חודשי קבוע לאחזקה ולשינויים. אחרי שיחת האפיון מקבלים הצעת מחיר סגורה.</p></details>
+      <details><summary data-en="How long until it works?">כמה זמן עד שזה עובד?</summary><p data-en="We start building the moment you approve the quote, on the schedule written in it. We build in stages, so part of the system is already working for you before everything is ready.">מהרגע שמאשרים את הצעת המחיר מתחילים לבנות, לפי לוח הזמנים שכתוב בה. בונים בשלבים, כך שחלק מהמערכת כבר עובד אצלכם עוד לפני שהכול מוכן.</p></details>
+      <details><summary data-en="How do we know we can trust the system?">איך יודעים שאפשר לסמוך על המערכת?</summary><p data-en="At first we check its results together against the way you work today, and you switch over only when they match. Anything that goes out to your customers can wait for your approval first.">בהתחלה בודקים יחד את התוצאות שלה מול הדרך שבה עבדתם עד היום, ורק כשהן תואמות עוברים לעבוד איתה. ומה שיוצא ללקוחות שלכם יכול לחכות קודם לאישור שלכם.</p></details>
+      <details><summary data-en="Where is our data kept?">איפה נשמר המידע שלנו?</summary><p data-en="Your data is kept encrypted and backed up, and only people you approve can access it. We put into the system only the data it needs to work.">המידע נשמר מוצפן ומגובה, ורק מי שאתם מאשרים יכול לגשת אליו. אנחנו מכניסים למערכת רק את המידע שהיא צריכה כדי לעבוד.</p></details>
       <details><summary data-en="We’re a small business. Is this relevant to us?">אנחנו עסק קטן. זה רלוונטי לנו?</summary><p data-en="Exactly for you. A business with no IT team gains the most from a system that does the repetitive work.">בדיוק בשבילכם. עסק בלי צוות IT מרוויח הכי הרבה ממערכת שעושה את העבודה החוזרת.</p></details>
     </div>
   </div>
