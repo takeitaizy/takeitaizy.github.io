@@ -177,10 +177,7 @@
     .c3 { inset-block-start: 150px; inset-inline-start: 72px; }
     .c4 { inset-block-end: 120px; inset-inline-start: 110px; }
     @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-    .sand-line { position: absolute; inset-inline-start: 50%; inset-block-start: 50%; inline-size: 4px; block-size: 70px; margin-block-start: 6px; margin-inline-start: -2px; border-radius: 2px; overflow: hidden; background: rgba(232,163,61,0.18); }
-    .sand-line::after { content: ""; position: absolute; inset-inline: 0; block-size: 26px; border-radius: 2px; background: linear-gradient(var(--sand), rgba(232,163,61,0)); animation: sand 2.4s linear infinite; }
-    @keyframes sand { from { transform: translateY(-26px); } to { transform: translateY(70px); } }
-    @media (max-width: 900px) { .c1, .c2, .c3, .c4 { display: none; } .stage { block-size: 340px; border-radius: 28px; margin-block-start: 44px; } .stage .mark { block-size: 210px; } .sand-line { block-size: 48px; } }
+    @media (max-width: 900px) { .c1, .c2, .c3, .c4 { display: none; } .stage { block-size: 340px; border-radius: 28px; margin-block-start: 44px; } .stage .mark { block-size: 210px; } }
 
 
     /* ---------- pain ---------- */
@@ -382,7 +379,7 @@
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .chip, .sand-line::after { animation: none; }
+      .chip { animation: none; }
       .js .reveal { opacity: 1; transform: none; transition: none; }
       .sticky-cta { transition: none; }
     }
@@ -420,7 +417,6 @@
 
     <div class="stage" aria-hidden="true">
       <img class="mark" src="/brand/logo/take-it-aizy-mark-navy.svg" alt="" width="262" height="300">
-      <div class="sand-line"></div>
       <div class="chip c1"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span><b data-en="New inquiry logged in the CRM">פנייה חדשה נקלטה ב-CRM</b><small data-en="Automatic · 2 min ago">אוטומטי · לפני 2 דק׳</small></span></div>
       <div class="chip c2"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span><span><b data-en="Monthly report sent to the accountant">הדוח החודשי נשלח לרו״ח</b><small data-en="07:00 · on the 1st of every month">07:00 · ב-1 לכל חודש</small></span></div>
       <div class="chip c3"><span class="ico sand"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E1C30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span><span><b data-en="3 technicians scheduled">3 טכנאים שובצו</b><small data-en="Waiting for your approval">ממתין לאישור שלך</small></span><span class="ok" data-en="Approve">אישור</span></div>
