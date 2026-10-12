@@ -176,6 +176,8 @@
     .c2 { inset-block-end: 88px; inset-inline-end: 120px; }
     .c3 { inset-block-start: 150px; inset-inline-start: 72px; }
     .c4 { inset-block-end: 120px; inset-inline-start: 110px; }
+    .stage .mark { animation: breathe 5s ease-in-out infinite; }
+    @keyframes breathe { 0%, 100% { scale: 1; } 50% { scale: 1.06; } }
     @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
     @media (max-width: 900px) { .c1, .c2, .c3, .c4 { display: none; } .stage { block-size: 340px; border-radius: 28px; margin-block-start: 44px; } .stage .mark { block-size: 210px; } }
 
@@ -379,7 +381,7 @@
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .chip { animation: none; }
+      .chip, .stage .mark { animation: none; }
       .js .reveal { opacity: 1; transform: none; transition: none; }
       .sticky-cta { transition: none; }
     }
