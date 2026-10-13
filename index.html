@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Take It AIZY | מערכות AI ואוטומציה לעסקים</title>
-  <meta name="description" content="Take It AIZY בונה מערכות AI ואוטומציה בהתאמה אישית לעסקים: בוטים לשירות לקוחות בעברית, מערכות ניהול, אוטומציית משרד אחורי וסוכני AI תפעוליים. שיחת אפיון צרכים ראשונה ללא עלות.">
+  <title>Take It AIZY | מערכות ניהול חכמות לעסקים</title>
+  <meta name="description" content="Take It AIZY בונה לעסקים מערכות ניהול חכמות בהתאמה אישית: מערכת אחת שכל העסק עובד בה, בוט שירות בעברית, מערכת למשרד האחורי וסוכני AI תפעוליים. שיחת אפיון צרכים ראשונה ללא עלות.">
   <meta name="theme-color" content="#0E1C30">
   <link rel="canonical" href="https://takeitaizy.dev/">
   <meta property="og:site_name" content="Take It AIZY">
-  <meta property="og:title" content="Take It AIZY | מערכות AI ואוטומציה לעסקים">
+  <meta property="og:title" content="Take It AIZY | מערכות ניהול חכמות לעסקים">
   <meta property="og:description" content="העבודה הידנית נגמרת כאן. הזמן שלכם חוזר אליכם. שיחת אפיון צרכים ראשונה ללא עלות.">
   <meta property="og:url" content="https://takeitaizy.dev/">
   <meta property="og:type" content="website">
@@ -46,6 +46,7 @@
           {"@type": "Question", "name": "כמה זמן עד שזה עובד?", "acceptedAnswer": {"@type": "Answer", "text": "מהרגע שמאשרים את הצעת המחיר מתחילים לבנות, לפי לוח הזמנים שכתוב בה. בונים בשלבים, כך שחלק מהמערכת כבר עובד אצלכם עוד לפני שהכול מוכן."}},
           {"@type": "Question", "name": "איך יודעים שאפשר לסמוך על המערכת?", "acceptedAnswer": {"@type": "Answer", "text": "בהתחלה בודקים יחד את התוצאות שלה מול הדרך שבה עבדתם עד היום, ורק כשהן תואמות עוברים לעבוד איתה. ומה שיוצא ללקוחות שלכם יכול לחכות קודם לאישור שלכם."}},
           {"@type": "Question", "name": "איפה נשמר המידע שלנו?", "acceptedAnswer": {"@type": "Answer", "text": "המידע נשמר מוצפן ומגובה, ורק מי שאתם מאשרים יכול לגשת אליו. אנחנו מכניסים למערכת רק את המידע שהיא צריכה כדי לעבוד."}},
+          {"@type": "Question", "name": "אז מה שאתם עושים זה אוטומציות?", "acceptedAnswer": {"@type": "Answer", "text": "לא רק. אוטומציה מחברת בין כלים. אנחנו בונים את המערכת שהעסק עובד בה, והאוטומציות הן חלק ממנה."}},
           {"@type": "Question", "name": "אנחנו עסק קטן. זה רלוונטי לנו?", "acceptedAnswer": {"@type": "Answer", "text": "בדיוק בשבילכם. עסק בלי צוות IT מרוויח הכי הרבה ממערכת שעושה את העבודה החוזרת."}}
         ]
       }
@@ -225,6 +226,20 @@
     .card { background: var(--mist); border-radius: 28px; padding: 32px; }
     .card svg { inline-size: 32px; block-size: 32px; }
     .card h3 { margin-block-start: 20px; }
+
+    /* ---------- system vs automation ---------- */
+    .vs-grid { margin-block-start: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 16px; }
+    .vs { border-radius: 28px; padding: 36px; }
+    .vs .tag { display: inline-block; }
+    .vs h3 { margin-block-start: 18px; font-size: 26px; }
+    .vs p { margin-block-start: 12px; font-size: 18px; }
+    .vs.auto { background: var(--mist); color: var(--body); }
+    .vs.auto h3 { color: var(--muted); }
+    .vs.auto .tag { background: var(--white); }
+    .vs.system { background: var(--navy); color: var(--white); }
+    .vs.system .tag { background: var(--sand); color: var(--navy); }
+    .vs.system p { color: #D5DBE4; }
+    .vs-line { margin-block-start: 28px; font-size: clamp(20px, 2.4vw, 26px); font-weight: 700; text-align: center; text-wrap: balance; }
     .card p { margin-block-start: 10px; color: var(--muted); font-size: 16px; }
 
     /* ---------- dashboard ---------- */
@@ -406,9 +421,9 @@
 
 <header class="hero" id="top">
   <div class="wrap">
-    <span class="pill"><i></i><span data-en="AI and automation systems for business">מערכות AI ואוטומציה לעסקים</span></span>
+    <span class="pill"><i></i><span data-en="Smart management systems for business">מערכות ניהול חכמות לעסקים</span></span>
     <h1 data-en-html="The manual work ends here. <span>Your time comes back to you.</span>">העבודה הידנית נגמרת כאן. <span>הזמן שלכם חוזר אליכם.</span></h1>
-    <p class="sub" data-en="We build systems that do a business’s repetitive work for it: a Hebrew service bot, a tailored management system, and automations that close the back office. You approve, the system does.">אנחנו בונים לעסקים מערכות שעושות את העבודה החוזרת במקומם: בוט שירות בעברית, מערכת ניהול תפורה, ואוטומציות שסוגרות את המשרד האחורי. אתם מאשרים, המערכת עושה.</p>
+    <p class="sub" data-en="We build systems that do a business’s repetitive work for it: a Hebrew service bot, a tailored management system, and one system the whole business works in. You approve, the system does.">אנחנו בונים לעסקים מערכות שעושות את העבודה החוזרת במקומם: בוט שירות בעברית, מערכת ניהול תפורה, ומערכת אחת שכל העסק עובד בה. אתם מאשרים, המערכת עושה.</p>
     <div class="hero-cta">
       <a class="btn btn-lg" href="#contact" data-en="Book a free needs call">לשיחת אפיון ללא עלות</a>
       <a class="btn btn-text" href="#work" data-en-html="See examples <span aria-hidden='true'>→</span>">ראו דוגמאות <span aria-hidden="true">←</span></a>
@@ -486,9 +501,29 @@
     <div class="cards">
       <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1C30" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg><h3 data-en="Automated customer service">שירות לקוחות אוטומטי</h3><p data-en="A Hebrew WhatsApp and email bot that handles inquiries end to end: product identification, document collection, technician dispatch. Every sensitive action gets human approval.">בוט וואטסאפ ומייל בעברית שמנהל פניות מקצה לקצה: זיהוי מוצר, איסוף מסמכים, שיבוץ טכנאים. כל פעולה רגישה עוברת אישור אנושי.</p></div>
       <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1C30" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><h3 data-en="Tailored management systems">מערכות ניהול תפורות</h3><p data-en="Subscriptions, students, technicians, inventory. A system that speaks your business’s language, with the screens you need and none you don’t.">מנויים, תלמידים, טכנאים, מלאי. מערכת שמדברת את השפה של העסק, עם המסכים שאתם צריכים ובלי אלה שלא.</p></div>
-      <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1C30" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg><h3 data-en="Back-office automation">אוטומציית משרד אחורי</h3><p data-en="Accountant reports in one click, a document gate that recognizes invoices, payroll calculated from the calendar. The things that eat whole evenings.">דוחות לרואה החשבון בלחיצה, שער מסמכים שמזהה חשבוניות, שכר שמחושב מהיומן. הדברים שגוזלים ערבים שלמים.</p></div>
+      <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1C30" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg><h3 data-en="A back-office system">מערכת למשרד האחורי</h3><p data-en="Accountant reports in one click, a document gate that recognizes invoices, payroll calculated from the calendar. The things that eat whole evenings.">דוחות לרואה החשבון בלחיצה, שער מסמכים שמזהה חשבוניות, שכר שמחושב מהיומן. הדברים שגוזלים ערבים שלמים.</p></div>
       <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1C30" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3"/></svg><h3 data-en="Operational AI agents">סוכני AI תפעוליים</h3><p data-en="Catalogs from a product sheet, SEO updates, distribution-route planning. Agents that do real work, not decorative chatbots.">קטלוגים מאקסל מוצרים, עדכוני SEO, תכנון קווי חלוקה. סוכנים שעושים עבודה אמיתית, לא צ׳אטבוט לקישוט.</p></div>
     </div>
+  </div>
+</section>
+
+<section id="systems" class="tight-top">
+  <div class="wrap">
+    <p class="eyebrow reveal" data-en="System or automation?">מערכת או אוטומציה?</p>
+    <h2 class="reveal" data-en="A system, not another automation.">מערכת, לא עוד אוטומציה.</h2>
+    <div class="vs-grid">
+      <div class="vs auto reveal">
+        <span class="tag" data-en="The pipe">הצינור</span>
+        <h3 data-en="Automation">אוטומציה</h3>
+        <p data-en="Moves information from tool to tool and saves one action that repeats itself. It runs in the background, and nobody works inside it.">מעבירה מידע מכלי לכלי וחוסכת פעולה אחת שחוזרת על עצמה. היא רצה ברקע, ואף אחד לא עובד בתוכה.</p>
+      </div>
+      <div class="vs system on-dark reveal">
+        <span class="tag" data-en="The home">הבית</span>
+        <h3 data-en="System">מערכת</h3>
+        <p data-en="The place the business works in every day: customers, tasks, documents and reports in one place, with screens for the team and permissions for each person.">המקום שבו העסק עובד כל יום: הלקוחות, המשימות, המסמכים והדוחות במקום אחד, עם מסכים לצוות והרשאות לכל אחד.</p>
+      </div>
+    </div>
+    <p class="vs-line reveal" data-en="We build systems. Automations are part of them, not the product.">אנחנו בונים מערכות. האוטומציות הן חלק מהן, לא המוצר.</p>
   </div>
 </section>
 
@@ -630,6 +665,7 @@
       <details><summary data-en="How long until it works?">כמה זמן עד שזה עובד?</summary><p data-en="We start building the moment you approve the quote, on the schedule written in it. We build in stages, so part of the system is already working for you before everything is ready.">מהרגע שמאשרים את הצעת המחיר מתחילים לבנות, לפי לוח הזמנים שכתוב בה. בונים בשלבים, כך שחלק מהמערכת כבר עובד אצלכם עוד לפני שהכול מוכן.</p></details>
       <details><summary data-en="How do we know we can trust the system?">איך יודעים שאפשר לסמוך על המערכת?</summary><p data-en="At first we check its results together against the way you work today, and you switch over only when they match. Anything that goes out to your customers can wait for your approval first.">בהתחלה בודקים יחד את התוצאות שלה מול הדרך שבה עבדתם עד היום, ורק כשהן תואמות עוברים לעבוד איתה. ומה שיוצא ללקוחות שלכם יכול לחכות קודם לאישור שלכם.</p></details>
       <details><summary data-en="Where is our data kept?">איפה נשמר המידע שלנו?</summary><p data-en="Your data is kept encrypted and backed up, and only people you approve can access it. We put into the system only the data it needs to work.">המידע נשמר מוצפן ומגובה, ורק מי שאתם מאשרים יכול לגשת אליו. אנחנו מכניסים למערכת רק את המידע שהיא צריכה כדי לעבוד.</p></details>
+      <details><summary data-en="So what you do is automations?">אז מה שאתם עושים זה אוטומציות?</summary><p data-en="Not only. An automation connects tools. We build the system the business works in, and the automations are part of it.">לא רק. אוטומציה מחברת בין כלים. אנחנו בונים את המערכת שהעסק עובד בה, והאוטומציות הן חלק ממנה.</p></details>
       <details><summary data-en="We’re a small business. Is this relevant to us?">אנחנו עסק קטן. זה רלוונטי לנו?</summary><p data-en="Exactly for you. A business with no IT team gains the most from a system that does the repetitive work.">בדיוק בשבילכם. עסק בלי צוות IT מרוויח הכי הרבה ממערכת שעושה את העבודה החוזרת.</p></details>
     </div>
   </div>
@@ -693,11 +729,11 @@ function setLang(lang) {
   swap("data-en-label", function (el, v) { if (v === null) return el.getAttribute("aria-label"); el.setAttribute("aria-label", v); });
   document.documentElement.lang = lang;
   document.documentElement.dir = lang === "en" ? "ltr" : "rtl";
-  document.title = lang === "en" ? "Take It AIZY | AI and automation systems for business" : "Take It AIZY | מערכות AI ואוטומציה לעסקים";
+  document.title = lang === "en" ? "Take It AIZY | Smart management systems for business" : "Take It AIZY | מערכות ניהול חכמות לעסקים";
   var d = document.querySelector('meta[name="description"]');
   if (d) d.setAttribute("content", lang === "en"
-    ? "Take It AIZY builds custom AI and automation systems for business: Hebrew customer-service bots, tailored management systems, back-office automation and operational AI agents. The first needs call is free of charge."
-    : "Take It AIZY בונה מערכות AI ואוטומציה בהתאמה אישית לעסקים: בוטים לשירות לקוחות בעברית, מערכות ניהול, אוטומציית משרד אחורי וסוכני AI תפעוליים. שיחת אפיון צרכים ראשונה ללא עלות.");
+    ? "Take It AIZY builds smart, custom management systems for business: one system the whole business works in, a Hebrew customer-service bot, a back-office system and operational AI agents. The first needs call is free of charge."
+    : "Take It AIZY בונה לעסקים מערכות ניהול חכמות בהתאמה אישית: מערכת אחת שכל העסק עובד בה, בוט שירות בעברית, מערכת למשרד האחורי וסוכני AI תפעוליים. שיחת אפיון צרכים ראשונה ללא עלות.");
   document.getElementById("langToggle").textContent = lang === "en" ? "עב" : "EN";
   document.getElementById("langToggle").setAttribute("aria-label", lang === "en" ? "מעבר לעברית" : "Switch language");
   syncIntakeFrame(lang);
