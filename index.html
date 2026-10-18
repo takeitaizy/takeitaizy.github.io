@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Take It AIZY | מערכות ניהול חכמות לעסקים</title>
-  <meta name="description" content="Take It AIZY בונה לעסקים מערכות ניהול חכמות בהתאמה אישית: מערכת אחת שכל העסק עובד בה, בוט שירות בעברית, מערכת למשרד האחורי וסוכני AI תפעוליים. שיחת אפיון צרכים ראשונה ללא עלות.">
+  <title>Take It AIzy | מערכות ניהול חכמות לעסקים</title>
+  <meta name="description" content="Take It AIzy בונה לעסקים מערכות ניהול חכמות בהתאמה אישית: מערכת אחת שכל העסק עובד בה, בוט שירות בעברית, מערכת למשרד האחורי וסוכני AI תפעוליים. שיחת אפיון צרכים ראשונה ללא עלות.">
   <meta name="theme-color" content="#0E1C30">
   <link rel="canonical" href="https://takeitaizy.dev/">
-  <meta property="og:site_name" content="Take It AIZY">
-  <meta property="og:title" content="Take It AIZY | מערכות ניהול חכמות לעסקים">
+  <meta property="og:site_name" content="Take It AIzy">
+  <meta property="og:title" content="Take It AIzy | מערכות ניהול חכמות לעסקים">
   <meta property="og:description" content="העבודה הידנית נגמרת כאן. הזמן שלכם חוזר אליכם. שיחת אפיון צרכים ראשונה ללא עלות.">
   <meta property="og:url" content="https://takeitaizy.dev/">
   <meta property="og:type" content="website">
@@ -17,7 +17,7 @@
   <meta property="og:image" content="https://takeitaizy.dev/brand/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Take It AIZY">
+  <meta property="og:image:alt" content="Take It AIzy">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/brand/favicon/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/brand/favicon/favicon-32.png" sizes="32x32" type="image/png">
@@ -33,7 +33,8 @@
     "@graph": [
       {
         "@type": "Organization",
-        "name": "Take It AIZY",
+        "name": "Take It AIzy",
+        "alternateName": "TAKE IT AIZY",
         "url": "https://takeitaizy.dev/",
         "logo": "https://takeitaizy.dev/brand/logo/take-it-aizy-icon.png",
         "email": "hello@takeitaizy.dev"
@@ -154,7 +155,9 @@
     .hero h1 span { color: #8A94A3; }
     .hero .sub { margin: 26px auto 0; max-inline-size: 56ch; font-size: clamp(18px, 2vw, 20px); color: var(--muted); text-wrap: balance; }
     .hero-cta { margin-block-start: 38px; display: flex; gap: 18px; justify-content: center; align-items: center; flex-wrap: wrap; }
-    .hero-note { margin-block-start: 16px; font-size: 14px; color: var(--subtle); }
+    .trust { margin-block-start: 18px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; font-size: 15px; color: var(--muted); }
+    .trust li { display: inline-flex; align-items: center; gap: 8px; }
+    .trust li::before { content: ""; inline-size: 7px; block-size: 7px; border-radius: 50%; background: var(--sand); flex: none; }
     .stage {
       position: relative; margin: 64px auto 0; max-inline-size: 1080px; block-size: 520px; border-radius: 40px; overflow: hidden;
       background: radial-gradient(120% 90% at 50% 0%, #F7F8FA 0%, #ECEFF3 100%);
@@ -299,7 +302,7 @@
     .feature-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 10px 28px; margin-block-start: 8px; }
     .feature-list li { position: relative; padding-inline-start: 22px; color: var(--body); }
     .feature-list li::before { content: ""; position: absolute; inset-inline-start: 0; inset-block-start: 0.6em; inline-size: 8px; block-size: 8px; border-radius: 50%; background: var(--sand); }
-    .work-more { margin-block-start: 28px; text-align: center; font-size: 19px; font-weight: 600; color: var(--muted); }
+    .sub-h { margin-block-start: 72px; font-size: clamp(24px, 3vw, 32px); font-weight: 800; }
     .case .tags { display: flex; gap: 8px; flex-wrap: wrap; }
     .case .tag.wip { background: var(--sand-soft); color: var(--sand-ink); }
     .case h3 { font-size: 21px; line-height: 1.3; }
@@ -316,10 +319,6 @@
     .step .num::after { content: ""; flex: 1; block-size: 1px; background: var(--line); }
     .step h3 { font-size: 20px; margin-block-start: 20px; }
     .step p { margin-block-start: 8px; color: var(--muted); font-size: 16px; }
-    .principles { margin-block-start: 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 16px; }
-    .principles li { border: 1px solid var(--line); border-radius: 22px; padding: 24px; }
-    .principles b { display: block; font-weight: 700; }
-    .principles p { margin-block-start: 6px; color: var(--muted); font-size: 15px; }
 
     /* ---------- model ---------- */
     .model-grid { margin-block-start: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 16px; }
@@ -405,8 +404,9 @@
 
 <nav class="top" aria-label="ראשי" data-en-label="Main">
   <div class="wrap nav-in">
-    <a class="nav-logo" href="#top" aria-label="Take It AIZY"><img src="/brand/logo/take-it-aizy-logo-navy.svg" alt="Take It AIZY" width="97" height="46"></a>
+    <a class="nav-logo" href="#top" aria-label="Take It AIzy"><img src="/brand/logo/take-it-aizy-logo-navy.svg" alt="Take It AIzy" width="97" height="46"></a>
     <div class="nav-links">
+      <a href="#calc" data-en="What does it cost you?">כמה זה עולה לכם?</a>
       <a href="#services" data-en="What we build">מה אנחנו בונים</a>
       <a href="#work" data-en="Work">פרויקטים</a>
       <a href="#how" data-en="How we work">איך עובדים</a>
@@ -428,7 +428,11 @@
       <a class="btn btn-lg" href="#contact" data-en="Book a free needs call">לשיחת אפיון ללא עלות</a>
       <a class="btn btn-text" href="#work" data-en-html="See examples <span aria-hidden='true'>→</span>">ראו דוגמאות <span aria-hidden="true">←</span></a>
     </div>
-    <p class="hero-note" data-en="The first needs call is free of charge. No commitment.">שיחת אפיון צרכים ראשונה ללא עלות. בלי התחייבות.</p>
+    <ul class="trust" aria-label="למה לעבוד איתנו" data-en-label="Why work with us">
+      <li data-en="A free needs call">שיחת אפיון ללא עלות</li>
+      <li data-en="A pilot you approve">פיילוט באישור שלכם</li>
+      <li data-en="Two founders, full responsibility">שני מייסדים, אחריות מלאה</li>
+    </ul>
 
     <div class="stage" aria-hidden="true">
       <img class="mark" src="/brand/logo/take-it-aizy-mark-navy.svg" alt="" width="262" height="300">
@@ -487,7 +491,7 @@
         <p class="k" data-en="hours">שעות</p>
         <p class="cost lat" id="oCost">₪126,720</p>
         <p class="k" style="margin-block-start: 8px" data-en="a year, on tasks a computer does better">בשנה, על משימות שמחשב עושה טוב יותר</p>
-        <a class="btn btn-light" href="#contact" data-en="Let’s check your real number">בואו נבדוק את המספר האמיתי</a>
+        <a class="btn btn-light" href="#contact" id="calcCta">בואו נבדוק את ה-₪126,720 שלכם</a>
         <p class="fine" data-en="An estimate based on 22 working days a month. The needs call pins down the exact number.">הערכה לפי 22 ימי עבודה בחודש. בשיחת האפיון ממפים את המספר המדויק.</p>
       </div>
     </div>
@@ -497,19 +501,6 @@
 <section id="services" class="tight-top">
   <div class="wrap">
     <p class="eyebrow reveal" data-en="What we build">מה אנחנו בונים</p>
-    <h2 class="reveal" style="max-inline-size: 18ch" data-en="Custom systems. Not off-the-shelf templates.">מערכות בהתאמה אישית. לא תבניות מדף.</h2>
-    <div class="cards">
-      <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1C30" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg><h3 data-en="Automated customer service">שירות לקוחות אוטומטי</h3><p data-en="A Hebrew WhatsApp and email bot that handles inquiries end to end: product identification, document collection, technician dispatch. Every sensitive action gets human approval.">בוט וואטסאפ ומייל בעברית שמנהל פניות מקצה לקצה: זיהוי מוצר, איסוף מסמכים, שיבוץ טכנאים. כל פעולה רגישה עוברת אישור אנושי.</p></div>
-      <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1C30" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><h3 data-en="Tailored management systems">מערכות ניהול תפורות</h3><p data-en="Subscriptions, students, technicians, inventory. A system that speaks your business’s language, with the screens you need and none you don’t.">מנויים, תלמידים, טכנאים, מלאי. מערכת שמדברת את השפה של העסק, עם המסכים שאתם צריכים ובלי אלה שלא.</p></div>
-      <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1C30" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg><h3 data-en="A back-office system">מערכת למשרד האחורי</h3><p data-en="Accountant reports in one click, a document gate that recognizes invoices, payroll calculated from the calendar. The things that eat whole evenings.">דוחות לרואה החשבון בלחיצה, שער מסמכים שמזהה חשבוניות, שכר שמחושב מהיומן. הדברים שגוזלים ערבים שלמים.</p></div>
-      <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1C30" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3"/></svg><h3 data-en="Operational AI agents">סוכני AI תפעוליים</h3><p data-en="Catalogs from a product sheet, SEO updates, distribution-route planning. Agents that do real work, not decorative chatbots.">קטלוגים מאקסל מוצרים, עדכוני SEO, תכנון קווי חלוקה. סוכנים שעושים עבודה אמיתית, לא צ׳אטבוט לקישוט.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="systems" class="tight-top">
-  <div class="wrap">
-    <p class="eyebrow reveal" data-en="System or automation?">מערכת או אוטומציה?</p>
     <h2 class="reveal" data-en="A system, not another automation.">מערכת, לא עוד אוטומציה.</h2>
     <div class="vs-grid">
       <div class="vs auto reveal">
@@ -524,6 +515,13 @@
       </div>
     </div>
     <p class="vs-line reveal" data-en="We build systems. Automations are part of them, not the product.">אנחנו בונים מערכות. האוטומציות הן חלק מהן, לא המוצר.</p>
+    <h3 class="sub-h reveal" data-en="Custom systems. Not off-the-shelf templates.">מערכות בהתאמה אישית. לא תבניות מדף.</h3>
+    <div class="cards">
+      <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1C30" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg><h3 data-en="Automated customer service">שירות לקוחות אוטומטי</h3><p data-en="A Hebrew WhatsApp and email bot that handles inquiries end to end: product identification, document collection, technician dispatch. Every sensitive action gets human approval.">בוט וואטסאפ ומייל בעברית שמנהל פניות מקצה לקצה: זיהוי מוצר, איסוף מסמכים, שיבוץ טכנאים. כל פעולה רגישה עוברת אישור אנושי.</p></div>
+      <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1C30" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><h3 data-en="Tailored management systems">מערכות ניהול תפורות</h3><p data-en="Subscriptions, students, technicians, inventory. A system that speaks your business’s language, with the screens you need and none you don’t.">מנויים, תלמידים, טכנאים, מלאי. מערכת שמדברת את השפה של העסק, עם המסכים שאתם צריכים ובלי אלה שלא.</p></div>
+      <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1C30" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg><h3 data-en="A back-office system">מערכת למשרד האחורי</h3><p data-en="Accountant reports in one click, a document gate that recognizes invoices, payroll calculated from the calendar. The things that eat whole evenings.">דוחות לרואה החשבון בלחיצה, שער מסמכים שמזהה חשבוניות, שכר שמחושב מהיומן. הדברים שגוזלים ערבים שלמים.</p></div>
+      <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1C30" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3"/></svg><h3 data-en="Operational AI agents">סוכני AI תפעוליים</h3><p data-en="Catalogs from a product sheet, SEO updates, distribution-route planning. Agents that do real work, not decorative chatbots.">קטלוגים מאקסל מוצרים, עדכוני SEO, תכנון קווי חלוקה. סוכנים שעושים עבודה אמיתית, לא צ׳אטבוט לקישוט.</p></div>
+    </div>
   </div>
 </section>
 
@@ -619,7 +617,6 @@
         <p class="d" data-en="Built around the way the client already works, instead of an off-the-shelf product the business has to bend to.">נבנתה לפי הדרך שבה הלקוח כבר עובד, במקום תוכנת מדף שהעסק צריך להתאים את עצמו אליה.</p>
       </article>
     </div>
-    <p class="work-more reveal" data-en="And many more projects…">ועוד פרויקטים רבים…</p>
   </div>
 </section>
 
@@ -633,18 +630,7 @@
       <li class="step reveal"><div class="num"></div><h3 data-en="Controlled pilot">פיילוט מבוקר</h3><p data-en="A real run at your place, and every sensitive action gets human approval until you trust the system.">הרצה אמיתית אצלכם, וכל פעולה רגישה עוברת אישור אנושי עד שסומכים על המערכת.</p></li>
       <li class="step reveal"><div class="num"></div><h3 data-en="Going live">עלייה לאוויר</h3><p data-en="Training, a full handover, and ongoing maintenance. You are never left alone with the system.">הדרכה, מעבר מלא ואחזקה שוטפת. אתם אף פעם לא נשארים לבד עם המערכת.</p></li>
     </ol>
-    <ul class="principles">
-      <li class="reveal"><b data-en="You approve">אתם מאשרים</b><p data-en="Nothing sensitive goes out to your customers without your approval.">שום דבר רגיש לא יוצא ללקוחות שלכם בלי אישור שלכם.</p></li>
-      <li class="reveal"><b data-en="Protected data">מידע מוגן</b><p data-en="Encrypted and backed up, and only people you approve can access it.">מוצפן ומגובה, ורק מי שאתם מאשרים ניגש אליו.</p></li>
-      <li class="reveal"><b data-en="Transparent pricing">תמחור שקוף</b><p data-en="A one-time setup and a fixed monthly payment. No fine print.">הקמה חד-פעמית ותשלום חודשי קבוע. בלי אותיות קטנות.</p></li>
-    </ul>
-  </div>
-</section>
-
-<section id="model" class="tight-top">
-  <div class="wrap">
-    <p class="eyebrow reveal" data-en="Working model">מודל עבודה</p>
-    <h2 class="reveal" style="max-inline-size: 18ch" data-en="The value starts on the very first call.">הערך מתחיל כבר בשיחה הראשונה.</h2>
+    <h3 class="sub-h reveal" id="model" data-en="The value starts on the very first call.">הערך מתחיל כבר בשיחה הראשונה.</h3>
     <p class="lead reveal" data-en="The first needs call is free of charge. We map the process, work out what it costs you a month, and you leave with a clear direction. Even if we never work together.">שיחת אפיון הצרכים הראשונה ללא עלות. ממפים את התהליך, מחשבים כמה הוא עולה לכם בחודש, ויוצאים עם כיוון ברור. גם אם לא נעבוד יחד.</p>
     <div class="model-grid">
       <div class="model free on-dark reveal"><div class="no">01 <span class="free-tag" data-en="Free of charge">ללא עלות</span></div><h3 data-en="Needs call">שיחת אפיון צרכים</h3><p data-en="Mapping the process, working out the manual cost, and a clear direction on what is worth building first. The call itself is free of charge.">מיפוי התהליך, חישוב העלות הידנית וכיוון ברור למה שווה לבנות קודם. השיחה עצמה ללא עלות.</p><a class="btn btn-light" href="#contact" data-en="Book the free call">לשיחת האפיון</a></div>
@@ -682,9 +668,9 @@
       <li><span><b data-en="A short intro call">שיחת היכרות קצרה</b><span data-en="You leave with a clear direction: what is worth building first, and whether you need it at all.">יוצאים ממנה עם כיוון ברור: מה שווה לבנות קודם, ואם בכלל צריך.</span></span></li>
     </ol>
     <div class="intake-frame">
-      <iframe id="intakeFrame" src="https://os.takeitaizy.dev/intake?embed=1&amp;theme=light&amp;lang=he&amp;utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=embed" title="טופס פנייה ל-Take It AIZY" data-en-title="Contact form for Take It AIZY" loading="lazy"></iframe>
+      <iframe id="intakeFrame" src="https://os.takeitaizy.dev/intake?embed=1&amp;theme=light&amp;lang=he&amp;utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=embed" title="טופס פנייה ל-Take It AIzy" data-en-title="Contact form for Take It AIzy" loading="lazy"></iframe>
     </div>
-    <p class="contact-alt" data-en-html="Form not loading? <a href='https://os.takeitaizy.dev/intake?utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=fallback' target='_blank' rel='noopener'>Open it in a new window</a> · Prefer email? <a href='mailto:hello@takeitaizy.dev' class='lat'>hello@takeitaizy.dev</a>">הטופס לא נטען? <a href="https://os.takeitaizy.dev/intake?utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=fallback" target="_blank" rel="noopener">פתחו אותו בחלון נפרד</a> · מעדיפים מייל? <a href="mailto:hello@takeitaizy.dev" class="lat">hello@takeitaizy.dev</a></p>
+    <p class="contact-alt" data-en-html="Prefer to write to us directly? <a href='mailto:hello@takeitaizy.dev' class='lat'>hello@takeitaizy.dev</a> · or <a href='https://os.takeitaizy.dev/intake?utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=fallback' target='_blank' rel='noopener'>open the form in its own window</a>">מעדיפים לכתוב לנו ישירות? <a href="mailto:hello@takeitaizy.dev" class="lat">hello@takeitaizy.dev</a> · או <a href="https://os.takeitaizy.dev/intake?utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=fallback" target="_blank" rel="noopener">לפתוח את הטופס בחלון נפרד</a></p>
   </div>
 </section>
 
@@ -692,8 +678,8 @@
 
 <footer>
   <div class="wrap foot">
-    <img src="/brand/logo/take-it-aizy-logo-navy.svg" alt="Take It AIZY" width="76" height="36">
-    <span class="lat">© 2026 Take It AIZY</span>
+    <img src="/brand/logo/take-it-aizy-logo-navy.svg" alt="Take It AIzy" width="76" height="36">
+    <span class="lat">© 2026 Take It AIzy</span>
     <a href="/privacy" data-en="Privacy policy">מדיניות פרטיות</a>
     <a href="/accessibility" data-en="Accessibility statement">הצהרת נגישות</a>
     <a class="mail lat" href="mailto:hello@takeitaizy.dev">hello@takeitaizy.dev</a>
@@ -729,14 +715,15 @@ function setLang(lang) {
   swap("data-en-label", function (el, v) { if (v === null) return el.getAttribute("aria-label"); el.setAttribute("aria-label", v); });
   document.documentElement.lang = lang;
   document.documentElement.dir = lang === "en" ? "ltr" : "rtl";
-  document.title = lang === "en" ? "Take It AIZY | Smart management systems for business" : "Take It AIZY | מערכות ניהול חכמות לעסקים";
+  document.title = lang === "en" ? "Take It AIzy | Smart management systems for business" : "Take It AIzy | מערכות ניהול חכמות לעסקים";
   var d = document.querySelector('meta[name="description"]');
   if (d) d.setAttribute("content", lang === "en"
-    ? "Take It AIZY builds smart, custom management systems for business: one system the whole business works in, a Hebrew customer-service bot, a back-office system and operational AI agents. The first needs call is free of charge."
-    : "Take It AIZY בונה לעסקים מערכות ניהול חכמות בהתאמה אישית: מערכת אחת שכל העסק עובד בה, בוט שירות בעברית, מערכת למשרד האחורי וסוכני AI תפעוליים. שיחת אפיון צרכים ראשונה ללא עלות.");
+    ? "Take It AIzy builds smart, custom management systems for business: one system the whole business works in, a Hebrew customer-service bot, a back-office system and operational AI agents. The first needs call is free of charge."
+    : "Take It AIzy בונה לעסקים מערכות ניהול חכמות בהתאמה אישית: מערכת אחת שכל העסק עובד בה, בוט שירות בעברית, מערכת למשרד האחורי וסוכני AI תפעוליים. שיחת אפיון צרכים ראשונה ללא עלות.");
   document.getElementById("langToggle").textContent = lang === "en" ? "עב" : "EN";
   document.getElementById("langToggle").setAttribute("aria-label", lang === "en" ? "מעבר לעברית" : "Switch language");
   syncIntakeFrame(lang);
+  if (typeof calc !== "undefined" && calc) renderCalc();
   try { localStorage.setItem("taizy-lang", lang); } catch (e) {}
 }
 
@@ -765,8 +752,20 @@ function renderCalc() {
   document.getElementById("vHours").textContent = calc.hours;
   document.getElementById("vRate").textContent = calc.rate;
   document.getElementById("oHours").textContent = fmt(yearHours);
-  document.getElementById("oCost").textContent = "₪" + fmt(yearHours * calc.rate);
+  var cost = "₪" + fmt(yearHours * calc.rate);
+  document.getElementById("oCost").textContent = cost;
+  var cta = document.getElementById("calcCta");
+  cta.textContent = currentLang === "en" ? "Let’s check your " + cost : "בואו נבדוק את ה-" + cost + " שלכם";
+  cta.setAttribute("dir", "auto");
 }
+/* The visitor's estimate goes to the form with them, so the needs call
+   starts from their number. Only after they choose to follow it. */
+var calcSent = null;
+document.getElementById("calcCta").addEventListener("click", function () {
+  calcSent = { calc_people: calc.people, calc_hours: calc.hours, calc_rate: calc.rate,
+               calc_year_ils: calc.people * calc.hours * 22 * 12 * calc.rate };
+  syncIntakeFrame(currentLang);
+});
 document.querySelectorAll("[data-calc]").forEach(function (b) {
   b.addEventListener("click", function () {
     var k = b.getAttribute("data-calc"), d = Number(b.getAttribute("data-d"));
@@ -804,6 +803,9 @@ function intakeSrc(lang) {
     params.set("utm_source", "takeitaizy.dev");
     params.set("utm_medium", "website");
     params.set("utm_content", "embed");
+  }
+  if (typeof calcSent !== "undefined" && calcSent) {
+    Object.keys(calcSent).forEach(function (key) { params.set(key, String(calcSent[key])); });
   }
   return INTAKE_ORIGIN + "/intake?" + params.toString();
 }

@@ -1,4 +1,4 @@
-# Take It AIZY: brand kit
+# Take It AIzy: brand kit
 
 Official logo files, approved by Oshar. **These are the only logo files to use**:
 on the website, in proposals, specs, SOWs, decks, docs, email signatures and
@@ -31,7 +31,7 @@ Sand is for fills and highlights only. It fails contrast as text on white.
 
 ## Rules
 
-- The logo reads **TAKE IT AIZY**. In running text write **Take It AIZY**;
+- The logo reads **TAKE IT AIZY**. In running text write **Take It AIzy**;
   use `takeitaizy` only for the domain (`takeitaizy.dev`) and handles.
 - Only navy or white. No other colors, gradients, shadows, outlines or effects.
 - Never stretch, rotate, crop or retype the wordmark in a font. Scale it proportionally.
