@@ -4,3 +4,4 @@ exclude:
   - README.md
   - brand/BRAND.md
   - brand/claude-skill
+  - toolkit
