@@ -1,11 +1,11 @@
 ---
 name: takeitaizy-brand
-description: Take It AIZY's official logo files and brand rules (the AI and automation studio run by Razi and Oshar, takeitaizy.dev). Use it whenever you create anything that goes out under the Take It AIZY name, such as a proposal, price quote, spec, SOW, contract, deck, one-pager, doc, website, landing page, favicon, email signature, invoice header or social image, even if the user doesn't mention the logo. Triggers include "הצעת מחיר", "הצעה", "אפיון", "מסמך אפיון", "הסכם", "מצגת", "דף נחיתה", "Take It AIZY", "takeitaizy". Works together with client-contract-terms for proposals.
+description: Take It AIzy's official logo files and brand rules (the studio that builds smart management systems run by Razi and Oshar, takeitaizy.dev). Use it whenever you create anything that goes out under the Take It AIzy name, such as a proposal, price quote, spec, SOW, contract, deck, one-pager, doc, website, landing page, favicon, email signature, invoice header or social image, even if the user doesn't mention the logo. Triggers include "הצעת מחיר", "הצעה", "אפיון", "מסמך אפיון", "הסכם", "מצגת", "דף נחיתה", "Take It AIzy", "takeitaizy". Works together with client-contract-terms for proposals.
 ---
 
-# Take It AIZY brand
+# Take It AIzy brand
 
-Every deliverable that goes out under the Take It AIZY name carries the official
+Every deliverable that goes out under the Take It AIzy name carries the official
 logo from `assets/`. Never redraw, trace, retype or recolor it. Always copy the
 file.
 
@@ -33,7 +33,7 @@ In Hebrew documents the wordmark stays in Latin letters.
 ## Rules
 
 - Colors: navy `#0E1C30` and white only for the logo. Body headings may use navy.
-- In running text write "Take It AIZY". Use `takeitaizy` only for the domain and handles.
+- In running text write "Take It AIzy". Use `takeitaizy` only for the domain and handles.
 - Never stretch, rotate, crop, outline, add shadow or put the logo straight on a busy photo.
 - Clear space: at least the height of the "TAKE IT" line on every side.
 - Minimum size: wordmark 120 px / 30 mm wide; icon 16 px.
@@ -44,4 +44,4 @@ In Hebrew documents the wordmark stays in Latin letters.
 - [ ] Logo comes from `assets/`, untouched
 - [ ] Right variant for the background (navy on light, white on dark)
 - [ ] Cover, header and footer placement as above
-- [ ] Name written "Take It AIZY" in the text
+- [ ] Name written "Take It AIzy" in the text

@@ -1,6 +1,6 @@
 # takeitaizy.dev
 
-Landing page for Take It AIZY, served by GitHub Pages from `main`. A single
+Landing page for Take It AIzy, served by GitHub Pages from `main`. A single
 static `index.html` with no build step. See `README.md` for DNS and Pages setup.
 
 ## Brand: always use the official logo
@@ -12,7 +12,7 @@ copy the files from `brand/logo/` and `brand/favicon/`.
 
 - Navy `#0E1C30` and white are the official colors.
 - SVG on the web, PNG (2400 px) in documents.
-- In running text the name is "Take It AIZY"; `takeitaizy` only for the domain and handles.
+- In running text the name is "Take It AIzy" (Osher and Razi, 2026-10-18); the logo itself reads TAKE IT AIZY. `takeitaizy` only for the domain and handles.
 
 ## Writing
 
