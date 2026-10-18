@@ -37,7 +37,8 @@
         "alternateName": "TAKE IT AIZY",
         "url": "https://takeitaizy.dev/",
         "logo": "https://takeitaizy.dev/brand/logo/take-it-aizy-icon.png",
-        "email": "hello@takeitaizy.dev"
+        "email": "hello@takeitaizy.dev",
+        "telephone": "+972-50-325-5115"
       },
       {
         "@type": "FAQPage",
@@ -371,6 +372,24 @@
     .foot .mail { margin-inline-start: auto; }
 
     /* ---------- sticky mobile CTA ---------- */
+    /* ---------- who you talk to ---------- */
+    .person { margin-block-start: 28px; display: flex; gap: 40px; align-items: center; flex-wrap: wrap; background: var(--mist); border-radius: 28px; padding: 36px; }
+    .person img { inline-size: 200px; block-size: 200px; border-radius: 50%; object-fit: cover; flex: none; }
+    .person > div { flex: 1 1 320px; }
+    .person h2 { margin: 0; font-size: clamp(30px, 3.6vw, 40px); }
+    .person .role { margin-block-start: 6px; font-weight: 600; color: var(--sand-ink); }
+    .person-line { margin-block-start: 14px; color: var(--muted); font-size: 18px; max-inline-size: 52ch; }
+    .person-links { margin-block-start: 22px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .wa-btn { gap: 10px; background: #128C4A; }
+    .wa-btn:hover { background: #0F7A40; }
+    .wa-float { display: none; }
+    @media (max-width: 720px) {
+      .person { padding: 28px; gap: 24px; }
+      .person img { inline-size: 140px; block-size: 140px; }
+      .wa-float { display: grid; place-items: center; position: fixed; z-index: 61; inset-inline-end: 16px; inset-block-end: calc(88px + env(safe-area-inset-bottom));
+        inline-size: 56px; block-size: 56px; border-radius: 50%; background: #128C4A; color: #fff; box-shadow: 0 8px 24px rgba(14,28,48,0.25); }
+      .wa-float svg { inline-size: 28px; block-size: 28px; }
+    }
     .sticky-cta { display: none; }
     @media (max-width: 720px) {
       .sticky-cta {
@@ -620,6 +639,24 @@
   </div>
 </section>
 
+<section id="about" class="tight-top">
+  <div class="wrap">
+    <p class="eyebrow reveal" data-en="Who you will talk to">מי מדבר איתכם</p>
+    <div class="person reveal">
+      <img src="/img/osher-amsalem.jpg" alt="אושר אמסלם" data-en-alt="Osher Amsalem" width="240" height="240" loading="lazy">
+      <div>
+        <h2 data-en="Osher Amsalem">אושר אמסלם</h2>
+        <p class="role" data-en="Founding partner · Needs mapping and client relations">שותף מייסד · אפיון וקשר עם הלקוחות</p>
+        <p class="person-line" data-en="The first call is with Osher. He maps the process with you, and he is the one who stays in touch until the system is running.">את שיחת האפיון הראשונה עושים עם אושר. הוא ממפה איתכם את התהליך, והוא זה שנשאר איתכם בקשר עד שהמערכת עובדת.</p>
+        <div class="person-links">
+          <a class="btn wa-btn" href="https://wa.me/972503255115?text=%D7%94%D7%99%D7%99%20%D7%90%D7%95%D7%A9%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20Take%20It%20AIzy" data-en-href="https://wa.me/972503255115?text=Hi%20Osher%2C%20I%20found%20you%20through%20the%20Take%20It%20AIzy%20website" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.6z"/><path d="M9 9.2c.3 1.7 2.1 3.6 3.9 4 .5.1.9-.1 1.2-.5l.4-.5 1.6.8c-.2.9-1 1.5-1.9 1.4-2.8-.4-5.1-2.7-5.5-5.5-.1-.9.5-1.7 1.4-1.9l.8 1.6-.5.4c-.3.2-.5.5-.4.9z"/></svg><span data-en="WhatsApp Osher">וואטסאפ לאושר</span></a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/osher-amsalem/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="how">
   <div class="wrap">
     <p class="eyebrow reveal" data-en="How we work">איך עובדים</p>
@@ -670,7 +707,7 @@
     <div class="intake-frame">
       <iframe id="intakeFrame" src="https://os.takeitaizy.dev/intake?embed=1&amp;theme=light&amp;lang=he&amp;utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=embed" title="טופס פנייה ל-Take It AIzy" data-en-title="Contact form for Take It AIzy" loading="lazy"></iframe>
     </div>
-    <p class="contact-alt" data-en-html="Prefer to write to us directly? <a href='mailto:hello@takeitaizy.dev' class='lat'>hello@takeitaizy.dev</a> · or <a href='https://os.takeitaizy.dev/intake?utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=fallback' target='_blank' rel='noopener'>open the form in its own window</a>">מעדיפים לכתוב לנו ישירות? <a href="mailto:hello@takeitaizy.dev" class="lat">hello@takeitaizy.dev</a> · או <a href="https://os.takeitaizy.dev/intake?utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=fallback" target="_blank" rel="noopener">לפתוח את הטופס בחלון נפרד</a></p>
+    <p class="contact-alt" data-en-html="Prefer to write to us directly? <a href='https://wa.me/972503255115?text=Hi%20Osher%2C%20I%20found%20you%20through%20the%20Take%20It%20AIzy%20website' target='_blank' rel='noopener'>WhatsApp</a> · <a href='tel:+972503255115' class='lat'>050-325-5115</a> · <a href='mailto:hello@takeitaizy.dev' class='lat'>hello@takeitaizy.dev</a>">מעדיפים לכתוב לנו ישירות? <a href="https://wa.me/972503255115?text=%D7%94%D7%99%D7%99%20%D7%90%D7%95%D7%A9%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20Take%20It%20AIzy" target="_blank" rel="noopener">וואטסאפ</a> · <a href="tel:+972503255115" class="lat">050-325-5115</a> · <a href="mailto:hello@takeitaizy.dev" class="lat">hello@takeitaizy.dev</a></p>
   </div>
 </section>
 
@@ -682,9 +719,12 @@
     <span class="lat">© 2026 Take It AIzy</span>
     <a href="/privacy" data-en="Privacy policy">מדיניות פרטיות</a>
     <a href="/accessibility" data-en="Accessibility statement">הצהרת נגישות</a>
-    <a class="mail lat" href="mailto:hello@takeitaizy.dev">hello@takeitaizy.dev</a>
+    <a href="https://www.linkedin.com/in/osher-amsalem/" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="mail lat" href="tel:+972503255115">050-325-5115</a>
+    <a class="lat" href="mailto:hello@takeitaizy.dev">hello@takeitaizy.dev</a>
   </div>
 </footer>
+<a class="wa-float" href="https://wa.me/972503255115?text=%D7%94%D7%99%D7%99%20%D7%90%D7%95%D7%A9%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20Take%20It%20AIzy" data-en-href="https://wa.me/972503255115?text=Hi%20Osher%2C%20I%20found%20you%20through%20the%20Take%20It%20AIzy%20website" target="_blank" rel="noopener" aria-label="וואטסאפ לאושר" data-en-label="WhatsApp Osher"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.6z"/><path d="M9 9.2c.3 1.7 2.1 3.6 3.9 4 .5.1.9-.1 1.2-.5l.4-.5 1.6.8c-.2.9-1 1.5-1.9 1.4-2.8-.4-5.1-2.7-5.5-5.5-.1-.9.5-1.7 1.4-1.9l.8 1.6-.5.4c-.3.2-.5.5-.4.9z"/></svg></a>
 
 <div class="sticky-cta" id="stickyCta">
   <a class="btn" href="#contact" data-en="Free call, we’ll get back to you">שיחה ללא עלות, נחזור אליכם</a>
@@ -713,6 +753,8 @@ function setLang(lang) {
   swap("data-en-html", function (el, v) { if (v === null) return el.innerHTML; el.innerHTML = v; });
   swap("data-en-title", function (el, v) { if (v === null) return el.getAttribute("title"); el.setAttribute("title", v); });
   swap("data-en-label", function (el, v) { if (v === null) return el.getAttribute("aria-label"); el.setAttribute("aria-label", v); });
+  swap("data-en-href", function (el, v) { if (v === null) return el.getAttribute("href"); el.setAttribute("href", v); });
+  swap("data-en-alt", function (el, v) { if (v === null) return el.getAttribute("alt"); el.setAttribute("alt", v); });
   document.documentElement.lang = lang;
   document.documentElement.dir = lang === "en" ? "ltr" : "rtl";
   document.title = lang === "en" ? "Take It AIzy | Smart management systems for business" : "Take It AIzy | מערכות ניהול חכמות לעסקים";
