@@ -6,7 +6,7 @@ What every public site or app Take It AIzy builds gets:
 |---|---|
 | `statement-template.md` | Hebrew + English accessibility statement with `{{fields}}` and a **לוודא** note per section saying what to check before a line stays in. |
 | `a11y-check.mjs` | One script for every project: axe-core (WCAG 2.1 A + AA) at desktop and phone size, plus a Tab walk (skip link first, visible focus, no traps). Exit 1 on any failure. |
-| `contract-clause.md` | Draft clause for client agreements: we build and test to IS 5568 / WCAG 2.1 AA and supply the template; the client approves and publishes the statement and owns the content it uploads. For Or Tzuberi to review. |
+| `contract-clause.md` | Clause for client agreements: we build and test to IS 5568 / WCAG 2.1 AA and supply the template; the client approves and publishes the statement and owns the content it uploads. Approved by Razi, 2026-10-18; 30-day free-fix window. |
 
 ## Running the check
 
