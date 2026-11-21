@@ -164,8 +164,8 @@
     .btn-ghost:hover { background: var(--mist); }
     .btn-text { background: none; color: inherit; padding-inline: 6px; box-shadow: none; }
     .btn-text:hover { background: none; text-decoration: underline; text-underline-offset: 5px; }
-    .wa-btn { background: #128C4A; }
-    .wa-btn:hover { background: #0F7A40; }
+    .wa-btn { background: #0F7A40; }
+    .wa-btn:hover { background: #0C6A37; }
 
     /* ---------- nav: a floating glass capsule ---------- */
     .nav-shell { position: sticky; inset-block-start: 12px; z-index: 50; padding-inline: 12px; }
@@ -214,9 +214,9 @@
     .drawer-ws .eyebrow { color: #C9D2DE; }
     .drawer-ws h3 { margin-block-start: 8px; font-size: 20px; }
     .drawer-ws ul { margin-block-start: 12px; display: flex; flex-direction: column; gap: 8px; }
-    .drawer-ws li { display: flex; gap: 10px; align-items: baseline; font-size: 15px; color: #D2D9E3; }
+    .drawer-ws li { position: relative; padding-inline-start: 16px; font-size: 15px; color: #D2D9E3; }
     .drawer-ws li b { color: var(--white); font-weight: 600; }
-    .drawer-ws li::before { content: ""; flex: none; inline-size: 6px; block-size: 6px; border-radius: 50%; background: var(--sand); transform: translateY(-2px); }
+    .drawer-ws li::before { content: ""; position: absolute; inset-inline-start: 0; inset-block-start: .6em; inline-size: 6px; block-size: 6px; border-radius: 50%; background: var(--sand); }
     .drawer-ws .btn { margin-block-start: 16px; }
     .drawer-foot { margin-block-start: auto; display: flex; flex-direction: column; gap: 10px; }
     .drawer-foot .btn { inline-size: 100%; }
@@ -297,8 +297,7 @@
     .case .pain b { display: block; font-size: 12px; font-weight: 700; color: var(--subtle); margin-block-end: 2px; }
     .case ul.did { display: flex; flex-direction: column; gap: 8px; }
     .case ul.did li { position: relative; padding-inline-start: 22px; font-size: 15.5px; color: var(--body); }
-    .case ul.did li::before { content: ""; position: absolute; inset-inline-start: 2px; inset-block-start: .55em; inline-size: 10px; block-size: 6px; border-inline-start: 2px solid var(--navy); border-block-end: 2px solid var(--navy); transform: rotate(-45deg); }
-    [dir="rtl"] .case ul.did li::before { transform: rotate(45deg) scaleX(-1); }
+    .case ul.did li::before { content: "✓"; position: absolute; inset-inline-start: 0; inset-block-start: 0; font-weight: 700; color: #1E7A4C; }
     .chan { margin-block-start: auto; padding-block-start: 14px; border-block-start: 1px solid rgba(14,28,48,0.08); display: flex; flex-wrap: wrap; gap: 6px; }
     .chan span { font-size: 12.5px; font-weight: 600; color: var(--muted); background: rgba(255,255,255,0.7); border: 1px solid rgba(14,28,48,0.08); border-radius: 999px; padding: 3px 10px; }
     .case.feature { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 28px 40px; padding: 36px; }
@@ -310,7 +309,8 @@
 
     /* ---------- services (bento) ---------- */
     .bento { margin-block-start: 44px; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
-    .tile { border-radius: 28px; padding: 30px; background: var(--mist); display: flex; flex-direction: column; gap: 10px; grid-column: span 2; }
+    .tile { border-radius: 28px; padding: 30px; display: flex; flex-direction: column; gap: 10px; grid-column: span 2; }
+    .tile:not(.aurora) { background: var(--mist); }
     .tile.wide { grid-column: span 3; }
     .tile svg { inline-size: 30px; block-size: 30px; color: var(--navy); }
     .tile h3 { margin-block-start: 6px; }
@@ -328,7 +328,8 @@
     .calc { border-radius: 40px; padding: clamp(28px, 5vw, 72px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 48px; align-items: center; }
     .calc h2 { max-inline-size: 16ch; font-size: clamp(30px, 4vw, 48px); }
     .stepper-list { margin-block-start: 30px; display: flex; flex-direction: column; gap: 12px; }
-    .stepper { display: flex; align-items: center; justify-content: space-between; gap: 16px; border-radius: 20px; padding: 12px 16px; }
+    .stepper { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; border-radius: 20px; padding: 12px 16px; }
+    .stepper > span:first-child { flex: 1 1 150px; }
     .stepper .ctl { display: flex; align-items: center; gap: 10px; }
     .stepper button {
       inline-size: 44px; block-size: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.22); cursor: pointer;
@@ -347,13 +348,13 @@
     .calc-out .btn { margin-block-start: 26px; }
 
     /* ---------- how ---------- */
-    .steps { margin-block-start: 52px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 16px; counter-reset: s; }
+    .steps { margin-block-start: 52px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; counter-reset: s; }
     .step { border-radius: 26px; padding: 26px; background: var(--mist); }
     .step .num::before { counter-increment: s; content: "0" counter(s); font-family: Montserrat, sans-serif; direction: ltr; display: inline-block; font-size: 14px; font-weight: 700; background: var(--white); border-radius: 999px; padding: 4px 12px; }
     .step:first-child .num::before { background: var(--sand); }
     .step h3 { font-size: 20px; margin-block-start: 18px; }
     .step p { margin-block-start: 8px; color: var(--muted); font-size: 16px; }
-    .model-grid { margin-block-start: 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 16px; }
+    .model-grid { margin-block-start: 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 16px; }
     .model { border-radius: 28px; padding: 30px; display: flex; flex-direction: column; gap: 12px; border: 1px solid var(--line); }
     .model .no { display: flex; align-items: center; gap: 10px; font-family: Montserrat, sans-serif; direction: ltr; font-size: 14px; font-weight: 700; color: var(--subtle); }
     .model h3 { font-size: 23px; }
@@ -378,14 +379,24 @@
     .ws-foot { margin-block-start: 28px; display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
     .ws-foot p { color: #C9D2DE; font-size: 15px; }
 
+    .ws-more { margin-block-start: 22px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 28px 40px; padding: 26px; border-radius: 26px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); }
+    .ws-more h3 { font-size: 19px; }
+    .ws-topics { margin-block-start: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .ws-topics li { font-size: 14.5px; color: var(--white); background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.16); border-radius: 999px; padding: 6px 13px; }
+    .ws-incl { margin-block-start: 14px; display: flex; flex-direction: column; gap: 10px; }
+    .ws-incl li { position: relative; padding-inline-start: 18px; color: #D2D9E3; font-size: 15.5px; }
+    .ws-incl li::before { content: ""; position: absolute; inset-inline-start: 0; inset-block-start: .6em; inline-size: 7px; block-size: 7px; border-radius: 50%; background: var(--sand); }
+    .ws-incl b { color: var(--white); }
+    .ws-tools { margin-block-start: 14px; font-size: 14px; color: #C9D2DE; }
     /* ---------- voices ---------- */
-    .voice-grid { margin-block-start: 44px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 16px; }
+    .voice-grid { margin-block-start: 44px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 16px; }
     .voice { border-radius: 28px; padding: 30px; display: flex; flex-direction: column; gap: 18px; }
     .voice blockquote { font-size: 19px; line-height: 1.55; color: var(--navy); }
     .voice blockquote::before { content: "״"; display: block; font-size: 54px; line-height: .6; color: var(--sand); font-weight: 800; margin-block-end: 6px; }
     [dir="ltr"] .voice blockquote::before { content: "“"; }
     .voice figcaption { margin-block-start: auto; font-size: 14px; color: var(--subtle); }
-    .voice figcaption b { display: block; color: var(--navy); font-size: 15px; }
+    .voice figcaption b, .voice figcaption span { display: block; }
+    .voice figcaption b { color: var(--navy); font-size: 15px; }
     .placeholder { outline: 2px dashed rgba(232,163,61,0.8); outline-offset: -8px; }
 
     /* ---------- about ---------- */
@@ -409,7 +420,7 @@
 
     /* ---------- contact ---------- */
     .contact-card { border-radius: 40px; padding: clamp(24px, 5vw, 64px); }
-    .next-steps { margin-block-start: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 22px; counter-reset: ns; }
+    .next-steps { margin-block-start: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 22px; counter-reset: ns; }
     .next-steps li { display: flex; gap: 14px; align-items: baseline; color: var(--muted); font-size: 16px; }
     .next-steps li::before { counter-increment: ns; content: "0" counter(ns); font-family: Montserrat, sans-serif; direction: ltr; font-size: 13px; font-weight: 700; background: var(--white); border-radius: 999px; padding: 2px 10px; color: var(--navy); flex: none; }
     .next-steps b { display: block; color: var(--navy); font-weight: 600; }
@@ -427,28 +438,51 @@
     footer { padding-block: 40px; }
     .foot { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; font-size: 14px; color: var(--subtle); border-block-start: 1px solid var(--line); padding-block-start: 28px; }
     .foot img { block-size: 34px; inline-size: auto; }
-    .foot a { color: var(--subtle); text-decoration: none; }
+    .foot a { color: var(--subtle); text-decoration: none; display: inline-block; padding-block: 8px; }
     .foot a:hover { color: var(--navy); text-decoration: underline; }
     .foot .mail { margin-inline-start: auto; }
 
-    /* ---------- mobile: sticky CTA and WhatsApp ---------- */
-    .wa-float { display: none; }
-    .sticky-cta { display: none; }
+    /* ---------- phone and tablet: bottom tab bar ---------- */
+    .tabbar { display: none; }
+    @media (max-width: 1060px) {
+      .nav-cta, #menuOpen { display: none; }
+      .tabbar {
+        display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: center;
+        position: fixed; z-index: 60; inset-inline: 10px; inset-block-end: calc(10px + env(safe-area-inset-bottom));
+        max-inline-size: 560px; margin-inline: auto; padding: 6px; border-radius: 28px;
+      }
+      .tabbar a, .tabbar button {
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+        min-block-size: 54px; padding: 4px 2px; border: 0; border-radius: 20px; background: none; cursor: pointer;
+        text-decoration: none; color: var(--muted); font-size: 12px; font-weight: 600; line-height: 1.15; text-align: center;
+      }
+      .tabbar svg { inline-size: 22px; block-size: 22px; }
+      .tabbar [aria-current="true"] { color: var(--navy); background: rgba(14,28,48,0.07); }
+      .tabbar .tab-cta { background: var(--navy); color: var(--white); box-shadow: 0 10px 22px -10px rgba(14,28,48,0.6); }
+      .tabbar .tab-cta[aria-current="true"] { background: var(--navy); color: var(--white); }
+      .tabbar .tab-wa svg { color: #128C4A; }
+      footer { padding-block-end: calc(110px + env(safe-area-inset-bottom)); }
+    }
     @media (max-width: 720px) {
       section { padding-block: 76px; }
       .person { padding: 26px; gap: 22px; }
       .person img { inline-size: 120px; block-size: 120px; }
-      .wa-float { display: grid; place-items: center; position: fixed; z-index: 61; inset-inline-end: 16px; inset-block-end: calc(88px + env(safe-area-inset-bottom));
-        inline-size: 56px; block-size: 56px; border-radius: 50%; background: #128C4A; color: #fff; box-shadow: 0 8px 24px rgba(14,28,48,0.25); }
-      .wa-float svg { inline-size: 28px; block-size: 28px; }
-      .sticky-cta {
-        display: block; position: fixed; z-index: 60; inset-inline: 12px; inset-block-end: calc(10px + env(safe-area-inset-bottom));
-        padding: 8px; border-radius: 999px;
-        transform: translateY(140%); transition: transform .35s var(--ease);
-      }
-      .sticky-cta.show { transform: none; }
-      .sticky-cta .btn { display: flex; inline-size: 100%; }
-      footer { padding-block-end: 110px; }
+    }
+
+    /* ---------- storage notice ---------- */
+    .storage-note {
+      position: fixed; z-index: 62; inset-block-end: 20px; inset-inline-start: 20px; max-inline-size: 420px;
+      margin-inline-end: 20px; border-radius: 24px; padding: 18px 20px; display: flex; flex-direction: column; gap: 12px;
+      background: rgba(255,255,255,0.9);
+    }
+    .storage-note[hidden] { display: none; }
+    .storage-note p { font-size: 14.5px; color: var(--body); line-height: 1.5; }
+    .storage-note .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .storage-note .btn { min-block-size: 44px; padding: 10px 22px; font-size: 15px; }
+    .storage-note a.more { font-size: 14px; color: var(--navy); padding: 10px 4px; }
+    @media (max-width: 1060px) {
+      .storage-note { inset-inline: 10px; margin-inline: auto; max-inline-size: 560px; inset-block-end: calc(84px + env(safe-area-inset-bottom)); padding: 14px 16px; gap: 10px; }
+      .storage-note p { font-size: 13.5px; }
     }
 
     /* ---------- reveal ---------- */
@@ -460,10 +494,9 @@
       html { scroll-behavior: auto; }
       .js .stage .shot, .js dialog.drawer[open] .drawer-panel { animation: none; }
       .js .reveal { opacity: 1; transform: none; transition: none; }
-      .sticky-cta { transition: none; }
     }
     @media (prefers-reduced-transparency: reduce) {
-      .glass, .sticky-cta, .drawer-panel { background: var(--white); -webkit-backdrop-filter: none; backdrop-filter: none; }
+      .glass, .tabbar, .storage-note, .drawer-panel { background: var(--white); -webkit-backdrop-filter: none; backdrop-filter: none; }
       .glass-dark { background: #1A2D47; -webkit-backdrop-filter: none; backdrop-filter: none; }
       .filters button, .btn-glass { -webkit-backdrop-filter: none; backdrop-filter: none; }
     }
@@ -499,7 +532,7 @@
   <div class="drawer-panel glass">
     <div class="drawer-top">
       <img src="/brand/logo/take-it-aizy-logo-navy.svg" alt="Take It AIzy" width="80" height="38">
-      <button type="button" class="icon-btn" id="menuClose" aria-label="סגירת התפריט" data-en-label="Close the menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <button type="button" class="icon-btn" id="menuClose" autofocus aria-label="סגירת התפריט" data-en-label="Close the menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
     <nav class="drawer-nav" aria-label="ניווט באתר" data-en-label="Site navigation">
       <a href="#work" data-en="Our work">מה בנינו</a>
@@ -513,7 +546,11 @@
     <div class="drawer-ws on-dark">
       <p class="eyebrow" data-en="Workshops">סדנאות</p>
       <h3 data-en="AI workshops for teams and managers">סדנאות AI לצוותים ולמנהלים</h3>
-      <!--DRAWER_WS-->
+      <ul>
+        <li><span data-en-html="<b>Lecture</b> · 1-2 hours, any group size">‏<b>הרצאה</b> · 1-2 שעות, לכל גודל קבוצה</span></li>
+        <li><span data-en-html="<b>Hands-on workshop</b> · 2-5 hours, up to 10">‏<b>סדנה מעשית</b> · 2-5 שעות, עד 10 משתתפים</span></li>
+        <li><span data-en-html="<b>Field day</b> · 5 hours at your place">‏<b>סדנת שטח</b> · 5 שעות אצלכם בארגון</span></li>
+      </ul>
       <a class="btn btn-light" href="#workshops" data-en="All the workshops">לכל הסדנאות</a>
     </div>
     <div class="drawer-foot">
@@ -569,8 +606,8 @@
 
 <section class="sectors" aria-labelledby="sectorsH">
   <div class="wrap">
-    <p id="sectorsH" data-en="Systems we built recently, for:">מערכות שבנינו לאחרונה, בשביל:</p>
-    <!--SECTORS-->
+    <p id="sectorsH" data-en="Among those we built for recently:">בין מי שבנינו להם לאחרונה:</p>
+    <ul class="sector-row"><li data-en="A service and maintenance company">חברת שירות ואחזקה</li><li data-en="A home appliances company">חברת מוצרי חשמל לבית</li><li data-en="A landscaping contractor">קבלן גינון ופיתוח נוף</li><li data-en="A professional club for finance people">מועדון מקצועי לאנשי כספים</li><li data-en="A real estate investor">משקיע נדל״ן</li></ul>
   </div>
 </section>
 
@@ -591,7 +628,55 @@
       <button type="button" aria-pressed="false" data-filter="web" data-en="Platforms and sites">פלטפורמות ואתרים</button>
     </div>
     <div class="case-grid" id="cases">
-      <!--CASES-->
+      <article class="case feature glass reveal" data-kind="sys">
+        <div class="case-main"><div class="case-top"><span class="tag" data-en="A service and maintenance company">חברת שירות ואחזקה</span><span class="status build" data-en="Rolling out at the client">בהטמעה אצל הלקוח</span></div>
+        <h3 data-en="From paper service reports to an app that works with no signal">מדוח שירות על נייר לאפליקציה שעובדת גם בלי קליטה</h3>
+        <p class="pain"><b data-en="What hurt">מה כאב</b><span data-en="Every service call went through paper, messages and retyping. The same detail was typed three times.">כל קריאת שירות עברה דרך נייר, הודעות והקלדה חוזרת. אותו נתון הוקלד שלוש פעמים.</span></p>
+        <div class="chan"><span data-en="Technician app">אפליקציה לטכנאי</span><span data-en="Office system">מערכת למשרד</span><span data-en="PDF">PDF</span></div></div>
+        <ul class="did"><li data-en="A technician app that works with no signal: work times, checklists, photos and the customer’s signature">אפליקציה לטכנאי שעובדת גם בלי קליטה: שעות עבודה, צ׳קליסטים, תמונות וחתימת לקוח</li><li data-en="The office approves every report before it goes to the customer">המשרד מאשר כל דוח לפני שהוא יוצא ללקוח</li><li data-en="A clean PDF service report, in Hebrew and English">דוח שירות מסודר ב-PDF, בעברית ובאנגלית</li><li data-en="A billing summary built from the reports themselves, with no retyping">סיכום לחיוב שנבנה מהדוחות עצמם, בלי להקליד שוב</li><li data-en="The existing data imported from Excel">ייבוא הנתונים הקיימים מאקסל</li></ul>
+      </article>
+      <article class="case glass reveal" data-kind="wa sys">
+        <div class="case-top"><span class="tag" data-en="A home appliances company">חברת מוצרי חשמל לבית</span><span class="status build" data-en="Rolling out at the client">בהטמעה אצל הלקוח</span></div>
+        <h3 data-en="A WhatsApp service bot that opens a ticket and assigns a technician">בוט שירות בוואטסאפ שפותח קריאה ומשבץ טכנאי</h3>
+        <p class="pain"><b data-en="The goal">המטרה</b><span data-en="Handle service requests on WhatsApp without someone asking which product it is, chasing the invoice and finding a technician for the area.">לטפל בפניות שירות בוואטסאפ בלי שמישהו יברר ידנית איזה מוצר, יבקש חשבונית ויחפש טכנאי לאזור.</span></p>
+        <ul class="did"><li data-en="Identifies the product and asks for a photo or invoice on every service path">מזהה את המוצר ומבקש תמונה או חשבונית בכל מסלול שירות</li><li data-en="Assigns a technician by area and passes everything to the client’s CRM">משבץ טכנאי לפי אזור, ומעביר הכול ל-CRM של הלקוח</li><li data-en="An admin screen with roles, two-step sign-in and control over data export">מסך ניהול עם הרשאות, כניסה בשני שלבים ובקרה על ייצוא נתונים</li><li data-en="Every uploaded file is scanned, and the bot is guarded against attempts to trick it">סריקה של כל קובץ שעולה, והגנה מניסיונות לבלבל את הבוט</li></ul>
+        <div class="chan"><span data-en="WhatsApp">וואטסאפ</span><span data-en="CRM">CRM</span><span data-en="Admin screen">מסך ניהול</span></div>
+      </article>
+      <article class="case glass reveal" data-kind="sys">
+        <div class="case-top"><span class="tag" data-en="A landscaping contractor">קבלן גינון ופיתוח נוף</span><span class="status live" data-en="Live">באוויר</span></div>
+        <h3 data-en="Quotes from a price list, and reminders for the vehicle fleet">הצעות מחיר מתוך מחירון, ותזכורות לצי הרכבים</h3>
+        <p class="pain"><b data-en="The goal">המטרה</b><span data-en="Produce quotes from long price lists, and never miss a vehicle’s inspection or insurance date.">להפיק הצעות מחיר מתוך מחירונים ארוכים, ולא לפספס טסט או ביטוח של אף רכב.</span></p>
+        <ul class="did"><li data-en="Builds a quote from the price list and produces a PDF ready to send">בונה הצעת מחיר מתוך המחירון ומפיקה PDF מוכן לשליחה</li><li data-en="A vehicle list with inspection and insurance dates, and an email reminder before they expire">רשימת רכבים עם תוקף טסט וביטוח, ותזכורת במייל לפני שהם פגים</li><li data-en="The calculation was checked on 5,000 random quotes against an independent calculation">החישוב נבדק על 5,000 הצעות אקראיות מול חישוב בלתי תלוי</li><li data-en="Sign-in with the business’s Google account">כניסה עם חשבון Google של העסק</li></ul>
+        <div class="chan"><span data-en="Management system">מערכת ניהול</span><span data-en="PDF">PDF</span><span data-en="Email reminders">תזכורות במייל</span></div>
+      </article>
+      <article class="case glass reveal" data-kind="web agent">
+        <div class="case-top"><span class="tag" data-en="A professional club for finance people">מועדון מקצועי לאנשי כספים</span><span class="status live" data-en="Live">באוויר</span></div>
+        <h3 data-en="A complete platform for a paid members club">פלטפורמה שלמה למועדון חברים בתשלום</h3>
+        <p class="pain"><b data-en="The goal">המטרה</b><span data-en="Run a professionals’ club in one place: sign-up, payment, content and events. A joint venture of ours with a partner from the field.">להריץ מועדון של אנשי מקצוע במקום אחד: הרשמה, תשלום, תוכן ואירועים. מיזם משותף שלנו עם שותף מהתחום.</span></p>
+        <ul class="did"><li data-en="Sign-up with approval, payments, renewals and invoices">הרשמה עם אישור, תשלומים, חידושים וחשבוניות</li><li data-en="Protected video for recordings, and lecture sign-up with reminders">וידאו מוגן להקלטות, והרשמה להרצאות עם תזכורות</li><li data-en="A store of AI tools for members: removing identifying details from a document, comparing trial balances and checking a tax refund">חנות כלי AI לחברים: השמטת פרטים מזהים ממסמך, השוואת מאזני בוחן ובדיקת החזר מס</li><li data-en="Automatic revenue statements for partners">דוחות הכנסה אוטומטיים לשותפים</li></ul>
+        <div class="chan"><span data-en="Website">אתר</span><span data-en="Payments">תשלומים</span><span data-en="Video">וידאו</span><span data-en="AI tools">כלי AI</span></div>
+      </article>
+      <article class="case glass reveal" data-kind="sys agent">
+        <div class="case-top"><span class="tag" data-en="Our own system">המערכת שלנו</span><span class="status live" data-en="Live">באוויר</span></div>
+        <h3 data-en="The system that runs us: clients, projects and a pain map">המערכת שמנהלת אותנו: לקוחות, פרויקטים ומפת כאבים</h3>
+        <p class="pain"><b data-en="The goal">המטרה</b><span data-en="Every client, deal, project and decision in one place, open to both partners.">כל לקוח, עסקה, פרויקט והחלטה במקום אחד, שקוף לשני השותפים.</span></p>
+        <ul class="did"><li data-en="A pain map: every manual task of a client, what it costs a month, and what is worth building first">מפת כאבים: כל משימה ידנית של לקוח, כמה היא עולה בחודש, ומה שווה לבנות קודם</li><li data-en="Meetings with a transcript, summary and tasks, and a first draft spec from the call">פגישות עם תמליל, סיכום ומשימות, וטיוטת אפיון ראשונה מתוך השיחה</li><li data-en="Inquiries from the website land in a queue and become a deal in one click">פניות מהאתר נכנסות לתור והופכות לעסקה בלחיצה</li><li data-en="A quote from a spec document">הצעת מחיר מתוך מסמך אפיון</li></ul>
+        <div class="chan"><span data-en="Management system">מערכת ניהול</span><span data-en="AI">AI</span><span data-en="Google Calendar">יומן Google</span></div>
+      </article>
+      <article class="case glass reveal" data-kind="web agent">
+        <div class="case-top"><span class="tag" data-en="Our own product">מוצר שלנו</span><span class="status live" data-en="Live">באוויר</span></div>
+        <h3 data-en="An app that puts a household’s money in order">אפליקציה שמסדרת את הכסף של משק הבית</h3>
+        <p class="pain"><b data-en="The goal">המטרה</b><span data-en="Give a household one clear picture of its money, without spreadsheets.">לתת למשק בית תמונה אחת וברורה של הכסף שלו, בלי טבלאות.</span></p>
+        <ul class="did"><li data-en="A personal portal for the household, with the option to add a partner">פורטל אישי למשק הבית, עם אפשרות לצרף בן או בת זוג</li><li data-en="Documents and payslips read automatically with AI">קריאה אוטומטית של מסמכים ותלושים בעזרת AI</li><li data-en="A trial period and payment built in">תקופת ניסיון ותשלום מובנים במערכת</li><li data-en="A video guide open to everyone">מדריך וידאו פתוח לכולם</li></ul>
+        <div class="chan"><span data-en="Web app">אפליקציית ווב</span><span data-en="AI">AI</span><span data-en="Payments">תשלומים</span></div>
+      </article>
+      <article class="case glass reveal" data-kind="agent">
+        <div class="case-top"><span class="tag" data-en="A real estate investor">משקיע נדל״ן</span><span class="status " data-en="Working prototype">אב טיפוס עובד</span></div>
+        <h3 data-en="A research agent that sends every morning what changed in planning">סוכן מחקר ששולח כל בוקר מה השתנה בתכנון</h3>
+        <p class="pain"><b data-en="The goal">המטרה</b><span data-en="Stop following plans and permits in public databases by hand.">להפסיק לעקוב ידנית אחרי תכניות והיתרים במאגרים ציבוריים.</span></p>
+        <ul class="did"><li data-en="Collects every day from the national planning database and from open data">אוסף כל יום מהמאגר הארצי של התכנון וממאגרי מידע פתוחים</li><li data-en="Compares with yesterday and reports only what changed, once per plan">משווה לאתמול ומדווח רק על מה שהשתנה, פעם אחת לכל תכנית</li><li data-en="A headline and a priority for each update, in a designed Hebrew morning email">כותרת ועדיפות לכל עדכון, במייל בוקר מעוצב בעברית</li><li data-en="Health checks on the sources, so a glitch is never sent as news">בדיקות תקינות למקורות, כדי שתקלה לא תישלח כאילו היא חדשה</li></ul>
+        <div class="chan"><span data-en="AI agent">סוכן AI</span><span data-en="Morning email">מייל בוקר</span></div>
+      </article>
     </div>
     <p class="work-note reveal" data-en="Statuses are as of November 2026. The details are general on purpose, so as not to expose our clients.">הסטטוסים נכונים לנובמבר 2026. הפרטים כלליים בכוונה, כדי לא לחשוף את הלקוחות שלנו.</p>
   </div>
@@ -687,9 +772,51 @@
       <p class="eyebrow" data-en="Workshops">סדנאות</p>
       <h2 style="max-inline-size: 20ch" data-en="AI workshops for teams and managers">סדנאות AI לצוותים ולמנהלים</h2>
       <p class="lead" data-en="Hands-on, in Hebrew, on the work your team really does. Everyone leaves with something that already works.">מעשיות, בעברית, על העבודה שהצוות שלכם באמת עושה. כל משתתף יוצא עם משהו שכבר עובד.</p>
-      <!--WORKSHOPS-->
+      <div class="ws-grid">
+        <article class="ws-card glass-dark">
+          <div class="meta"><span data-en="1-2 hours">1-2 שעות</span><span data-en="No limit on participants">ללא הגבלת משתתפים</span></div>
+          <h3 data-en="Lecture">הרצאה</h3>
+          <p data-en="AI in plain language for any team: AI in everyday work, AI for managers, and safe use with privacy and security in mind.">AI בשפה פשוטה לכל צוות: AI בעבודה היומיומית, AI למנהלים, ושימוש בטוח מבחינת פרטיות ואבטחה.</p>
+        </article>
+        <article class="ws-card glass-dark">
+          <div class="meta"><span data-en="2-5 hours">2-5 שעות</span><span data-en="Up to 10 participants">עד 10 משתתפים</span></div>
+          <h3 data-en="Hands-on workshop">סדנה מעשית</h3>
+          <p data-en="Working on your own tasks: prompts that work, documents and emails, data analysis, and AI assistants of your own.">עובדים על המשימות שלכם: פרומפטים שעובדים, מסמכים ומיילים, ניתוח נתונים, ועוזרים אישיים משלכם.</p>
+        </article>
+        <article class="ws-card glass-dark">
+          <div class="meta"><span data-en="5 hours">5 שעות</span><span data-en="At your place">אצלכם בארגון</span><span data-en="Up to 10 participants">עד 10 משתתפים</span></div>
+          <h3 data-en="Field day">סדנת שטח</h3>
+          <p data-en="One working day, real tasks, and solutions that stay with you.">יום עבודה אחד, משימות אמיתיות, ופתרונות שנשארים אצלכם.</p>
+        </article>
+      </div>
+      <div class="ws-more">
+        <div>
+          <h3 data-en="Topics, from first steps to agents">נושאים, מצעדים ראשונים ועד סוכנים</h3>
+          <ul class="ws-topics">
+            <li data-en="First steps with AI tools">צעדים ראשונים בכלי AI</li>
+            <li data-en="Writing prompts that work">כתיבת פרומפטים שעובדים</li>
+            <li data-en="AI in the office: documents, emails, sheets and slides">AI במשרד: מסמכים, מיילים, טבלאות ומצגות</li>
+            <li data-en="Analysing information and data with AI">ניתוח מידע ונתונים עם AI</li>
+            <li data-en="AI for marketing, content and sales">AI לשיווק, תוכן ומכירות</li>
+            <li data-en="Personal assistants of your own">עוזרים אישיים משלכם</li>
+            <li data-en="Agents and connections: AI that does the work">סוכנים וחיבורים: AI שעושה את העבודה</li>
+            <li data-en="AI for managers: leading a team in the new era">AI למנהלים: להוביל צוות בעידן החדש</li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-en="Included in every workshop">בכל סדנה</h3>
+          <ul class="ws-incl">
+            <li data-en-html="<b>An intro call</b> to tailor it to your team">‏<b>שיחת היכרות</b> כדי להתאים את התוכן לצוות שלכם</li>
+            <li data-en-html="<b>A participant kit:</b> ready prompts and a short guide">‏<b>ערכת משתתף:</b> דף פרומפטים מוכנים ומדריך קצר</li>
+            <li data-en-html="<b>Safe use:</b> what may go into an AI tool and what may not">‏<b>שימוש בטוח:</b> מה מותר להכניס לכלי AI ומה לא</li>
+            <li data-en-html="<b>A follow-up session</b> two weeks to a month later">‏<b>מפגש המשך</b> כעבור שבועיים עד חודש</li>
+          </ul>
+          <p class="ws-tools" data-en="Claude, ChatGPT, Gemini and Copilot. Online or at your place.">‏Claude, ChatGPT, Gemini ו-Copilot. אונליין או אצלכם.</p>
+        </div>
+      </div>
       <div class="ws-foot">
         <a class="btn btn-light" href="#contact" data-en="Ask about a workshop">לפרטים על סדנה</a>
+        <p data-en="Every session is priced by format, length and number of participants. A quote within one business day.">כל מפגש מתומחר לפי הפורמט, אורך המפגש ומספר המשתתפים. הצעת מחיר תוך יום עסקים.</p>
       </div>
     </div>
   </div>
@@ -699,7 +826,7 @@
   <div class="wrap">
     <p class="eyebrow reveal" data-en="In their words">במילים שלהם</p>
     <h2 class="reveal" data-en="What our clients say">מה הלקוחות שלנו אומרים</h2>
-    <!--VOICES-->
+    <div class="voice-grid"><figure class="voice glass placeholder"><blockquote data-en="[A real quote from a client, with permission to publish]">[ציטוט אמיתי מלקוח, באישור לפרסום]</blockquote><figcaption><b data-en="[Role]">[תפקיד]</b><span data-en="[Type of business]">[סוג העסק]</span></figcaption></figure><figure class="voice glass placeholder"><blockquote data-en="[A real quote from a client, with permission to publish]">[ציטוט אמיתי מלקוח, באישור לפרסום]</blockquote><figcaption><b data-en="[Role]">[תפקיד]</b><span data-en="[Type of business]">[סוג העסק]</span></figcaption></figure><figure class="voice glass placeholder"><blockquote data-en="[A real quote from a client, with permission to publish]">[ציטוט אמיתי מלקוח, באישור לפרסום]</blockquote><figcaption><b data-en="[Role]">[תפקיד]</b><span data-en="[Type of business]">[סוג העסק]</span></figcaption></figure></div>
   </div>
 </section>
 
@@ -761,7 +888,7 @@
 <footer>
   <div class="wrap foot">
     <img src="/brand/logo/take-it-aizy-logo-navy.svg" alt="Take It AIzy" width="72" height="34">
-    <span class="lat">© 2026 Take It AIzy</span>
+    <span><span class="lat">© 2026 Take It AIzy</span> · <span data-en="Osher Solutions Ltd.">אושר סולושיינס בע״מ</span></span>
     <a href="/privacy" data-en="Privacy policy">מדיניות פרטיות</a>
     <a href="/accessibility" data-en="Accessibility statement">הצהרת נגישות</a>
     <a href="https://www.linkedin.com/in/osher-amsalem/" target="_blank" rel="noopener">LinkedIn</a>
@@ -769,9 +896,21 @@
     <a class="lat mail" href="mailto:hello@takeitaizy.dev">hello@takeitaizy.dev</a>
   </div>
 </footer>
-<a class="wa-float" href="https://wa.me/972503255115?text=%D7%94%D7%99%D7%99%20%D7%90%D7%95%D7%A9%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20Take%20It%20AIzy" data-en-href="https://wa.me/972503255115?text=Hi%20Osher%2C%20I%20found%20you%20through%20the%20Take%20It%20AIzy%20website" target="_blank" rel="noopener" aria-label="וואטסאפ לאושר" data-en-label="WhatsApp Osher"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.6z"/><path d="M9 9.2c.3 1.7 2.1 3.6 3.9 4 .5.1.9-.1 1.2-.5l.4-.5 1.6.8c-.2.9-1 1.5-1.9 1.4-2.8-.4-5.1-2.7-5.5-5.5-.1-.9.5-1.7 1.4-1.9l.8 1.6-.5.4c-.3.2-.5.5-.4.9z"/></svg></a>
+<nav class="tabbar glass" id="tabbar" aria-label="ניווט מהיר" data-en-label="Quick navigation">
+  <button type="button" id="tabMenu" aria-controls="menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg><span data-en="Menu">תפריט</span></button>
+  <a href="#work" data-tab="work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v5H4zM13 14h7v5h-7z"/></svg><span data-en="Our work">מה בנינו</span></a>
+  <a href="#contact" class="tab-cta" data-tab="contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg><span data-en="Free call">שיחה חינם</span></a>
+  <a href="#workshops" data-tab="workshops"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9l8-5 8 5v10"/><path d="M9 19v-6h6v6"/></svg><span data-en="Workshops">סדנאות</span></a>
+  <a class="tab-wa" href="https://wa.me/972503255115?text=%D7%94%D7%99%D7%99%20%D7%90%D7%95%D7%A9%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20Take%20It%20AIzy" data-en-href="https://wa.me/972503255115?text=Hi%20Osher%2C%20I%20found%20you%20through%20the%20Take%20It%20AIzy%20website" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.6z"/></svg><span data-en="WhatsApp">וואטסאפ</span></a>
+</nav>
 
-<div class="sticky-cta glass" id="stickyCta"><a class="btn" href="#contact" data-en="Free call, we’ll get back to you">שיחה ללא עלות, נחזור אליכם</a></div>
+<div class="storage-note glass" id="storageNote" role="region" aria-label="הודעה על אחסון בדפדפן" data-en-label="Notice about browser storage" hidden>
+  <p data-en="No tracking or advertising cookies here. The site keeps only what it needs in your browser: your language choice, and that you closed this notice.">אין כאן עוגיות מעקב או פרסום. האתר שומר בדפדפן רק את מה שהוא צריך: את בחירת השפה, ואת זה שסגרתם את ההודעה הזו.</p>
+  <div class="row">
+    <button type="button" class="btn" id="storageOk" data-en="Got it">הבנתי</button>
+    <a class="more" href="/privacy#storage" data-en="More in the privacy policy">פרטים במדיניות הפרטיות</a>
+  </div>
+</div>
 
 <script>
 /* The intake form's origin (Studio OS). Used by the language switch and the form bridge below. */
@@ -823,11 +962,17 @@ try { if (localStorage.getItem("taizy-lang") === "en") setLang("en"); } catch (e
 var menu = document.getElementById("menu");
 var menuOpen = document.getElementById("menuOpen");
 function closeMenu() { if (menu.open) menu.close(); }
-menuOpen.addEventListener("click", function () {
-  if (typeof menu.showModal === "function") { menu.showModal(); menuOpen.setAttribute("aria-expanded", "true"); }
+var menuOpener = null;
+function openMenu(btn) {
+  menuOpener = btn;
+  if (typeof menu.showModal === "function") { menu.showModal(); btn.setAttribute("aria-expanded", "true"); }
   else { location.hash = "#work"; }
+}
+menuOpen.addEventListener("click", function () { openMenu(menuOpen); });
+document.getElementById("tabMenu").addEventListener("click", function () { openMenu(this); });
+menu.addEventListener("close", function () {
+  if (menuOpener) { menuOpener.setAttribute("aria-expanded", "false"); menuOpener.focus(); }
 });
-menu.addEventListener("close", function () { menuOpen.setAttribute("aria-expanded", "false"); menuOpen.focus(); });
 document.getElementById("menuClose").addEventListener("click", closeMenu);
 menu.addEventListener("click", function (e) {
   if (e.target === menu) closeMenu();
@@ -890,16 +1035,34 @@ document.querySelectorAll("[data-calc]").forEach(function (b) {
 });
 renderCalc();
 
-/* ---------------- sticky mobile CTA ----------------
-   Shown once the hero is out of view, hidden again while the contact
-   section (which has its own form) is on screen. */
-var sticky = document.getElementById("stickyCta");
-var heroGone = false, contactIn = false;
-function syncSticky() { sticky.classList.toggle("show", heroGone && !contactIn); }
+/* ---------------- bottom tab bar (phone and tablet) ----------------
+   Marks the section on screen with aria-current. */
+var tabLinks = document.querySelectorAll(".tabbar [data-tab]");
 if ("IntersectionObserver" in window) {
-  new IntersectionObserver(function (es) { heroGone = !es[0].isIntersecting; syncSticky(); }).observe(document.getElementById("top"));
-  new IntersectionObserver(function (es) { contactIn = es[0].isIntersecting; syncSticky(); }, { threshold: 0.15 }).observe(document.getElementById("contact"));
+  var tabIo = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      tabLinks.forEach(function (t) {
+        if (t.getAttribute("data-tab") === e.target.id) t.setAttribute("aria-current", "true");
+        else t.removeAttribute("aria-current");
+      });
+    });
+  }, { rootMargin: "-45% 0px -45% 0px" });
+  ["top", "work", "services", "calc", "how", "workshops", "voices", "about", "faq", "contact"].forEach(function (id) {
+    var el = document.getElementById(id); if (el) tabIo.observe(el);
+  });
 }
+
+/* ---------------- storage notice ----------------
+   The site sets no cookies. The notice says so once; closing it is remembered. */
+var note = document.getElementById("storageNote");
+var seen = false;
+try { seen = localStorage.getItem("taizy-storage-ok") === "1"; } catch (e) {}
+if (!seen) note.hidden = false;
+document.getElementById("storageOk").addEventListener("click", function () {
+  note.hidden = true;
+  try { localStorage.setItem("taizy-storage-ok", "1"); } catch (e) {}
+});
 
 /* ---------------- intake form (os.takeitaizy.dev, Studio OS P34) ----------------
    The iframe src carries embed=1, the theme, the site's current language and
