@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Take It AIzy | מערכות ניהול חכמות לעסקים</title>
-  <meta name="description" content="Take It AIzy בונה לעסקים מערכות ניהול חכמות בהתאמה אישית: מערכת אחת שכל העסק עובד בה, בוט שירות בעברית, מערכת למשרד האחורי וסוכני AI תפעוליים. שיחת אפיון צרכים ראשונה ללא עלות.">
+  <meta name="description" content="Take It AIzy בונה לעסקים ולארגונים מערכות ניהול חכמות בהתאמה אישית: מערכת אחת שכל העסק עובד בה, בוט שירות בעברית, סוכני AI תפעוליים וסדנאות AI לצוותים. שיחת אפיון ראשונה ללא עלות.">
   <meta name="theme-color" content="#0E1C30">
   <link rel="canonical" href="https://takeitaizy.dev/">
   <meta property="og:site_name" content="Take It AIzy">
@@ -55,6 +55,7 @@
   <style>
     :root {
       --navy: #0E1C30;
+      --navy-2: #16304F;
       --body: #2A3B52;
       --muted: #4A5668;
       --subtle: #5E6A7A;
@@ -63,13 +64,24 @@
       --sand: #E8A33D;
       --sand-soft: #FBF1DE;
       --sand-ink: #6B5320;
+      --steel: #6E8BB3;
       --white: #FFFFFF;
       --max: 1200px;
       --gutter: 24px;
+      /* Glass: a frosted white panel over a colored backdrop, with a light top
+         edge and a long soft shadow, so it reads as a layer and not as a box. */
+      --glass-bg: rgba(255,255,255,0.62);
+      --glass-strong: rgba(255,255,255,0.80);
+      --glass-line: rgba(255,255,255,0.75);
+      --glass-shadow: 0 1px 0 rgba(255,255,255,0.9) inset, 0 24px 48px -18px rgba(14,28,48,0.22), 0 2px 6px rgba(14,28,48,0.04);
+      --glass-dark: rgba(255,255,255,0.08);
+      --glass-dark-line: rgba(255,255,255,0.16);
+      --blur: blur(22px) saturate(170%);
+      --ease: cubic-bezier(.2,.7,.2,1);
     }
     *, *::before, *::after { box-sizing: border-box; }
     * { margin: 0; }
-    html { scroll-behavior: smooth; scroll-padding-block-start: 84px; -webkit-text-size-adjust: 100%; }
+    html { scroll-behavior: smooth; scroll-padding-block-start: 96px; -webkit-text-size-adjust: 100%; }
     body {
       font-family: Heebo, system-ui, sans-serif; font-size: 17px; line-height: 1.6;
       color: var(--navy); background: var(--white); -webkit-font-smoothing: antialiased;
@@ -80,8 +92,8 @@
     button { font: inherit; color: inherit; }
     ul, ol { padding: 0; list-style: none; }
     ::selection { background: var(--sand); color: var(--navy); }
-    :focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; border-radius: 6px; }
-    .on-dark :focus-visible { outline-color: var(--white); }
+    :focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; border-radius: 8px; }
+    .on-dark :focus-visible, .aurora :focus-visible { outline-color: var(--white); }
     .lat { font-family: Montserrat, Heebo, sans-serif; direction: ltr; unicode-bidi: isolate; }
     .wrap { max-inline-size: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
     .skip {
@@ -89,266 +101,328 @@
       background: var(--navy); color: var(--white); padding: 10px 18px; border-radius: 10px; text-decoration: none;
     }
     .skip:focus { inset-block-start: 12px; }
+    .visually-hidden { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+    /* ---------- glass ---------- */
+    .glass {
+      background: var(--glass-bg); border: 1px solid var(--glass-line); box-shadow: var(--glass-shadow);
+      -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
+    }
+    .glass-dark {
+      background: var(--glass-dark); border: 1px solid var(--glass-dark-line);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.10) inset, 0 24px 48px -20px rgba(0,0,0,0.45);
+      -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
+    }
+    /* Colored backdrops the glass sits on. */
+    .aurora {
+      position: relative; isolation: isolate; color: var(--white);
+      background:
+        radial-gradient(55% 60% at 88% 8%, rgba(232,163,61,0.42), transparent 62%),
+        radial-gradient(60% 70% at 6% 96%, rgba(110,139,179,0.50), transparent 60%),
+        radial-gradient(40% 40% at 40% 40%, rgba(255,255,255,0.06), transparent 70%),
+        linear-gradient(155deg, #0E1C30 0%, #13284A 55%, #0E1C30 100%);
+    }
+    .mesh {
+      background:
+        radial-gradient(45% 40% at 92% 0%, rgba(232,163,61,0.16), transparent 65%),
+        radial-gradient(50% 50% at 0% 100%, rgba(110,139,179,0.20), transparent 62%),
+        var(--mist);
+    }
 
     /* ---------- type ---------- */
-    .eyebrow { font-size: 15px; font-weight: 600; color: var(--subtle); }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; letter-spacing: .02em; color: var(--subtle); }
+    .eyebrow::before { content: ""; inline-size: 8px; block-size: 8px; border-radius: 50%; background: var(--sand); }
+    .on-dark .eyebrow, .aurora .eyebrow { color: #C9D2DE; }
     h1, h2, h3 { font-weight: 800; text-wrap: balance; }
-    h1 { font-size: clamp(40px, 7vw, 88px); line-height: 1.04; }
-    h2 { font-size: clamp(32px, 4.4vw, 52px); line-height: 1.1; margin-block-start: 12px; }
+    h1 { font-size: clamp(40px, 5.3vw, 74px); line-height: 1.04; letter-spacing: -0.01em; }
+    h2 { font-size: clamp(32px, 4.2vw, 52px); line-height: 1.08; margin-block-start: 14px; letter-spacing: -0.005em; }
     h3 { font-size: 22px; line-height: 1.25; }
-    :lang(en) h1, :lang(en) h2 { letter-spacing: -0.02em; }
-    .lead { font-size: 19px; color: var(--muted); max-inline-size: 56ch; margin-block-start: 16px; }
-    section { padding-block: 96px; }
-    .tight-top { padding-block-start: 24px; }
-    .tight-bottom { padding-block-end: 24px; }
+    :lang(en) h1, :lang(en) h2 { letter-spacing: -0.025em; }
+    .lead { font-size: 19px; color: var(--muted); max-inline-size: 58ch; margin-block-start: 16px; }
+    .aurora .lead, .on-dark .lead { color: #D2D9E3; }
+    section { padding-block: 112px; }
+    .sec-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px; }
+    .sec-head > div { max-inline-size: 760px; }
 
     /* ---------- buttons ---------- */
     .btn {
-      display: inline-flex; align-items: center; justify-content: center; text-align: center;
-      min-block-size: 48px; padding: 14px 30px; border-radius: 999px; border: 0; cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px; text-align: center;
+      min-block-size: 48px; padding: 14px 28px; border-radius: 999px; border: 0; cursor: pointer;
       font-size: 17px; font-weight: 600; text-decoration: none; background: var(--navy); color: var(--white);
-      transition: transform 100ms ease-out, background-color .2s ease, box-shadow .2s ease;
+      transition: transform 120ms ease-out, background-color .2s ease, box-shadow .25s ease;
+      box-shadow: 0 10px 24px -10px rgba(14,28,48,0.55);
     }
-    .btn:hover { background: #1B2D47; }
+    .btn:hover { background: #1B2D47; box-shadow: 0 14px 30px -12px rgba(14,28,48,0.6); }
     .btn:active { transform: scale(0.97); }
-    .btn-lg { padding: 17px 36px; font-size: 18px; }
-    .btn-light { background: var(--white); color: var(--navy); }
-    .btn-light:hover { background: var(--mist); }
-    .btn-ghost { background: transparent; color: var(--navy); border: 1px solid #C9CFD8; }
+    .btn-lg { padding: 17px 34px; font-size: 18px; }
+    .btn-light { background: var(--white); color: var(--navy); box-shadow: 0 10px 30px -12px rgba(0,0,0,0.5); }
+    .btn-light:hover { background: #F1F4F8; }
+    .btn-glass { background: rgba(255,255,255,0.14); color: var(--white); border: 1px solid rgba(255,255,255,0.28); box-shadow: none;
+      -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+    .btn-glass:hover { background: rgba(255,255,255,0.22); }
+    .btn-ghost { background: transparent; color: var(--navy); border: 1px solid #C9CFD8; box-shadow: none; }
     .btn-ghost:hover { background: var(--mist); }
-    .btn-text { background: none; color: var(--navy); padding-inline: 8px; gap: 8px; }
-    .btn-text:hover { background: none; text-decoration: underline; text-underline-offset: 4px; }
+    .btn-text { background: none; color: inherit; padding-inline: 6px; box-shadow: none; }
+    .btn-text:hover { background: none; text-decoration: underline; text-underline-offset: 5px; }
+    .wa-btn { background: #0F7A40; }
+    .wa-btn:hover { background: #0C6A37; }
 
-    /* ---------- nav: translucent material, no hard divider ---------- */
-    nav.top {
-      position: sticky; inset-block-start: 0; z-index: 50;
-      background: rgba(255,255,255,0.72); box-shadow: 0 1px 0 rgba(14,28,48,0.06);
-      -webkit-backdrop-filter: blur(20px) saturate(180%); backdrop-filter: blur(20px) saturate(180%);
+    /* ---------- nav: a floating glass capsule ---------- */
+    .nav-shell { position: sticky; inset-block-start: 12px; z-index: 50; padding-inline: 12px; }
+    nav.top { max-inline-size: calc(var(--max) - 24px); margin-inline: auto; border-radius: 999px; }
+    .nav-in { display: flex; align-items: center; gap: 18px; padding: 8px 8px 8px 8px; padding-inline-start: 22px; }
+    .nav-logo img { block-size: 40px; inline-size: auto; }
+    .nav-links { display: flex; gap: 2px; margin-inline-start: auto; font-size: 15px; }
+    .nav-links a { text-decoration: none; color: var(--muted); padding: 10px 13px; border-radius: 999px; transition: color .2s, background-color .2s; }
+    .nav-links a:hover { color: var(--navy); background: rgba(14,28,48,0.06); }
+    .icon-btn {
+      display: inline-grid; place-items: center; min-block-size: 44px; min-inline-size: 44px; padding: 0 12px; border-radius: 999px; cursor: pointer;
+      background: rgba(255,255,255,0.5); border: 1px solid rgba(14,28,48,0.12); font-size: 13px; color: var(--muted);
     }
-    .nav-in { display: flex; align-items: center; gap: 24px; padding-block: 10px; }
-    .nav-logo { display: block; }
-    .nav-logo img { block-size: 46px; inline-size: auto; }
-    .nav-links { display: flex; gap: 6px; margin-inline-start: auto; font-size: 15px; }
-    .nav-links a { text-decoration: none; color: var(--muted); padding: 10px 12px; border-radius: 10px; transition: color .2s, background-color .2s; }
-    .nav-links a:hover { color: var(--navy); background: var(--mist); }
-    .lang {
-      min-block-size: 44px; min-inline-size: 48px; padding: 0 14px; border-radius: 999px; cursor: pointer;
-      background: none; border: 1px solid rgba(14,28,48,0.16); font-size: 13px; color: var(--muted);
+    .icon-btn:hover { background: var(--white); color: var(--navy); }
+    .icon-btn svg { inline-size: 20px; block-size: 20px; }
+    .nav-cta { padding: 10px 20px; min-block-size: 44px; font-size: 15px; }
+    @media (max-width: 1060px) { .nav-links { display: none; } .nav-in { gap: 8px; } .nav-in .lang { margin-inline-start: auto; } }
+    @media (max-width: 430px) { .nav-logo img { block-size: 34px; } .nav-cta { padding-inline: 14px; font-size: 14px; } .nav-in { padding-inline-start: 14px; } }
+
+    /* ---------- side menu (drawer) ---------- */
+    dialog.drawer {
+      position: fixed; inset-block: 0; inset-inline-start: 0; inset-inline-end: auto; margin: 0; padding: 0; border: 0;
+      inline-size: min(440px, 92vw); max-inline-size: none; block-size: 100dvh; max-block-size: none;
+      background: transparent; color: var(--navy); overflow: visible;
     }
-    .lang:hover { background: var(--mist); }
-    .nav-cta { padding: 10px 22px; min-block-size: 44px; font-size: 15px; }
-    @media (max-width: 880px) { .nav-links { display: none; } .nav-in { gap: 10px; } .lang { margin-inline-start: auto; } }
-    @media (max-width: 420px) { .nav-logo img { block-size: 38px; } .nav-cta { padding-inline: 14px; font-size: 14px; } }
-    @media (prefers-reduced-transparency: reduce) { nav.top { background: var(--white); -webkit-backdrop-filter: none; backdrop-filter: none; } }
-    @media (prefers-contrast: more) { nav.top { background: var(--white); box-shadow: 0 1px 0 var(--navy); } }
+    dialog.drawer::backdrop { background: rgba(14,28,48,0.35); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+    .drawer-panel {
+      block-size: 100%; overflow-y: auto; padding: 22px 26px calc(28px + env(safe-area-inset-bottom));
+      border-start-end-radius: 32px; border-end-end-radius: 32px; display: flex; flex-direction: column; gap: 26px;
+      background: rgba(255,255,255,0.86);
+    }
+    [dir="rtl"] .drawer-panel { border-radius: 32px 0 0 32px; }
+    [dir="ltr"] .drawer-panel { border-radius: 0 32px 32px 0; }
+    .js dialog.drawer[open] .drawer-panel { animation: drawer-in .38s var(--ease); }
+    @keyframes drawer-in { from { transform: translateX(var(--from, 40px)); opacity: 0; } to { transform: none; opacity: 1; } }
+    [dir="rtl"] dialog.drawer { --from: 40px; }
+    [dir="ltr"] dialog.drawer { --from: -40px; }
+    .drawer-top { display: flex; align-items: center; justify-content: space-between; }
+    .drawer-top img { block-size: 38px; inline-size: auto; }
+    .drawer-nav { display: flex; flex-direction: column; }
+    .drawer-nav a { display: flex; align-items: center; justify-content: space-between; text-decoration: none; font-size: 22px; font-weight: 700; padding: 12px 4px; border-block-end: 1px solid rgba(14,28,48,0.08); }
+    .drawer-nav a::after { content: "←"; font-weight: 400; color: var(--subtle); font-size: 18px; }
+    [dir="ltr"] .drawer-nav a::after { content: "→"; }
+    .drawer-nav a:hover { color: var(--steel); }
+    .drawer-ws { border-radius: 24px; padding: 20px; background: var(--navy); color: var(--white); }
+    .drawer-ws .eyebrow { color: #C9D2DE; }
+    .drawer-ws h3 { margin-block-start: 8px; font-size: 20px; }
+    .drawer-ws ul { margin-block-start: 12px; display: flex; flex-direction: column; gap: 8px; }
+    .drawer-ws li { position: relative; padding-inline-start: 16px; font-size: 15px; color: #D2D9E3; }
+    .drawer-ws li b { color: var(--white); font-weight: 600; }
+    .drawer-ws li::before { content: ""; position: absolute; inset-inline-start: 0; inset-block-start: .6em; inline-size: 6px; block-size: 6px; border-radius: 50%; background: var(--sand); }
+    .drawer-ws .btn { margin-block-start: 16px; }
+    .drawer-foot { margin-block-start: auto; display: flex; flex-direction: column; gap: 10px; }
+    .drawer-foot .btn { inline-size: 100%; }
+    .drawer-foot small { text-align: center; color: var(--subtle); font-size: 13px; }
 
     /* ---------- hero ---------- */
-    .hero { padding-block: 88px 24px; text-align: center; }
-    .pill {
-      display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted);
-      background: #F2F4F7; border-radius: 999px; padding: 6px 16px;
-    }
-    .pill i { inline-size: 7px; block-size: 7px; border-radius: 50%; background: var(--sand); }
-    .hero h1 { margin: 28px auto 0; max-inline-size: 15ch; }
+    .hero { padding-block: 40px 40px; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+    .hero-copy { padding-block: 40px; }
+    .hero h1 { margin-block-start: 22px; }
     .hero h1 span { color: #8A94A3; }
-    .hero .sub { margin: 26px auto 0; max-inline-size: 56ch; font-size: clamp(18px, 2vw, 20px); color: var(--muted); text-wrap: balance; }
-    .hero-cta { margin-block-start: 38px; display: flex; gap: 18px; justify-content: center; align-items: center; flex-wrap: wrap; }
-    .trust { margin-block-start: 18px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; font-size: 15px; color: var(--muted); }
-    .trust li { display: inline-flex; align-items: center; gap: 8px; }
-    .trust li::before { content: ""; inline-size: 7px; block-size: 7px; border-radius: 50%; background: var(--sand); flex: none; }
-    .stage {
-      position: relative; margin: 64px auto 0; max-inline-size: 1080px; block-size: 520px; border-radius: 40px; overflow: hidden;
-      background: radial-gradient(120% 90% at 50% 0%, #F7F8FA 0%, #ECEFF3 100%);
+    .hero .sub { margin-block-start: 24px; max-inline-size: 50ch; font-size: clamp(18px, 1.7vw, 20px); color: var(--muted); }
+    .hero-cta { margin-block-start: 34px; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+    .trust { margin-block-start: 26px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .trust li { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted); background: var(--mist); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; }
+    .trust svg { inline-size: 16px; block-size: 16px; color: var(--navy); }
+
+    .stage { border-radius: 40px; padding: clamp(22px, 3vw, 36px); min-block-size: 560px; overflow: hidden; display: grid; align-content: center; gap: 14px; }
+    .stage .shot { border-radius: 24px; padding: 18px 20px; color: var(--navy); background: rgba(255,255,255,0.84); }
+    .stage .shot-head { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--subtle); }
+    .stage .shot-head .dot { inline-size: 30px; block-size: 30px; border-radius: 9px; display: grid; place-items: center; flex: none; background: var(--navy); color: var(--white); }
+    .stage .shot-head .dot svg { inline-size: 16px; block-size: 16px; }
+    .stage .shot-head .dot.wa { background: #128C4A; }
+    .stage .shot-head .dot.sand { background: var(--sand); color: var(--navy); }
+    .stage .shot-head b { color: var(--navy); font-size: 14px; }
+    .stage .shot-head time { margin-inline-start: auto; }
+    .bubbles { margin-block-start: 12px; display: flex; flex-direction: column; gap: 8px; }
+    .bubble { max-inline-size: 85%; padding: 9px 13px; border-radius: 16px; font-size: 14px; line-height: 1.45; }
+    .bubble.in { align-self: flex-start; background: #FFFFFF; border: 1px solid var(--line); border-start-start-radius: 4px; }
+    .bubble.out { align-self: flex-end; background: #DCF3E4; border-start-end-radius: 4px; }
+    .digest { margin-block-start: 10px; display: flex; flex-direction: column; gap: 6px; }
+    .digest li { display: flex; gap: 10px; align-items: baseline; font-size: 14px; }
+    .digest li i { flex: none; inline-size: 7px; block-size: 7px; border-radius: 50%; background: var(--sand); }
+    .digest li small { margin-inline-start: auto; color: var(--subtle); font-size: 12px; white-space: nowrap; }
+    .approve { margin-block-start: 10px; display: flex; align-items: center; gap: 10px; font-size: 14px; }
+    .approve span { flex: 1; }
+    .approve .ok { background: var(--navy); color: var(--white); border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 600; }
+    .approve .later { border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; font-size: 13px; color: var(--muted); background: rgba(255,255,255,0.7); }
+    .stage .s1 { margin-inline-end: 12%; }
+    .stage .s2 { margin-inline-start: 14%; }
+    .stage .s3 { margin-inline-end: 6%; }
+    .js .stage .shot { animation: rise .9s var(--ease) both; }
+    .js .stage .s2 { animation-delay: .12s; } .js .stage .s3 { animation-delay: .24s; }
+    @keyframes rise { from { opacity: 0; transform: translateY(18px) scale(.98); } to { opacity: 1; transform: none; } }
+    .stage-note { font-size: 12px; color: #B9C3D0; text-align: center; margin-block-start: 6px; }
+    @media (max-width: 960px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 8px; }
+      .hero-copy { padding-block: 24px 8px; text-align: start; }
+      .stage { min-block-size: 0; border-radius: 30px; }
+      .stage .s1, .stage .s2, .stage .s3 { margin-inline: 0; }
     }
-    .stage .mark { position: absolute; inset-inline-start: 50%; inset-block-start: 50%; transform: translate(-50%, -50%); block-size: 300px; inline-size: auto; }
-    [dir="rtl"] .stage .mark { transform: translate(50%, -50%); }
-    .chip {
-      position: absolute; display: flex; align-items: center; gap: 12px; text-align: start;
-      background: rgba(255,255,255,0.78); border-radius: 18px; padding: 14px 18px;
-      box-shadow: 0 10px 30px rgba(14,28,48,0.08); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
-      animation: float 7s ease-in-out infinite;
+
+    /* ---------- sectors strip ---------- */
+    .sectors { padding-block: 28px 8px; }
+    .sectors p { font-size: 14px; color: var(--subtle); }
+    .sector-row { margin-block-start: 12px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .sector-row li { font-size: 15px; font-weight: 600; color: var(--body); background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 10px 16px; }
+
+    /* ---------- work / cases ---------- */
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-block-start: 34px; }
+    .filters button {
+      min-block-size: 44px; padding: 8px 18px; border-radius: 999px; cursor: pointer; font-size: 15px; font-weight: 600;
+      background: rgba(255,255,255,0.6); border: 1px solid rgba(14,28,48,0.10); color: var(--muted);
+      -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
     }
-    .chip:nth-child(2) { animation-delay: -2s; } .chip:nth-child(3) { animation-delay: -4s; } .chip:nth-child(4) { animation-delay: -5.5s; }
-    .chip .ico { inline-size: 36px; block-size: 36px; border-radius: 10px; background: var(--navy); display: grid; place-items: center; flex: none; }
-    .chip .ico.sand { background: var(--sand); }
-    .chip b { display: block; font-weight: 600; font-size: 15px; line-height: 1.3; }
-    .chip small { display: block; font-size: 13px; color: var(--subtle); line-height: 1.3; }
-    .chip .ok { margin-inline-start: 8px; background: var(--navy); color: var(--white); font-size: 13px; border-radius: 999px; padding: 5px 12px; }
-    .c1 { inset-block-start: 72px; inset-inline-end: 64px; }
-    .c2 { inset-block-end: 88px; inset-inline-end: 120px; }
-    .c3 { inset-block-start: 150px; inset-inline-start: 72px; }
-    .c4 { inset-block-end: 120px; inset-inline-start: 110px; }
-    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-    @media (max-width: 900px) { .c1, .c2, .c3, .c4 { display: none; } .stage { block-size: 340px; border-radius: 28px; margin-block-start: 44px; } .stage .mark { block-size: 210px; } }
+    .filters button[aria-pressed="true"] { background: var(--navy); color: var(--white); border-color: var(--navy); }
+    .case-grid { margin-block-start: 22px; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr)); gap: 18px; }
+    .case { border-radius: 30px; padding: 28px; display: flex; flex-direction: column; gap: 14px; }
+    .case[hidden] { display: none; }
+    .case-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+    .tag { display: inline-block; font-size: 13px; font-weight: 700; background: rgba(14,28,48,0.07); border-radius: 999px; padding: 5px 12px; color: var(--navy); }
+    .status { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--muted); }
+    .status::before { content: ""; inline-size: 8px; block-size: 8px; border-radius: 50%; background: #9AA5B4; }
+    .status.live::before { background: #1E9E5A; box-shadow: 0 0 0 4px rgba(30,158,90,0.15); }
+    .status.build::before { background: var(--sand); }
+    .case h3 { font-size: 22px; line-height: 1.28; }
+    .case .pain { font-size: 16px; color: var(--muted); padding-inline-start: 14px; border-inline-start: 3px solid var(--sand); }
+    .case .pain b { display: block; font-size: 12px; font-weight: 700; color: var(--subtle); margin-block-end: 2px; }
+    .case ul.did { display: flex; flex-direction: column; gap: 8px; }
+    .case ul.did li { position: relative; padding-inline-start: 22px; font-size: 15.5px; color: var(--body); }
+    .case ul.did li::before { content: "✓"; position: absolute; inset-inline-start: 0; inset-block-start: 0; font-weight: 700; color: #1E7A4C; }
+    .chan { margin-block-start: auto; padding-block-start: 14px; border-block-start: 1px solid rgba(14,28,48,0.08); display: flex; flex-wrap: wrap; gap: 6px; }
+    .chan span { font-size: 12.5px; font-weight: 600; color: var(--muted); background: rgba(255,255,255,0.7); border: 1px solid rgba(14,28,48,0.08); border-radius: 999px; padding: 3px 10px; }
+    .case.feature { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 28px 40px; padding: 36px; }
+    .case.feature .case-main { display: flex; flex-direction: column; gap: 14px; }
+    .case.feature h3 { font-size: clamp(24px, 2.6vw, 30px); }
+    .case.feature ul.did { display: grid; grid-template-columns: 1fr; }
+    @media (max-width: 860px) { .case.feature { grid-template-columns: 1fr; padding: 28px; } }
+    .work-note { margin-block-start: 18px; font-size: 14px; color: var(--subtle); }
 
-
-    /* ---------- pain ---------- */
-    .pain { background: var(--mist); }
-    .split { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 56px; align-items: start; }
-    .pain-list { display: flex; flex-direction: column; gap: 12px; }
-    .pain-list li { background: var(--white); border-radius: 20px; padding: 22px 24px; display: flex; gap: 16px; align-items: baseline; color: var(--body); }
-    .tag { flex: none; font-size: 13px; font-weight: 600; background: #F2F4F7; border-radius: 999px; padding: 4px 12px; color: var(--navy); }
-
-    /* ---------- fit ---------- */
-    .fit-grid { margin-block-start: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 16px; }
-    .fit-grid li { border: 1px solid var(--line); border-radius: 22px; padding: 26px; }
-    .fit-grid li.not { background: var(--mist); border-color: var(--mist); }
-    .fit-grid b { display: block; font-size: 14px; font-weight: 600; color: var(--subtle); }
-    .fit-grid p { margin-block-start: 8px; font-size: 17px; }
+    /* ---------- services (bento) ---------- */
+    .bento { margin-block-start: 44px; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
+    .tile { border-radius: 28px; padding: 30px; display: flex; flex-direction: column; gap: 10px; grid-column: span 2; }
+    .tile:not(.aurora) { background: var(--mist); }
+    .tile.wide { grid-column: span 3; }
+    .tile svg { inline-size: 30px; block-size: 30px; color: var(--navy); }
+    .tile h3 { margin-block-start: 6px; }
+    .tile p { color: var(--muted); font-size: 16px; }
+    .tile.dark { color: var(--white); }
+    .tile.dark p { color: #D2D9E3; }
+    .tile.dark svg { color: var(--sand); }
+    .tile .kicker { font-size: 13px; font-weight: 700; color: var(--subtle); }
+    .tile.dark .kicker { color: var(--sand); }
+    @media (max-width: 980px) { .bento { grid-template-columns: 1fr 1fr; } .tile, .tile.wide { grid-column: span 1; } .tile.full-sm { grid-column: 1 / -1; } }
+    @media (max-width: 620px) { .bento { grid-template-columns: 1fr; } .tile.full-sm { grid-column: auto; } }
 
     /* ---------- calculator ---------- */
-    .calc-wrap { padding-block: 24px 96px; }
-    .calc {
-      background: var(--navy); color: var(--white); border-radius: 40px; padding: clamp(28px, 5vw, 72px);
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 56px; align-items: center;
-    }
-    .calc .eyebrow { color: var(--sand); }
+    .calc-sec { padding-block: 24px 112px; }
+    .calc { border-radius: 40px; padding: clamp(28px, 5vw, 72px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 48px; align-items: center; }
     .calc h2 { max-inline-size: 16ch; font-size: clamp(30px, 4vw, 48px); }
-    .stepper-list { margin-block-start: 34px; display: flex; flex-direction: column; gap: 14px; }
-    .stepper { display: flex; align-items: center; justify-content: space-between; gap: 16px; background: rgba(255,255,255,0.07); border-radius: 18px; padding: 12px 18px; }
+    .stepper-list { margin-block-start: 30px; display: flex; flex-direction: column; gap: 12px; }
+    .stepper { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; border-radius: 20px; padding: 12px 16px; }
+    .stepper > span:first-child { flex: 1 1 150px; }
     .stepper .ctl { display: flex; align-items: center; gap: 10px; }
     .stepper button {
-      inline-size: 44px; block-size: 44px; border-radius: 50%; border: 0; cursor: pointer;
-      background: rgba(255,255,255,0.14); color: var(--white); font-size: 22px; line-height: 1;
+      inline-size: 44px; block-size: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.22); cursor: pointer;
+      background: rgba(255,255,255,0.12); color: var(--white); font-size: 22px; line-height: 1;
       transition: transform 100ms ease-out, background-color .2s;
     }
     .stepper button:hover { background: rgba(255,255,255,0.22); }
     .stepper button:active { transform: scale(0.92); }
     .stepper output { min-inline-size: 44px; text-align: center; font-size: 22px; font-weight: 600; }
-    .calc-out { text-align: center; }
-    .calc-out .k { color: #C4CCD7; font-size: 16px; }
+    .calc-out { text-align: center; border-radius: 32px; padding: 36px 24px; }
+    .calc-out .k { color: #C9D2DE; font-size: 16px; }
     .calc-out .big { font-size: clamp(56px, 7vw, 96px); line-height: 1; font-weight: 700; letter-spacing: -0.03em; margin-block-start: 8px; }
-    .calc-out .cost { font-size: clamp(36px, 4vw, 52px); line-height: 1; font-weight: 700; color: var(--sand); margin-block-start: 26px; padding-block-start: 26px; border-block-start: 1px solid rgba(255,255,255,0.14); max-inline-size: 300px; margin-inline: auto; }
-    .calc-out .fine { margin-block-start: 16px; font-size: 13px; color: #AEB7C4; }
-    .calc-out .btn { margin-block-start: 28px; }
-
-    /* ---------- services ---------- */
-    .cards { margin-block-start: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr)); gap: 16px; }
-    .card { background: var(--mist); border-radius: 28px; padding: 32px; }
-    .card svg { inline-size: 32px; block-size: 32px; }
-    .card h3 { margin-block-start: 20px; }
-
-    /* ---------- system vs automation ---------- */
-    .vs-grid { margin-block-start: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 16px; }
-    .vs { border-radius: 28px; padding: 36px; }
-    .vs .tag { display: inline-block; }
-    .vs h3 { margin-block-start: 18px; font-size: 26px; }
-    .vs p { margin-block-start: 12px; font-size: 18px; }
-    .vs.auto { background: var(--mist); color: var(--body); }
-    .vs.auto h3 { color: var(--muted); }
-    .vs.auto .tag { background: var(--white); }
-    .vs.system { background: var(--navy); color: var(--white); }
-    .vs.system .tag { background: var(--sand); color: var(--navy); }
-    .vs.system p { color: #D5DBE4; }
-    .vs-line { margin-block-start: 28px; font-size: clamp(20px, 2.4vw, 26px); font-weight: 700; text-align: center; text-wrap: balance; }
-    .card p { margin-block-start: 10px; color: var(--muted); font-size: 16px; }
-
-    /* ---------- dashboard ---------- */
-    .dash-stage { margin-block-start: 48px; display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-end; justify-content: center; padding: clamp(20px, 4vw, 48px); border-radius: 36px; background: radial-gradient(120% 90% at 50% 0%, #F7F8FA 0%, #ECEFF3 100%); }
-    .browser { flex: 1 1 520px; max-inline-size: 780px; background: var(--white); border-radius: 18px; box-shadow: 0 24px 60px rgba(14,28,48,0.12); overflow: hidden; text-align: start; }
-    .browser-bar { display: flex; align-items: center; gap: 8px; padding: 12px 16px; background: var(--mist); border-block-end: 1px solid var(--line); }
-    .browser-bar i { inline-size: 10px; block-size: 10px; border-radius: 50%; background: #D5DAE1; }
-    .browser-bar strong { margin-inline-start: 10px; font-size: 13px; color: var(--muted); }
-    .browser-bar em { margin-inline-start: auto; font-style: normal; font-size: 12px; color: var(--subtle); background: var(--white); border-radius: 999px; padding: 3px 10px; }
-    .kpis { padding: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; }
-    .kpi { background: var(--mist); border-radius: 12px; padding: 12px 14px; }
-    .kpi.hot { background: var(--sand-soft); }
-    .kpi span { display: block; font-size: 12px; color: var(--subtle); }
-    .kpi.hot span { color: var(--sand-ink); }
-    .kpi b { display: block; font-size: 28px; line-height: 1.2; font-weight: 700; }
-    .panels { padding: 0 20px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
-    .panel { border: 1px solid var(--line); border-radius: 12px; padding: 14px; }
-    .panel h4 { font-size: 13px; font-weight: 700; margin-block-end: 8px; }
-    .row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-block-start: 1px solid #EEF1F5; font-size: 14px; }
-    .row span:first-child { flex: 1; }
-    .row small { font-size: 12px; color: var(--subtle); }
-    .row .ok { background: var(--navy); color: var(--white); font-size: 12px; border-radius: 999px; padding: 4px 12px; }
-    .phone { flex: 0 0 250px; background: var(--white); border: 8px solid var(--navy); border-radius: 38px; box-shadow: 0 24px 60px rgba(14,28,48,0.18); overflow: hidden; text-align: start; }
-    .phone-head { padding: 16px 14px 10px; display: flex; align-items: center; justify-content: space-between; }
-    .phone-head img { block-size: 22px; inline-size: auto; }
-    .phone-head small { font-size: 12px; color: var(--subtle); }
-    .phone .kpi { margin-inline: 12px; background: var(--sand-soft); border-radius: 14px; padding: 12px 14px; }
-    .phone .kpi b { font-size: 30px; line-height: 1.1; }
-    .phone-list { padding: 10px 12px 14px; display: flex; flex-direction: column; gap: 8px; }
-    .phone-list li { border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; }
-    .phone-list b { font-size: 13px; font-weight: 600; display: block; }
-    .phone-list span { display: block; margin-block-start: 6px; text-align: center; background: var(--navy); color: var(--white); border-radius: 999px; padding: 10px; font-size: 14px; font-weight: 600; }
-    .caption { margin-block-start: 16px; font-size: 14px; color: var(--subtle); text-align: center; }
-
-    /* ---------- before / after ---------- */
-    .table-scroll { margin-block-start: 40px; overflow-x: auto; }
-    .ba { min-inline-size: 680px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, 1.3fr); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; }
-    .ba > div { padding: 18px 20px; border-block-start: 1px solid var(--line); }
-    .ba > .h { padding-block: 16px; background: var(--mist); font-weight: 700; border-block-start: 0; }
-    .ba > .h.was { color: var(--subtle); }
-    .ba > .h.now { background: var(--navy); color: var(--white); }
-    .ba > .p { font-weight: 600; }
-    .ba > .was { color: var(--muted); }
-    .totals { margin-block-start: 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; }
-    .total { background: var(--navy); color: var(--white); border-radius: 24px; padding: 28px 32px; }
-    .total b { display: block; font-size: clamp(44px, 5vw, 64px); line-height: 1; font-weight: 700; color: var(--sand); }
-    .total span { display: block; margin-block-start: 10px; font-size: 18px; }
-    .fine { margin-block-start: 14px; font-size: 14px; color: var(--subtle); }
-
-    /* ---------- work ---------- */
-    .work { background: var(--mist); }
-    .case-grid { margin-block-start: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 16px; }
-    .case { background: var(--white); border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 14px; }
-    .case .tag { align-self: flex-start; }
-    .case.feature { grid-column: 1 / -1; padding: 40px; }
-    .case.feature h3 { font-size: clamp(24px, 3vw, 32px); }
-    .feature-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 10px 28px; margin-block-start: 8px; }
-    .feature-list li { position: relative; padding-inline-start: 22px; color: var(--body); }
-    .feature-list li::before { content: ""; position: absolute; inset-inline-start: 0; inset-block-start: 0.6em; inline-size: 8px; block-size: 8px; border-radius: 50%; background: var(--sand); }
-    .sub-h { margin-block-start: 72px; font-size: clamp(24px, 3vw, 32px); font-weight: 800; }
-    .case .tags { display: flex; gap: 8px; flex-wrap: wrap; }
-    .case .tag.wip { background: var(--sand-soft); color: var(--sand-ink); }
-    .case h3 { font-size: 21px; line-height: 1.3; }
-    .case p.d { color: var(--muted); font-size: 16px; }
-    .case .result { margin-block-start: auto; background: var(--sand-soft); border-radius: 18px; padding: 16px 18px; font-size: 15px; color: var(--sand-ink); }
-    .case .result b { display: block; font-size: 13px; font-weight: 700; margin-block-end: 4px; }
-    .case .result strong { color: var(--navy); font-weight: 700; }
+    .calc-out .unit { color: #C9D2DE; }
+    .calc-out .cost { font-size: clamp(36px, 4vw, 52px); line-height: 1; font-weight: 700; color: var(--sand); margin-block-start: 24px; padding-block-start: 24px; border-block-start: 1px solid rgba(255,255,255,0.16); max-inline-size: 300px; margin-inline: auto; }
+    .calc-out .fine { margin-block-start: 16px; font-size: 13px; color: #B9C3D0; }
+    .calc-out .btn { margin-block-start: 26px; }
 
     /* ---------- how ---------- */
-    .steps { margin-block-start: 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 32px; counter-reset: s; }
-    .step .num { display: flex; align-items: center; gap: 12px; }
-    .step .num::before { counter-increment: s; content: "0" counter(s); font-family: Montserrat, sans-serif; direction: ltr; font-size: 14px; font-weight: 600; background: #F2F4F7; border-radius: 999px; padding: 4px 12px; }
+    .steps { margin-block-start: 52px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; counter-reset: s; }
+    .step { border-radius: 26px; padding: 26px; background: var(--mist); }
+    .step .num::before { counter-increment: s; content: "0" counter(s); font-family: Montserrat, sans-serif; direction: ltr; display: inline-block; font-size: 14px; font-weight: 700; background: var(--white); border-radius: 999px; padding: 4px 12px; }
     .step:first-child .num::before { background: var(--sand); }
-    .step .num::after { content: ""; flex: 1; block-size: 1px; background: var(--line); }
-    .step h3 { font-size: 20px; margin-block-start: 20px; }
+    .step h3 { font-size: 20px; margin-block-start: 18px; }
     .step p { margin-block-start: 8px; color: var(--muted); font-size: 16px; }
-
-    /* ---------- model ---------- */
-    .model-grid { margin-block-start: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 16px; }
-    .model { background: var(--mist); border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 12px; }
-    .model .no { display: flex; align-items: center; gap: 10px; font-family: Montserrat, sans-serif; direction: ltr; font-size: 14px; font-weight: 600; color: var(--subtle); }
-    .model h3 { font-size: 24px; }
+    .model-grid { margin-block-start: 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 16px; }
+    .model { border-radius: 28px; padding: 30px; display: flex; flex-direction: column; gap: 12px; border: 1px solid var(--line); }
+    .model .no { display: flex; align-items: center; gap: 10px; font-family: Montserrat, sans-serif; direction: ltr; font-size: 14px; font-weight: 700; color: var(--subtle); }
+    .model h3 { font-size: 23px; }
     .model p { color: var(--muted); }
-    .model .price { margin-block-start: auto; padding-block-start: 16px; border-block-start: 1px solid #DDE2E8; font-size: 19px; font-weight: 700; }
-    .model.free { background: var(--navy); color: var(--white); }
+    .model .price { margin-block-start: auto; padding-block-start: 16px; border-block-start: 1px solid var(--line); font-size: 18px; font-weight: 700; color: var(--navy); }
+    .model.free { color: var(--white); border-color: transparent; }
     .model.free .no { color: var(--sand); }
-    .model.free p { color: #C4CCD7; }
-    .model.free .price { border-color: rgba(255,255,255,0.16); }
+    .model.free p { color: #D2D9E3; }
     .free-tag { font-family: Heebo, sans-serif; font-size: 12px; font-weight: 700; background: var(--sand); color: var(--navy); border-radius: 999px; padding: 3px 12px; }
     .model .btn { margin-block-start: 8px; align-self: flex-start; }
-    .people { margin-block-start: 40px; max-inline-size: 60ch; color: var(--muted); font-size: 18px; }
+    .people { margin-block-start: 28px; max-inline-size: 64ch; color: var(--muted); font-size: 18px; }
     .people b { color: var(--navy); }
 
+    /* ---------- workshops ---------- */
+    .ws { border-radius: 40px; padding: clamp(28px, 5vw, 64px); }
+    .ws-grid { margin-block-start: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; }
+    .ws-card { border-radius: 26px; padding: 26px; display: flex; flex-direction: column; gap: 10px; }
+    .ws-card .meta { display: flex; flex-wrap: wrap; gap: 6px; }
+    .ws-card .meta span { font-size: 12.5px; font-weight: 600; color: #E5EAF1; border: 1px solid rgba(255,255,255,0.2); border-radius: 999px; padding: 3px 10px; }
+    .ws-card h3 { font-size: 21px; }
+    .ws-card p { color: #D2D9E3; font-size: 16px; }
+    .ws-foot { margin-block-start: 28px; display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+    .ws-foot p { color: #C9D2DE; font-size: 15px; }
+
+    .ws-more { margin-block-start: 22px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 28px 40px; padding: 26px; border-radius: 26px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); }
+    .ws-more h3 { font-size: 19px; }
+    .ws-topics { margin-block-start: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .ws-topics li { font-size: 14.5px; color: var(--white); background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.16); border-radius: 999px; padding: 6px 13px; }
+    .ws-incl { margin-block-start: 14px; display: flex; flex-direction: column; gap: 10px; }
+    .ws-incl li { position: relative; padding-inline-start: 18px; color: #D2D9E3; font-size: 15.5px; }
+    .ws-incl li::before { content: ""; position: absolute; inset-inline-start: 0; inset-block-start: .6em; inline-size: 7px; block-size: 7px; border-radius: 50%; background: var(--sand); }
+    .ws-incl b { color: var(--white); }
+    .ws-tools { margin-block-start: 14px; font-size: 14px; color: #C9D2DE; }
+    /* ---------- voices ---------- */
+    .voice-grid { margin-block-start: 44px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 16px; }
+    .voice { border-radius: 28px; padding: 30px; display: flex; flex-direction: column; gap: 18px; }
+    .voice blockquote { font-size: 19px; line-height: 1.55; color: var(--navy); }
+    .voice blockquote::before { content: "״"; display: block; font-size: 54px; line-height: .6; color: var(--sand); font-weight: 800; margin-block-end: 6px; }
+    [dir="ltr"] .voice blockquote::before { content: "“"; }
+    .voice figcaption { margin-block-start: auto; font-size: 14px; color: var(--subtle); }
+    .voice figcaption b, .voice figcaption span { display: block; }
+    .voice figcaption b { color: var(--navy); font-size: 15px; }
+    .placeholder { outline: 2px dashed rgba(232,163,61,0.8); outline-offset: -8px; }
+
+    /* ---------- about ---------- */
+    .person { margin-block-start: 28px; display: flex; gap: 40px; align-items: center; flex-wrap: wrap; border-radius: 32px; padding: 36px; }
+    .person img { inline-size: 180px; block-size: 180px; border-radius: 50%; object-fit: cover; flex: none; box-shadow: 0 0 0 6px rgba(255,255,255,0.8), 0 18px 40px -16px rgba(14,28,48,0.35); }
+    .person > div { flex: 1 1 320px; }
+    .person h3 { font-size: clamp(28px, 3.4vw, 38px); }
+    .person .role { margin-block-start: 6px; font-weight: 600; color: var(--sand-ink); }
+    .person-line { margin-block-start: 14px; color: var(--muted); font-size: 18px; max-inline-size: 54ch; }
+    .person-links { margin-block-start: 22px; display: flex; gap: 12px; flex-wrap: wrap; }
+
     /* ---------- faq ---------- */
-    .faq { max-inline-size: 820px; }
-    .faq-list { margin-block-start: 40px; }
-    details { border-block-end: 1px solid var(--line); padding-block: 22px; }
-    summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 16px; font-size: 19px; font-weight: 600; min-block-size: 44px; align-items: center; }
+    .faq { max-inline-size: 860px; }
+    .faq-list { margin-block-start: 36px; display: flex; flex-direction: column; gap: 10px; }
+    details { border-radius: 22px; background: var(--mist); padding: 6px 24px; }
+    summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 16px; font-size: 18px; font-weight: 600; min-block-size: 60px; align-items: center; }
     summary::-webkit-details-marker { display: none; }
-    summary::after { content: "+"; font-size: 24px; color: var(--subtle); line-height: 1; }
+    summary::after { content: "+"; font-size: 24px; color: var(--subtle); line-height: 1; flex: none; }
     details[open] summary::after { content: "\2212"; }
-    details p { margin-block-start: 12px; color: var(--muted); }
+    details p { padding-block-end: 18px; color: var(--muted); }
 
     /* ---------- contact ---------- */
-    #contact { background: var(--mist); }
-    .next-steps { margin-block-start: 34px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 22px; counter-reset: ns; }
+    .contact-card { border-radius: 40px; padding: clamp(24px, 5vw, 64px); }
+    .next-steps { margin-block-start: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 22px; counter-reset: ns; }
     .next-steps li { display: flex; gap: 14px; align-items: baseline; color: var(--muted); font-size: 16px; }
-    .next-steps li::before { counter-increment: ns; content: "0" counter(ns); font-family: Montserrat, sans-serif; direction: ltr; font-size: 13px; font-weight: 600; background: var(--white); border-radius: 999px; padding: 2px 10px; color: var(--navy); flex: none; }
+    .next-steps li::before { counter-increment: ns; content: "0" counter(ns); font-family: Montserrat, sans-serif; direction: ltr; font-size: 13px; font-weight: 700; background: var(--white); border-radius: 999px; padding: 2px 10px; color: var(--navy); flex: none; }
     .next-steps b { display: block; color: var(--navy); font-weight: 600; }
     /* The embedded form (Studio OS P34) draws its own card and has no page
        background or padding, so it sits straight on this section. It posts its
@@ -361,288 +435,400 @@
     .contact-alt a { color: var(--navy); }
 
     /* ---------- footer ---------- */
-    footer { padding-block: 36px; border-block-start: 1px solid var(--line); }
-    .foot { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; font-size: 14px; color: var(--subtle); }
-    .foot img { block-size: 36px; inline-size: auto; }
-    .foot a { color: var(--subtle); text-decoration: none; }
+    footer { padding-block: 40px; }
+    .foot { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; font-size: 14px; color: var(--subtle); border-block-start: 1px solid var(--line); padding-block-start: 28px; }
+    .foot img { block-size: 34px; inline-size: auto; }
+    .foot a { color: var(--subtle); text-decoration: none; display: inline-block; padding-block: 8px; }
     .foot a:hover { color: var(--navy); text-decoration: underline; }
     .foot .mail { margin-inline-start: auto; }
 
-    /* ---------- sticky mobile CTA ---------- */
-    /* ---------- who you talk to ---------- */
-    .person { margin-block-start: 28px; display: flex; gap: 40px; align-items: center; flex-wrap: wrap; background: var(--mist); border-radius: 28px; padding: 36px; }
-    .person img { inline-size: 200px; block-size: 200px; border-radius: 50%; object-fit: cover; flex: none; }
-    .person > div { flex: 1 1 320px; }
-    .person h2 { margin: 0; font-size: clamp(30px, 3.6vw, 40px); }
-    .person .role { margin-block-start: 6px; font-weight: 600; color: var(--sand-ink); }
-    .person-line { margin-block-start: 14px; color: var(--muted); font-size: 18px; max-inline-size: 52ch; }
-    .person-links { margin-block-start: 22px; display: flex; gap: 12px; flex-wrap: wrap; }
-    .wa-btn { gap: 10px; background: #128C4A; }
-    .wa-btn:hover { background: #0F7A40; }
-    .wa-float { display: none; }
-    @media (max-width: 720px) {
-      .person { padding: 28px; gap: 24px; }
-      .person img { inline-size: 140px; block-size: 140px; }
-      .wa-float { display: grid; place-items: center; position: fixed; z-index: 61; inset-inline-end: 16px; inset-block-end: calc(88px + env(safe-area-inset-bottom));
-        inline-size: 56px; block-size: 56px; border-radius: 50%; background: #128C4A; color: #fff; box-shadow: 0 8px 24px rgba(14,28,48,0.25); }
-      .wa-float svg { inline-size: 28px; block-size: 28px; }
-    }
-    .sticky-cta { display: none; }
-    @media (max-width: 720px) {
-      .sticky-cta {
-        display: block; position: fixed; z-index: 60; inset-inline: 0; inset-block-end: 0;
-        padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
-        background: rgba(255,255,255,0.82); -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
-        box-shadow: 0 -1px 0 rgba(14,28,48,0.08);
-        transform: translateY(110%); transition: transform .3s cubic-bezier(.2,.7,.2,1);
+    /* ---------- phone and tablet: bottom tab bar ---------- */
+    .tabbar { display: none; }
+    @media (max-width: 1060px) {
+      .nav-cta, #menuOpen { display: none; }
+      .tabbar {
+        display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: center;
+        position: fixed; z-index: 60; inset-inline: 10px; inset-block-end: calc(10px + env(safe-area-inset-bottom));
+        max-inline-size: 560px; margin-inline: auto; padding: 6px; border-radius: 28px;
       }
-      .sticky-cta.show { transform: none; }
-      .sticky-cta .btn { display: flex; inline-size: 100%; }
-      footer { padding-block-end: 100px; }
-      section { padding-block: 72px; }
+      .tabbar a, .tabbar button {
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+        min-block-size: 54px; padding: 4px 2px; border: 0; border-radius: 20px; background: none; cursor: pointer;
+        text-decoration: none; color: var(--muted); font-size: 12px; font-weight: 600; line-height: 1.15; text-align: center;
+      }
+      .tabbar svg { inline-size: 22px; block-size: 22px; }
+      .tabbar [aria-current="true"] { color: var(--navy); background: rgba(14,28,48,0.07); }
+      .tabbar .tab-cta { background: var(--navy); color: var(--white); box-shadow: 0 10px 22px -10px rgba(14,28,48,0.6); }
+      .tabbar .tab-cta[aria-current="true"] { background: var(--navy); color: var(--white); }
+      .tabbar .tab-wa svg { color: #128C4A; }
+      footer { padding-block-end: calc(110px + env(safe-area-inset-bottom)); }
     }
-    @media (prefers-reduced-transparency: reduce) { .sticky-cta { background: var(--white); -webkit-backdrop-filter: none; backdrop-filter: none; } }
+    @media (max-width: 720px) {
+      section { padding-block: 76px; }
+      .person { padding: 26px; gap: 22px; }
+      .person img { inline-size: 120px; block-size: 120px; }
+    }
+
+    /* ---------- storage notice ---------- */
+    .storage-note {
+      position: fixed; z-index: 62; inset-block-end: 20px; inset-inline-start: 20px; max-inline-size: 420px;
+      margin-inline-end: 20px; border-radius: 24px; padding: 18px 20px; display: flex; flex-direction: column; gap: 12px;
+      background: rgba(255,255,255,0.9);
+    }
+    .storage-note[hidden] { display: none; }
+    .storage-note p { font-size: 14.5px; color: var(--body); line-height: 1.5; }
+    .storage-note .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .storage-note .btn { min-block-size: 44px; padding: 10px 22px; font-size: 15px; }
+    .storage-note a.more { font-size: 14px; color: var(--navy); padding: 10px 4px; }
+    @media (max-width: 1060px) {
+      .storage-note { inset-inline: 10px; margin-inline: auto; max-inline-size: 560px; inset-block-end: calc(84px + env(safe-area-inset-bottom)); padding: 14px 16px; gap: 10px; }
+      .storage-note p { font-size: 13.5px; }
+    }
 
     /* ---------- reveal ---------- */
-    .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+    .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s var(--ease); }
     .js .reveal.in { opacity: 1; transform: none; }
 
+    /* ---------- preferences ---------- */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .chip { animation: none; }
+      .js .stage .shot, .js dialog.drawer[open] .drawer-panel { animation: none; }
       .js .reveal { opacity: 1; transform: none; transition: none; }
-      .sticky-cta { transition: none; }
+    }
+    @media (prefers-reduced-transparency: reduce) {
+      .glass, .tabbar, .storage-note, .drawer-panel { background: var(--white); -webkit-backdrop-filter: none; backdrop-filter: none; }
+      .glass-dark { background: #1A2D47; -webkit-backdrop-filter: none; backdrop-filter: none; }
+      .filters button, .btn-glass { -webkit-backdrop-filter: none; backdrop-filter: none; }
+    }
+    @media (prefers-contrast: more) {
+      .glass { background: var(--white); border-color: var(--navy); }
+      .glass-dark { background: var(--navy); border-color: var(--white); }
+      .hero h1 span { color: var(--muted); }
     }
   </style>
 </head>
 <body>
 <a class="skip" href="#main" data-en="Skip to content">דילוג לתוכן</a>
 
-<nav class="top" aria-label="ראשי" data-en-label="Main">
-  <div class="wrap nav-in">
-    <a class="nav-logo" href="#top" aria-label="Take It AIzy"><img src="/brand/logo/take-it-aizy-logo-navy.svg" alt="Take It AIzy" width="97" height="46"></a>
-    <div class="nav-links">
-      <a href="#calc" data-en="What does it cost you?">כמה זה עולה לכם?</a>
-      <a href="#services" data-en="What we build">מה אנחנו בונים</a>
-      <a href="#work" data-en="Work">פרויקטים</a>
-      <a href="#how" data-en="How we work">איך עובדים</a>
-      <a href="#faq" data-en="FAQ">שאלות</a>
+<div class="nav-shell">
+  <nav class="top glass" aria-label="ראשי" data-en-label="Main">
+    <div class="nav-in">
+      <a class="nav-logo" href="#top" aria-label="Take It AIzy"><img src="/brand/logo/take-it-aizy-logo-navy.svg" alt="Take It AIzy" width="84" height="40"></a>
+      <div class="nav-links">
+        <a href="#work" data-en="Our work">מה בנינו</a>
+        <a href="#services" data-en="What we build">מה אנחנו בונים</a>
+        <a href="#workshops" data-en="Workshops">סדנאות</a>
+        <a href="#how" data-en="How we work">איך עובדים</a>
+        <a href="#faq" data-en="Questions">שאלות</a>
+      </div>
+      <button type="button" class="icon-btn lang lat" id="langToggle" aria-label="Switch language">EN</button>
+      <a class="btn nav-cta" href="#contact" data-en="Free call">שיחה ללא עלות</a>
+      <button type="button" class="icon-btn" id="menuOpen" aria-controls="menu" aria-expanded="false" aria-label="פתיחת התפריט" data-en-label="Open the menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg></button>
     </div>
-    <button type="button" class="lang lat" id="langToggle" aria-label="Switch language">EN</button>
-    <a class="btn nav-cta" href="#contact" data-en="Free call">שיחה ללא עלות</a>
+  </nav>
+</div>
+
+<dialog class="drawer" id="menu" aria-label="תפריט" data-en-label="Menu">
+  <div class="drawer-panel glass">
+    <div class="drawer-top">
+      <img src="/brand/logo/take-it-aizy-logo-navy.svg" alt="Take It AIzy" width="80" height="38">
+      <button type="button" class="icon-btn" id="menuClose" autofocus aria-label="סגירת התפריט" data-en-label="Close the menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <nav class="drawer-nav" aria-label="ניווט באתר" data-en-label="Site navigation">
+      <a href="#work" data-en="Our work">מה בנינו</a>
+      <a href="#services" data-en="What we build">מה אנחנו בונים</a>
+      <a href="#calc" data-en="What does it cost you?">כמה זה עולה לכם?</a>
+      <a href="#how" data-en="How we work">איך עובדים</a>
+      <a href="#workshops" data-en="AI workshops">סדנאות AI</a>
+      <a href="#faq" data-en="Questions">שאלות</a>
+      <a href="#contact" data-en="Talk to us">דברו איתנו</a>
+    </nav>
+    <div class="drawer-ws on-dark">
+      <p class="eyebrow" data-en="Workshops">סדנאות</p>
+      <h3 data-en="AI workshops for teams and managers">סדנאות AI לצוותים ולמנהלים</h3>
+      <ul>
+        <li><span data-en-html="<b>Lecture</b> · 1-2 hours, any group size">‏<b>הרצאה</b> · 1-2 שעות, לכל גודל קבוצה</span></li>
+        <li><span data-en-html="<b>Hands-on workshop</b> · 2-5 hours, up to 10">‏<b>סדנה מעשית</b> · 2-5 שעות, עד 10 משתתפים</span></li>
+        <li><span data-en-html="<b>Field day</b> · 5 hours at your place">‏<b>סדנת שטח</b> · 5 שעות אצלכם בארגון</span></li>
+      </ul>
+      <a class="btn btn-light" href="#workshops" data-en="All the workshops">לכל הסדנאות</a>
+    </div>
+    <div class="drawer-foot">
+      <a class="btn" href="#contact" data-en="Book a free needs call">לשיחת אפיון ללא עלות</a>
+      <a class="btn wa-btn" href="https://wa.me/972503255115?text=%D7%94%D7%99%D7%99%20%D7%90%D7%95%D7%A9%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20Take%20It%20AIzy" data-en-href="https://wa.me/972503255115?text=Hi%20Osher%2C%20I%20found%20you%20through%20the%20Take%20It%20AIzy%20website" target="_blank" rel="noopener" data-en="WhatsApp Osher">וואטסאפ לאושר</a>
+      <small class="lat">hello@takeitaizy.dev</small>
+    </div>
   </div>
-</nav>
+</dialog>
 
 <main id="main">
 
 <header class="hero" id="top">
-  <div class="wrap">
-    <span class="pill"><i></i><span data-en="Smart management systems for business">מערכות ניהול חכמות לעסקים</span></span>
-    <h1 data-en-html="The manual work ends here. <span>Your time comes back to you.</span>">העבודה הידנית נגמרת כאן. <span>הזמן שלכם חוזר אליכם.</span></h1>
-    <p class="sub" data-en="We build systems that do a business’s repetitive work for it: a Hebrew service bot, a tailored management system, and one system the whole business works in. You approve, the system does.">אנחנו בונים לעסקים מערכות שעושות את העבודה החוזרת במקומם: בוט שירות בעברית, מערכת ניהול תפורה, ומערכת אחת שכל העסק עובד בה. אתם מאשרים, המערכת עושה.</p>
-    <div class="hero-cta">
-      <a class="btn btn-lg" href="#contact" data-en="Book a free needs call">לשיחת אפיון ללא עלות</a>
-      <a class="btn btn-text" href="#work" data-en-html="See examples <span aria-hidden='true'>→</span>">ראו דוגמאות <span aria-hidden="true">←</span></a>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow" data-en="Smart management systems for business">מערכות ניהול חכמות לעסקים</p>
+      <h1 data-en-html="The manual work ends here. <span>Your time comes back to you.</span>">העבודה הידנית נגמרת כאן. <span>הזמן שלכם חוזר אליכם.</span></h1>
+      <p class="sub" data-en="We build systems that do the repetitive work for businesses and organizations: a WhatsApp service bot in Hebrew, a management system tailored to how you work, and AI agents that send you only what matters. You approve, the system does.">אנחנו בונים לעסקים ולארגונים מערכות שעושות את העבודה החוזרת במקומם: בוט שירות בוואטסאפ בעברית, מערכת ניהול שתפורה לאיך שאתם עובדים, וסוכני AI ששולחים לכם רק את מה שחשוב. אתם מאשרים, המערכת עושה.</p>
+      <div class="hero-cta">
+        <a class="btn btn-lg" href="#contact" data-en="Book a free needs call">לשיחת אפיון ללא עלות</a>
+        <a class="btn btn-text" href="#work" data-en="See what we built →">ראו מה בנינו ←</a>
+      </div>
+      <ul class="trust">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg><span data-en="Free needs call">שיחת אפיון ללא עלות</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg><span data-en="End-to-end responsibility">אחריות מלאה מקצה לקצה</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg><span data-en="Built in Hebrew, for your process">בעברית, לפי התהליך שלכם</span></li>
+      </ul>
     </div>
-    <ul class="trust" aria-label="למה לעבוד איתנו" data-en-label="Why work with us">
-      <li data-en="A free needs call">שיחת אפיון ללא עלות</li>
-      <li data-en="A pilot you approve">פיילוט באישור שלכם</li>
-      <li data-en="Full responsibility, end to end">אחריות מלאה מקצה לקצה</li>
-    </ul>
 
-    <div class="stage" aria-hidden="true">
-      <img class="mark" src="/brand/logo/take-it-aizy-mark-navy.svg" alt="" width="262" height="300">
-      <div class="chip c1"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span><b data-en="New inquiry logged in the CRM">פנייה חדשה נקלטה ב-CRM</b><small data-en="Automatic · 2 min ago">אוטומטי · לפני 2 דק׳</small></span></div>
-      <div class="chip c2"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span><span><b data-en="Monthly report sent to the accountant">הדוח החודשי נשלח לרו״ח</b><small data-en="07:00 · on the 1st of every month">07:00 · ב-1 לכל חודש</small></span></div>
-      <div class="chip c3"><span class="ico sand"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E1C30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span><span><b data-en="3 technicians scheduled">3 טכנאים שובצו</b><small data-en="Waiting for your approval">ממתין לאישור שלך</small></span><span class="ok" data-en="Approve">אישור</span></div>
-      <div class="chip c4"><span><small data-en="WhatsApp · service bot">וואטסאפ · בוט שירות</small><b data-en="“We got the invoice, a technician is on the way.”">״קיבלנו את החשבונית, טכנאי בדרך.״</b></span></div>
+    <div class="stage aurora" role="img" aria-label="המחשה: הודעת וואטסאפ מבוט שירות, סיכום בוקר שנשלח לבד, ובקשת אישור במערכת ניהול" data-en-label="Illustration: a WhatsApp message from a service bot, a morning summary sent on its own, and an approval request in a management system">
+      <div class="shot s1 glass" aria-hidden="true">
+        <div class="shot-head"><span class="dot wa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.6z"/></svg></span><b data-en="Service bot · WhatsApp">בוט שירות · וואטסאפ</b><time class="lat">09:41</time></div>
+        <div class="bubbles">
+          <p class="bubble in" data-en="Hi, the product arrived broken. I have the invoice.">היי, המוצר הגיע שבור. יש לי חשבונית.</p>
+          <p class="bubble out" data-en="Sorry to hear that. I’ve received the invoice and opened a replacement request. We’ll update you here today.">מצטערים לשמוע. קיבלתי את החשבונית ופתחתי בקשת החלפה. נעדכן אותך כאן עוד היום.</p>
+        </div>
+      </div>
+      <div class="shot s2 glass" aria-hidden="true">
+        <div class="shot-head"><span class="dot sand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg></span><b data-en="Morning summary">סיכום בוקר</b><time class="lat">07:00</time></div>
+        <ul class="digest">
+          <li><i></i><span data-en="3 new updates since yesterday">3 עדכונים חדשים מאז אתמול</span><small data-en="automatic">אוטומטי</small></li>
+          <li><i></i><span data-en="One needs your attention today">אחד מהם דורש תשומת לב היום</span><small data-en="priority">עדיפות</small></li>
+        </ul>
+      </div>
+      <div class="shot s3 glass" aria-hidden="true">
+        <div class="shot-head"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v14H4z"/><path d="M4 10h16M9 10v9"/></svg></span><b data-en="Operations board">לוח תפעול</b><time data-en="now">עכשיו</time></div>
+        <div class="approve"><span data-en="Weekly schedule is ready · 4 changes">סידור השבוע מוכן · 4 שינויים</span><em class="later" data-en="Review">לבדוק</em><em class="ok" data-en="Approve">לאשר</em></div>
+      </div>
+      <p class="stage-note" aria-hidden="true" data-en="Illustration with sample data">המחשה עם נתוני דוגמה</p>
     </div>
   </div>
 </header>
 
-<section class="pain" id="pain">
-  <div class="wrap split">
-    <div class="reveal">
-      <p class="eyebrow" data-en="The problem">הבעיה</p>
-      <h2 data-en="Where does your time disappear?">איפה הזמן שלכם נעלם?</h2>
-      <p class="lead" data-en="In most businesses it is not one big thing. It is dozens of small things someone does by hand, every day, that nobody counts.">ברוב העסקים זה לא דבר אחד גדול. זה עשרות דברים קטנים שמישהו עושה ידנית, כל יום, ושאף אחד לא סופר.</p>
+<section class="sectors" aria-labelledby="sectorsH">
+  <div class="wrap">
+    <p id="sectorsH" data-en="Among those we built for recently:">בין מי שבנינו להם לאחרונה:</p>
+    <ul class="sector-row"><li data-en="A service and maintenance company">חברת שירות ואחזקה</li><li data-en="A home appliances company">חברת מוצרי חשמל לבית</li><li data-en="A landscaping contractor">קבלן גינון ופיתוח נוף</li><li data-en="A professional club for finance people">מועדון מקצועי לאנשי כספים</li><li data-en="A real estate investor">משקיע נדל״ן</li></ul>
+  </div>
+</section>
+
+<section class="mesh" id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow reveal" data-en="Our work">מה בנינו</p>
+        <h2 class="reveal" data-en="Real pains, real systems">כאבים אמיתיים, מערכות אמיתיות</h2>
+        <p class="lead reveal" data-en="No client names, by choice. Here is what hurt, and what we built so it stops hurting.">בלי שמות של לקוחות, בכוונה. זה מה שכאב להם, וזה מה שבנינו כדי שיפסיק לכאוב.</p>
+      </div>
     </div>
-    <ul class="pain-list">
-      <li class="reveal"><span class="tag" data-en="Inquiries">פניות</span><span data-en="Every customer inquiry is opened by hand in the CRM. A quarter of an hour each, a few a day, and two hours vanish.">כל פנייה של לקוח נפתחת ידנית ב-CRM. רבע שעה לפנייה, כמה פניות ביום, ושעתיים נעלמות.</span></li>
-      <li class="reveal"><span class="tag" data-en="Payroll">שכר</span><span data-en="Payroll is calculated by hand from the calendar, every month again, with mistakes that surface late.">השכר מחושב ידנית מתוך היומן, כל חודש מחדש, עם טעויות שמתגלות באיחור.</span></li>
-      <li class="reveal"><span class="tag" data-en="Approvals">אישורים</span><span data-en="Approvals and documents travel through free-form WhatsApp. No record, no control.">אישורים ומסמכים עוברים בוואטסאפ חופשי. בלי תיעוד, בלי בקרה.</span></li>
-      <li class="reveal"><span class="tag" data-en="Reports">דוחות</span><span data-en="The accountant’s report is built in Excel. Again. Just like last month.">הדוח לרואה החשבון נבנה באקסל. שוב. בדיוק כמו בחודש שעבר.</span></li>
-    </ul>
+    <div class="filters reveal" role="group" aria-label="סינון לפי סוג מערכת" data-en-label="Filter by type of system">
+      <button type="button" aria-pressed="true" data-filter="all" data-en="All">הכול</button>
+      <button type="button" aria-pressed="false" data-filter="wa" data-en="WhatsApp bots">בוטים בוואטסאפ</button>
+      <button type="button" aria-pressed="false" data-filter="sys" data-en="Management systems">מערכות ניהול</button>
+      <button type="button" aria-pressed="false" data-filter="agent" data-en="AI agents">סוכני AI</button>
+      <button type="button" aria-pressed="false" data-filter="web" data-en="Platforms and sites">פלטפורמות ואתרים</button>
+    </div>
+    <div class="case-grid" id="cases">
+      <article class="case feature glass reveal" data-kind="sys">
+        <div class="case-main"><div class="case-top"><span class="tag" data-en="A service and maintenance company">חברת שירות ואחזקה</span><span class="status build" data-en="Rolling out at the client">בהטמעה אצל הלקוח</span></div>
+        <h3 data-en="From paper service reports to an app that works with no signal">מדוח שירות על נייר לאפליקציה שעובדת גם בלי קליטה</h3>
+        <p class="pain"><b data-en="What hurt">מה כאב</b><span data-en="Every service call went through paper, messages and retyping. The same detail was typed three times.">כל קריאת שירות עברה דרך נייר, הודעות והקלדה חוזרת. אותו נתון הוקלד שלוש פעמים.</span></p>
+        <div class="chan"><span data-en="Technician app">אפליקציה לטכנאי</span><span data-en="Office system">מערכת למשרד</span><span data-en="PDF">PDF</span></div></div>
+        <ul class="did"><li data-en="A technician app that works with no signal: work times, checklists, photos and the customer’s signature">אפליקציה לטכנאי שעובדת גם בלי קליטה: שעות עבודה, צ׳קליסטים, תמונות וחתימת לקוח</li><li data-en="The office approves every report before it goes to the customer">המשרד מאשר כל דוח לפני שהוא יוצא ללקוח</li><li data-en="A clean PDF service report, in Hebrew and English">דוח שירות מסודר ב-PDF, בעברית ובאנגלית</li><li data-en="A billing summary built from the reports themselves, with no retyping">סיכום לחיוב שנבנה מהדוחות עצמם, בלי להקליד שוב</li><li data-en="The existing data imported from Excel">ייבוא הנתונים הקיימים מאקסל</li></ul>
+      </article>
+      <article class="case glass reveal" data-kind="wa sys">
+        <div class="case-top"><span class="tag" data-en="A home appliances company">חברת מוצרי חשמל לבית</span><span class="status build" data-en="Rolling out at the client">בהטמעה אצל הלקוח</span></div>
+        <h3 data-en="A WhatsApp service bot that opens a ticket and assigns a technician">בוט שירות בוואטסאפ שפותח קריאה ומשבץ טכנאי</h3>
+        <p class="pain"><b data-en="The goal">המטרה</b><span data-en="Handle service requests on WhatsApp without someone asking which product it is, chasing the invoice and finding a technician for the area.">לטפל בפניות שירות בוואטסאפ בלי שמישהו יברר ידנית איזה מוצר, יבקש חשבונית ויחפש טכנאי לאזור.</span></p>
+        <ul class="did"><li data-en="Identifies the product and asks for a photo or invoice on every service path">מזהה את המוצר ומבקש תמונה או חשבונית בכל מסלול שירות</li><li data-en="Assigns a technician by area and passes everything to the client’s CRM">משבץ טכנאי לפי אזור, ומעביר הכול ל-CRM של הלקוח</li><li data-en="An admin screen with roles, two-step sign-in and control over data export">מסך ניהול עם הרשאות, כניסה בשני שלבים ובקרה על ייצוא נתונים</li><li data-en="Every uploaded file is scanned, and the bot is guarded against attempts to trick it">סריקה של כל קובץ שעולה, והגנה מניסיונות לבלבל את הבוט</li></ul>
+        <div class="chan"><span data-en="WhatsApp">וואטסאפ</span><span data-en="CRM">CRM</span><span data-en="Admin screen">מסך ניהול</span></div>
+      </article>
+      <article class="case glass reveal" data-kind="sys">
+        <div class="case-top"><span class="tag" data-en="A landscaping contractor">קבלן גינון ופיתוח נוף</span><span class="status live" data-en="Live">באוויר</span></div>
+        <h3 data-en="Quotes from a price list, and reminders for the vehicle fleet">הצעות מחיר מתוך מחירון, ותזכורות לצי הרכבים</h3>
+        <p class="pain"><b data-en="The goal">המטרה</b><span data-en="Produce quotes from long price lists, and never miss a vehicle’s inspection or insurance date.">להפיק הצעות מחיר מתוך מחירונים ארוכים, ולא לפספס טסט או ביטוח של אף רכב.</span></p>
+        <ul class="did"><li data-en="Builds a quote from the price list and produces a PDF ready to send">בונה הצעת מחיר מתוך המחירון ומפיקה PDF מוכן לשליחה</li><li data-en="A vehicle list with inspection and insurance dates, and an email reminder before they expire">רשימת רכבים עם תוקף טסט וביטוח, ותזכורת במייל לפני שהם פגים</li><li data-en="The calculation was checked on 5,000 random quotes against an independent calculation">החישוב נבדק על 5,000 הצעות אקראיות מול חישוב בלתי תלוי</li><li data-en="Sign-in with the business’s Google account">כניסה עם חשבון Google של העסק</li></ul>
+        <div class="chan"><span data-en="Management system">מערכת ניהול</span><span data-en="PDF">PDF</span><span data-en="Email reminders">תזכורות במייל</span></div>
+      </article>
+      <article class="case glass reveal" data-kind="web agent">
+        <div class="case-top"><span class="tag" data-en="A professional club for finance people">מועדון מקצועי לאנשי כספים</span><span class="status live" data-en="Live">באוויר</span></div>
+        <h3 data-en="A complete platform for a paid members club">פלטפורמה שלמה למועדון חברים בתשלום</h3>
+        <p class="pain"><b data-en="The goal">המטרה</b><span data-en="Run a professionals’ club in one place: sign-up, payment, content and events. A joint venture of ours with a partner from the field.">להריץ מועדון של אנשי מקצוע במקום אחד: הרשמה, תשלום, תוכן ואירועים. מיזם משותף שלנו עם שותף מהתחום.</span></p>
+        <ul class="did"><li data-en="Sign-up with approval, payments, renewals and invoices">הרשמה עם אישור, תשלומים, חידושים וחשבוניות</li><li data-en="Protected video for recordings, and lecture sign-up with reminders">וידאו מוגן להקלטות, והרשמה להרצאות עם תזכורות</li><li data-en="A store of AI tools for members: removing identifying details from a document, comparing trial balances and checking a tax refund">חנות כלי AI לחברים: השמטת פרטים מזהים ממסמך, השוואת מאזני בוחן ובדיקת החזר מס</li><li data-en="Automatic revenue statements for partners">דוחות הכנסה אוטומטיים לשותפים</li></ul>
+        <div class="chan"><span data-en="Website">אתר</span><span data-en="Payments">תשלומים</span><span data-en="Video">וידאו</span><span data-en="AI tools">כלי AI</span></div>
+      </article>
+      <article class="case glass reveal" data-kind="sys agent">
+        <div class="case-top"><span class="tag" data-en="Our own system">המערכת שלנו</span><span class="status live" data-en="Live">באוויר</span></div>
+        <h3 data-en="The system that runs us: clients, projects and a pain map">המערכת שמנהלת אותנו: לקוחות, פרויקטים ומפת כאבים</h3>
+        <p class="pain"><b data-en="The goal">המטרה</b><span data-en="Every client, deal, project and decision in one place, open to both partners.">כל לקוח, עסקה, פרויקט והחלטה במקום אחד, שקוף לשני השותפים.</span></p>
+        <ul class="did"><li data-en="A pain map: every manual task of a client, what it costs a month, and what is worth building first">מפת כאבים: כל משימה ידנית של לקוח, כמה היא עולה בחודש, ומה שווה לבנות קודם</li><li data-en="Meetings with a transcript, summary and tasks, and a first draft spec from the call">פגישות עם תמליל, סיכום ומשימות, וטיוטת אפיון ראשונה מתוך השיחה</li><li data-en="Inquiries from the website land in a queue and become a deal in one click">פניות מהאתר נכנסות לתור והופכות לעסקה בלחיצה</li><li data-en="A quote from a spec document">הצעת מחיר מתוך מסמך אפיון</li></ul>
+        <div class="chan"><span data-en="Management system">מערכת ניהול</span><span data-en="AI">AI</span><span data-en="Google Calendar">יומן Google</span></div>
+      </article>
+      <article class="case glass reveal" data-kind="web agent">
+        <div class="case-top"><span class="tag" data-en="Our own product">מוצר שלנו</span><span class="status live" data-en="Live">באוויר</span></div>
+        <h3 data-en="An app that puts a household’s money in order">אפליקציה שמסדרת את הכסף של משק הבית</h3>
+        <p class="pain"><b data-en="The goal">המטרה</b><span data-en="Give a household one clear picture of its money, without spreadsheets.">לתת למשק בית תמונה אחת וברורה של הכסף שלו, בלי טבלאות.</span></p>
+        <ul class="did"><li data-en="A personal portal for the household, with the option to add a partner">פורטל אישי למשק הבית, עם אפשרות לצרף בן או בת זוג</li><li data-en="Documents and payslips read automatically with AI">קריאה אוטומטית של מסמכים ותלושים בעזרת AI</li><li data-en="A trial period and payment built in">תקופת ניסיון ותשלום מובנים במערכת</li><li data-en="A video guide open to everyone">מדריך וידאו פתוח לכולם</li></ul>
+        <div class="chan"><span data-en="Web app">אפליקציית ווב</span><span data-en="AI">AI</span><span data-en="Payments">תשלומים</span></div>
+      </article>
+      <article class="case glass reveal" data-kind="agent">
+        <div class="case-top"><span class="tag" data-en="A real estate investor">משקיע נדל״ן</span><span class="status " data-en="Working prototype">אב טיפוס עובד</span></div>
+        <h3 data-en="A research agent that sends every morning what changed in planning">סוכן מחקר ששולח כל בוקר מה השתנה בתכנון</h3>
+        <p class="pain"><b data-en="The goal">המטרה</b><span data-en="Stop following plans and permits in public databases by hand.">להפסיק לעקוב ידנית אחרי תכניות והיתרים במאגרים ציבוריים.</span></p>
+        <ul class="did"><li data-en="Collects every day from the national planning database and from open data">אוסף כל יום מהמאגר הארצי של התכנון וממאגרי מידע פתוחים</li><li data-en="Compares with yesterday and reports only what changed, once per plan">משווה לאתמול ומדווח רק על מה שהשתנה, פעם אחת לכל תכנית</li><li data-en="A headline and a priority for each update, in a designed Hebrew morning email">כותרת ועדיפות לכל עדכון, במייל בוקר מעוצב בעברית</li><li data-en="Health checks on the sources, so a glitch is never sent as news">בדיקות תקינות למקורות, כדי שתקלה לא תישלח כאילו היא חדשה</li></ul>
+        <div class="chan"><span data-en="AI agent">סוכן AI</span><span data-en="Morning email">מייל בוקר</span></div>
+      </article>
+    </div>
+    <p class="work-note reveal" data-en="Statuses are as of November 2026. The details are general on purpose, so as not to expose our clients.">הסטטוסים נכונים לנובמבר 2026. הפרטים כלליים בכוונה, כדי לא לחשוף את הלקוחות שלנו.</p>
   </div>
 </section>
 
-<section id="fit">
+<section id="services">
   <div class="wrap">
-    <p class="eyebrow reveal" data-en="Who it is for">למי זה מתאים</p>
-    <h2 class="reveal" style="max-inline-size: 20ch" data-en="You don’t need to know what to build. You need to know what hurts.">לא צריך לדעת מה לבנות. צריך לדעת מה כואב.</h2>
-    <ul class="fit-grid">
-      <li class="reveal"><b data-en="Who">למי</b><p data-en="Business owners and operations managers whose work depends on manual copying, Excel files and one person’s memory.">בעלי עסקים ומנהלי תפעול שהעבודה אצלם תלויה בהעתקות ידניות, באקסלים ובזיכרון של אדם אחד.</p></li>
-      <li class="reveal"><b data-en="The sign it fits">סימן ההתאמה</b><p data-en="A process that repeats every day or every month, and somebody in the business already feels it takes too much.">יש תהליך שחוזר על עצמו כל יום או כל חודש, ומישהו בעסק כבר מרגיש שהוא גוזל יותר מדי.</p></li>
-      <li class="reveal"><b data-en="What you bring">מה מגיע איתכם</b><p data-en="Not a requirements document. It is enough to show us how the work is done today.">לא מסמך דרישות. מספיק להראות לנו איך העבודה נעשית היום.</p></li>
-      <li class="reveal not"><b data-en="What we won’t do">מה לא</b><p data-en="We won’t sell you a system your business has to bend itself around, and we won’t build AI where Excel does the job well.">לא נמכור לכם מערכת שהעסק צריך להתאים את עצמו אליה, ולא נבנה AI איפה שאקסל טוב עושה את העבודה.</p></li>
-    </ul>
+    <p class="eyebrow reveal" data-en="What we build">מה אנחנו בונים</p>
+    <h2 class="reveal" style="max-inline-size: 18ch" data-en="A system, not another automation.">מערכת, לא עוד אוטומציה.</h2>
+    <p class="lead reveal" data-en="An automation moves information from tool to tool. A system is the place your business works in every day. We build systems; the automations are part of them.">אוטומציה מעבירה מידע מכלי לכלי. מערכת היא המקום שבו העסק עובד כל יום. אנחנו בונים מערכות, והאוטומציות הן חלק מהן.</p>
+    <div class="bento">
+      <article class="tile wide dark aurora reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.6z"/></svg>
+        <p class="kicker" data-en="Customer service">שירות לקוחות</p>
+        <h3 data-en="A WhatsApp bot that handles inquiries end to end">בוט וואטסאפ שמטפל בפנייה מקצה לקצה</h3>
+        <p data-en="It answers in Hebrew, collects documents and photos, opens a ticket and updates the customer. Anything sensitive waits for a person to approve.">עונה בעברית, אוסף מסמכים ותמונות, פותח קריאה ומעדכן את הלקוח. כל דבר רגיש מחכה לאישור של אדם.</p>
+      </article>
+      <article class="tile wide reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M4 10h16M9 10v9"/></svg>
+        <p class="kicker" data-en="Management">ניהול</p>
+        <h3 data-en="A management system tailored to you">מערכת ניהול תפורה</h3>
+        <p data-en="Students, members, workers, deals or stock. One place with the screens you need, permissions for each person, and none of the screens you don’t.">תלמידים, חברים, עובדים, עסקאות או מלאי. מקום אחד עם המסכים שאתם צריכים, הרשאות לכל אחד, ובלי המסכים שלא.</p>
+      </article>
+      <article class="tile reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M6 18l2-2M16 8l2-2"/><circle cx="12" cy="12" r="3"/></svg>
+        <p class="kicker" data-en="AI agents">סוכני AI</p>
+        <h3 data-en="Agents that do real work">סוכנים שעושים עבודה אמיתית</h3>
+        <p data-en="They follow sources every day, read documents and send you a short summary of what changed.">עוקבים אחרי מקורות כל יום, קוראים מסמכים ושולחים לכם סיכום קצר של מה שהשתנה.</p>
+      </article>
+      <article class="tile reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>
+        <p class="kicker" data-en="Back office">משרד אחורי</p>
+        <h3 data-en="Reports and documents that do themselves">דוחות ומסמכים שקורים לבד</h3>
+        <p data-en="Reports for the accountant or the funder, payments and invoices, and documents recognized as they come in.">דוחות לרואה החשבון או לגורם המממן, תשלומים וחשבוניות, ומסמכים שמזוהים כשהם נכנסים.</p>
+      </article>
+      <article class="tile full-sm reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9l8-5 8 5v10"/><path d="M9 19v-6h6v6"/></svg>
+        <p class="kicker" data-en="Training">הדרכה</p>
+        <h3 data-en="AI workshops for your team">סדנאות AI לצוות שלכם</h3>
+        <p data-en="Hands-on, on your real work, so the team keeps using AI after we leave.">מעשיות, על העבודה האמיתית שלכם, כדי שהצוות ימשיך לעבוד עם AI גם אחרי שהלכנו.</p>
+      </article>
+    </div>
   </div>
 </section>
 
-<div class="calc-wrap" id="calc">
+<section class="calc-sec" id="calc">
   <div class="wrap">
-    <div class="calc on-dark reveal">
+    <div class="calc aurora reveal">
       <div>
         <p class="eyebrow" data-en="Time calculator">מחשבון זמן</p>
         <h2 data-en="What does the manual work cost you?">כמה עולה לכם העבודה הידנית?</h2>
         <div class="stepper-list">
-          <div class="stepper"><span data-en="People doing manual work">עובדים שעושים עבודה ידנית</span><span class="ctl"><button type="button" data-calc="people" data-d="-1" aria-label="פחות עובדים" data-en-label="Fewer people">−</button><output class="lat" id="vPeople">3</output><button type="button" data-calc="people" data-d="1" aria-label="יותר עובדים" data-en-label="More people">+</button></span></div>
-          <div class="stepper"><span data-en="Hours a day per person">שעות ביום לכל עובד</span><span class="ctl"><button type="button" data-calc="hours" data-d="-1" aria-label="פחות שעות" data-en-label="Fewer hours">−</button><output class="lat" id="vHours">2</output><button type="button" data-calc="hours" data-d="1" aria-label="יותר שעות" data-en-label="More hours">+</button></span></div>
-          <div class="stepper"><span data-en="Cost of an hour (₪)">עלות שעת עבודה (₪)</span><span class="ctl"><button type="button" data-calc="rate" data-d="-10" aria-label="עלות נמוכה יותר" data-en-label="Lower cost">−</button><output class="lat" id="vRate">80</output><button type="button" data-calc="rate" data-d="10" aria-label="עלות גבוהה יותר" data-en-label="Higher cost">+</button></span></div>
+          <div class="stepper glass-dark"><span data-en="People doing manual work">עובדים שעושים עבודה ידנית</span><span class="ctl"><button type="button" data-calc="people" data-d="-1" aria-label="פחות עובדים" data-en-label="Fewer people">−</button><output class="lat" id="vPeople">3</output><button type="button" data-calc="people" data-d="1" aria-label="יותר עובדים" data-en-label="More people">+</button></span></div>
+          <div class="stepper glass-dark"><span data-en="Hours a day per person">שעות ביום לכל עובד</span><span class="ctl"><button type="button" data-calc="hours" data-d="-1" aria-label="פחות שעות" data-en-label="Fewer hours">−</button><output class="lat" id="vHours">2</output><button type="button" data-calc="hours" data-d="1" aria-label="יותר שעות" data-en-label="More hours">+</button></span></div>
+          <div class="stepper glass-dark"><span data-en="Cost of an hour (₪)">עלות שעת עבודה (₪)</span><span class="ctl"><button type="button" data-calc="rate" data-d="-10" aria-label="עלות נמוכה יותר" data-en-label="Lower cost">−</button><output class="lat" id="vRate">80</output><button type="button" data-calc="rate" data-d="10" aria-label="עלות גבוהה יותר" data-en-label="Higher cost">+</button></span></div>
         </div>
       </div>
-      <div class="calc-out" aria-live="polite">
-        <p class="k" data-en="Your manual work, per year">העבודה הידנית שלכם בשנה</p>
+      <div class="calc-out glass-dark" aria-live="polite">
+        <p class="k" data-en="Your manual work per year">העבודה הידנית שלכם בשנה</p>
         <p class="big lat" id="oHours">1,584</p>
-        <p class="k" data-en="hours">שעות</p>
+        <p class="unit" data-en="hours">שעות</p>
         <p class="cost lat" id="oCost">₪126,720</p>
-        <p class="k" style="margin-block-start: 8px" data-en="a year, on tasks a computer does better">בשנה, על משימות שמחשב עושה טוב יותר</p>
+        <p class="k" data-en="a year, on tasks a computer does better">בשנה, על משימות שמחשב עושה טוב יותר</p>
         <a class="btn btn-light" href="#contact" id="calcCta">בואו נבדוק את ה-₪126,720 שלכם</a>
-        <p class="fine" data-en="An estimate based on 22 working days a month. The needs call pins down the exact number.">הערכה לפי 22 ימי עבודה בחודש. בשיחת האפיון ממפים את המספר המדויק.</p>
+        <p class="fine" data-en="Estimate based on 22 working days a month. On the needs call we map the exact number.">הערכה לפי 22 ימי עבודה בחודש. בשיחת האפיון ממפים את המספר המדויק.</p>
       </div>
-    </div>
-  </div>
-</div>
-
-<section id="services" class="tight-top">
-  <div class="wrap">
-    <p class="eyebrow reveal" data-en="What we build">מה אנחנו בונים</p>
-    <h2 class="reveal" data-en="A system, not another automation.">מערכת, לא עוד אוטומציה.</h2>
-    <div class="vs-grid">
-      <div class="vs auto reveal">
-        <span class="tag" data-en="The pipe">הצינור</span>
-        <h3 data-en="Automation">אוטומציה</h3>
-        <p data-en="Moves information from tool to tool and saves one action that repeats itself. It runs in the background, and nobody works inside it.">מעבירה מידע מכלי לכלי וחוסכת פעולה אחת שחוזרת על עצמה. היא רצה ברקע, ואף אחד לא עובד בתוכה.</p>
-      </div>
-      <div class="vs system on-dark reveal">
-        <span class="tag" data-en="The home">הבית</span>
-        <h3 data-en="System">מערכת</h3>
-        <p data-en="The place the business works in every day: customers, tasks, documents and reports in one place, with screens for the team and permissions for each person.">המקום שבו העסק עובד כל יום: הלקוחות, המשימות, המסמכים והדוחות במקום אחד, עם מסכים לצוות והרשאות לכל אחד.</p>
-      </div>
-    </div>
-    <p class="vs-line reveal" data-en="We build systems. Automations are part of them, not the product.">אנחנו בונים מערכות. האוטומציות הן חלק מהן, לא המוצר.</p>
-    <h3 class="sub-h reveal" data-en="Custom systems. Not off-the-shelf templates.">מערכות בהתאמה אישית. לא תבניות מדף.</h3>
-    <div class="cards">
-      <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1C30" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg><h3 data-en="Automated customer service">שירות לקוחות אוטומטי</h3><p data-en="A Hebrew WhatsApp and email bot that handles inquiries end to end: product identification, document collection, technician dispatch. Every sensitive action gets human approval.">בוט וואטסאפ ומייל בעברית שמנהל פניות מקצה לקצה: זיהוי מוצר, איסוף מסמכים, שיבוץ טכנאים. כל פעולה רגישה עוברת אישור אנושי.</p></div>
-      <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1C30" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><h3 data-en="Tailored management systems">מערכות ניהול תפורות</h3><p data-en="Subscriptions, students, technicians, inventory. A system that speaks your business’s language, with the screens you need and none you don’t.">מנויים, תלמידים, טכנאים, מלאי. מערכת שמדברת את השפה של העסק, עם המסכים שאתם צריכים ובלי אלה שלא.</p></div>
-      <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1C30" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg><h3 data-en="A back-office system">מערכת למשרד האחורי</h3><p data-en="Accountant reports in one click, a document gate that recognizes invoices, payroll calculated from the calendar. The things that eat whole evenings.">דוחות לרואה החשבון בלחיצה, שער מסמכים שמזהה חשבוניות, שכר שמחושב מהיומן. הדברים שגוזלים ערבים שלמים.</p></div>
-      <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="#0E1C30" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3"/></svg><h3 data-en="Operational AI agents">סוכני AI תפעוליים</h3><p data-en="Catalogs from a product sheet, SEO updates, distribution-route planning. Agents that do real work, not decorative chatbots.">קטלוגים מאקסל מוצרים, עדכוני SEO, תכנון קווי חלוקה. סוכנים שעושים עבודה אמיתית, לא צ׳אטבוט לקישוט.</p></div>
     </div>
   </div>
 </section>
 
-<section id="dash" class="tight-top">
+<section id="how" class="mesh">
   <div class="wrap">
-    <p class="eyebrow reveal" data-en="What it looks like">ככה זה נראה</p>
-    <h2 class="reveal" style="max-inline-size: 20ch" data-en="One operations board, instead of five tools.">לוח תפעול אחד, במקום חמישה כלים.</h2>
-    <p class="lead reveal" data-en="Every inquiry, document and approval in one place. You see what is happening, and approve only what is sensitive. On desktop and on your phone.">כל פנייה, מסמך ואישור במקום אחד. אתם רואים מה קורה, ומאשרים רק את מה שרגיש. במחשב ובטלפון.</p>
-    <div class="dash-stage reveal" role="img" aria-label="דוגמה לממשק לוח תפעול במחשב ובטלפון" data-en-label="An example operations board on a computer and on a phone">
-      <div class="browser" aria-hidden="true">
-        <div class="browser-bar"><i></i><i></i><i></i><strong data-en="Operations board · today">לוח תפעול · היום</strong><em data-en="Sample interface">דוגמת ממשק</em></div>
-        <div class="kpis">
-          <div class="kpi"><span data-en="Inquiries logged today">פניות שנקלטו היום</span><b class="lat">24</b></div>
-          <div class="kpi hot"><span data-en="Waiting for your approval">ממתינות לאישור שלך</span><b class="lat">3</b></div>
-          <div class="kpi"><span data-en="Documents recognized">מסמכים שזוהו</span><b class="lat">17</b></div>
-          <div class="kpi"><span data-en="Open tickets">קריאות פתוחות</span><b class="lat">6</b></div>
+    <p class="eyebrow reveal" data-en="How we work">איך עובדים</p>
+    <h2 class="reveal" data-en="In stages. Transparently. No surprises.">בשלבים. בשקיפות. בלי הפתעות.</h2>
+    <ol class="steps">
+      <li class="step glass reveal"><div class="num"></div><h3 data-en="Focused discovery">אפיון ממוקד</h3><p data-en="We map every manual task and what it costs you a month. You leave with a spec you approve.">ממפים כל משימה ידנית וכמה היא עולה לכם בחודש. יוצאים עם מסמך אפיון שאתם מאשרים.</p></li>
+      <li class="step glass reveal"><div class="num"></div><h3 data-en="Staged build">פיתוח בשלבים</h3><p data-en="We start with the biggest pain. Each stage stands on its own and delivers value before we continue.">מתחילים מהכאב הכי גדול. כל שלב עומד בפני עצמו ומביא ערך לפני שממשיכים.</p></li>
+      <li class="step glass reveal"><div class="num"></div><h3 data-en="Rollout with approvals">הטמעה עם אישורים</h3><p data-en="The system works on your real data, and every sensitive action waits for your approval until you trust it.">המערכת עובדת על הנתונים האמיתיים שלכם, וכל פעולה רגישה מחכה לאישור שלכם עד שאתם סומכים עליה.</p></li>
+      <li class="step glass reveal"><div class="num"></div><h3 data-en="Live, and we stay">באוויר, ואנחנו נשארים</h3><p data-en="Training, a full handover and ongoing maintenance. You are never left alone with the system.">הדרכה, מעבר מלא ואחזקה שוטפת. אתם אף פעם לא נשארים לבד עם המערכת.</p></li>
+    </ol>
+    <div class="model-grid" id="model">
+      <div class="model free aurora reveal"><div class="no">01 <span class="free-tag" data-en="Free of charge">ללא עלות</span></div><h3 data-en="Needs call">שיחת אפיון צרכים</h3><p data-en="Mapping the process, working out the manual cost, and a clear direction on what is worth building first. Even if we never work together.">מיפוי התהליך, חישוב העלות הידנית וכיוון ברור למה שווה לבנות קודם. גם אם לא נעבוד יחד.</p><a class="btn btn-light" href="#contact" data-en="Book the free call">לשיחת האפיון</a></div>
+      <div class="model glass reveal"><div class="no">02</div><h3 data-en="Setup">הקמה</h3><p data-en="A staged build, a rollout with approvals, training and going live.">בנייה בשלבים, הטמעה עם אישורים, הדרכה ועלייה לאוויר.</p><p class="price" data-en="A fixed quote after the needs call">הצעת מחיר סגורה אחרי שיחת האפיון</p></div>
+      <div class="model glass reveal"><div class="no">03</div><h3 data-en="Maintenance and changes">אחזקה ושינויים</h3><p data-en="We keep the system running and make changes and improvements as you need them.">שומרים על המערכת עובדת ועושים שינויים ושיפורים לפי הצורך.</p><p class="price" data-en="A fixed monthly fee">תשלום חודשי קבוע</p></div>
+    </div>
+    <p class="people reveal" data-en-html="<b>Full responsibility.</b> The same team scopes your system, builds it, and picks up the phone after it goes live.">‏<b>אחריות מלאה.</b> אותו צוות מאפיין את המערכת, בונה אותה ועונה לטלפון אחרי שהיא עולה לאוויר.</p>
+  </div>
+</section>
+
+<section id="workshops">
+  <div class="wrap">
+    <div class="ws aurora reveal">
+      <p class="eyebrow" data-en="Workshops">סדנאות</p>
+      <h2 style="max-inline-size: 20ch" data-en="AI workshops for teams and managers">סדנאות AI לצוותים ולמנהלים</h2>
+      <p class="lead" data-en="Hands-on, in Hebrew, on the work your team really does. Everyone leaves with something that already works.">מעשיות, בעברית, על העבודה שהצוות שלכם באמת עושה. כל משתתף יוצא עם משהו שכבר עובד.</p>
+      <div class="ws-grid">
+        <article class="ws-card glass-dark">
+          <div class="meta"><span data-en="1-2 hours">1-2 שעות</span><span data-en="No limit on participants">ללא הגבלת משתתפים</span></div>
+          <h3 data-en="Lecture">הרצאה</h3>
+          <p data-en="AI in plain language for any team: AI in everyday work, AI for managers, and safe use with privacy and security in mind.">AI בשפה פשוטה לכל צוות: AI בעבודה היומיומית, AI למנהלים, ושימוש בטוח מבחינת פרטיות ואבטחה.</p>
+        </article>
+        <article class="ws-card glass-dark">
+          <div class="meta"><span data-en="2-5 hours">2-5 שעות</span><span data-en="Up to 10 participants">עד 10 משתתפים</span></div>
+          <h3 data-en="Hands-on workshop">סדנה מעשית</h3>
+          <p data-en="Working on your own tasks: prompts that work, documents and emails, data analysis, and AI assistants of your own.">עובדים על המשימות שלכם: פרומפטים שעובדים, מסמכים ומיילים, ניתוח נתונים, ועוזרים אישיים משלכם.</p>
+        </article>
+        <article class="ws-card glass-dark">
+          <div class="meta"><span data-en="5 hours">5 שעות</span><span data-en="At your place">אצלכם בארגון</span><span data-en="Up to 10 participants">עד 10 משתתפים</span></div>
+          <h3 data-en="Field day">סדנת שטח</h3>
+          <p data-en="One working day, real tasks, and solutions that stay with you.">יום עבודה אחד, משימות אמיתיות, ופתרונות שנשארים אצלכם.</p>
+        </article>
+      </div>
+      <div class="ws-more">
+        <div>
+          <h3 data-en="Topics, from first steps to agents">נושאים, מצעדים ראשונים ועד סוכנים</h3>
+          <ul class="ws-topics">
+            <li data-en="First steps with AI tools">צעדים ראשונים בכלי AI</li>
+            <li data-en="Writing prompts that work">כתיבת פרומפטים שעובדים</li>
+            <li data-en="AI in the office: documents, emails, sheets and slides">AI במשרד: מסמכים, מיילים, טבלאות ומצגות</li>
+            <li data-en="Analysing information and data with AI">ניתוח מידע ונתונים עם AI</li>
+            <li data-en="AI for marketing, content and sales">AI לשיווק, תוכן ומכירות</li>
+            <li data-en="Personal assistants of your own">עוזרים אישיים משלכם</li>
+            <li data-en="Agents and connections: AI that does the work">סוכנים וחיבורים: AI שעושה את העבודה</li>
+            <li data-en="AI for managers: leading a team in the new era">AI למנהלים: להוביל צוות בעידן החדש</li>
+          </ul>
         </div>
-        <div class="panels">
-          <div class="panel"><h4 data-en="Approval queue">תור אישורים</h4>
-            <div class="row"><span data-en="Technician dispatch · central area">שיבוץ טכנאי · אזור מרכז</span><span class="ok" data-en="Approve">לאשר</span></div>
-            <div class="row"><span data-en="Product replacement · invoice verified">החלפת מוצר · חשבונית אומתה</span><span class="ok" data-en="Approve">לאשר</span></div>
-            <div class="row"><span data-en="Quote · ready to send">הצעת מחיר · מוכנה לשליחה</span><span class="ok" data-en="Approve">לאשר</span></div>
-          </div>
-          <div class="panel"><h4 data-en="Recent activity">פעילות אחרונה</h4>
-            <div class="row"><span data-en="The bot opened a new ticket">הבוט פתח קריאה חדשה</span><small data-en="2 min ago">לפני 2 דק׳</small></div>
-            <div class="row"><span data-en="Invoice recognized and logged">חשבונית זוהתה ונקלטה</span><small data-en="9 min ago">לפני 9 דק׳</small></div>
-            <div class="row"><span data-en="Payroll report sent to the accountant">דוח שכר נשלח לרו״ח</span><small>07:00</small></div>
-            <div class="row"><span data-en="Technician confirmed arrival">טכנאי אישר הגעה</span><small data-en="Yesterday">אתמול</small></div>
-          </div>
+        <div>
+          <h3 data-en="Included in every workshop">בכל סדנה</h3>
+          <ul class="ws-incl">
+            <li data-en-html="<b>An intro call</b> to tailor it to your team">‏<b>שיחת היכרות</b> כדי להתאים את התוכן לצוות שלכם</li>
+            <li data-en-html="<b>A participant kit:</b> ready prompts and a short guide">‏<b>ערכת משתתף:</b> דף פרומפטים מוכנים ומדריך קצר</li>
+            <li data-en-html="<b>Safe use:</b> what may go into an AI tool and what may not">‏<b>שימוש בטוח:</b> מה מותר להכניס לכלי AI ומה לא</li>
+            <li data-en-html="<b>A follow-up session</b> two weeks to a month later">‏<b>מפגש המשך</b> כעבור שבועיים עד חודש</li>
+          </ul>
+          <p class="ws-tools" data-en="Claude, ChatGPT, Gemini and Copilot. Online or at your place.">‏Claude, ChatGPT, Gemini ו-Copilot. אונליין או אצלכם.</p>
         </div>
       </div>
-      <div class="phone" aria-hidden="true">
-        <div class="phone-head"><img src="/brand/logo/take-it-aizy-mark-navy.svg" alt="" width="19" height="22"><small data-en="Today">היום</small></div>
-        <div class="kpi"><b class="lat">3</b><span data-en="Waiting for your approval">ממתינות לאישור שלך</span></div>
-        <ul class="phone-list">
-          <li><b data-en="Technician dispatch · central">שיבוץ טכנאי · מרכז</b><span data-en="Approve">לאשר</span></li>
-          <li><b data-en="Replacement · invoice verified">החלפת מוצר · חשבונית אומתה</b><span data-en="Approve">לאשר</span></li>
-          <li><b data-en="Quote · ready">הצעת מחיר · מוכנה</b><span data-en="Approve">לאשר</span></li>
-        </ul>
+      <div class="ws-foot">
+        <a class="btn btn-light" href="#contact" data-en="Ask about a workshop">לפרטים על סדנה</a>
+        <p data-en="Every session is priced by format, length and number of participants. A quote within one business day.">כל מפגש מתומחר לפי הפורמט, אורך המפגש ומספר המשתתפים. הצעת מחיר תוך יום עסקים.</p>
       </div>
     </div>
-    <p class="caption" data-en="A sample interface with demo data. The real screens are built around your processes.">דוגמת ממשק עם נתוני הדגמה. המסכים האמיתיים נבנים לפי התהליכים שלכם.</p>
   </div>
 </section>
 
-<section id="ba" class="tight-top">
-  <div class="wrap">
-    <p class="eyebrow reveal" data-en="Before and after">לפני ואחרי</p>
-    <h2 class="reveal" style="max-inline-size: 18ch" data-en="Same business, same team. Someone else does the repetitive work.">אותו עסק, אותו צוות. מישהו אחר עושה את העבודה החוזרת.</h2>
-    <div class="table-scroll reveal" role="region" tabindex="0" aria-label="טבלת לפני ואחרי" data-en-label="Before and after table">
-      <div class="ba">
-        <div class="h" data-en="Process">תהליך</div><div class="h was" data-en="Today">היום</div><div class="h now" data-en="With the system">עם המערכת</div>
-        <div class="p" data-en="Customer inquiry">פניית לקוח</div><div class="was" data-en="10-15 minutes of manual CRM entry">10-15 דקות הזנה ידנית ל-CRM</div><div data-en="The bot logs it, identifies the product and opens a ticket. You approve.">הבוט קולט, מזהה מוצר ופותח קריאה. אתם מאשרים.</div>
-        <div class="p" data-en="Teacher payroll">שכר מורים</div><div class="was" data-en="Calculated by hand from the calendar, every month">חישוב ידני מהיומן, כל חודש</div><div data-en="Calculated automatically, verified on real data">מחושב אוטומטית, ומאומת על נתוני אמת</div>
-        <div class="p" data-en="Replacement approvals">אישורי החלפה</div><div class="was" data-en="Free-form WhatsApp, no record">וואטסאפ חופשי, בלי תיעוד</div><div data-en="An invoice gate and a documented approval">שער חשבוניות ואישור מתועד</div>
-        <div class="p" data-en="Accountant report">דוח לרו״ח</div><div class="was" data-en="An evening in Excel, every month">ערב באקסל, כל חודש</div><div data-en="Sent on its own on the 1st of the month">נשלח לבד ב-1 לחודש</div>
-      </div>
-    </div>
-    <div class="totals">
-      <div class="total reveal"><b data-en="~60">כ-60</b><span data-en="hours of manual work saved every month">שעות עבודה ידנית נחסכות בחודש</span></div>
-      <div class="total reveal"><b data-en="~15">כ-15</b><span data-en="fewer data-entry mistakes every month, because nobody retypes it">טעויות הזנה פחות בחודש, כי אף אחד לא מקליד את זה שוב</span></div>
-    </div>
-    <p class="fine" data-en="An estimate for a sample business with about 8 inquiries a day. Your number is calculated on the needs call.">הערכה לעסק לדוגמה, עם כ-8 פניות ביום. המספר שלכם מחושב בשיחת האפיון.</p>
-  </div>
-</section>
-
-<section class="work" id="work">
-  <div class="wrap">
-    <p class="eyebrow reveal" data-en="Work">פרויקטים</p>
-    <h2 class="reveal" data-en="Examples of what we build">דוגמאות ממה שאנחנו בונים</h2>
-    <div class="case-grid">
-      <article class="case feature reveal">
-        <span class="tag" data-en="Management">ניהול</span>
-        <h3 data-en="A project and client management system for a studio">מערכת לניהול פרויקטים ולקוחות לסטודיו</h3>
-        <p class="d" data-en="One place for all the work: clients, deals, projects and tasks, documents, invoices and inquiries from the website.">מקום אחד לכל העבודה: לקוחות, עסקאות, פרויקטים ומשימות, מסמכים, חשבוניות ופניות מהאתר.</p>
-        <ul class="feature-list">
-          <li data-en="Connects to Google Calendar, so meetings land in the system on their own">מתחברת ליומן Google, כך שפגישות נכנסות למערכת לבד</li>
-          <li data-en="Connected to a meeting assistant: a transcript, a summary and action items from every call">מחוברת לעוזר שמתמלל את הפגישות: תמליל, סיכום ומשימות מכל שיחה</li>
-          <li data-en="Writes a first spec draft from the transcript of a discovery call">כותבת טיוטת אפיון ראשונה מתוך התמליל של שיחת האפיון</li>
-          <li data-en="Website inquiries arrive in a queue and become a deal in one click">פניות מהאתר נכנסות לתור והופכות לעסקה בלחיצה</li>
-          <li data-en="A sales pipeline, quotes and invoices in one place">צינור מכירות, הצעות מחיר וחשבוניות במקום אחד</li>
-          <li data-en="Notifications and a personal inbox for everyone on the team">התראות ותיבה אישית לכל אחד בצוות</li>
-        </ul>
-      </article>
-      <article class="case reveal">
-        <span class="tag" data-en="Finance">פיננסים</span>
-        <h3 data-en="A finance system that shows the full picture">מערכת לניהול כספים שמראה את התמונה המלאה</h3>
-        <p class="d" data-en="A profit and loss report, a balance sheet and expected cash flows in one system. Alongside it, a system that reads contracts and agreements, complex files and long Excel sheets, and answers questions from the documents you upload.">דוח רווח והפסד, מאזן ותזרים מזומנים צפוי במערכת אחת. לצדה מערכת שקוראת חוזים והסכמים, קבצים מורכבים ואקסלים ארוכים, ועונה על שאלות מתוך המסמכים שמעלים אליה.</p>
-      </article>
-      <article class="case reveal">
-        <span class="tag" data-en="Manufacturing">ייצור</span>
-        <h3 data-en="A CRM for a manufacturing client">מערכת CRM ללקוח מתחום הייצור</h3>
-        <p class="d" data-en="Built around the way the client already works, instead of an off-the-shelf product the business has to bend to.">נבנתה לפי הדרך שבה הלקוח כבר עובד, במקום תוכנת מדף שהעסק צריך להתאים את עצמו אליה.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section id="about" class="tight-top">
+<section id="about">
   <div class="wrap">
     <p class="eyebrow reveal" data-en="Who you will talk to">מי מדבר איתכם</p>
-    <div class="person reveal">
+    <div class="person glass reveal" style="background: var(--mist)">
       <img src="/img/osher-amsalem.jpg" alt="אושר אמסלם" data-en-alt="Osher Amsalem" width="240" height="240" loading="lazy">
       <div>
-        <h2 data-en="Osher Amsalem">אושר אמסלם</h2>
+        <h3 data-en="Osher Amsalem">אושר אמסלם</h3>
         <p class="role" data-en="Founding partner · Needs mapping and client relations">שותף מייסד · אפיון וקשר עם הלקוחות</p>
         <p class="person-line" data-en="The first call is with Osher. He maps the process with you, and he is the one who stays in touch until the system is running.">את שיחת האפיון הראשונה עושים עם אושר. הוא ממפה איתכם את התהליך, והוא זה שנשאר איתכם בקשר עד שהמערכת עובדת.</p>
         <div class="person-links">
@@ -654,57 +840,38 @@
   </div>
 </section>
 
-<section id="how">
-  <div class="wrap">
-    <p class="eyebrow reveal" data-en="How we work">איך עובדים</p>
-    <h2 class="reveal" data-en="In stages. Transparently. No surprises.">בשלבים. בשקיפות. בלי הפתעות.</h2>
-    <ol class="steps">
-      <li class="step reveal"><div class="num"></div><h3 data-en="Focused discovery">אפיון ממוקד</h3><p data-en="We map every manual task and what it costs you a month. You leave with a spec you approve.">ממפים כל משימה ידנית וכמה היא עולה לכם בחודש. יוצאים עם מסמך אפיון שאתם מאשרים.</p></li>
-      <li class="step reveal"><div class="num"></div><h3 data-en="Staged build">פיתוח בשלבים</h3><p data-en="We start with the biggest pain. Each stage stands on its own and delivers value before we continue.">מתחילים מהכאב הכי גדול. כל שלב עומד בפני עצמו ומביא ערך לפני שממשיכים.</p></li>
-      <li class="step reveal"><div class="num"></div><h3 data-en="Controlled pilot">פיילוט מבוקר</h3><p data-en="A real run at your place, and every sensitive action gets human approval until you trust the system.">הרצה אמיתית אצלכם, וכל פעולה רגישה עוברת אישור אנושי עד שסומכים על המערכת.</p></li>
-      <li class="step reveal"><div class="num"></div><h3 data-en="Going live">עלייה לאוויר</h3><p data-en="Training, a full handover, and ongoing maintenance. You are never left alone with the system.">הדרכה, מעבר מלא ואחזקה שוטפת. אתם אף פעם לא נשארים לבד עם המערכת.</p></li>
-    </ol>
-    <h3 class="sub-h reveal" id="model" data-en="The value starts on the very first call.">הערך מתחיל כבר בשיחה הראשונה.</h3>
-    <p class="lead reveal" data-en="The first needs call is free of charge. We map the process, work out what it costs you a month, and you leave with a clear direction. Even if we never work together.">שיחת אפיון הצרכים הראשונה ללא עלות. ממפים את התהליך, מחשבים כמה הוא עולה לכם בחודש, ויוצאים עם כיוון ברור. גם אם לא נעבוד יחד.</p>
-    <div class="model-grid">
-      <div class="model free on-dark reveal"><div class="no">01 <span class="free-tag" data-en="Free of charge">ללא עלות</span></div><h3 data-en="Needs call">שיחת אפיון צרכים</h3><p data-en="Mapping the process, working out the manual cost, and a clear direction on what is worth building first.">מיפוי התהליך, חישוב העלות הידנית וכיוון ברור למה שווה לבנות קודם.</p><a class="btn btn-light" href="#contact" data-en="Book the free call">לשיחת האפיון</a></div>
-      <div class="model reveal"><div class="no">02</div><h3 data-en="Setup">הקמה</h3><p data-en="A staged build, a controlled pilot, training and going live.">בנייה בשלבים, פיילוט מבוקר, הדרכה ועלייה לאוויר.</p><p class="price" data-en="A fixed quote after the needs call">הצעת מחיר סגורה אחרי שיחת האפיון</p></div>
-      <div class="model reveal"><div class="no">03</div><h3 data-en="Maintenance and changes">אחזקה ושינויים</h3><p data-en="We keep the system running and make changes and improvements as you need them.">שומרים על המערכת עובדת ועושים שינויים ושיפורים לפי הצורך.</p><p class="price" data-en="A fixed monthly fee">תשלום חודשי קבוע</p></div>
-    </div>
-    <p class="people reveal" data-en-html="<b>Full responsibility.</b> The same team scopes your system, builds it, and picks up the phone after it goes live.">‏<b>אחריות מלאה.</b> אותו צוות מאפיין את המערכת, בונה אותה ועונה לטלפון אחרי שהיא עולה לאוויר.</p>
-  </div>
-</section>
-
-<section id="faq" class="tight-top">
+<section id="faq" class="mesh">
   <div class="wrap faq">
     <p class="eyebrow reveal" data-en="Questions">שאלות</p>
     <h2 class="reveal" data-en="What people ask us before they start">מה שואלים אותנו לפני שמתחילים</h2>
     <div class="faq-list">
-      <details open><summary data-en="What does the first needs call include?">מה כוללת שיחת האפיון הראשונה?</summary><p data-en="We map the process, work out what it costs you a month, and you leave with a clear direction. The call is free of charge and carries no commitment.">ממפים את התהליך, מחשבים כמה הוא עולה לכם בחודש, ויוצאים עם כיוון ברור. השיחה ללא עלות וללא התחייבות.</p></details>
-      <details><summary data-en="How much does it cost?">כמה זה עולה?</summary><p data-en="A one-time setup, then a fixed monthly payment for maintenance and changes. After the needs call you get a fixed quote.">הקמה חד-פעמית, ואחר כך תשלום חודשי קבוע לאחזקה ולשינויים. אחרי שיחת האפיון מקבלים הצעת מחיר סגורה.</p></details>
-      <details><summary data-en="How long until it works?">כמה זמן עד שזה עובד?</summary><p data-en="We start building the moment you approve the quote, on the schedule written in it. We build in stages, so part of the system is already working for you before everything is ready.">מהרגע שמאשרים את הצעת המחיר מתחילים לבנות, לפי לוח הזמנים שכתוב בה. בונים בשלבים, כך שחלק מהמערכת כבר עובד אצלכם עוד לפני שהכול מוכן.</p></details>
-      <details><summary data-en="How do we know we can trust the system?">איך יודעים שאפשר לסמוך על המערכת?</summary><p data-en="At first we check its results together against the way you work today, and you switch over only when they match. Anything that goes out to your customers can wait for your approval first.">בהתחלה בודקים יחד את התוצאות שלה מול הדרך שבה עבדתם עד היום, ורק כשהן תואמות עוברים לעבוד איתה. ומה שיוצא ללקוחות שלכם יכול לחכות קודם לאישור שלכם.</p></details>
-      <details><summary data-en="Where is our data kept?">איפה נשמר המידע שלנו?</summary><p data-en="Your data is kept encrypted and backed up, and only people you approve can access it. We put into the system only the data it needs to work.">המידע נשמר מוצפן ומגובה, ורק מי שאתם מאשרים יכול לגשת אליו. אנחנו מכניסים למערכת רק את המידע שהיא צריכה כדי לעבוד.</p></details>
-      <details><summary data-en="So what you do is automations?">אז מה שאתם עושים זה אוטומציות?</summary><p data-en="Not only. An automation connects tools. We build the system the business works in, and the automations are part of it.">לא רק. אוטומציה מחברת בין כלים. אנחנו בונים את המערכת שהעסק עובד בה, והאוטומציות הן חלק ממנה.</p></details>
-      <details><summary data-en="We’re a small business. Is this relevant to us?">אנחנו עסק קטן. זה רלוונטי לנו?</summary><p data-en="Exactly for you. A business with no IT team gains the most from a system that does the repetitive work.">בדיוק בשבילכם. עסק בלי צוות IT מרוויח הכי הרבה ממערכת שעושה את העבודה החוזרת.</p></details>
+      <details class="glass" open><summary data-en="What does the first needs call include?">מה כוללת שיחת האפיון הראשונה?</summary><p data-en="We map the process, work out what it costs you a month, and you leave with a clear direction. The call is free of charge and carries no commitment.">ממפים את התהליך, מחשבים כמה הוא עולה לכם בחודש, ויוצאים עם כיוון ברור. השיחה ללא עלות וללא התחייבות.</p></details>
+      <details class="glass"><summary data-en="How much does it cost?">כמה זה עולה?</summary><p data-en="A one-time setup, then a fixed monthly payment for maintenance and changes. After the needs call you get a fixed quote.">הקמה חד-פעמית, ואחר כך תשלום חודשי קבוע לאחזקה ולשינויים. אחרי שיחת האפיון מקבלים הצעת מחיר סגורה.</p></details>
+      <details class="glass"><summary data-en="How long until it works?">כמה זמן עד שזה עובד?</summary><p data-en="We start building the moment you approve the quote, on the schedule written in it. We build in stages, so part of the system is already working for you before everything is ready.">מהרגע שמאשרים את הצעת המחיר מתחילים לבנות, לפי לוח הזמנים שכתוב בה. בונים בשלבים, כך שחלק מהמערכת כבר עובד אצלכם עוד לפני שהכול מוכן.</p></details>
+      <details class="glass"><summary data-en="How do we know we can trust the system?">איך יודעים שאפשר לסמוך על המערכת?</summary><p data-en="At first we check its results together against the way you work today, and you switch over only when they match. Anything that goes out to your customers can wait for your approval first.">בהתחלה בודקים יחד את התוצאות שלה מול הדרך שבה עבדתם עד היום, ורק כשהן תואמות עוברים לעבוד איתה. ומה שיוצא ללקוחות שלכם יכול לחכות קודם לאישור שלכם.</p></details>
+      <details class="glass"><summary data-en="Where is our data kept?">איפה נשמר המידע שלנו?</summary><p data-en="Your data is kept encrypted and backed up, and only people you approve can access it. We put into the system only the data it needs to work.">המידע נשמר מוצפן ומגובה, ורק מי שאתם מאשרים יכול לגשת אליו. אנחנו מכניסים למערכת רק את המידע שהיא צריכה כדי לעבוד.</p></details>
+      <details class="glass"><summary data-en="So what you do is automations?">אז מה שאתם עושים זה אוטומציות?</summary><p data-en="Not only. An automation connects tools. We build the system the business works in, and the automations are part of it.">לא רק. אוטומציה מחברת בין כלים. אנחנו בונים את המערכת שהעסק עובד בה, והאוטומציות הן חלק ממנה.</p></details>
+      <details class="glass"><summary data-en="We’re a small business. Is this relevant to us?">אנחנו עסק קטן. זה רלוונטי לנו?</summary><p data-en="Exactly for you. A business with no IT team gains the most from a system that does the repetitive work.">בדיוק בשבילכם. עסק בלי צוות IT מרוויח הכי הרבה ממערכת שעושה את העבודה החוזרת.</p></details>
     </div>
   </div>
 </section>
 
 <section id="contact">
   <div class="wrap">
-    <p class="eyebrow reveal" data-en="Talk to us">דברו איתנו</p>
-    <h2 class="reveal" style="max-inline-size: 20ch" data-en="Tell us what eats most of your time">ספרו לנו מה גוזל לכם הכי הרבה זמן</h2>
-    <p class="lead reveal" data-en="We get back to you within one business day with first thoughts. The first needs call is free of charge.">חוזרים אליכם תוך יום עסקים עם מחשבות ראשונות. שיחת האפיון הראשונה ללא עלות.</p>
-    <ol class="next-steps reveal">
-      <li><span><b data-en="Fill in a short form">ממלאים טופס קצר</b><span data-en="What your business does, what takes too long, and what you wish happened on its own.">מה העסק עושה, מה לוקח יותר מדי זמן, ומה הייתם רוצים שיקרה מעצמו.</span></span></li>
-      <li><span><b data-en="One of us gets back to you">אחד מאיתנו חוזר אליכם</b><span data-en="Within one business day, with first questions and thoughts.">תוך יום עסקים, עם שאלות ראשונות ומחשבות.</span></span></li>
-      <li><span><b data-en="A short intro call">שיחת היכרות קצרה</b><span data-en="You leave with a clear direction: what is worth building first, and whether you need it at all.">יוצאים ממנה עם כיוון ברור: מה שווה לבנות קודם, ואם בכלל צריך.</span></span></li>
-    </ol>
-    <div class="intake-frame">
-      <iframe id="intakeFrame" src="https://os.takeitaizy.dev/intake?embed=1&amp;theme=light&amp;lang=he&amp;utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=embed" title="טופס פנייה ל-Take It AIzy" data-en-title="Contact form for Take It AIzy" loading="lazy"></iframe>
+    <div class="contact-card glass" style="background: var(--mist)">
+      <p class="eyebrow reveal" data-en="Talk to us">דברו איתנו</p>
+      <h2 class="reveal" style="max-inline-size: 20ch" data-en="Tell us what eats most of your time">ספרו לנו מה גוזל לכם הכי הרבה זמן</h2>
+      <p class="lead reveal" data-en="We get back to you within one business day with first thoughts. The first needs call is free of charge.">חוזרים אליכם תוך יום עסקים עם מחשבות ראשונות. שיחת האפיון הראשונה ללא עלות.</p>
+      <ol class="next-steps reveal">
+        <li><span><b data-en="Fill in a short form">ממלאים טופס קצר</b><span data-en="What your business does, what takes too long, and what you wish happened on its own.">מה העסק עושה, מה לוקח יותר מדי זמן, ומה הייתם רוצים שיקרה מעצמו.</span></span></li>
+        <li><span><b data-en="One of us gets back to you">אחד מאיתנו חוזר אליכם</b><span data-en="Within one business day, with first questions and thoughts.">תוך יום עסקים, עם שאלות ראשונות ומחשבות.</span></span></li>
+        <li><span><b data-en="A short intro call">שיחת היכרות קצרה</b><span data-en="You leave with a clear direction: what is worth building first, and whether you need it at all.">יוצאים ממנה עם כיוון ברור: מה שווה לבנות קודם, ואם בכלל צריך.</span></span></li>
+      </ol>
+      <div class="intake-frame">
+        <iframe id="intakeFrame" src="https://os.takeitaizy.dev/intake?embed=1&amp;theme=light&amp;lang=he&amp;utm_source=takeitaizy.dev&amp;utm_medium=website&amp;utm_content=embed" title="טופס פנייה ל-Take It AIzy" data-en-title="Contact form for Take It AIzy" loading="lazy"></iframe>
+      </div>
+      <p class="contact-alt" data-en-html="Prefer to write to us directly? <a href='https://wa.me/972503255115?text=Hi%20Osher%2C%20I%20found%20you%20through%20the%20Take%20It%20AIzy%20website' target='_blank' rel='noopener'>WhatsApp</a> · <a href='mailto:hello@takeitaizy.dev' class='lat'>hello@takeitaizy.dev</a>">מעדיפים לכתוב לנו ישירות? <a href="https://wa.me/972503255115?text=%D7%94%D7%99%D7%99%20%D7%90%D7%95%D7%A9%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20Take%20It%20AIzy" target="_blank" rel="noopener">וואטסאפ</a> · <a href="mailto:hello@takeitaizy.dev" class="lat">hello@takeitaizy.dev</a></p>
     </div>
-    <p class="contact-alt" data-en-html="Prefer to write to us directly? <a href='https://wa.me/972503255115?text=Hi%20Osher%2C%20I%20found%20you%20through%20the%20Take%20It%20AIzy%20website' target='_blank' rel='noopener'>WhatsApp</a> · <a href='mailto:hello@takeitaizy.dev' class='lat'>hello@takeitaizy.dev</a>">מעדיפים לכתוב לנו ישירות? <a href="https://wa.me/972503255115?text=%D7%94%D7%99%D7%99%20%D7%90%D7%95%D7%A9%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20Take%20It%20AIzy" target="_blank" rel="noopener">וואטסאפ</a> · <a href="mailto:hello@takeitaizy.dev" class="lat">hello@takeitaizy.dev</a></p>
   </div>
 </section>
 
@@ -712,19 +879,29 @@
 
 <footer>
   <div class="wrap foot">
-    <img src="/brand/logo/take-it-aizy-logo-navy.svg" alt="Take It AIzy" width="76" height="36">
-    <span class="lat">© 2026 Take It AIzy</span>
+    <img src="/brand/logo/take-it-aizy-logo-navy.svg" alt="Take It AIzy" width="72" height="34">
+    <span><span class="lat">© 2026 Take It AIzy</span> · <span data-en="Osher Solutions Ltd.">אושר סולושיינס בע״מ</span></span>
     <a href="/privacy" data-en="Privacy policy">מדיניות פרטיות</a>
     <a href="/accessibility" data-en="Accessibility statement">הצהרת נגישות</a>
     <a href="https://www.linkedin.com/in/osher-amsalem/" target="_blank" rel="noopener">LinkedIn</a>
     <a href="https://wa.me/972503255115?text=%D7%94%D7%99%D7%99%20%D7%90%D7%95%D7%A9%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20Take%20It%20AIzy" data-en-href="https://wa.me/972503255115?text=Hi%20Osher%2C%20I%20found%20you%20through%20the%20Take%20It%20AIzy%20website" target="_blank" rel="noopener" data-en="WhatsApp">וואטסאפ</a>
-    <a class="lat" href="mailto:hello@takeitaizy.dev">hello@takeitaizy.dev</a>
+    <a class="lat mail" href="mailto:hello@takeitaizy.dev">hello@takeitaizy.dev</a>
   </div>
 </footer>
-<a class="wa-float" href="https://wa.me/972503255115?text=%D7%94%D7%99%D7%99%20%D7%90%D7%95%D7%A9%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20Take%20It%20AIzy" data-en-href="https://wa.me/972503255115?text=Hi%20Osher%2C%20I%20found%20you%20through%20the%20Take%20It%20AIzy%20website" target="_blank" rel="noopener" aria-label="וואטסאפ לאושר" data-en-label="WhatsApp Osher"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.6z"/><path d="M9 9.2c.3 1.7 2.1 3.6 3.9 4 .5.1.9-.1 1.2-.5l.4-.5 1.6.8c-.2.9-1 1.5-1.9 1.4-2.8-.4-5.1-2.7-5.5-5.5-.1-.9.5-1.7 1.4-1.9l.8 1.6-.5.4c-.3.2-.5.5-.4.9z"/></svg></a>
+<nav class="tabbar glass" id="tabbar" aria-label="ניווט מהיר" data-en-label="Quick navigation">
+  <button type="button" id="tabMenu" aria-controls="menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg><span data-en="Menu">תפריט</span></button>
+  <a href="#work" data-tab="work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v5H4zM13 14h7v5h-7z"/></svg><span data-en="Our work">מה בנינו</span></a>
+  <a href="#contact" class="tab-cta" data-tab="contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg><span data-en="Free call">שיחה חינם</span></a>
+  <a href="#workshops" data-tab="workshops"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9l8-5 8 5v10"/><path d="M9 19v-6h6v6"/></svg><span data-en="Workshops">סדנאות</span></a>
+  <a class="tab-wa" href="https://wa.me/972503255115?text=%D7%94%D7%99%D7%99%20%D7%90%D7%95%D7%A9%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20Take%20It%20AIzy" data-en-href="https://wa.me/972503255115?text=Hi%20Osher%2C%20I%20found%20you%20through%20the%20Take%20It%20AIzy%20website" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.6z"/></svg><span data-en="WhatsApp">וואטסאפ</span></a>
+</nav>
 
-<div class="sticky-cta" id="stickyCta">
-  <a class="btn" href="#contact" data-en="Free call, we’ll get back to you">שיחה ללא עלות, נחזור אליכם</a>
+<div class="storage-note glass" id="storageNote" role="region" aria-label="הודעה על אחסון בדפדפן" data-en-label="Notice about browser storage" hidden>
+  <p data-en="No tracking or advertising cookies here. The site keeps only what it needs in your browser: your language choice, and that you closed this notice.">אין כאן עוגיות מעקב או פרסום. האתר שומר בדפדפן רק את מה שהוא צריך: את בחירת השפה, ואת זה שסגרתם את ההודעה הזו.</p>
+  <div class="row">
+    <button type="button" class="btn" id="storageOk" data-en="Got it">הבנתי</button>
+    <a class="more" href="/privacy#storage" data-en="More in the privacy policy">פרטים במדיניות הפרטיות</a>
+  </div>
 </div>
 
 <script>
@@ -757,8 +934,8 @@ function setLang(lang) {
   document.title = lang === "en" ? "Take It AIzy | Smart management systems for business" : "Take It AIzy | מערכות ניהול חכמות לעסקים";
   var d = document.querySelector('meta[name="description"]');
   if (d) d.setAttribute("content", lang === "en"
-    ? "Take It AIzy builds smart, custom management systems for business: one system the whole business works in, a Hebrew customer-service bot, a back-office system and operational AI agents. The first needs call is free of charge."
-    : "Take It AIzy בונה לעסקים מערכות ניהול חכמות בהתאמה אישית: מערכת אחת שכל העסק עובד בה, בוט שירות בעברית, מערכת למשרד האחורי וסוכני AI תפעוליים. שיחת אפיון צרכים ראשונה ללא עלות.");
+    ? "Take It AIzy builds smart, custom management systems for businesses and organizations: one system the whole business works in, a Hebrew customer-service bot, operational AI agents and AI workshops for teams. The first needs call is free of charge."
+    : "Take It AIzy בונה לעסקים ולארגונים מערכות ניהול חכמות בהתאמה אישית: מערכת אחת שכל העסק עובד בה, בוט שירות בעברית, סוכני AI תפעוליים וסדנאות AI לצוותים. שיחת אפיון ראשונה ללא עלות.");
   document.getElementById("langToggle").textContent = lang === "en" ? "עב" : "EN";
   document.getElementById("langToggle").setAttribute("aria-label", lang === "en" ? "מעבר לעברית" : "Switch language");
   syncIntakeFrame(lang);
@@ -770,6 +947,42 @@ document.getElementById("langToggle").addEventListener("click", function () {
   setLang(currentLang === "he" ? "en" : "he");
 });
 try { if (localStorage.getItem("taizy-lang") === "en") setLang("en"); } catch (e) {}
+
+/* ---------------- side menu ----------------
+   A modal <dialog>: the browser keeps focus inside it and closes it on Escape.
+   A click on the dimmed area or on a link closes it too. */
+var menu = document.getElementById("menu");
+var menuOpen = document.getElementById("menuOpen");
+function closeMenu() { if (menu.open) menu.close(); }
+var menuOpener = null;
+function openMenu(btn) {
+  menuOpener = btn;
+  if (typeof menu.showModal === "function") { menu.showModal(); btn.setAttribute("aria-expanded", "true"); }
+  else { location.hash = "#work"; }
+}
+menuOpen.addEventListener("click", function () { openMenu(menuOpen); });
+document.getElementById("tabMenu").addEventListener("click", function () { openMenu(this); });
+menu.addEventListener("close", function () {
+  if (menuOpener) { menuOpener.setAttribute("aria-expanded", "false"); menuOpener.focus(); }
+});
+document.getElementById("menuClose").addEventListener("click", closeMenu);
+menu.addEventListener("click", function (e) {
+  if (e.target === menu) closeMenu();
+  if (e.target.closest && e.target.closest("a[href^='#']")) closeMenu();
+});
+
+/* ---------------- work filter ---------------- */
+var filterButtons = document.querySelectorAll("[data-filter]");
+filterButtons.forEach(function (b) {
+  b.addEventListener("click", function () {
+    var f = b.getAttribute("data-filter");
+    filterButtons.forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+    document.querySelectorAll("#cases .case").forEach(function (c) {
+      var kinds = (c.getAttribute("data-kind") || "").split(" ");
+      c.hidden = !(f === "all" || kinds.indexOf(f) !== -1);
+    });
+  });
+});
 
 /* ---------------- reveal on scroll ---------------- */
 if ("IntersectionObserver" in window) {
@@ -814,16 +1027,34 @@ document.querySelectorAll("[data-calc]").forEach(function (b) {
 });
 renderCalc();
 
-/* ---------------- sticky mobile CTA ----------------
-   Shown once the hero is out of view, hidden again while the contact
-   section (which has its own form) is on screen. */
-var sticky = document.getElementById("stickyCta");
-var heroGone = false, contactIn = false;
-function syncSticky() { sticky.classList.toggle("show", heroGone && !contactIn); }
+/* ---------------- bottom tab bar (phone and tablet) ----------------
+   Marks the section on screen with aria-current. */
+var tabLinks = document.querySelectorAll(".tabbar [data-tab]");
 if ("IntersectionObserver" in window) {
-  new IntersectionObserver(function (es) { heroGone = !es[0].isIntersecting; syncSticky(); }).observe(document.getElementById("top"));
-  new IntersectionObserver(function (es) { contactIn = es[0].isIntersecting; syncSticky(); }, { threshold: 0.15 }).observe(document.getElementById("contact"));
+  var tabIo = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      tabLinks.forEach(function (t) {
+        if (t.getAttribute("data-tab") === e.target.id) t.setAttribute("aria-current", "true");
+        else t.removeAttribute("aria-current");
+      });
+    });
+  }, { rootMargin: "-45% 0px -45% 0px" });
+  ["top", "work", "services", "calc", "how", "workshops", "voices", "about", "faq", "contact"].forEach(function (id) {
+    var el = document.getElementById(id); if (el) tabIo.observe(el);
+  });
 }
+
+/* ---------------- storage notice ----------------
+   The site sets no cookies. The notice says so once; closing it is remembered. */
+var note = document.getElementById("storageNote");
+var seen = false;
+try { seen = localStorage.getItem("taizy-storage-ok") === "1"; } catch (e) {}
+if (!seen) note.hidden = false;
+document.getElementById("storageOk").addEventListener("click", function () {
+  note.hidden = true;
+  try { localStorage.setItem("taizy-storage-ok", "1"); } catch (e) {}
+});
 
 /* ---------------- intake form (os.takeitaizy.dev, Studio OS P34) ----------------
    The iframe src carries embed=1, the theme, the site's current language and
