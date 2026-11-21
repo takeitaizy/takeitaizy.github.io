@@ -1,0 +1,43 @@
+# Take It AIzy
+
+> Take It AIzy is an Israeli company that builds custom management systems, WhatsApp customer-service bots and AI agents for small and medium businesses and organizations, and runs hands-on AI workshops for teams and managers. Work is done in Hebrew. The first needs call is free of charge.
+
+Take It AIzy היא חברה ישראלית שבונה לעסקים ולארגונים מערכות ניהול בהתאמה אישית, בוטים לשירות לקוחות בוואטסאפ וסוכני AI, ומעבירה סדנאות AI לצוותים ולמנהלים. שיחת האפיון הראשונה ללא עלות.
+
+Website: https://takeitaizy.dev/
+Contact: hello@takeitaizy.dev, or the form at https://takeitaizy.dev/#contact
+Languages: Hebrew (primary), English
+Area served: Israel
+Legal entity: אושר סולושיינס בע״מ (Osher Solutions Ltd.)
+
+## What we build
+
+- Custom management systems (מערכות ניהול בהתאמה אישית): one system built around how the business works, with the screens it needs, permissions per person, and connections to the tools it already has.
+- WhatsApp customer-service bots (בוט שירות בוואטסאפ): answers customers in Hebrew, collects documents and photos, opens a ticket and updates the customer. Anything sensitive waits for a person to approve.
+- AI agents (סוכני AI): follow information sources every day, read documents, and send a short summary of what changed.
+- Back-office automation (אוטומציה של המשרד האחורי): reports, payments, invoices and documents handled without retyping.
+- AI workshops (סדנאות AI): a lecture (1-2 hours), a hands-on workshop (2-5 hours, up to 10 people) or a field day (5 hours, on site), on Claude, ChatGPT, Gemini and Copilot.
+
+## Who it is for
+
+Small and medium businesses and organizations in Israel with repetitive manual work and no in-house IT team: service and maintenance companies, home appliance companies, landscaping contractors, professional members clubs, real estate investors, private tutors, baby guidance services, local councils and municipalities.
+
+## How we work
+
+1. A free needs call: we map each manual task and what it costs a month, and say what is worth building first. If off-the-shelf software solves the problem, we say so.
+2. Setup: a staged build starting with the biggest pain, a rollout where sensitive actions wait for the client's approval, training and going live. Priced as a fixed quote after the needs call.
+3. Maintenance and changes for a fixed monthly fee. The same team scopes, builds and supports the system.
+
+## Examples of systems we built (client names withheld on purpose)
+
+- A service and maintenance company: paper service reports replaced by a technician app that works with no signal, office approval, PDF reports in Hebrew and English, and a billing summary built from the reports.
+- A home appliances company: a WhatsApp service bot that identifies the product, asks for a photo or invoice, assigns a technician by area and passes everything to the client's CRM.
+- A landscaping contractor: quotes built from a price list as a ready PDF, and email reminders before a vehicle's inspection or insurance expires.
+- A professional club for finance people: a complete paid members platform with sign-up, payments, renewals, invoices, protected video, event registration and a store of AI tools.
+- A real estate investor: a research agent that emails every morning what changed in planning databases.
+
+## Pages
+
+- [Home](https://takeitaizy.dev/): services, examples, workshops, process, questions and the contact form
+- [Privacy policy](https://takeitaizy.dev/privacy)
+- [Accessibility statement](https://takeitaizy.dev/accessibility)

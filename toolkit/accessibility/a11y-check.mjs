@@ -52,6 +52,17 @@ async function runAxe(page) {
   );
 }
 
+// An entrance animation that is still fading text in reads as low contrast.
+// Wait for every animation that ends (at most 6 s); endless loops are left running.
+async function settle(page) {
+  await page.evaluate(() => Promise.race([
+    Promise.all(document.getAnimations()
+      .filter((a) => a.effect && Number.isFinite(a.effect.getComputedTiming().endTime))
+      .map((a) => a.finished.catch(() => {}))),
+    new Promise((done) => setTimeout(done, 6000)),
+  ]));
+}
+
 async function pageBasics(page) {
   return page.evaluate(() => ({
     lang: document.documentElement.getAttribute('lang') || '',
@@ -136,6 +147,7 @@ for (const url of opt.urls) {
     const entry = { url, viewport: vp.name, problems: [] };
     try {
       await page.goto(url, { waitUntil: 'networkidle', timeout: 45000 });
+      await settle(page);
       const basics = await pageBasics(page);
       if (!basics.lang) entry.problems.push('<html> has no lang');
       if (/^(he|ar)/i.test(basics.lang) && basics.dir !== 'rtl') {
