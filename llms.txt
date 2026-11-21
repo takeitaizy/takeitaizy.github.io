@@ -13,14 +13,14 @@ Legal entity: אושר סולושיינס בע״מ (Osher Solutions Ltd.)
 ## What we build
 
 - Custom management systems (מערכות ניהול בהתאמה אישית): one system built around how the business works, with the screens it needs, permissions per person, and connections to the tools it already has.
-- WhatsApp customer-service bots (בוט שירות בוואטסאפ): answers customers in Hebrew, collects documents and photos, opens a ticket and updates the customer. Anything sensitive waits for a person to approve.
+- A smart WhatsApp agent (אייג׳נט חכם לוואטסאפ), a customer-service bot: answers customers in Hebrew, collects documents and photos, opens a ticket, writes it straight into the business's CRM and updates the customer. Anything sensitive waits for a person to approve.
 - AI agents (סוכני AI): follow information sources every day, read documents, and send a short summary of what changed.
 - Back-office automation (אוטומציה של המשרד האחורי): reports, payments, invoices and documents handled without retyping.
 - AI workshops (סדנאות AI): a lecture (1-2 hours), a hands-on workshop (2-5 hours, up to 10 people) or a field day (5 hours, on site), on Claude, ChatGPT, Gemini and Copilot.
 
 ## Who it is for
 
-Small and medium businesses and organizations in Israel with repetitive manual work and no in-house IT team: service and maintenance companies, home appliance companies, landscaping contractors, professional members clubs, real estate investors, private tutors, baby guidance services, local councils and municipalities.
+Small and medium businesses and organizations in Israel with repetitive manual work and no in-house IT team. Among our clients: importers, service and supply companies, eCommerce companies, contractors and tradespeople, clubs and communities, real estate developers, accountants, personal development coaches, private tutors and schools, local authorities and business owners.
 
 ## How we work
 
@@ -30,8 +30,8 @@ Small and medium businesses and organizations in Israel with repetitive manual w
 
 ## Examples of systems we built (client names withheld on purpose)
 
-- A service and maintenance company: paper service reports replaced by a technician app that works with no signal, office approval, PDF reports in Hebrew and English, and a billing summary built from the reports.
-- A home appliances company: a WhatsApp service bot that identifies the product, asks for a photo or invoice, assigns a technician by area and passes everything to the client's CRM.
+- A service and maintenance company: service calls used to arrive as WhatsApp messages that the CEO turned into customer reports by hand. Now every technician documents each call in a personal app, the office approves, and a PDF report and a billing summary come out of it.
+- A home appliances company: a smart WhatsApp agent that identifies the product, asks for a photo or invoice, assigns a technician by area and writes every inquiry straight into the client's CRM.
 - A landscaping contractor: quotes built from a price list as a ready PDF, and email reminders before a vehicle's inspection or insurance expires.
 - A professional club for finance people: a complete paid members platform with sign-up, payments, renewals, invoices, protected video, event registration and a store of AI tools.
 - A real estate investor: a research agent that emails every morning what changed in planning databases.

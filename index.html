@@ -147,10 +147,10 @@
   {
    "@type": "Service",
    "@id": "https://takeitaizy.dev/#service-2",
-   "name": "בוט שירות לקוחות בוואטסאפ",
+   "name": "אייג׳נט חכם לוואטסאפ: בוט שירות לקוחות",
    "alternateName": "WhatsApp customer-service bots",
    "serviceType": "WhatsApp customer-service bots",
-   "description": "בוט בעברית שעונה ללקוחות בוואטסאפ, אוסף מסמכים ותמונות, פותח קריאה ומעדכן את הלקוח. כל דבר רגיש מחכה לאישור של אדם.",
+   "description": "בוט שירות שעונה ללקוחות בעברית בוואטסאפ, אוסף מסמכים ותמונות, פותח קריאה וכותב הכול ישירות ל-CRM של העסק. כל דבר רגיש מחכה לאישור של אדם.",
    "provider": {
     "@id": "https://takeitaizy.dev/#org"
    },
@@ -245,7 +245,7 @@
      "name": "איך עובד בוט וואטסאפ לעסק, והאם הוא מחליף נציג?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "הבוט עונה ללקוחות בעברית בוואטסאפ, אוסף פרטים, מסמכים ותמונות, פותח קריאה במערכת ומעדכן את הלקוח. הוא לא מחליף את הצוות: כל דבר רגיש מחכה לאישור של אדם, ומה שדורש שיקול דעת מגיע לצוות שלכם."
+      "text": "האייג׳נט החכם שלנו עונה ללקוחות בעברית בוואטסאפ, אוסף פרטים, מסמכים ותמונות, פותח קריאה, כותב אותה ישירות ל-CRM שלכם ומעדכן את הלקוח. הוא לא מחליף את הצוות: כל דבר רגיש מחכה לאישור של אדם, ומה שדורש שיקול דעת מגיע לצוות שלכם."
      }
     },
     {
@@ -293,7 +293,7 @@
      "name": "אנחנו עסק קטן. זה מתאים לנו?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "בדיוק בשבילכם. עסק בלי צוות IT מרוויח הכי הרבה ממערכת שעושה את העבודה החוזרת. בין מי שאנחנו בונים להם: חברות שירות ואחזקה, קבלנים, מועדוני חברים, מורים פרטיים ונותני שירות, משקיעי נדל״ן ורשויות מקומיות."
+      "text": "בדיוק בשבילכם. עסק בלי צוות IT מרוויח הכי הרבה ממערכת שעושה את העבודה החוזרת. בין לקוחותינו: יבואנים, חברות שירות ואספקה, קבלנים, מועדונים וקהילות, רואי חשבון, מורים ומדריכים, יזמי נדל״ן ורשויות מקומיות."
      }
     },
     {
@@ -519,8 +519,9 @@
     .digest li { display: flex; gap: 10px; align-items: baseline; font-size: 14px; }
     .digest li i { flex: none; inline-size: 7px; block-size: 7px; border-radius: 50%; background: var(--sand); }
     .digest li small { margin-inline-start: auto; color: var(--subtle); font-size: 12px; white-space: nowrap; }
-    .approve { margin-block-start: 10px; display: flex; align-items: center; gap: 10px; font-size: 14px; }
-    .approve span { flex: 1; }
+    .suggest { margin-block-start: 10px; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; font-size: 14px; }
+    .sys-tag { font-size: 12px; font-weight: 700; color: var(--sand-ink); background: var(--sand-soft); border-radius: 999px; padding: 2px 10px; }
+    .approve { margin-block-start: 10px; display: flex; justify-content: flex-end; align-items: center; gap: 8px; font-size: 14px; }
     .approve .ok { background: var(--navy); color: var(--white); border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 600; }
     .approve .later { border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; font-size: 13px; color: var(--muted); background: rgba(255,255,255,0.7); }
     .stage .s1 { margin-inline-end: 12%; }
@@ -536,15 +537,9 @@
     }
 
     /* ---------- sectors strip ---------- */
-    .sectors { padding-block: 28px 8px; }
-    .sectors p { font-size: 14px; color: var(--subtle); }
-    .sector-row { margin-block-start: 12px; display: flex; flex-wrap: wrap; gap: 10px; }
-    .sector-row li { font-size: 15px; font-weight: 600; color: var(--body); background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 10px 16px; }
 
     /* ---------- work / cases ---------- */
-    .case-grid { margin-block-start: 40px; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr)); gap: 18px; }
     .case { border-radius: 30px; padding: 28px; display: flex; flex-direction: column; gap: 14px; }
-    .case-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
     .tag { display: inline-block; font-size: 13px; font-weight: 700; background: rgba(14,28,48,0.07); border-radius: 999px; padding: 5px 12px; color: var(--navy); }
     .case h3 { font-size: 22px; line-height: 1.28; }
     .case .pain { font-size: 16px; color: var(--muted); padding-inline-start: 14px; border-inline-start: 3px solid var(--sand); }
@@ -554,18 +549,10 @@
     .case ul.did li::before { content: "✓"; position: absolute; inset-inline-start: 0; inset-block-start: 0; font-weight: 700; color: #1E7A4C; }
     .chan { margin-block-start: auto; padding-block-start: 14px; border-block-start: 1px solid rgba(14,28,48,0.08); display: flex; flex-wrap: wrap; gap: 6px; }
     .chan span { font-size: 12.5px; font-weight: 600; color: var(--muted); background: rgba(255,255,255,0.7); border: 1px solid rgba(14,28,48,0.08); border-radius: 999px; padding: 3px 10px; }
-    .case.feature { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 28px 40px; padding: 36px; }
-    .case.feature .case-main { display: flex; flex-direction: column; gap: 14px; }
-    .case.feature h3 { font-size: clamp(24px, 2.6vw, 30px); }
-    .case.feature ul.did { display: grid; grid-template-columns: 1fr; }
-    @media (max-width: 860px) { .case.feature { grid-template-columns: 1fr; padding: 28px; } }
-    .work-note { margin-block-start: 18px; font-size: 14px; color: var(--subtle); }
 
     /* ---------- services (bento) ---------- */
-    .bento { margin-block-start: 44px; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
-    .tile { border-radius: 28px; padding: 30px; display: flex; flex-direction: column; gap: 10px; grid-column: span 2; }
+    .tile { border-radius: 28px; padding: 30px; display: flex; flex-direction: column; gap: 10px; }
     .tile:not(.aurora) { background: var(--mist); }
-    .tile.wide { grid-column: span 3; }
     .tile svg { inline-size: 30px; block-size: 30px; color: var(--navy); }
     .tile h3 { margin-block-start: 6px; }
     .tile p { color: var(--muted); font-size: 16px; }
@@ -574,8 +561,6 @@
     .tile.dark svg { color: var(--sand); }
     .tile .kicker { font-size: 13px; font-weight: 700; color: var(--subtle); }
     .tile.dark .kicker { color: var(--sand); }
-    @media (max-width: 980px) { .bento { grid-template-columns: 1fr 1fr; } .tile, .tile.wide { grid-column: span 1; } .tile.full-sm { grid-column: 1 / -1; } }
-    @media (max-width: 620px) { .bento { grid-template-columns: 1fr; } .tile.full-sm { grid-column: auto; } }
 
     /* ---------- calculator ---------- */
     .calc-sec { padding-block: 24px 112px; }
@@ -602,14 +587,13 @@
     .calc-out .btn { margin-block-start: 26px; }
 
     /* ---------- how ---------- */
-    .steps { margin-block-start: 52px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; counter-reset: s; }
+    .steps { counter-reset: s; }
     .step { border-radius: 26px; padding: 26px; background: var(--mist); }
     .step .num::before { counter-increment: s; content: "0" counter(s); font-family: Montserrat, sans-serif; direction: ltr; display: inline-block; font-size: 14px; font-weight: 700; background: var(--white); border-radius: 999px; padding: 4px 12px; }
     .step:first-child .num::before { background: var(--sand); }
     .step h3 { font-size: 20px; margin-block-start: 18px; }
     .step p { margin-block-start: 8px; color: var(--muted); font-size: 16px; }
-    .model-grid { margin-block-start: 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 16px; }
-    .model { border-radius: 28px; padding: 30px; display: flex; flex-direction: column; gap: 12px; border: 1px solid var(--line); }
+        .model { border-radius: 28px; padding: 30px; display: flex; flex-direction: column; gap: 12px; border: 1px solid var(--line); }
     .model .no { display: flex; align-items: center; gap: 10px; font-family: Montserrat, sans-serif; direction: ltr; font-size: 14px; font-weight: 700; color: var(--subtle); }
     .model h3 { font-size: 23px; }
     .model p { color: var(--muted); }
@@ -624,7 +608,6 @@
 
     /* ---------- workshops ---------- */
     .ws { border-radius: 40px; padding: clamp(28px, 5vw, 64px); }
-    .ws-grid { margin-block-start: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; }
     .ws-card { border-radius: 26px; padding: 26px; display: flex; flex-direction: column; gap: 10px; }
     .ws-card .meta { display: flex; flex-wrap: wrap; gap: 6px; }
     .ws-card .meta span { font-size: 12.5px; font-weight: 600; color: #E5EAF1; border: 1px solid rgba(255,255,255,0.2); border-radius: 999px; padding: 3px 10px; }
@@ -643,7 +626,6 @@
     .ws-incl b { color: var(--white); }
     .ws-tools { margin-block-start: 14px; font-size: 14px; color: #C9D2DE; }
     /* ---------- voices ---------- */
-    .voice-grid { margin-block-start: 44px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 16px; }
     .voice { border-radius: 28px; padding: 30px; display: flex; flex-direction: column; gap: 18px; }
     .voice blockquote { font-size: 19px; line-height: 1.55; color: var(--navy); }
     .voice blockquote::before { content: "״"; display: block; font-size: 54px; line-height: .6; color: var(--sand); font-weight: 800; margin-block-end: 6px; }
@@ -721,7 +703,6 @@
       .tabbar [aria-current="true"] { color: var(--navy); background: rgba(14,28,48,0.07); }
       .tabbar .tab-cta { background: var(--navy); color: var(--white); box-shadow: 0 10px 22px -10px rgba(14,28,48,0.6); }
       .tabbar .tab-cta[aria-current="true"] { background: var(--navy); color: var(--white); }
-      .tabbar .tab-wa svg { color: #128C4A; }
       footer { padding-block-end: calc(110px + env(safe-area-inset-bottom)); }
     }
     @media (max-width: 720px) {
@@ -744,6 +725,108 @@
     @media (max-width: 1060px) {
       .storage-note { inset-inline: 10px; margin-inline: auto; max-inline-size: 560px; inset-block-end: calc(84px + env(safe-area-inset-bottom)); padding: 14px 16px; gap: 10px; }
       .storage-note p { font-size: 13.5px; }
+    }
+
+
+    /* ---------- clients: a slow marquee (static when motion is off) ---------- */
+    .sectors { padding-block: 28px 8px; }
+    .sectors-head { display: flex; align-items: center; gap: 12px; }
+    .sectors-head p { font-size: 14px; color: var(--subtle); }
+    .marquee-toggle { display: none; }
+    .js .marquee-toggle { display: inline-grid; place-items: center; inline-size: 40px; block-size: 40px; border-radius: 50%; cursor: pointer;
+      background: var(--white); border: 1px solid rgba(14,28,48,0.14); color: var(--muted); }
+    .marquee-toggle:hover { color: var(--navy); background: var(--mist); }
+    .marquee-toggle svg { inline-size: 14px; block-size: 14px; }
+    .marquee-toggle .i-play, .marquee-toggle[aria-pressed="true"] .i-pause { display: none; }
+    .marquee-toggle[aria-pressed="true"] .i-play { display: block; }
+    .marquee { margin-block-start: 14px; overflow: hidden; padding-block: 4px;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+    .marquee-track { display: flex; inline-size: max-content; animation: marquee 55s linear infinite; }
+    [dir="rtl"] .marquee-track { animation-name: marquee-rtl; }
+    .marquee:hover .marquee-track, .marquee.paused .marquee-track { animation-play-state: paused; }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+    @keyframes marquee-rtl { to { transform: translateX(50%); } }
+    .sector-row { display: flex; gap: 12px; padding-inline-end: 12px; }
+    .sector-row li { flex: none; white-space: nowrap; font-size: 16px; font-weight: 600; color: var(--body); background: var(--white); border: 1px solid var(--line); border-radius: 999px; padding: 10px 20px; }
+
+    /* ---------- rails: horizontal carousels ----------
+       The track runs to the screen edges and its first card lines up with the
+       page text; the next card peeks in, so it reads as "swipe for more". */
+    .rail { position: relative; margin-block-start: 34px; --rx: 28px; }
+    [dir="rtl"] .rail { --rx: -28px; }
+    .rail > .rail-track {
+      display: grid; grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: var(--rail-card, min(84vw, 360px)); gap: 16px;
+      overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none;
+      --bleed: calc((100vw - min(100vw, var(--max))) / 2 + var(--gutter));
+      margin: 0 calc(-1 * var(--bleed)); padding: 12px var(--bleed) 34px; scroll-padding-inline: var(--bleed);
+    }
+    .rail > .rail-track::-webkit-scrollbar { display: none; }
+    .rail > .rail-track > * { scroll-snap-align: start; min-inline-size: 0; }
+    .rail > .rail-track:focus-visible { outline-offset: -4px; border-radius: 12px; }
+    .rail.contained > .rail-track { margin-inline: 0; padding-inline: 0; scroll-padding-inline: 0; }
+    #cases { --rail-card: min(86vw, 380px); }
+    #voicesTrack { --rail-card: min(86vw, 370px); }
+    #servicesTrack { --rail-card: min(82vw, 330px); }
+    #stepsTrack { --rail-card: min(78vw, 272px); }
+    #model { --rail-card: min(84vw, 368px); }
+    #wsTrack { --rail-card: min(80%, 320px); }
+    .case > .tag { align-self: flex-start; }
+    .rail-nav { display: none; }
+    .js .rail-nav { display: flex; align-items: center; gap: 14px; margin-block-start: 2px; }
+    .js .rail-nav[hidden] { display: none; }
+    .rail-bar { flex: 1; block-size: 3px; border-radius: 3px; background: rgba(14,28,48,0.10); overflow: hidden; }
+    .rail-bar i { display: block; block-size: 100%; background: var(--navy); border-radius: 3px; transform-origin: 0 50%; transform: scaleX(0.3); transition: transform .25s ease-out; }
+    [dir="rtl"] .rail-bar i { transform-origin: 100% 50%; }
+    .rail-btn { flex: none; inline-size: 48px; block-size: 48px; border-radius: 50%; display: grid; place-items: center; cursor: pointer;
+      background: var(--white); color: var(--navy); border: 1px solid rgba(14,28,48,0.14); box-shadow: 0 8px 20px -12px rgba(14,28,48,0.45); transition: background-color .2s, opacity .2s; }
+    .rail-btn:hover { background: var(--mist); }
+    .rail-btn:disabled { opacity: .35; cursor: default; box-shadow: none; }
+    .rail-btn svg { inline-size: 20px; block-size: 20px; }
+    [dir="rtl"] .rail-btn svg { transform: scaleX(-1); }
+    .aurora .rail-bar { background: rgba(255,255,255,0.18); }
+    .aurora .rail-bar i { background: var(--sand); }
+    .aurora .rail-btn { background: rgba(255,255,255,0.12); color: var(--white); border-color: rgba(255,255,255,0.28); box-shadow: none; }
+    .aurora .rail-btn:hover { background: rgba(255,255,255,0.22); }
+    /* the cards of a rail arrive one after another from the far edge */
+    .js .rail.reveal > .rail-track > * { opacity: 0; transform: translateX(var(--rx)); transition: opacity .6s ease, transform .7s var(--ease); }
+    .js .rail.reveal.in > .rail-track > * { opacity: 1; transform: none; }
+    .js .rail.reveal.in:not(.settled) > .rail-track > :nth-child(2) { transition-delay: .08s; }
+    .js .rail.reveal.in:not(.settled) > .rail-track > :nth-child(3) { transition-delay: .16s; }
+    .js .rail.reveal.in:not(.settled) > .rail-track > :nth-child(4) { transition-delay: .24s; }
+    .js .rail.reveal.in:not(.settled) > .rail-track > :nth-child(n+5) { transition-delay: .32s; }
+    @media (hover: hover) { .js .rail.reveal.in > .rail-track > :hover { transform: translateY(-5px); } }
+
+    /* ---------- FAQ: six in view, the rest one tap away ---------- */
+    .faq-toggle { display: none; }
+    .js .faq-toggle { display: inline-flex; margin-block-start: 16px; }
+    .js .faq-toggle[hidden] { display: none; }
+    .js .faq-list.collapsed .faq-more { display: none; }
+
+    /* ---------- WhatsApp to Osher, always on screen ---------- */
+    .wa-float {
+      position: fixed; z-index: 65; inset-block-end: 20px; inset-inline-start: 20px;
+      display: inline-flex; align-items: center; gap: 10px; padding: 6px; padding-inline-end: 18px; border-radius: 999px;
+      background: #0F7A40; color: var(--white); text-decoration: none; font-size: 15px; font-weight: 700;
+      box-shadow: 0 16px 36px -14px rgba(15,122,64,0.7), 0 2px 6px rgba(14,28,48,0.12); transition: transform .2s var(--ease), background-color .2s;
+    }
+    .wa-float:hover { background: #0C6A37; transform: translateY(-2px); }
+    .wa-float:focus-visible { outline-color: var(--navy); }
+    .wa-float img { inline-size: 40px; block-size: 40px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.85); }
+    .wa-float svg { inline-size: 22px; block-size: 22px; flex: none; }
+    .wa-float::before { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; }
+    .js .wa-float { animation: rise .7s var(--ease) .9s backwards; }
+    .js .wa-float::before { animation: wa-ring 2.4s ease-out 4s 3; }
+    @keyframes wa-ring { from { box-shadow: 0 0 0 0 rgba(15,122,64,0.55); } to { box-shadow: 0 0 0 16px rgba(15,122,64,0); } }
+    .storage-note { inset-block-end: 92px; }
+    footer { padding-block-end: 100px; }
+    @media (max-width: 1060px) {
+      .wa-float { inset-block-end: calc(86px + env(safe-area-inset-bottom)); inset-inline-start: 12px; inline-size: 56px; block-size: 56px; padding: 0; justify-content: center; }
+      .wa-float img { display: none; }
+      .wa-float svg { inline-size: 28px; block-size: 28px; }
+      .wa-float-text { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+      /* the notice keeps clear of the WhatsApp button beside it, and of the hero button above it */
+      .storage-note { inset-block-end: calc(84px + env(safe-area-inset-bottom)); inset-inline-start: 78px; inset-inline-end: 10px; }
+      footer { padding-block-end: calc(170px + env(safe-area-inset-bottom)); }
     }
 
     /* ---------- motion ----------
@@ -777,7 +860,8 @@
     .js .stage .bubble, .js .stage .digest li, .js .stage .approve { animation: pop .5s var(--ease) both; }
     .js .stage .bubble.in { animation-delay: .7s; } .js .stage .bubble.out { animation-delay: 1.7s; }
     .js .stage .digest li { animation-delay: 1.1s; } .js .stage .digest li + li { animation-delay: 1.45s; }
-    .js .stage .approve { animation-delay: 1.5s; }
+    .js .stage .suggest { animation: pop .5s var(--ease) 1.4s both; }
+    .js .stage .approve { animation-delay: 1.7s; }
     .js .stage .approve .ok { animation: ok 1.6s ease-out 2.6s 2; }
     @keyframes pop { from { opacity: 0; transform: translateY(8px) scale(.94); } to { opacity: 1; transform: none; } }
     @keyframes ok { from { box-shadow: 0 0 0 0 rgba(14,28,48,0.45); } to { box-shadow: 0 0 0 12px rgba(14,28,48,0); } }
@@ -792,8 +876,7 @@
     /* cards lift under the pointer */
     @media (hover: hover) {
       .case, .tile, .voice, .model, .step, .ws-card { transition: transform .35s var(--ease), box-shadow .35s var(--ease); }
-      .case:hover, .tile:hover, .voice:hover, .model:hover, .step:hover, .ws-card:hover,
-      .js .reveal.in.case:hover, .js .reveal.in.tile:hover, .js .reveal.in.voice:hover, .js .reveal.in.model:hover, .js .reveal.in.step:hover { transform: translateY(-5px); transition-duration: .35s; }
+      .case:hover, .tile:hover, .voice:hover, .model:hover, .step:hover, .ws-card:hover { transform: translateY(-5px); }
     }
 
     /* the nav capsule firms up once the page moves */
@@ -825,8 +908,18 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation: none !important; transition: none !important; }
-      .js .reveal { opacity: 1; transform: none; }
+      .js .reveal, .js .rail.reveal > .rail-track > * { opacity: 1; transform: none; }
+      .marquee { -webkit-mask-image: none; mask-image: none; }
+      .marquee-track { inline-size: auto; }
+      .sector-row { flex-wrap: wrap; padding: 0; }
+      .sector-row[aria-hidden="true"], .js .marquee-toggle { display: none; }
     }
+    /* "Stop animations" in the accessibility menu does the same. */
+    html.a11y-still .rail.reveal > .rail-track > * { opacity: 1 !important; transform: none !important; }
+    html.a11y-still .marquee { -webkit-mask-image: none; mask-image: none; }
+    html.a11y-still .marquee-track { inline-size: auto; }
+    html.a11y-still .sector-row { flex-wrap: wrap; padding: 0; }
+    html.a11y-still .sector-row[aria-hidden="true"], html.a11y-still .marquee-toggle { display: none !important; }
     @media (prefers-reduced-transparency: reduce) {
       .glass, .tabbar, .storage-note, .drawer-panel { background: var(--white); -webkit-backdrop-filter: none; backdrop-filter: none; }
       .glass-dark { background: #1A2D47; -webkit-backdrop-filter: none; backdrop-filter: none; }
@@ -900,7 +993,7 @@
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <h1><span class="kw" data-en="Custom management systems, WhatsApp bots and AI agents for business">מערכות ניהול בהתאמה אישית, בוטים בוואטסאפ וסוכני AI לעסקים</span> <span class="h1-main" data-en-html="The manual work ends here. <span>Your time comes back to you.</span>">העבודה הידנית נגמרת כאן. <span>הזמן שלכם חוזר אליכם.</span></span></h1>
-      <p class="sub" data-en="We build custom systems that do the repetitive work for businesses and organizations: a WhatsApp service bot in Hebrew, a management system tailored to how you work, and AI agents that send you only what matters. You approve, the system does.">אנחנו בונים לעסקים ולארגונים מערכות בהתאמה אישית שעושות את העבודה החוזרת במקומם: בוט שירות בוואטסאפ בעברית, מערכת ניהול שתפורה לאיך שאתם עובדים, וסוכני AI ששולחים לכם רק את מה שחשוב. אתם מאשרים, המערכת עושה.</p>
+      <p class="sub" data-en="Custom systems that do the repetitive work for you: a smart WhatsApp agent, a management system tailored to how you work, and AI agents that send you only what matters. You approve, the system does.">מערכות בהתאמה אישית שעושות את העבודה החוזרת במקומכם: אייג׳נט חכם לוואטסאפ, מערכת ניהול שתפורה לאיך שאתם עובדים, וסוכני AI ששולחים לכם רק את מה שחשוב. אתם מאשרים, המערכת עושה.</p>
       <div class="hero-cta">
         <a class="btn btn-lg" href="#contact" data-en="Book a free needs call">לשיחת אפיון ללא עלות</a>
         <a class="btn btn-text" href="#work" data-en="See what we built →">ראו מה בנינו ←</a>
@@ -913,9 +1006,9 @@
       </ul>
     </div>
 
-    <div class="stage aurora" role="img" aria-label="המחשה: הודעת וואטסאפ מבוט שירות, סיכום בוקר שנשלח לבד, ובקשת אישור במערכת ניהול" data-en-label="Illustration: a WhatsApp message from a service bot, a morning summary sent on its own, and an approval request in a management system">
+    <div class="stage aurora" role="img" aria-label="המחשה: אייג׳נט שעונה בוואטסאפ, סיכום בוקר שנשלח לבד, ומשימות השבוע שהמערכת מציעה ואתם מאשרים או דוחים" data-en-label="Illustration: an agent answering on WhatsApp, a morning summary sent on its own, and this week’s tasks that the system suggests and you approve or decline">
       <div class="shot s1 glass" aria-hidden="true">
-        <div class="shot-head"><span class="dot wa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.6z"/></svg></span><b data-en="Service bot · WhatsApp">בוט שירות · וואטסאפ</b><time class="lat">09:41</time></div>
+        <div class="shot-head"><span class="dot wa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.6z"/></svg></span><b data-en="Smart agent · WhatsApp">אייג׳נט חכם · וואטסאפ</b><time class="lat">09:41</time></div>
         <div class="bubbles">
           <p class="bubble in" data-en="Hi, the product arrived broken. I have the invoice.">היי, המוצר הגיע שבור. יש לי חשבונית.</p>
           <p class="bubble out" data-en="Sorry to hear that. I’ve received the invoice and opened a replacement request. We’ll update you here today.">מצטערים לשמוע. קיבלתי את החשבונית ופתחתי בקשת החלפה. נעדכן אותך כאן עוד היום.</p>
@@ -929,8 +1022,9 @@
         </ul>
       </div>
       <div class="shot s3 glass" aria-hidden="true">
-        <div class="shot-head"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v14H4z"/><path d="M4 10h16M9 10v9"/></svg></span><b data-en="Operations board">לוח תפעול</b><time data-en="now">עכשיו</time></div>
-        <div class="approve"><span data-en="Weekly schedule is ready · 4 changes">סידור השבוע מוכן · 4 שינויים</span><em class="later" data-en="Review">לבדוק</em><em class="ok" data-en="Approve">לאשר</em></div>
+        <div class="shot-head"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11"/><path d="M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"/></svg></span><b data-en="This week’s tasks">משימות השבוע</b><time data-en="now">עכשיו</time></div>
+        <div class="suggest"><span class="sys-tag" data-en="The system suggests">המערכת מציעה</span><span data-en="Move 2 service calls to a free technician in the area">להעביר 2 קריאות שירות לטכנאי פנוי באזור</span></div>
+        <div class="approve"><em class="ok" data-en="Approve">לאשר</em><em class="later" data-en="Decline">לדחות</em></div>
       </div>
       <p class="stage-note" aria-hidden="true" data-en="Illustration with sample data">המחשה עם נתוני דוגמה</p>
     </div>
@@ -938,73 +1032,76 @@
 </header>
 
 <section class="sectors" aria-labelledby="sectorsH">
-  <div class="wrap">
+  <div class="wrap sectors-head">
     <p id="sectorsH" data-en="Among our clients:">בין לקוחותינו:</p>
-    <ul class="sector-row"><li class="reveal" data-en="Service and maintenance companies">חברות שירות ואחזקה</li><li class="reveal" data-en="Home appliance companies">חברות מוצרי חשמל לבית</li><li class="reveal" data-en="Landscaping contractors">קבלני גינון ופיתוח נוף</li><li class="reveal" data-en="Professional clubs">מועדונים מקצועיים</li><li class="reveal" data-en="Real estate investors">משקיעי נדל״ן</li><li class="reveal" data-en="Private tutors">מורים פרטיים</li><li class="reveal" data-en="Baby guidance">ליווי תינוקות</li><li class="reveal" data-en="Local councils and municipalities">מועצות מקומיות ועיריות</li></ul>
+    <button type="button" class="marquee-toggle" id="marqueeToggle" aria-controls="marquee" aria-pressed="false" aria-label="עצירת התנועה" data-en-label="Pause the motion"><svg class="i-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><svg class="i-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg></button>
+  </div>
+  <div class="marquee" id="marquee">
+    <div class="marquee-track">
+      <ul class="sector-row" aria-labelledby="sectorsH"><li data-en="Importers">יבואנים</li><li data-en="Service and supply companies">חברות שירות ואספקה</li><li data-en="eCommerce companies">חברות eCommerce</li><li data-en="Contractors and tradespeople">קבלנים ובעלי מקצוע</li><li data-en="Clubs and communities">מועדונים וקהילות</li><li data-en="Real estate developers">יזמי נדל״ן</li><li data-en="Accountants">רואי חשבון</li><li data-en="Personal development coaches">מדריכי התפתחות אישית</li><li data-en="Private tutors and schools">מורים ובתי ספר פרטיים</li><li data-en="Local authorities">רשויות מקומיות</li><li data-en="Business owners">בעלי עסקים</li></ul>
+      <ul class="sector-row" aria-hidden="true"><li data-en="Importers">יבואנים</li><li data-en="Service and supply companies">חברות שירות ואספקה</li><li data-en="eCommerce companies">חברות eCommerce</li><li data-en="Contractors and tradespeople">קבלנים ובעלי מקצוע</li><li data-en="Clubs and communities">מועדונים וקהילות</li><li data-en="Real estate developers">יזמי נדל״ן</li><li data-en="Accountants">רואי חשבון</li><li data-en="Personal development coaches">מדריכי התפתחות אישית</li><li data-en="Private tutors and schools">מורים ובתי ספר פרטיים</li><li data-en="Local authorities">רשויות מקומיות</li><li data-en="Business owners">בעלי עסקים</li></ul>
+    </div>
   </div>
 </section>
 
 <section class="mesh" id="work">
   <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <p class="eyebrow reveal" data-en="Our work">מה בנינו</p>
-        <h2 class="reveal" data-en="Real pains, real systems">כאבים אמיתיים, מערכות אמיתיות</h2>
-        <p class="lead reveal" data-en="No client names, by choice. Here is what hurt, and what we built so it stops hurting.">בלי שמות של לקוחות, בכוונה. זה מה שכאב להם, וזה מה שבנינו כדי שיפסיק לכאוב.</p>
-      </div>
-    </div>
-    <div class="case-grid" id="cases">
-      <article class="case feature glass reveal">
-        <div class="case-main"><div class="case-top"><span class="tag" data-en="A service and maintenance company">חברת שירות ואחזקה</span></div>
-        <h3 data-en="From paper service reports to an app that works with no signal">מדוח שירות על נייר לאפליקציה שעובדת גם בלי קליטה</h3>
-        <p class="pain"><b data-en="What hurt">מה כאב</b><span data-en="Every service call went through paper, messages and retyping. The same detail was typed three times.">כל קריאת שירות עברה דרך נייר, הודעות והקלדה חוזרת. אותו נתון הוקלד שלוש פעמים.</span></p>
-        <div class="chan"><span data-en="Technician app">אפליקציה לטכנאי</span><span data-en="Office system">מערכת למשרד</span><span data-en="PDF">PDF</span></div></div>
-        <ul class="did"><li data-en="A technician app that works with no signal: work times, checklists, photos and the customer’s signature">אפליקציה לטכנאי שעובדת גם בלי קליטה: שעות עבודה, צ׳קליסטים, תמונות וחתימת לקוח</li><li data-en="The office approves every report before it goes to the customer">המשרד מאשר כל דוח לפני שהוא יוצא ללקוח</li><li data-en="A clean PDF service report, in Hebrew and English">דוח שירות מסודר ב-PDF, בעברית ובאנגלית</li><li data-en="A billing summary built from the reports themselves, with no retyping">סיכום לחיוב שנבנה מהדוחות עצמם, בלי להקליד שוב</li><li data-en="The existing data imported from Excel">ייבוא הנתונים הקיימים מאקסל</li></ul>
+    <p class="eyebrow reveal" data-en="Our work">מה בנינו</p>
+    <h2 class="reveal" data-en="Real pains, real systems">כאבים אמיתיים, מערכות אמיתיות</h2>
+    <div class="rail reveal" data-rail>
+      <div class="rail-track" id="cases" tabindex="0" role="region" aria-label="מה בנינו: 7 מערכות" data-en-label="Our work: 7 systems">
+      <article class="case glass">
+        <span class="tag" data-en="A service and maintenance company">חברת שירות ואחזקה</span>
+        <h3 data-en="From WhatsApp messages to a professional service report, in one click">מהודעות וואטסאפ לדוח שירות מקצועי, בלחיצה</h3>
+        <p class="pain"><b data-en="What hurt">מה כאב</b><span data-en="Every service call came in as a clumsy WhatsApp message that the CEO had to turn into a customer service report by hand.">כל קריאת שירות עברה דרך הודעה מסורבלת בוואטסאפ, שהמנכ״ל היה צריך להפוך ידנית לדוח שירות ללקוח.</span></p>
+        <ul class="did"><li data-en="A personal app for every technician to document each service call: work hours, checklists, photos and the customer’s signature">אפליקציה אישית לכל טכנאי לתיעוד כל קריאת שירות: שעות עבודה, צ׳קליסטים, תמונות וחתימת לקוח</li><li data-en="The office approves every report before it goes to the customer">המשרד מאשר כל דוח לפני שהוא יוצא ללקוח</li><li data-en="A clean PDF service report, in Hebrew and English">דוח שירות מסודר ב-PDF, בעברית ובאנגלית</li><li data-en="A billing summary built from the reports themselves">סיכום לחיוב שנבנה מהדוחות עצמם</li><li data-en="All the existing data moved from Excel into the system">כל הנתונים הקיימים עברו מאקסל למערכת</li></ul>
+        <div class="chan"><span data-en="Technician app">אפליקציה לטכנאי</span><span data-en="Office system">מערכת למשרד</span><span data-en="PDF">PDF</span></div>
       </article>
-      <article class="case glass reveal">
-        <div class="case-top"><span class="tag" data-en="A home appliances company">חברת מוצרי חשמל לבית</span></div>
-        <h3 data-en="A WhatsApp service bot that opens a ticket and assigns a technician">בוט שירות בוואטסאפ שפותח קריאה ומשבץ טכנאי</h3>
-        <p class="pain"><b data-en="The goal">המטרה</b><span data-en="Handle service requests on WhatsApp without someone asking which product it is, chasing the invoice and finding a technician for the area.">לטפל בפניות שירות בוואטסאפ בלי שמישהו יברר ידנית איזה מוצר, יבקש חשבונית ויחפש טכנאי לאזור.</span></p>
-        <ul class="did"><li data-en="Identifies the product and asks for a photo or invoice on every service path">מזהה את המוצר ומבקש תמונה או חשבונית בכל מסלול שירות</li><li data-en="Assigns a technician by area and passes everything to the client’s CRM">משבץ טכנאי לפי אזור, ומעביר הכול ל-CRM של הלקוח</li><li data-en="An admin screen with roles, two-step sign-in and control over data export">מסך ניהול עם הרשאות, כניסה בשני שלבים ובקרה על ייצוא נתונים</li><li data-en="Every uploaded file is scanned, and the bot is guarded against attempts to trick it">סריקה של כל קובץ שעולה, והגנה מניסיונות לבלבל את הבוט</li></ul>
+      <article class="case glass">
+        <span class="tag" data-en="A home appliances company">חברת מוצרי חשמל לבית</span>
+        <h3 data-en="A smart WhatsApp agent">אייג׳נט חכם לוואטסאפ</h3>
+        <p class="pain"><b data-en="What hurt">מה כאב</b><span data-en="Every WhatsApp inquiry waited for someone to work out the product by hand, ask for the invoice and find a free technician in the area.">כל פנייה בוואטסאפ חיכתה למישהו שיברר ידנית איזה מוצר, יבקש חשבונית ויחפש טכנאי פנוי באזור.</span></p>
+        <ul class="did"><li data-en="Identifies the product and asks for a photo or invoice, by type of request">מזהה את המוצר ומבקש תמונה או חשבונית, לפי סוג הפנייה</li><li data-en="Assigns a technician by area">משבץ טכנאי לפי אזור</li><li data-en="Writes every inquiry straight into the client’s CRM">כותב כל פנייה ישירות ל-CRM של הלקוח</li><li data-en="An admin screen with permissions and two-step sign-in">מסך ניהול עם הרשאות וכניסה בשני שלבים</li><li data-en="Scans every uploaded file, and is guarded against attempts to trick it">סורק כל קובץ שעולה, ומוגן מניסיונות לבלבל אותו</li></ul>
         <div class="chan"><span data-en="WhatsApp">וואטסאפ</span><span data-en="CRM">CRM</span><span data-en="Admin screen">מסך ניהול</span></div>
       </article>
-      <article class="case glass reveal">
-        <div class="case-top"><span class="tag" data-en="A landscaping contractor">קבלן גינון ופיתוח נוף</span></div>
-        <h3 data-en="Quotes from a price list, and reminders for the vehicle fleet">הצעות מחיר מתוך מחירון, ותזכורות לצי הרכבים</h3>
-        <p class="pain"><b data-en="The goal">המטרה</b><span data-en="Produce quotes from long price lists, and never miss a vehicle’s inspection or insurance date.">להפיק הצעות מחיר מתוך מחירונים ארוכים, ולא לפספס טסט או ביטוח של אף רכב.</span></p>
-        <ul class="did"><li data-en="Builds a quote from the price list and produces a PDF ready to send">בונה הצעת מחיר מתוך המחירון ומפיקה PDF מוכן לשליחה</li><li data-en="A vehicle list with inspection and insurance dates, and an email reminder before they expire">רשימת רכבים עם תוקף טסט וביטוח, ותזכורת במייל לפני שהם פגים</li><li data-en="The calculation was checked on 5,000 random quotes against an independent calculation">החישוב נבדק על 5,000 הצעות אקראיות מול חישוב בלתי תלוי</li><li data-en="Sign-in with the business’s Google account">כניסה עם חשבון Google של העסק</li></ul>
+      <article class="case glass">
+        <span class="tag" data-en="A landscaping contractor">קבלן גינון ופיתוח נוף</span>
+        <h3 data-en="A ready quote from the price list, and a reminder before every vehicle inspection">הצעת מחיר מוכנה מהמחירון, ותזכורת לפני כל טסט</h3>
+        <p class="pain"><b data-en="What hurt">מה כאב</b><span data-en="Quotes were built by hand from long price lists, and someone had to remember every vehicle’s inspection and insurance dates.">הצעות מחיר נבנו ידנית מתוך מחירונים ארוכים, ואת הטסט והביטוח של כל רכב בצי היה צריך לזכור.</span></p>
+        <ul class="did"><li data-en="Builds a quote from the price list and produces a PDF ready to send">בונה הצעת מחיר מתוך המחירון ומפיקה PDF מוכן לשליחה</li><li data-en="A vehicle list with inspection and insurance dates, and an email reminder before they expire">רשימת רכבים עם תוקף טסט וביטוח, ותזכורת במייל לפני שהם פגים</li><li data-en="The calculation was checked on 5,000 random quotes against an independent calculation">החישוב נבדק על 5,000 הצעות אקראיות מול חישוב בלתי תלוי</li></ul>
         <div class="chan"><span data-en="Management system">מערכת ניהול</span><span data-en="PDF">PDF</span><span data-en="Email reminders">תזכורות במייל</span></div>
       </article>
-      <article class="case glass reveal">
-        <div class="case-top"><span class="tag" data-en="A professional club for finance people">מועדון מקצועי לאנשי כספים</span></div>
+      <article class="case glass">
+        <span class="tag" data-en="A professional club for finance people">מועדון מקצועי לאנשי כספים</span>
         <h3 data-en="A complete platform for a paid members club">פלטפורמה שלמה למועדון חברים בתשלום</h3>
-        <p class="pain"><b data-en="The goal">המטרה</b><span data-en="Run a professionals’ club in one place: sign-up, payment, content and events. A joint venture of ours with a partner from the field.">להריץ מועדון של אנשי מקצוע במקום אחד: הרשמה, תשלום, תוכן ואירועים. מיזם משותף שלנו עם שותף מהתחום.</span></p>
+        <p class="pain"><b data-en="The challenge">האתגר</b><span data-en="Running a professionals’ club in one place: sign-up, payment, content and events. A joint venture of ours with a partner from the field.">להריץ מועדון של אנשי מקצוע במקום אחד: הרשמה, תשלום, תוכן ואירועים. מיזם משותף שלנו עם שותף מהתחום.</span></p>
         <ul class="did"><li data-en="Sign-up with approval, payments, renewals and invoices">הרשמה עם אישור, תשלומים, חידושים וחשבוניות</li><li data-en="Protected video for recordings, and lecture sign-up with reminders">וידאו מוגן להקלטות, והרשמה להרצאות עם תזכורות</li><li data-en="A store of AI tools for members: removing identifying details from a document, comparing trial balances and checking a tax refund">חנות כלי AI לחברים: השמטת פרטים מזהים ממסמך, השוואת מאזני בוחן ובדיקת החזר מס</li><li data-en="Automatic revenue statements for partners">דוחות הכנסה אוטומטיים לשותפים</li></ul>
         <div class="chan"><span data-en="Website">אתר</span><span data-en="Payments">תשלומים</span><span data-en="Video">וידאו</span><span data-en="AI tools">כלי AI</span></div>
       </article>
-      <article class="case glass reveal">
-        <div class="case-top"><span class="tag" data-en="Our own system">המערכת שלנו</span></div>
-        <h3 data-en="The system that runs us: clients, projects and a pain map">המערכת שמנהלת אותנו: לקוחות, פרויקטים ומפת כאבים</h3>
-        <p class="pain"><b data-en="The goal">המטרה</b><span data-en="Every client, deal, project and decision in one place, open to both partners.">כל לקוח, עסקה, פרויקט והחלטה במקום אחד, שקוף לשני השותפים.</span></p>
-        <ul class="did"><li data-en="A pain map: every manual task of a client, what it costs a month, and what is worth building first">מפת כאבים: כל משימה ידנית של לקוח, כמה היא עולה בחודש, ומה שווה לבנות קודם</li><li data-en="Meetings with a transcript, summary and tasks, and a first draft spec from the call">פגישות עם תמליל, סיכום ומשימות, וטיוטת אפיון ראשונה מתוך השיחה</li><li data-en="Inquiries from the website land in a queue and become a deal in one click">פניות מהאתר נכנסות לתור והופכות לעסקה בלחיצה</li><li data-en="A quote from a spec document">הצעת מחיר מתוך מסמך אפיון</li></ul>
+      <article class="case glass">
+        <span class="tag" data-en="Our own system">המערכת שלנו</span>
+        <h3 data-en="The system that runs us, with a pain map for every client">המערכת שמנהלת אותנו, עם מפת כאבים לכל לקוח</h3>
+        <p class="pain"><b data-en="What hurt">מה כאב</b><span data-en="Clients, deals, meetings and decisions were scattered across emails, messages and documents.">לקוחות, עסקאות, פגישות והחלטות התפזרו בין מיילים, הודעות ומסמכים.</span></p>
+        <ul class="did"><li data-en="A pain map: every manual task of a client, what it costs a month, and what is worth building first">מפת כאבים: כל משימה ידנית של לקוח, כמה היא עולה בחודש, ומה שווה לבנות קודם</li><li data-en="Meetings with a transcript, summary and tasks, and a first draft spec from the call">פגישות עם תמליל, סיכום ומשימות, וטיוטת אפיון ראשונה מתוך השיחה</li><li data-en="Inquiries from the website land in a queue and become a deal in one click">פניות מהאתר נכנסות לתור והופכות לעסקה בלחיצה</li><li data-en="A quote built from the spec document">הצעת מחיר מתוך מסמך האפיון</li></ul>
         <div class="chan"><span data-en="Management system">מערכת ניהול</span><span data-en="AI">AI</span><span data-en="Google Calendar">יומן Google</span></div>
       </article>
-      <article class="case glass reveal">
-        <div class="case-top"><span class="tag" data-en="Our own product">מוצר שלנו</span></div>
+      <article class="case glass">
+        <span class="tag" data-en="Our own product">מוצר שלנו</span>
         <h3 data-en="An app that puts a household’s money in order">אפליקציה שמסדרת את הכסף של משק הבית</h3>
-        <p class="pain"><b data-en="The goal">המטרה</b><span data-en="Give a household one clear picture of its money, without spreadsheets.">לתת למשק בית תמונה אחת וברורה של הכסף שלו, בלי טבלאות.</span></p>
-        <ul class="did"><li data-en="A personal portal for the household, with the option to add a partner">פורטל אישי למשק הבית, עם אפשרות לצרף בן או בת זוג</li><li data-en="Documents and payslips read automatically with AI">קריאה אוטומטית של מסמכים ותלושים בעזרת AI</li><li data-en="A trial period and payment built in">תקופת ניסיון ותשלום מובנים במערכת</li><li data-en="A video guide open to everyone">מדריך וידאו פתוח לכולם</li></ul>
+        <p class="pain"><b data-en="The challenge">האתגר</b><span data-en="Giving a household one clear picture of its money, without spreadsheets.">לתת למשק בית תמונה אחת וברורה של הכסף שלו, בלי טבלאות.</span></p>
+        <ul class="did"><li data-en="A personal portal for the household, with the option to add a partner">פורטל אישי למשק הבית, עם אפשרות לצרף בן או בת זוג</li><li data-en="Documents and payslips read automatically with AI">קריאה אוטומטית של מסמכים ותלושים בעזרת AI</li><li data-en="A trial period and payment built in">תקופת ניסיון ותשלום מובנים במערכת</li></ul>
         <div class="chan"><span data-en="Web app">אפליקציית ווב</span><span data-en="AI">AI</span><span data-en="Payments">תשלומים</span></div>
       </article>
-      <article class="case glass reveal">
-        <div class="case-top"><span class="tag" data-en="A real estate investor">משקיע נדל״ן</span></div>
-        <h3 data-en="A research agent that sends every morning what changed in planning">סוכן מחקר ששולח כל בוקר מה השתנה בתכנון</h3>
-        <p class="pain"><b data-en="The goal">המטרה</b><span data-en="Stop following plans and permits in public databases by hand.">להפסיק לעקוב ידנית אחרי תכניות והיתרים במאגרים ציבוריים.</span></p>
-        <ul class="did"><li data-en="Collects every day from the national planning database and from open data">אוסף כל יום מהמאגר הארצי של התכנון וממאגרי מידע פתוחים</li><li data-en="Compares with yesterday and reports only what changed, once per plan">משווה לאתמול ומדווח רק על מה שהשתנה, פעם אחת לכל תכנית</li><li data-en="A headline and a priority for each update, in a designed Hebrew morning email">כותרת ועדיפות לכל עדכון, במייל בוקר מעוצב בעברית</li><li data-en="Health checks on the sources, so a glitch is never sent as news">בדיקות תקינות למקורות, כדי שתקלה לא תישלח כאילו היא חדשה</li></ul>
+      <article class="case glass">
+        <span class="tag" data-en="A real estate investor">משקיע נדל״ן</span>
+        <h3 data-en="An AI agent that sends, every morning, what changed in planning">סוכן AI ששולח כל בוקר מה השתנה בתכנון</h3>
+        <p class="pain"><b data-en="What hurt">מה כאב</b><span data-en="Following plans and permits in public databases by hand, every day.">מעקב ידני, כל יום, אחרי תכניות והיתרים במאגרים ציבוריים.</span></p>
+        <ul class="did"><li data-en="Collects every day from the national planning database and from open data">אוסף כל יום מהמאגר הארצי של התכנון וממאגרי מידע פתוחים</li><li data-en="Reports only what changed since yesterday">מדווח רק על מה שהשתנה מאתמול</li><li data-en="A headline and a priority for each update, in a designed Hebrew morning email">כותרת ועדיפות לכל עדכון, במייל בוקר מעוצב בעברית</li><li data-en="Holds the email back if a source is down, so no wrong information goes out">עוצר את השליחה אם מקור לא זמין, כדי שלא יגיע מידע שגוי</li></ul>
         <div class="chan"><span data-en="AI agent">סוכן AI</span><span data-en="Morning email">מייל בוקר</span></div>
       </article>
+      </div>
+      <div class="rail-nav" hidden><button type="button" class="rail-btn rail-prev" aria-controls="cases" aria-label="הקודם" data-en-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><span class="rail-bar" aria-hidden="true"><i></i></span><button type="button" class="rail-btn rail-next" aria-controls="cases" aria-label="הבא" data-en-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
     </div>
-    <p class="work-note reveal" data-en="The details are general on purpose, so as not to expose our clients.">הפרטים כלליים בכוונה, כדי לא לחשוף את הלקוחות שלנו.</p>
   </div>
 </section>
 
@@ -1012,10 +1109,13 @@
   <div class="wrap">
     <p class="eyebrow reveal" data-en="In their words">במילים שלהם</p>
     <h2 class="reveal" data-en="What our clients say">מה הלקוחות שלנו אומרים</h2>
-    <div class="voice-grid">
-      <figure class="voice glass reveal"><blockquote data-en="Until now every service call went through paper and messages, and the same detail was typed again and again. Now the technician fills in everything in the app, even with no signal, and the office just approves and sends.">עד היום כל קריאת שירות עברה דרך נייר והודעות, ואותו נתון הוקלד שוב ושוב. עכשיו הטכנאי ממלא הכול באפליקציה, גם בלי קליטה, ובמשרד רק מאשרים ושולחים.</blockquote><figcaption><b data-en="A service and maintenance company">חברת שירות ואחזקה</b><span data-en="Client">לקוח</span></figcaption></figure>
-      <figure class="voice glass reveal"><blockquote data-en="A quote from the price list now comes out as a clean PDF, and we no longer have to remember when any vehicle’s inspection or insurance runs out.">הצעת מחיר מתוך המחירון יוצאת עכשיו מסודרת ב-PDF, ואנחנו כבר לא צריכים לזכור מתי פג טסט או ביטוח של אף רכב.</blockquote><figcaption><b data-en="A landscaping contractor">קבלן גינון ופיתוח נוף</b><span data-en="Client">לקוח</span></figcaption></figure>
-      <figure class="voice glass reveal"><blockquote data-en="They built our whole club: sign-up, payments, recordings and events. Members come in, pay and see everything in one place.">בנו לנו את כל המועדון: הרשמה, תשלומים, הקלטות ואירועים. החברים נכנסים, משלמים ורואים הכול במקום אחד.</blockquote><figcaption><b data-en="A professional club for finance people">מועדון מקצועי לאנשי כספים</b><span data-en="Partner in the venture">שותף במיזם</span></figcaption></figure>
+    <div class="rail reveal" data-rail>
+      <div class="rail-track" id="voicesTrack" tabindex="0" role="region" aria-label="מה הלקוחות שלנו אומרים" data-en-label="What our clients say">
+      <figure class="voice glass"><blockquote data-en="Until now every service call went through paper and messages, and the same detail was typed again and again. Now the technician fills in everything in the app, even with no signal, and the office just approves and sends.">עד היום כל קריאת שירות עברה דרך נייר והודעות, ואותו נתון הוקלד שוב ושוב. עכשיו הטכנאי ממלא הכול באפליקציה, גם בלי קליטה, ובמשרד רק מאשרים ושולחים.</blockquote><figcaption><b data-en="A service and maintenance company">חברת שירות ואחזקה</b><span data-en="Client">לקוח</span></figcaption></figure>
+      <figure class="voice glass"><blockquote data-en="A quote from the price list now comes out as a clean PDF, and we no longer have to remember when any vehicle’s inspection or insurance runs out.">הצעת מחיר מתוך המחירון יוצאת עכשיו מסודרת ב-PDF, ואנחנו כבר לא צריכים לזכור מתי פג טסט או ביטוח של אף רכב.</blockquote><figcaption><b data-en="A landscaping contractor">קבלן גינון ופיתוח נוף</b><span data-en="Client">לקוח</span></figcaption></figure>
+      <figure class="voice glass"><blockquote data-en="They built our whole club: sign-up, payments, recordings and events. Members come in, pay and see everything in one place.">בנו לנו את כל המועדון: הרשמה, תשלומים, הקלטות ואירועים. החברים נכנסים, משלמים ורואים הכול במקום אחד.</blockquote><figcaption><b data-en="A professional club for finance people">מועדון מקצועי לאנשי כספים</b><span data-en="Partner in the venture">שותף במיזם</span></figcaption></figure>
+      </div>
+      <div class="rail-nav" hidden><button type="button" class="rail-btn rail-prev" aria-controls="voicesTrack" aria-label="הקודם" data-en-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><span class="rail-bar" aria-hidden="true"><i></i></span><button type="button" class="rail-btn rail-next" aria-controls="voicesTrack" aria-label="הבא" data-en-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
     </div>
     <div class="cta-band aurora reveal">
       <div>
@@ -1032,37 +1132,40 @@
     <p class="eyebrow reveal" data-en="What we build">מה אנחנו בונים</p>
     <h2 class="reveal" style="max-inline-size: 18ch" data-en="A system, not another automation.">מערכת, לא עוד אוטומציה.</h2>
     <p class="lead reveal" data-en="An automation moves information from tool to tool. A system is the place your business works in every day. We build systems; the automations are part of them.">אוטומציה מעבירה מידע מכלי לכלי. מערכת היא המקום שבו העסק עובד כל יום. אנחנו בונים מערכות, והאוטומציות הן חלק מהן.</p>
-    <div class="bento">
-      <article class="tile wide dark aurora reveal">
+    <div class="rail reveal" data-rail>
+      <div class="rail-track" id="servicesTrack" tabindex="0" role="region" aria-label="מה אנחנו בונים" data-en-label="What we build">
+      <article class="tile dark aurora">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.6z"/></svg>
         <p class="kicker" data-en="Customer service">שירות לקוחות</p>
-        <h3 data-en="A WhatsApp bot that handles inquiries end to end">בוט וואטסאפ שמטפל בפנייה מקצה לקצה</h3>
-        <p data-en="It answers in Hebrew, collects documents and photos, opens a ticket and updates the customer. Anything sensitive waits for a person to approve.">עונה בעברית, אוסף מסמכים ותמונות, פותח קריאה ומעדכן את הלקוח. כל דבר רגיש מחכה לאישור של אדם.</p>
+        <h3 data-en="A smart WhatsApp agent">אייג׳נט חכם לוואטסאפ</h3>
+        <p data-en="A service bot that answers customers in Hebrew, collects documents and photos, opens a ticket and writes everything straight into your CRM. Anything sensitive waits for a person to approve.">בוט שירות שעונה ללקוחות בעברית, אוסף מסמכים ותמונות, פותח קריאה וכותב הכול ישירות ל-CRM שלכם. כל דבר רגיש מחכה לאישור של אדם.</p>
       </article>
-      <article class="tile wide reveal">
+      <article class="tile">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M4 10h16M9 10v9"/></svg>
         <p class="kicker" data-en="Management">ניהול</p>
         <h3 data-en="A custom management system">מערכת ניהול בהתאמה אישית</h3>
         <p data-en="Students, members, workers, deals or stock. One place with the screens you need, permissions for each person, and none of the screens you don’t.">תלמידים, חברים, עובדים, עסקאות או מלאי. מקום אחד עם המסכים שאתם צריכים, הרשאות לכל אחד, ובלי המסכים שלא.</p>
       </article>
-      <article class="tile reveal">
+      <article class="tile">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M6 18l2-2M16 8l2-2"/><circle cx="12" cy="12" r="3"/></svg>
         <p class="kicker" data-en="AI agents">סוכני AI</p>
         <h3 data-en="AI agents that do real work">סוכני AI שעושים עבודה אמיתית</h3>
         <p data-en="They follow sources every day, read documents and send you a short summary of what changed.">עוקבים אחרי מקורות כל יום, קוראים מסמכים ושולחים לכם סיכום קצר של מה שהשתנה.</p>
       </article>
-      <article class="tile reveal">
+      <article class="tile">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>
         <p class="kicker" data-en="Back-office automation">אוטומציה של המשרד האחורי</p>
         <h3 data-en="Reports and documents that do themselves">דוחות ומסמכים שקורים לבד</h3>
         <p data-en="Reports for the accountant or the funder, payments and invoices, and documents recognized as they come in.">דוחות לרואה החשבון או לגורם המממן, תשלומים וחשבוניות, ומסמכים שמזוהים כשהם נכנסים.</p>
       </article>
-      <article class="tile full-sm reveal">
+      <article class="tile">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9l8-5 8 5v10"/><path d="M9 19v-6h6v6"/></svg>
         <p class="kicker" data-en="Training">הדרכה</p>
         <h3 data-en="AI workshops for your team">סדנאות AI לצוות שלכם</h3>
         <p data-en="Hands-on, on your real work, so the team keeps using AI after we leave.">מעשיות, על העבודה האמיתית שלכם, כדי שהצוות ימשיך לעבוד עם AI גם אחרי שהלכנו.</p>
       </article>
+      </div>
+      <div class="rail-nav" hidden><button type="button" class="rail-btn rail-prev" aria-controls="servicesTrack" aria-label="הקודם" data-en-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><span class="rail-bar" aria-hidden="true"><i></i></span><button type="button" class="rail-btn rail-next" aria-controls="servicesTrack" aria-label="הבא" data-en-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
     </div>
   </div>
 </section>
@@ -1096,16 +1199,22 @@
   <div class="wrap">
     <p class="eyebrow reveal" data-en="How we work">איך עובדים</p>
     <h2 class="reveal" data-en="In stages. Transparently. No surprises.">בשלבים. בשקיפות. בלי הפתעות.</h2>
-    <ol class="steps">
-      <li class="step glass reveal"><div class="num"></div><h3 data-en="Focused discovery">אפיון ממוקד</h3><p data-en="We map every manual task and what it costs you a month. You leave with a spec you approve.">ממפים כל משימה ידנית וכמה היא עולה לכם בחודש. יוצאים עם מסמך אפיון שאתם מאשרים.</p></li>
-      <li class="step glass reveal"><div class="num"></div><h3 data-en="Staged build">פיתוח בשלבים</h3><p data-en="We start with the biggest pain. Each stage stands on its own and delivers value before we continue.">מתחילים מהכאב הכי גדול. כל שלב עומד בפני עצמו ומביא ערך לפני שממשיכים.</p></li>
-      <li class="step glass reveal"><div class="num"></div><h3 data-en="Rollout with approvals">הטמעה עם אישורים</h3><p data-en="The system works on your real data, and every sensitive action waits for your approval until you trust it.">המערכת עובדת על הנתונים האמיתיים שלכם, וכל פעולה רגישה מחכה לאישור שלכם עד שאתם סומכים עליה.</p></li>
-      <li class="step glass reveal"><div class="num"></div><h3 data-en="Live, and we stay">באוויר, ואנחנו נשארים</h3><p data-en="Training, a full handover and ongoing maintenance. You are never left alone with the system.">הדרכה, מעבר מלא ואחזקה שוטפת. אתם אף פעם לא נשארים לבד עם המערכת.</p></li>
+    <div class="rail reveal" data-rail>
+    <ol class="steps rail-track" id="stepsTrack" tabindex="0" aria-label="איך עובדים: 4 שלבים" data-en-label="How we work: 4 stages">
+      <li class="step glass"><div class="num"></div><h3 data-en="Focused discovery">אפיון ממוקד</h3><p data-en="We map every manual task and what it costs you a month. You leave with a spec you approve.">ממפים כל משימה ידנית וכמה היא עולה לכם בחודש. יוצאים עם מסמך אפיון שאתם מאשרים.</p></li>
+      <li class="step glass"><div class="num"></div><h3 data-en="Staged build">פיתוח בשלבים</h3><p data-en="We start with the biggest pain. Each stage stands on its own and delivers value before we continue.">מתחילים מהכאב הכי גדול. כל שלב עומד בפני עצמו ומביא ערך לפני שממשיכים.</p></li>
+      <li class="step glass"><div class="num"></div><h3 data-en="Rollout with approvals">הטמעה עם אישורים</h3><p data-en="The system works on your real data, and every sensitive action waits for your approval until you trust it.">המערכת עובדת על הנתונים האמיתיים שלכם, וכל פעולה רגישה מחכה לאישור שלכם עד שאתם סומכים עליה.</p></li>
+      <li class="step glass"><div class="num"></div><h3 data-en="Live, and we stay">באוויר, ואנחנו נשארים</h3><p data-en="Training, a full handover and ongoing maintenance. You are never left alone with the system.">הדרכה, מעבר מלא ואחזקה שוטפת. אתם אף פעם לא נשארים לבד עם המערכת.</p></li>
     </ol>
-    <div class="model-grid" id="model">
-      <div class="model free aurora reveal"><div class="no">01 <span class="free-tag" data-en="Free of charge">ללא עלות</span></div><h3 data-en="Needs call">שיחת אפיון צרכים</h3><p data-en="Mapping the process, working out the manual cost, and a clear direction on what is worth building first. Even if we never work together.">מיפוי התהליך, חישוב העלות הידנית וכיוון ברור למה שווה לבנות קודם. גם אם לא נעבוד יחד.</p><a class="btn btn-light" href="#contact" data-en="Book the free call">לשיחת האפיון</a></div>
-      <div class="model glass reveal"><div class="no">02</div><h3 data-en="Setup">הקמה</h3><p data-en="A staged build, a rollout with approvals, training and going live.">בנייה בשלבים, הטמעה עם אישורים, הדרכה ועלייה לאוויר.</p><p class="price" data-en="A fixed quote after the needs call">הצעת מחיר סגורה אחרי שיחת האפיון</p></div>
-      <div class="model glass reveal"><div class="no">03</div><h3 data-en="Maintenance and changes">אחזקה ושינויים</h3><p data-en="We keep the system running and make changes and improvements as you need them.">שומרים על המערכת עובדת ועושים שינויים ושיפורים לפי הצורך.</p><p class="price" data-en="A fixed monthly fee">תשלום חודשי קבוע</p></div>
+    <div class="rail-nav" hidden><button type="button" class="rail-btn rail-prev" aria-controls="stepsTrack" aria-label="הקודם" data-en-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><span class="rail-bar" aria-hidden="true"><i></i></span><button type="button" class="rail-btn rail-next" aria-controls="stepsTrack" aria-label="הבא" data-en-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
+    </div>
+    <div class="rail reveal" data-rail>
+    <div class="rail-track" id="model" tabindex="0" role="region" aria-label="מודל העבודה" data-en-label="How the work is priced">
+      <div class="model free aurora"><div class="no">01 <span class="free-tag" data-en="Free of charge">ללא עלות</span></div><h3 data-en="Needs call">שיחת אפיון צרכים</h3><p data-en="Mapping the process, working out the manual cost, and a clear direction on what is worth building first. Even if we never work together.">מיפוי התהליך, חישוב העלות הידנית וכיוון ברור למה שווה לבנות קודם. גם אם לא נעבוד יחד.</p><a class="btn btn-light" href="#contact" data-en="Book the free call">לשיחת האפיון</a></div>
+      <div class="model glass"><div class="no">02</div><h3 data-en="Setup">הקמה</h3><p data-en="A staged build, a rollout with approvals, training and going live.">בנייה בשלבים, הטמעה עם אישורים, הדרכה ועלייה לאוויר.</p><p class="price" data-en="A fixed quote after the needs call">הצעת מחיר סגורה אחרי שיחת האפיון</p></div>
+      <div class="model glass"><div class="no">03</div><h3 data-en="Maintenance and changes">אחזקה ושינויים</h3><p data-en="We keep the system running and make changes and improvements as you need them.">שומרים על המערכת עובדת ועושים שינויים ושיפורים לפי הצורך.</p><p class="price" data-en="A fixed monthly fee">תשלום חודשי קבוע</p></div>
+    </div>
+    <div class="rail-nav" hidden><button type="button" class="rail-btn rail-prev" aria-controls="model" aria-label="הקודם" data-en-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><span class="rail-bar" aria-hidden="true"><i></i></span><button type="button" class="rail-btn rail-next" aria-controls="model" aria-label="הבא" data-en-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
     </div>
     <p class="people reveal" data-en-html="<b>Full responsibility.</b> The same team scopes your system, builds it, and picks up the phone after it goes live.">‏<b>אחריות מלאה.</b> אותו צוות מאפיין את המערכת, בונה אותה ועונה לטלפון אחרי שהיא עולה לאוויר.</p>
   </div>
@@ -1117,7 +1226,8 @@
       <p class="eyebrow" data-en="Workshops">סדנאות</p>
       <h2 style="max-inline-size: 20ch" data-en="AI workshops for teams and managers">סדנאות AI לצוותים ולמנהלים</h2>
       <p class="lead" data-en="Hands-on, in Hebrew, on the work your team really does. Everyone leaves with something that already works.">מעשיות, בעברית, על העבודה שהצוות שלכם באמת עושה. כל משתתף יוצא עם משהו שכבר עובד.</p>
-      <div class="ws-grid">
+      <div class="rail contained reveal" data-rail>
+      <div class="rail-track" id="wsTrack" tabindex="0" role="region" aria-label="סוגי הסדנאות" data-en-label="Workshop formats">
         <article class="ws-card glass-dark">
           <div class="meta"><span data-en="1-2 hours">1-2 שעות</span><span data-en="No limit on participants">ללא הגבלת משתתפים</span></div>
           <h3 data-en="Lecture">הרצאה</h3>
@@ -1133,6 +1243,8 @@
           <h3 data-en="Field day">סדנת שטח</h3>
           <p data-en="One working day, real tasks, and solutions that stay with you.">יום עבודה אחד, משימות אמיתיות, ופתרונות שנשארים אצלכם.</p>
         </article>
+      </div>
+      <div class="rail-nav" hidden><button type="button" class="rail-btn rail-prev" aria-controls="wsTrack" aria-label="הקודם" data-en-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><span class="rail-bar" aria-hidden="true"><i></i></span><button type="button" class="rail-btn rail-next" aria-controls="wsTrack" aria-label="הבא" data-en-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
       </div>
       <div class="ws-more">
         <div>
@@ -1171,21 +1283,22 @@
   <div class="wrap faq">
     <p class="eyebrow reveal" data-en="Questions">שאלות</p>
     <h2 class="reveal" data-en="What people ask us before they start">מה שואלים אותנו לפני שמתחילים</h2>
-    <div class="faq-list">
+    <div class="faq-list collapsed" id="faqList">
       <details class="glass reveal" open><summary data-en="What does the first needs call include?">מה כוללת שיחת האפיון הראשונה?</summary><p data-en="We map the process, work out what it costs you a month, and you leave with a clear direction. The call is free of charge and carries no commitment.">ממפים את התהליך, מחשבים כמה הוא עולה לכם בחודש, ויוצאים עם כיוון ברור. השיחה ללא עלות וללא התחייבות.</p></details>
       <details class="glass reveal"><summary data-en="How much does a custom management system cost?">כמה עולה לפתח מערכת ניהול בהתאמה אישית?</summary><p data-en="The price depends on scope: how many processes the system replaces, how many people work in it, and which tools it connects to. The model is fixed: a one-time setup, then a fixed monthly payment for maintenance and changes. After the needs call, which is free, you get a fixed quote.">המחיר תלוי בהיקף: כמה תהליכים המערכת מחליפה, כמה אנשים עובדים בה, ולאילו כלים היא מתחברת. המודל קבוע: הקמה חד-פעמית, ואחר כך תשלום חודשי קבוע לאחזקה ולשינויים. אחרי שיחת האפיון, שהיא ללא עלות, מקבלים הצעת מחיר סגורה.</p></details>
       <details class="glass reveal"><summary data-en="How long until the system is working?">כמה זמן לוקח עד שהמערכת עובדת?</summary><p data-en="We start building the moment you approve the quote, on the schedule written in it. We build in stages, so part of the system is already working for you before everything is ready.">מהרגע שמאשרים את הצעת המחיר מתחילים לבנות, לפי לוח הזמנים שכתוב בה. בונים בשלבים, כך שחלק מהמערכת כבר עובד אצלכם עוד לפני שהכול מוכן.</p></details>
       <details class="glass reveal"><summary data-en="What is the difference between a custom system and off-the-shelf software?">מה ההבדל בין מערכת בהתאמה אישית לתוכנת מדף?</summary><p data-en="Off-the-shelf software asks you to work the way its screens work, and sometimes you pay for features you do not need. A custom system is built around your process: only the screens you need, connected to the tools you already have. And if off-the-shelf software solves your problem, we will tell you so on the needs call.">תוכנת מדף מבקשת מכם לעבוד לפי המסכים שלה, ולפעמים משלמים בה על יכולות שלא צריך. מערכת בהתאמה אישית נבנית סביב התהליך שלכם: רק המסכים שאתם צריכים, מחוברת לכלים שכבר יש לכם. ואם תוכנת מדף פותרת לכם את הבעיה, נגיד לכם את זה כבר בשיחת האפיון.</p></details>
-      <details class="glass reveal"><summary data-en="How does a WhatsApp bot for a business work, and does it replace a person?">איך עובד בוט וואטסאפ לעסק, והאם הוא מחליף נציג?</summary><p data-en="The bot answers customers on WhatsApp in Hebrew, collects details, documents and photos, opens a ticket in the system and updates the customer. It does not replace the team: anything sensitive waits for a person to approve, and whatever needs judgment goes to your team.">הבוט עונה ללקוחות בעברית בוואטסאפ, אוסף פרטים, מסמכים ותמונות, פותח קריאה במערכת ומעדכן את הלקוח. הוא לא מחליף את הצוות: כל דבר רגיש מחכה לאישור של אדם, ומה שדורש שיקול דעת מגיע לצוות שלכם.</p></details>
+      <details class="glass reveal"><summary data-en="How does a WhatsApp bot for a business work, and does it replace a person?">איך עובד בוט וואטסאפ לעסק, והאם הוא מחליף נציג?</summary><p data-en="Our smart WhatsApp agent answers customers in Hebrew, collects details, documents and photos, opens a ticket, writes it straight into your CRM and updates the customer. It does not replace the team: anything sensitive waits for a person to approve, and whatever needs judgment goes to your team.">האייג׳נט החכם שלנו עונה ללקוחות בעברית בוואטסאפ, אוסף פרטים, מסמכים ותמונות, פותח קריאה, כותב אותה ישירות ל-CRM שלכם ומעדכן את הלקוח. הוא לא מחליף את הצוות: כל דבר רגיש מחכה לאישור של אדם, ומה שדורש שיקול דעת מגיע לצוות שלכם.</p></details>
       <details class="glass reveal"><summary data-en="What is an AI agent, and what can it do in a business?">מה זה סוכן AI, ומה הוא יכול לעשות בעסק?</summary><p data-en="An AI agent is software that does a whole task on its own, not just answers questions. For example: it follows information sources every day, reads documents, compares with yesterday and sends you a short summary of what changed. The agent writes the wording; the numbers and dates come from the data itself.">סוכן AI הוא תוכנה שעושה משימה שלמה בעצמה, ולא רק עונה על שאלות. למשל: עוקב כל יום אחרי מקורות מידע, קורא מסמכים, משווה למה שהיה אתמול ושולח לכם סיכום קצר של מה שהשתנה. הסוכן כותב את הניסוח, והמספרים והתאריכים מגיעים מהנתונים עצמם.</p></details>
-      <details class="glass reveal"><summary data-en="How do we know we can trust the system?">איך יודעים שאפשר לסמוך על המערכת?</summary><p data-en="At first we check its results together against the way you work today, and you switch over only when they match. Anything that goes out to your customers can wait for your approval first.">בהתחלה בודקים יחד את התוצאות שלה מול הדרך שבה עבדתם עד היום, ורק כשהן תואמות עוברים לעבוד איתה. ומה שיוצא ללקוחות שלכם יכול לחכות קודם לאישור שלכם.</p></details>
-      <details class="glass reveal"><summary data-en="Where is our data kept?">איפה נשמר המידע שלנו?</summary><p data-en="Your data is kept encrypted and backed up, and only people you approve can access it. We put into the system only the data it needs to work.">המידע נשמר מוצפן ומגובה, ורק מי שאתם מאשרים יכול לגשת אליו. אנחנו מכניסים למערכת רק את המידע שהיא צריכה כדי לעבוד.</p></details>
-      <details class="glass reveal"><summary data-en="Does the system connect to the tools we already have?">המערכת מתחברת לכלים שכבר יש לנו?</summary><p data-en="Yes. Systems we built are connected to an existing CRM, to WhatsApp, to Google Calendar and Google accounts, to payments and invoicing, and import existing data from Excel. On the needs call we go over your tools and check what connects.">כן. מערכות שבנינו מחוברות ל-CRM קיים, לוואטסאפ, ליומן ולחשבון Google, לסליקה ולהפקת חשבוניות, ומייבאות נתונים קיימים מאקסל. בשיחת האפיון עוברים על הכלים שלכם ובודקים מה מתחבר.</p></details>
-      <details class="glass reveal"><summary data-en="So what you do is automations?">אז מה שאתם עושים זה אוטומציות?</summary><p data-en="Not only. An automation connects tools. We build the system the business works in, and the automations are part of it.">לא רק. אוטומציה מחברת בין כלים. אנחנו בונים את המערכת שהעסק עובד בה, והאוטומציות הן חלק ממנה.</p></details>
-      <details class="glass reveal"><summary data-en="We’re a small business. Is this right for us?">אנחנו עסק קטן. זה מתאים לנו?</summary><p data-en="Exactly for you. A business with no IT team gains the most from a system that does the repetitive work. Among those we build for: service and maintenance companies, contractors, members clubs, private tutors and service providers, real estate investors and local authorities.">בדיוק בשבילכם. עסק בלי צוות IT מרוויח הכי הרבה ממערכת שעושה את העבודה החוזרת. בין מי שאנחנו בונים להם: חברות שירות ואחזקה, קבלנים, מועדוני חברים, מורים פרטיים ונותני שירות, משקיעי נדל״ן ורשויות מקומיות.</p></details>
-      <details class="glass reveal"><summary data-en="Do you also run AI workshops for organizations?">אתם מעבירים גם סדנאות AI לארגונים?</summary><p data-en="Yes. Lectures and hands-on workshops for teams and managers, online or at your place, on Claude, ChatGPT, Gemini and Copilot. Every workshop is tailored to the team on an intro call, and includes a participant kit and a follow-up session.">כן. הרצאות וסדנאות מעשיות לצוותים ולמנהלים, אונליין או אצלכם בארגון, על Claude, ChatGPT, Gemini ו-Copilot. כל סדנה מותאמת לצוות בשיחת היכרות, וכוללת ערכת משתתף ומפגש המשך.</p></details>
-      <details class="glass reveal"><summary data-en="Where are you based, and who do you work with?">איפה אתם נמצאים, ועם מי אתם עובדים?</summary><p data-en="We are an Israeli company and work in Hebrew with businesses and organizations across Israel: on video calls and, when needed, at your place.">אנחנו חברה ישראלית, ועובדים בעברית עם עסקים וארגונים מכל הארץ: בשיחות וידאו, וכשצריך גם אצלכם.</p></details>
+      <details class="glass reveal faq-more"><summary data-en="How do we know we can trust the system?">איך יודעים שאפשר לסמוך על המערכת?</summary><p data-en="At first we check its results together against the way you work today, and you switch over only when they match. Anything that goes out to your customers can wait for your approval first.">בהתחלה בודקים יחד את התוצאות שלה מול הדרך שבה עבדתם עד היום, ורק כשהן תואמות עוברים לעבוד איתה. ומה שיוצא ללקוחות שלכם יכול לחכות קודם לאישור שלכם.</p></details>
+      <details class="glass reveal faq-more"><summary data-en="Where is our data kept?">איפה נשמר המידע שלנו?</summary><p data-en="Your data is kept encrypted and backed up, and only people you approve can access it. We put into the system only the data it needs to work.">המידע נשמר מוצפן ומגובה, ורק מי שאתם מאשרים יכול לגשת אליו. אנחנו מכניסים למערכת רק את המידע שהיא צריכה כדי לעבוד.</p></details>
+      <details class="glass reveal faq-more"><summary data-en="Does the system connect to the tools we already have?">המערכת מתחברת לכלים שכבר יש לנו?</summary><p data-en="Yes. Systems we built are connected to an existing CRM, to WhatsApp, to Google Calendar and Google accounts, to payments and invoicing, and import existing data from Excel. On the needs call we go over your tools and check what connects.">כן. מערכות שבנינו מחוברות ל-CRM קיים, לוואטסאפ, ליומן ולחשבון Google, לסליקה ולהפקת חשבוניות, ומייבאות נתונים קיימים מאקסל. בשיחת האפיון עוברים על הכלים שלכם ובודקים מה מתחבר.</p></details>
+      <details class="glass reveal faq-more"><summary data-en="So what you do is automations?">אז מה שאתם עושים זה אוטומציות?</summary><p data-en="Not only. An automation connects tools. We build the system the business works in, and the automations are part of it.">לא רק. אוטומציה מחברת בין כלים. אנחנו בונים את המערכת שהעסק עובד בה, והאוטומציות הן חלק ממנה.</p></details>
+      <details class="glass reveal faq-more"><summary data-en="We’re a small business. Is this right for us?">אנחנו עסק קטן. זה מתאים לנו?</summary><p data-en="Exactly for you. A business with no IT team gains the most from a system that does the repetitive work. Among our clients: importers, service and supply companies, contractors, clubs and communities, accountants, tutors and coaches, real estate developers and local authorities.">בדיוק בשבילכם. עסק בלי צוות IT מרוויח הכי הרבה ממערכת שעושה את העבודה החוזרת. בין לקוחותינו: יבואנים, חברות שירות ואספקה, קבלנים, מועדונים וקהילות, רואי חשבון, מורים ומדריכים, יזמי נדל״ן ורשויות מקומיות.</p></details>
+      <details class="glass reveal faq-more"><summary data-en="Do you also run AI workshops for organizations?">אתם מעבירים גם סדנאות AI לארגונים?</summary><p data-en="Yes. Lectures and hands-on workshops for teams and managers, online or at your place, on Claude, ChatGPT, Gemini and Copilot. Every workshop is tailored to the team on an intro call, and includes a participant kit and a follow-up session.">כן. הרצאות וסדנאות מעשיות לצוותים ולמנהלים, אונליין או אצלכם בארגון, על Claude, ChatGPT, Gemini ו-Copilot. כל סדנה מותאמת לצוות בשיחת היכרות, וכוללת ערכת משתתף ומפגש המשך.</p></details>
+      <details class="glass reveal faq-more"><summary data-en="Where are you based, and who do you work with?">איפה אתם נמצאים, ועם מי אתם עובדים?</summary><p data-en="We are an Israeli company and work in Hebrew with businesses and organizations across Israel: on video calls and, when needed, at your place.">אנחנו חברה ישראלית, ועובדים בעברית עם עסקים וארגונים מכל הארץ: בשיחות וידאו, וכשצריך גם אצלכם.</p></details>
     </div>
+    <button type="button" class="btn btn-ghost faq-toggle" id="faqMore" aria-controls="faqList" aria-expanded="false" data-en="More questions">לעוד שאלות</button>
   </div>
 </section>
 
@@ -1196,7 +1309,7 @@
       <img src="/img/osher-amsalem.jpg" alt="אושר אמסלם" data-en-alt="Osher Amsalem" width="240" height="240" loading="lazy">
       <div>
         <h3 data-en="Osher Amsalem">אושר אמסלם</h3>
-        <p class="role" data-en="Founding partner · Needs mapping and client relations">שותף מייסד · אפיון וקשר עם הלקוחות</p>
+        <p class="role" data-en="Founding partner">שותף מייסד</p>
         <p class="person-line" data-en="Your first needs call is with me. I map the process with you, and I stay in touch with you until the system is running.">את שיחת האפיון הראשונה אתם עושים איתי. אני ממפה איתכם את התהליך, ונשאר איתכם בקשר עד שהמערכת עובדת.</p>
         <div class="person-links">
           <a class="btn wa-btn" href="https://wa.me/972503255115?text=%D7%94%D7%99%D7%99%20%D7%90%D7%95%D7%A9%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20Take%20It%20AIzy" data-en-href="https://wa.me/972503255115?text=Hi%20Osher%2C%20I%20found%20you%20through%20the%20Take%20It%20AIzy%20website" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.6z"/><path d="M9 9.2c.3 1.7 2.1 3.6 3.9 4 .5.1.9-.1 1.2-.5l.4-.5 1.6.8c-.2.9-1 1.5-1.9 1.4-2.8-.4-5.1-2.7-5.5-5.5-.1-.9.5-1.7 1.4-1.9l.8 1.6-.5.4c-.3.2-.5.5-.4.9z"/></svg><span data-en="WhatsApp me">כתבו לי בוואטסאפ</span></a>
@@ -1245,8 +1358,14 @@
   <a href="#work" data-tab="work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v5H4zM13 14h7v5h-7z"/></svg><span data-en="Our work">מה בנינו</span></a>
   <a href="#contact" class="tab-cta" data-tab="contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg><span data-en="Free call">שיחה חינם</span></a>
   <a href="#workshops" data-tab="workshops"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9l8-5 8 5v10"/><path d="M9 19v-6h6v6"/></svg><span data-en="Workshops">סדנאות</span></a>
-  <a class="tab-wa" href="https://wa.me/972503255115?text=%D7%94%D7%99%D7%99%20%D7%90%D7%95%D7%A9%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20Take%20It%20AIzy" data-en-href="https://wa.me/972503255115?text=Hi%20Osher%2C%20I%20found%20you%20through%20the%20Take%20It%20AIzy%20website" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.6z"/></svg><span data-en="WhatsApp">וואטסאפ</span></a>
+  <a href="#faq" data-tab="faq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.4a2.5 2.5 0 1 1 3.4 2.4c-.6.3-1 .8-1 1.5v.4"/><path d="M12 16.8h.01"/></svg><span data-en="Questions">שאלות</span></a>
 </nav>
+
+<a class="wa-float" href="https://wa.me/972503255115?text=%D7%94%D7%99%D7%99%20%D7%90%D7%95%D7%A9%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20Take%20It%20AIzy" data-en-href="https://wa.me/972503255115?text=Hi%20Osher%2C%20I%20found%20you%20through%20the%20Take%20It%20AIzy%20website" target="_blank" rel="noopener">
+  <img src="/img/osher-amsalem.jpg" alt="" width="40" height="40">
+  <span class="wa-float-text" data-en="WhatsApp Osher">כתבו לאושר בוואטסאפ</span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.6z"/><path d="M9 9.2c.3 1.7 2.1 3.6 3.9 4 .5.1.9-.1 1.2-.5l.4-.5 1.6.8c-.2.9-1 1.5-1.9 1.4-2.8-.4-5.1-2.7-5.5-5.5-.1-.9.5-1.7 1.4-1.9l.8 1.6-.5.4c-.3.2-.5.5-.4.9z"/></svg>
+</a>
 
 <div class="storage-note glass" id="storageNote" role="region" aria-label="הודעה על אחסון בדפדפן" data-en-label="Notice about browser storage" hidden>
   <p data-en="No tracking or advertising cookies here. The site keeps only what it needs in your browser: your language choice, your accessibility settings, and that you closed this notice.">אין כאן עוגיות מעקב או פרסום. האתר שומר בדפדפן רק את מה שהוא צריך: את בחירת השפה, את הגדרות הנגישות שבחרתם, ואת זה שסגרתם את ההודעה הזו.</p>
@@ -1292,6 +1411,7 @@ function setLang(lang) {
   document.getElementById("langToggle").setAttribute("aria-label", lang === "en" ? "מעבר לעברית" : "Switch language");
   syncIntakeFrame(lang);
   if (typeof calc !== "undefined" && calc) renderCalc();
+  if (typeof refreshRails === "function") refreshRails(true);
   try { localStorage.setItem("taizy-lang", lang); } catch (e) {}
 }
 
@@ -1333,7 +1453,7 @@ menu.addEventListener("click", function (e) {
 });
 
 /* ---------------- reveal on scroll ---------------- */
-var STAGGER = ".case-grid, .bento, .steps, .model-grid, .voice-grid, .sector-row, .faq-list";
+var STAGGER = ".faq-list";
 if ("IntersectionObserver" in window) {
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
@@ -1346,6 +1466,7 @@ if ("IntersectionObserver" in window) {
         setTimeout(function () { el.style.transitionDelay = ""; }, delay + 900);
       }
       el.classList.add("in");
+      if (el.classList.contains("rail")) setTimeout(function () { el.classList.add("settled"); }, 1300);
       io.unobserve(el);
     });
   }, { threshold: 0.12 });
@@ -1408,6 +1529,61 @@ if ("IntersectionObserver" in window) {
     var el = document.getElementById(id); if (el) tabIo.observe(el);
   });
 }
+
+/* ---------------- rails (horizontal carousels) ----------------
+   Arrows move one card; the bar shows where you are. The arrows and the bar
+   show only when the cards don't fit. In RTL the scroll position runs
+   negative, so the direction is read from the track each time. */
+var railUpdates = [];
+function refreshRails(reset) { (railUpdates || []).forEach(function (f) { f(reset); }); }
+document.querySelectorAll("[data-rail]").forEach(function (rail) {
+  var track = rail.querySelector(".rail-track"), nav = rail.querySelector(".rail-nav");
+  var prev = rail.querySelector(".rail-prev"), next = rail.querySelector(".rail-next"), bar = rail.querySelector(".rail-bar i");
+  function rtl() { return getComputedStyle(track).direction === "rtl"; }
+  function step() {
+    var first = track.firstElementChild;
+    var gap = parseFloat(getComputedStyle(track).columnGap) || 16;
+    return first ? first.getBoundingClientRect().width + gap : track.clientWidth * 0.8;
+  }
+  function update() {
+    var max = track.scrollWidth - track.clientWidth;
+    var overflow = max > 4;
+    var pos = Math.min(max, Math.abs(track.scrollLeft));
+    nav.hidden = !overflow;
+    if (overflow) track.setAttribute("tabindex", "0"); else track.removeAttribute("tabindex");
+    prev.disabled = !overflow || pos < 4;
+    next.disabled = !overflow || pos > max - 4;
+    var shown = track.clientWidth / track.scrollWidth;
+    if (bar) bar.style.transform = "scaleX(" + (overflow ? shown + (1 - shown) * (pos / max) : 1).toFixed(3) + ")";
+  }
+  function go(d) {
+    track.scrollBy({ left: d * (rtl() ? -1 : 1) * step(), behavior: motionOff() ? "auto" : "smooth" });
+  }
+  prev.addEventListener("click", function () { go(-1); });
+  next.addEventListener("click", function () { go(1); });
+  track.addEventListener("scroll", update, { passive: true });
+  railUpdates.push(function (reset) { if (reset) track.scrollLeft = 0; update(); });
+  update();
+});
+window.addEventListener("resize", function () { refreshRails(false); });
+
+/* ---------------- clients marquee: hover pauses it, the button stops it ---------------- */
+var marquee = document.getElementById("marquee"), marqueeToggle = document.getElementById("marqueeToggle");
+marqueeToggle.addEventListener("click", function () {
+  var paused = marquee.classList.toggle("paused");
+  marqueeToggle.setAttribute("aria-pressed", paused ? "true" : "false");
+});
+
+/* ---------------- FAQ: the rest of the questions ---------------- */
+var faqMore = document.getElementById("faqMore");
+faqMore.addEventListener("click", function () {
+  var list = document.getElementById("faqList");
+  list.classList.remove("collapsed");
+  faqMore.setAttribute("aria-expanded", "true");
+  faqMore.hidden = true;
+  var first = list.querySelector(".faq-more summary");
+  if (first) first.focus();
+});
 
 /* ---------------- nav capsule ---------------- */
 var navShell = document.querySelector(".nav-shell");
