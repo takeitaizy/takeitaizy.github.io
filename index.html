@@ -752,8 +752,7 @@
     /* ---------- rails: horizontal carousels ----------
        The track runs to the screen edges and its first card lines up with the
        page text; the next card peeks in, so it reads as "swipe for more". */
-    .rail { position: relative; margin-block-start: 34px; --rx: 28px; }
-    [dir="rtl"] .rail { --rx: -28px; }
+    .rail { position: relative; margin-block-start: 34px; }
     .rail > .rail-track {
       display: grid; grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: var(--rail-card, min(84vw, 360px)); gap: 16px;
       overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none;
@@ -783,12 +782,16 @@
     .rail-btn:disabled { opacity: .35; cursor: default; box-shadow: none; }
     .rail-btn svg { inline-size: 20px; block-size: 20px; }
     [dir="rtl"] .rail-btn svg { transform: scaleX(-1); }
+    .rail-auto svg { inline-size: 15px; block-size: 15px; }
+    [dir="rtl"] .rail-auto svg { transform: none; }
+    .rail-auto .i-play, .rail-auto[aria-pressed="true"] .i-pause { display: none; }
+    .rail-auto[aria-pressed="true"] .i-play { display: block; }
     .aurora .rail-bar { background: rgba(255,255,255,0.18); }
     .aurora .rail-bar i { background: var(--sand); }
     .aurora .rail-btn { background: rgba(255,255,255,0.12); color: var(--white); border-color: rgba(255,255,255,0.28); box-shadow: none; }
     .aurora .rail-btn:hover { background: rgba(255,255,255,0.22); }
-    /* the cards of a rail arrive one after another from the far edge */
-    .js .rail.reveal > .rail-track > * { opacity: 0; transform: translateX(var(--rx)); transition: opacity .6s ease, transform .7s var(--ease); }
+    /* the cards of a rail arrive one after another (vertically, so the scroll snap never sees a shifted card) */
+    .js .rail.reveal > .rail-track > * { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .7s var(--ease); }
     .js .rail.reveal.in > .rail-track > * { opacity: 1; transform: none; }
     .js .rail.reveal.in:not(.settled) > .rail-track > :nth-child(2) { transition-delay: .08s; }
     .js .rail.reveal.in:not(.settled) > .rail-track > :nth-child(3) { transition-delay: .16s; }
@@ -912,14 +915,14 @@
       .marquee { -webkit-mask-image: none; mask-image: none; }
       .marquee-track { inline-size: auto; }
       .sector-row { flex-wrap: wrap; padding: 0; }
-      .sector-row[aria-hidden="true"], .js .marquee-toggle { display: none; }
+      .sector-row[aria-hidden="true"], .js .marquee-toggle, .rail-auto { display: none; }
     }
     /* "Stop animations" in the accessibility menu does the same. */
     html.a11y-still .rail.reveal > .rail-track > * { opacity: 1 !important; transform: none !important; }
     html.a11y-still .marquee { -webkit-mask-image: none; mask-image: none; }
     html.a11y-still .marquee-track { inline-size: auto; }
     html.a11y-still .sector-row { flex-wrap: wrap; padding: 0; }
-    html.a11y-still .sector-row[aria-hidden="true"], html.a11y-still .marquee-toggle { display: none !important; }
+    html.a11y-still .sector-row[aria-hidden="true"], html.a11y-still .marquee-toggle, html.a11y-still .rail-auto { display: none !important; }
     @media (prefers-reduced-transparency: reduce) {
       .glass, .tabbar, .storage-note, .drawer-panel { background: var(--white); -webkit-backdrop-filter: none; backdrop-filter: none; }
       .glass-dark { background: #1A2D47; -webkit-backdrop-filter: none; backdrop-filter: none; }
@@ -1093,7 +1096,7 @@
         <div class="chan"><span data-en="AI agent">סוכן AI</span><span data-en="Morning email">מייל בוקר</span></div>
       </article>
       </div>
-      <div class="rail-nav" hidden><button type="button" class="rail-btn rail-prev" aria-controls="cases" aria-label="הקודם" data-en-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><span class="rail-bar" aria-hidden="true"><i></i></span><button type="button" class="rail-btn rail-next" aria-controls="cases" aria-label="הבא" data-en-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
+      <div class="rail-nav" hidden><button type="button" class="rail-btn rail-auto" aria-controls="cases" aria-pressed="false" aria-label="עצירת הגלילה האוטומטית" data-en-label="Pause auto-scroll"><svg class="i-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><svg class="i-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg></button><button type="button" class="rail-btn rail-prev" aria-controls="cases" aria-label="הקודם" data-en-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><span class="rail-bar" aria-hidden="true"><i></i></span><button type="button" class="rail-btn rail-next" aria-controls="cases" aria-label="הבא" data-en-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
     </div>
   </div>
 </section>
@@ -1108,7 +1111,7 @@
       <figure class="voice glass"><blockquote data-en="A quote from the price list now comes out as a clean PDF, and we no longer have to remember when any vehicle’s inspection or insurance runs out.">הצעת מחיר מתוך המחירון יוצאת עכשיו מסודרת ב-PDF, ואנחנו כבר לא צריכים לזכור מתי פג טסט או ביטוח של אף רכב.</blockquote><figcaption><b data-en="A landscaping contractor">קבלן גינון ופיתוח נוף</b><span data-en="Client">לקוח</span></figcaption></figure>
       <figure class="voice glass"><blockquote data-en="They built our whole club: sign-up, payments, recordings and events. Members come in, pay and see everything in one place.">בנו לנו את כל המועדון: הרשמה, תשלומים, הקלטות ואירועים. החברים נכנסים, משלמים ורואים הכול במקום אחד.</blockquote><figcaption><b data-en="A professional club for finance people">מועדון מקצועי לאנשי כספים</b><span data-en="Partner in the venture">שותף במיזם</span></figcaption></figure>
       </div>
-      <div class="rail-nav" hidden><button type="button" class="rail-btn rail-prev" aria-controls="voicesTrack" aria-label="הקודם" data-en-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><span class="rail-bar" aria-hidden="true"><i></i></span><button type="button" class="rail-btn rail-next" aria-controls="voicesTrack" aria-label="הבא" data-en-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
+      <div class="rail-nav" hidden><button type="button" class="rail-btn rail-auto" aria-controls="voicesTrack" aria-pressed="false" aria-label="עצירת הגלילה האוטומטית" data-en-label="Pause auto-scroll"><svg class="i-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><svg class="i-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg></button><button type="button" class="rail-btn rail-prev" aria-controls="voicesTrack" aria-label="הקודם" data-en-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><span class="rail-bar" aria-hidden="true"><i></i></span><button type="button" class="rail-btn rail-next" aria-controls="voicesTrack" aria-label="הבא" data-en-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
     </div>
     <div class="cta-band aurora reveal">
       <div>
@@ -1158,7 +1161,7 @@
         <p data-en="Hands-on, on your real work, so the team keeps using AI after we leave.">מעשיות, על העבודה האמיתית שלכם, כדי שהצוות ימשיך לעבוד עם AI גם אחרי שהלכנו.</p>
       </article>
       </div>
-      <div class="rail-nav" hidden><button type="button" class="rail-btn rail-prev" aria-controls="servicesTrack" aria-label="הקודם" data-en-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><span class="rail-bar" aria-hidden="true"><i></i></span><button type="button" class="rail-btn rail-next" aria-controls="servicesTrack" aria-label="הבא" data-en-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
+      <div class="rail-nav" hidden><button type="button" class="rail-btn rail-auto" aria-controls="servicesTrack" aria-pressed="false" aria-label="עצירת הגלילה האוטומטית" data-en-label="Pause auto-scroll"><svg class="i-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><svg class="i-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg></button><button type="button" class="rail-btn rail-prev" aria-controls="servicesTrack" aria-label="הקודם" data-en-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><span class="rail-bar" aria-hidden="true"><i></i></span><button type="button" class="rail-btn rail-next" aria-controls="servicesTrack" aria-label="הבא" data-en-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
     </div>
   </div>
 </section>
@@ -1199,7 +1202,7 @@
       <li class="step glass"><div class="num"></div><h3 data-en="Rollout with approvals">הטמעה עם אישורים</h3><p data-en="The system works on your real data, and every sensitive action waits for your approval until you trust it.">המערכת עובדת על הנתונים האמיתיים שלכם, וכל פעולה רגישה מחכה לאישור שלכם עד שאתם סומכים עליה.</p></li>
       <li class="step glass"><div class="num"></div><h3 data-en="Live, and we stay">באוויר, ואנחנו נשארים</h3><p data-en="Training, a full handover and ongoing maintenance. You are never left alone with the system.">הדרכה, מעבר מלא ואחזקה שוטפת. אתם אף פעם לא נשארים לבד עם המערכת.</p></li>
     </ol>
-    <div class="rail-nav" hidden><button type="button" class="rail-btn rail-prev" aria-controls="stepsTrack" aria-label="הקודם" data-en-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><span class="rail-bar" aria-hidden="true"><i></i></span><button type="button" class="rail-btn rail-next" aria-controls="stepsTrack" aria-label="הבא" data-en-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
+    <div class="rail-nav" hidden><button type="button" class="rail-btn rail-auto" aria-controls="stepsTrack" aria-pressed="false" aria-label="עצירת הגלילה האוטומטית" data-en-label="Pause auto-scroll"><svg class="i-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><svg class="i-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg></button><button type="button" class="rail-btn rail-prev" aria-controls="stepsTrack" aria-label="הקודם" data-en-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><span class="rail-bar" aria-hidden="true"><i></i></span><button type="button" class="rail-btn rail-next" aria-controls="stepsTrack" aria-label="הבא" data-en-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
     </div>
     <div class="rail reveal" data-rail>
     <div class="rail-track" id="model" tabindex="0" role="region" aria-label="מודל העבודה" data-en-label="How the work is priced">
@@ -1207,7 +1210,7 @@
       <div class="model glass"><div class="no">02</div><h3 data-en="Setup">הקמה</h3><p data-en="A staged build, a rollout with approvals, training and going live.">בנייה בשלבים, הטמעה עם אישורים, הדרכה ועלייה לאוויר.</p><p class="price" data-en="A fixed quote after the needs call">הצעת מחיר סגורה אחרי שיחת האפיון</p></div>
       <div class="model glass"><div class="no">03</div><h3 data-en="Maintenance and changes">אחזקה ושינויים</h3><p data-en="We keep the system running and make changes and improvements as you need them.">שומרים על המערכת עובדת ועושים שינויים ושיפורים לפי הצורך.</p><p class="price" data-en="A fixed monthly fee">תשלום חודשי קבוע</p></div>
     </div>
-    <div class="rail-nav" hidden><button type="button" class="rail-btn rail-prev" aria-controls="model" aria-label="הקודם" data-en-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><span class="rail-bar" aria-hidden="true"><i></i></span><button type="button" class="rail-btn rail-next" aria-controls="model" aria-label="הבא" data-en-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
+    <div class="rail-nav" hidden><button type="button" class="rail-btn rail-auto" aria-controls="model" aria-pressed="false" aria-label="עצירת הגלילה האוטומטית" data-en-label="Pause auto-scroll"><svg class="i-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><svg class="i-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg></button><button type="button" class="rail-btn rail-prev" aria-controls="model" aria-label="הקודם" data-en-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><span class="rail-bar" aria-hidden="true"><i></i></span><button type="button" class="rail-btn rail-next" aria-controls="model" aria-label="הבא" data-en-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
     </div>
     <p class="people reveal" data-en-html="<b>Full responsibility.</b> The same team scopes your system, builds it, and picks up the phone after it goes live.">‏<b>אחריות מלאה.</b> אותו צוות מאפיין את המערכת, בונה אותה ועונה לטלפון אחרי שהיא עולה לאוויר.</p>
   </div>
@@ -1237,7 +1240,7 @@
           <p data-en="One working day, real tasks, and solutions that stay with you.">יום עבודה אחד, משימות אמיתיות, ופתרונות שנשארים אצלכם.</p>
         </article>
       </div>
-      <div class="rail-nav" hidden><button type="button" class="rail-btn rail-prev" aria-controls="wsTrack" aria-label="הקודם" data-en-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><span class="rail-bar" aria-hidden="true"><i></i></span><button type="button" class="rail-btn rail-next" aria-controls="wsTrack" aria-label="הבא" data-en-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
+      <div class="rail-nav" hidden><button type="button" class="rail-btn rail-auto" aria-controls="wsTrack" aria-pressed="false" aria-label="עצירת הגלילה האוטומטית" data-en-label="Pause auto-scroll"><svg class="i-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><svg class="i-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg></button><button type="button" class="rail-btn rail-prev" aria-controls="wsTrack" aria-label="הקודם" data-en-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><span class="rail-bar" aria-hidden="true"><i></i></span><button type="button" class="rail-btn rail-next" aria-controls="wsTrack" aria-label="הבא" data-en-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
       </div>
       <div class="ws-more">
         <div>
@@ -1526,7 +1529,12 @@ if ("IntersectionObserver" in window) {
 /* ---------------- rails (horizontal carousels) ----------------
    Arrows move one card; the bar shows where you are. The arrows and the bar
    show only when the cards don't fit. In RTL the scroll position runs
-   negative, so the direction is read from the track each time. */
+   negative, so the direction is read from the track each time.
+   A rail also moves on its own, one card every few seconds, and goes back to
+   the first card at the end. It waits while the pointer or keyboard focus is
+   on it, for a few seconds after the visitor scrolls it, while it is off
+   screen, and always when motion is off. Its pause button stops it for good. */
+var RAIL_EVERY = 4200, RAIL_REST = 7000;
 var railUpdates = [];
 function refreshRails(reset) { (railUpdates || []).forEach(function (f) { f(reset); }); }
 document.querySelectorAll("[data-rail]").forEach(function (rail) {
@@ -1552,8 +1560,31 @@ document.querySelectorAll("[data-rail]").forEach(function (rail) {
   function go(d) {
     track.scrollBy({ left: d * (rtl() ? -1 : 1) * step(), behavior: motionOff() ? "auto" : "smooth" });
   }
-  prev.addEventListener("click", function () { go(-1); });
-  next.addEventListener("click", function () { go(1); });
+  var auto = rail.querySelector(".rail-auto");
+  var hover = false, focused = false, onScreen = false, lastUser = 0;
+  prev.addEventListener("click", function () { lastUser = Date.now(); go(-1); });
+  next.addEventListener("click", function () { lastUser = Date.now(); go(1); });
+  auto.addEventListener("click", function () {
+    auto.setAttribute("aria-pressed", auto.getAttribute("aria-pressed") === "true" ? "false" : "true");
+  });
+  rail.addEventListener("mouseenter", function () { hover = true; });
+  rail.addEventListener("mouseleave", function () { hover = false; });
+  rail.addEventListener("focusin", function () { focused = true; });
+  rail.addEventListener("focusout", function (e) { focused = rail.contains(e.relatedTarget); });
+  ["pointerdown", "wheel", "touchstart", "keydown"].forEach(function (ev) {
+    track.addEventListener(ev, function () { lastUser = Date.now(); }, { passive: true });
+  });
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (es) { onScreen = es[0].isIntersecting; }, { threshold: 0.35 }).observe(track);
+  }
+  setInterval(function () {
+    if (motionOff() || document.hidden || !onScreen || hover || focused) return;
+    if (auto.getAttribute("aria-pressed") === "true" || Date.now() - lastUser < RAIL_REST) return;
+    var max = track.scrollWidth - track.clientWidth;
+    if (max <= 4) return;
+    if (Math.abs(track.scrollLeft) >= max - 4) track.scrollTo({ left: 0, behavior: "smooth" });
+    else go(1);
+  }, RAIL_EVERY);
   track.addEventListener("scroll", update, { passive: true });
   railUpdates.push(function (reset) { if (reset) track.scrollLeft = 0; update(); });
   update();
