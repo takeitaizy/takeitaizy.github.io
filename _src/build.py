@@ -11,7 +11,7 @@ comment of `key: value` lines, then named blocks:
     <!--page
     out: work.html          file written at the repo root (GitHub Pages serves it at /work)
     path: /work             canonical path
-    nav: work               the nav item marked aria-current="page": home | work | workshops
+    nav: work               the menu item marked aria-current="page" (one of NAV below)
     form: work              utm_content the contact form reports for this page
     title: ...              Hebrew <title>; title_en is the English one
     description: ...        Hebrew meta description; description_en is the English one
@@ -53,7 +53,7 @@ DEFAULT_STEPS = """        <li><span><b data-en="Fill in a short form">ממלא�
         <li><span><b data-en="One of us gets back to you">אחד מאיתנו חוזר אליכם</b><span data-en="Within one business day, with first questions and thoughts.">תוך יום עסקים, עם שאלות ראשונות ומחשבות.</span></span></li>
         <li><span><b data-en="A short intro call">שיחת היכרות קצרה</b><span data-en="You leave with a clear direction: what is worth building first, and whether you need it at all.">יוצאים ממנה עם כיוון ברור: מה שווה לבנות קודם, ואם בכלל צריך.</span></span></li>"""
 REQUIRED = ("out", "path", "nav", "form", "title", "title_en", "description", "description_en")
-NAV = ("home", "work", "workshops")
+NAV = ("home", "work", "workshops", "whatsapp-agent", "management-system", "ai-agents")
 TOKEN = re.compile(r"\{\{\s*(>?)\s*([\w-]+)\s*\}\}")
 
 

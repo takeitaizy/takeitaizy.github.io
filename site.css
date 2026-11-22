@@ -696,3 +696,28 @@ html.a11y-still .sector-row[aria-hidden="true"], html.a11y-still .marquee-toggle
 .clip-btn svg { inline-size: 18px; block-size: 18px; }
 .clip-btn .i-play, .clip-btn[aria-pressed="true"] .i-pause { display: none; }
 .clip-btn[aria-pressed="true"] .i-play { display: block; }
+
+/* ---------- service pages ---------- */
+.svc-sec { padding-block: 72px 96px; }
+.checks { margin-block-start: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 14px 44px; }
+.checks li { position: relative; padding-inline-start: 30px; font-size: 17.5px; color: var(--body); }
+.checks li::before { content: "✓"; position: absolute; inset-inline-start: 0; inset-block-start: 0; font-weight: 800; color: #1E7A4C; }
+.sub-block { margin-block-start: 48px; border-radius: 28px; padding: clamp(22px, 3vw, 32px); background: var(--mist); }
+.sub-block h3 { font-size: 21px; }
+.sub-block .checks { margin-block-start: 18px; }
+.demo-fig { margin-block-start: 30px; }
+.demo-fig.mini-stage { max-inline-size: 560px; }
+.callout { margin-block-start: 28px; border-radius: 24px; padding: 22px 26px; background: var(--sand-soft); max-inline-size: 760px; }
+.callout h3 { font-size: 19px; }
+.callout p { margin-block-start: 6px; color: var(--body); }
+.ex-grid { margin-block-start: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; }
+.ex { border-radius: 28px; padding: 28px; display: flex; flex-direction: column; gap: 12px; }
+.ex > .tag { align-self: flex-start; }
+.ex h3 { font-size: 21px; }
+.ex p { color: var(--muted); font-size: 16px; }
+.ex-link { margin-block-start: auto; padding-block-start: 6px; font-weight: 600; color: var(--navy); text-underline-offset: 4px; }
+@media (hover: hover) { .ex { transition: transform .35s var(--ease); } .ex:hover { transform: translateY(-5px); } }
+
+/* the side menu: the three service pages under "What we build" */
+.drawer-nav a.sub { font-size: 17px; font-weight: 600; padding-block: 9px; padding-inline-start: 18px; color: var(--muted); }
+.drawer-nav a.sub[aria-current="page"] { color: var(--navy); text-decoration: underline; text-decoration-color: var(--sand); text-decoration-thickness: 3px; text-underline-offset: 6px; }

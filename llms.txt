@@ -22,7 +22,7 @@ Legal entity: אושר סולושיינס בע״מ (Osher Solutions Ltd.)
 
 Small and medium businesses and organizations in Israel with repetitive manual work and no in-house IT team. Among our clients: importers, service and supply companies, eCommerce companies, contractors and tradespeople, clubs and communities, real estate developers, accountants, personal development coaches, private tutors and schools, local authorities and business owners.
 
-## How we work
+## Our process
 
 1. A free needs call: we map each manual task and what it costs a month, and say what is worth building first. If off-the-shelf software solves the problem, we say so.
 2. Setup: a staged build starting with the biggest pain, a rollout where sensitive actions wait for the client's approval, training and going live. Priced as a fixed quote after the needs call.
@@ -39,6 +39,9 @@ Small and medium businesses and organizations in Israel with repetitive manual w
 ## Pages
 
 - [Home](https://takeitaizy.dev/): services, three example systems, the time calculator, process, questions and the contact form
+- [Smart WhatsApp agent](https://takeitaizy.dev/whatsapp-agent): the WhatsApp customer-service bot that writes every inquiry into the CRM, with a demo clip and questions
+- [Custom management systems](https://takeitaizy.dev/management-system): what a custom system includes, off the shelf versus custom, examples and questions
+- [AI agents](https://takeitaizy.dev/ai-agents): what an AI agent does, the morning summary, back-office reports and documents, examples and questions
 - [Our work](https://takeitaizy.dev/work): all six example systems, with what hurt, what was built, demo clips and client quotes
 - [AI workshops](https://takeitaizy.dev/workshops): formats, topics, what every workshop includes, questions, and a contact form for workshops
 - [Privacy policy](https://takeitaizy.dev/privacy)

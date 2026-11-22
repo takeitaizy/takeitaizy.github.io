@@ -4,15 +4,17 @@ Landing page for **takeitaizy** — served via GitHub Pages at [takeitaizy.dev](
 
 ## How it works
 
-- `index.html` (home), `work.html` (`/work`, all the projects with demo clips)
-  and `workshops.html` (`/workshops`) — generated pages. Edit their sources in
+- `index.html` (home), `work.html` (`/work`, all the projects with demo clips),
+  `workshops.html` (`/workshops`) and the service pages `whatsapp-agent.html`,
+  `management-system.html` and `ai-agents.html` — generated pages. Edit their sources in
   `_src/` and run `python3 _src/build.py` (standard-library Python, no install);
   `_src/build.py` explains the page format. Hebrew in the markup, English in
   `data-en*` attributes, swapped by the language toggle.
 - `site.css`, `site.js` — the styles and behaviour shared by every page. The
   contact form is the Studio OS intake form (`os.takeitaizy.dev/intake`) in an
   iframe on every page; the contract with that app is in `site.js`. The form
-  reports the page it sits on as `utm_content` (`embed`, `work`, `workshops`).
+  reports the page it sits on as `utm_content` (`embed` on the home page, otherwise
+  the page name, e.g. `work` or `whatsapp-agent`).
 - `media/` — the demo clips and screenshots on `/work` (sample data only).
 - `brand/` — the official logo, favicon set and share image (`brand/BRAND.md`).
 - `privacy.html`, `accessibility.html` — the privacy policy and the accessibility
