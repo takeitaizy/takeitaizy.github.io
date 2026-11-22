@@ -16,6 +16,9 @@ framework. See `README.md` for DNS and Pages setup.
   Each block of `site.js` checks that its part of the page exists.
 - A new page: add `_src/pages/<name>.html`, list it in `sitemap.xml` and
   `llms.txt`, and add it to the nav in `_src/layout.html` if it belongs there.
+- Google Ads and the Meta Pixel load only after the visitor's "yes" in the
+  consent banner (`site.js`, `ADS` and `loadAds`). Never load a tracking or ad
+  script any other way, and keep `privacy.html#ads` in step with what loads.
 - Demo clips and screenshots live in `media/`. Every one shows sample data and
   says so ("המחשה עם נתוני דוגמה").
 

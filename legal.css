@@ -53,3 +53,8 @@ footer { padding-block: 32px; border-block-start: 1px solid var(--line); font-si
 .foot a { color: var(--subtle); text-decoration: none; }
 .foot a:hover { color: var(--navy); text-decoration: underline; }
 .foot .mail { margin-inline-start: auto; }
+
+/* "Delete my choice" on the privacy page reads as a link */
+.consent-reset { background: none; border: 0; padding: 0; font: inherit; color: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.consent-done { display: block; margin-block-start: 8px; font-weight: 600; }
+.consent-done[hidden] { display: none; }

@@ -290,12 +290,92 @@ function onScroll() { navShell.classList.toggle("scrolled", window.scrollY > 24)
 window.addEventListener("scroll", onScroll, { passive: true });
 onScroll();
 
-/* ---------------- storage notice ----------------
-   The site sets no cookies. The notice says so once; closing it is remembered. */
+/* ---------------- advertising measurement: only with the visitor's consent ----------------
+   Google Ads and the Meta Pixel are off until BOTH: an ID below, and the
+   visitor's "yes" in the consent banner. Nothing from Google or Meta loads
+   before that, and "no" loads nothing at all. The choice is kept in
+   localStorage ("taizy-ads-consent") and can be changed from "Cookie settings"
+   in the footer or on the privacy page. The IDs are public by design (they
+   appear in every advertiser's page source). Keep /privacy#ads in step with
+   what is loaded here. */
+var ADS = {
+  googleAds: "",      // the Google Ads tag ID, "AW-123456789"
+  googleAdsLead: "",  // the lead conversion, "AW-123456789/AbCdEfGhIjKlMnOp"
+  metaPixel: ""       // the Meta Pixel ID, "1234567890123456"
+};
+var CONSENT_KEY = "taizy-ads-consent";
+function adsOn() { return !!(ADS.googleAds || ADS.metaPixel); }
+function adsConsent() {
+  try { var c = JSON.parse(localStorage.getItem(CONSENT_KEY) || "null"); return c && c.choice; } catch (e) { return null; }
+}
+var adsLoaded = false;
+function loadAds() {
+  if (adsLoaded || !adsOn() || adsConsent() !== "granted") return;
+  adsLoaded = true;
+  if (ADS.googleAds) {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("config", ADS.googleAds);
+    var g = document.createElement("script");
+    g.async = true;
+    g.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(ADS.googleAds);
+    document.head.appendChild(g);
+  }
+  if (ADS.metaPixel) {
+    var f = window.fbq = function () { f.callMethod ? f.callMethod.apply(f, arguments) : f.queue.push(arguments); };
+    if (!window._fbq) window._fbq = f;
+    f.push = f; f.loaded = true; f.version = "2.0"; f.queue = [];
+    var m = document.createElement("script");
+    m.async = true;
+    m.src = "https://connect.facebook.net/en_US/fbevents.js";
+    document.head.appendChild(m);
+    window.fbq("init", ADS.metaPixel);
+    window.fbq("track", "PageView");
+  }
+}
+/* Withdrawing consent: delete the cookies those tools set on this site, and
+   reload if they were already running, so nothing of theirs keeps going. */
+function clearAdCookies() {
+  document.cookie.split(";").forEach(function (c) {
+    var name = c.split("=")[0].trim();
+    if (!/^(_gcl_|_fbp$|_fbc$)/.test(name)) return;
+    var host = location.hostname, parts = host.split(".");
+    var domains = ["", host, "." + parts.slice(-2).join(".")];
+    domains.forEach(function (d) {
+      document.cookie = name + "=; Max-Age=0; path=/" + (d ? "; domain=" + d : "");
+    });
+  });
+}
+function setConsent(choice) {
+  try { localStorage.setItem(CONSENT_KEY, JSON.stringify({ v: 1, choice: choice, at: new Date().toISOString().slice(0, 10) })); } catch (e) {}
+  if (choice === "granted") loadAds();
+  else { clearAdCookies(); if (adsLoaded) location.reload(); }
+}
+
+/* ---------------- the notice at the bottom of the screen ----------------
+   Without ad IDs: the storage notice (no tracking here), once; closing it is
+   remembered. With ad IDs: the consent banner, until the visitor chooses. */
 var note = document.getElementById("storageNote");
-var seen = false;
-try { seen = localStorage.getItem("taizy-storage-ok") === "1"; } catch (e) {}
-if (!seen) note.hidden = false;
+var consentNote = document.getElementById("consentNote");
+var consentOpen = document.getElementById("consentOpen");
+function showConsent() {
+  consentNote.hidden = false;
+  var yes = document.getElementById("consentYes");
+  if (yes) yes.focus({ preventScroll: true });
+}
+if (adsOn()) {
+  consentOpen.hidden = false;
+  consentOpen.addEventListener("click", showConsent);
+  if (!adsConsent()) consentNote.hidden = false;
+  loadAds();
+  document.getElementById("consentYes").addEventListener("click", function () { consentNote.hidden = true; setConsent("granted"); });
+  document.getElementById("consentNo").addEventListener("click", function () { consentNote.hidden = true; setConsent("denied"); });
+} else {
+  var seen = false;
+  try { seen = localStorage.getItem("taizy-storage-ok") === "1"; } catch (e) {}
+  if (!seen) note.hidden = false;
+}
 document.getElementById("storageOk").addEventListener("click", function () {
   note.hidden = true;
   try { localStorage.setItem("taizy-storage-ok", "1"); } catch (e) {}
@@ -334,10 +414,13 @@ function syncIntakeFrame(lang) {
 }
 syncIntakeFrame(currentLang);
 
-/* A conversion is reported only to a tag that is on the page; there is none today. */
+/* A lead is reported to Google and Meta only when their tools were loaded,
+   which happens only after the visitor's consent. Nothing from the form's
+   content is sent: only that a lead happened, on which page. */
 function reportLead() {
-  if (typeof window.gtag === "function") window.gtag("event", "generate_lead", { form: "intake" });
-  if (typeof window.fbq === "function") window.fbq("track", "Lead");
+  if (!adsLoaded) return;
+  if (typeof window.gtag === "function" && ADS.googleAdsLead) window.gtag("event", "conversion", { send_to: ADS.googleAdsLead });
+  if (typeof window.fbq === "function") window.fbq("track", "Lead", { content_name: document.body.getAttribute("data-form") || "embed" });
 }
 
 window.addEventListener("message", function (e) {
