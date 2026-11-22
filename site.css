@@ -721,3 +721,9 @@ html.a11y-still .sector-row[aria-hidden="true"], html.a11y-still .marquee-toggle
 /* the side menu: the three service pages under "What we build" */
 .drawer-nav a.sub { font-size: 17px; font-weight: 600; padding-block: 9px; padding-inline-start: 18px; color: var(--muted); }
 .drawer-nav a.sub[aria-current="page"] { color: var(--navy); text-decoration: underline; text-decoration-color: var(--sand); text-decoration-thickness: 3px; text-underline-offset: 6px; }
+
+/* ---------- consent: the footer button that reopens the choice ---------- */
+.foot-link { background: none; border: 0; padding: 8px 0; font: inherit; font-size: 14px; color: var(--subtle); cursor: pointer; }
+.foot-link:hover { color: var(--navy); text-decoration: underline; }
+.consent .row .btn { min-inline-size: 110px; }
+.consent p a { color: var(--navy); font-weight: 600; }

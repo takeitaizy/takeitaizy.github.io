@@ -16,6 +16,11 @@ Landing page for **takeitaizy** — served via GitHub Pages at [takeitaizy.dev](
   reports the page it sits on as `utm_content` (`embed` on the home page, otherwise
   the page name, e.g. `work` or `whatsapp-agent`).
 - `media/` — the demo clips and screenshots on `/work` (sample data only).
+- Ad measurement (Google Ads, Meta Pixel) — off until its IDs are filled in the
+  `ADS` block at the top of the consent section in `site.js`, and even then
+  loaded only after the visitor agrees in the consent banner. "Cookie settings"
+  in the footer and "Delete my choice" on `/privacy#ads` change the choice.
+  What is loaded must match `/privacy#ads`: change one, check the other.
 - `brand/` — the official logo, favicon set and share image (`brand/BRAND.md`).
 - `privacy.html`, `accessibility.html` — the privacy policy and the accessibility
   statement (served at `/privacy` and `/accessibility`), linked from the footer.
