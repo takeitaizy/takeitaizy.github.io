@@ -1,0 +1,17 @@
+name: Site check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  pages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generated pages match their sources in _src/
+        run: python3 _src/build.py --check
