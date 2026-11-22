@@ -38,6 +38,8 @@ Small and medium businesses and organizations in Israel with repetitive manual w
 
 ## Pages
 
-- [Home](https://takeitaizy.dev/): services, examples, workshops, process, questions and the contact form
+- [Home](https://takeitaizy.dev/): services, three example systems, the time calculator, process, questions and the contact form
+- [Our work](https://takeitaizy.dev/work): all six example systems, with what hurt, what was built, demo clips and client quotes
+- [AI workshops](https://takeitaizy.dev/workshops): formats, topics, what every workshop includes, questions, and a contact form for workshops
 - [Privacy policy](https://takeitaizy.dev/privacy)
 - [Accessibility statement](https://takeitaizy.dev/accessibility)
