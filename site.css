@@ -644,6 +644,9 @@ html.a11y-still .sector-row[aria-hidden="true"], html.a11y-still .marquee-toggle
 .proj-media video, .proj-media .shot-img { display: block; inline-size: 100%; block-size: auto; border-radius: 26px; background: var(--mist);
   box-shadow: 0 34px 70px -34px rgba(14,28,48,0.5), 0 0 0 1px rgba(14,28,48,0.06); }
 .proj-media video { aspect-ratio: 1920 / 840; object-fit: cover; }
+/* a composite of real screens: the picture carries its own corners and shadows */
+.proj-media .shot-img.comp { background: none; box-shadow: none; border-radius: 0; }
+.proj-sub { font-size: 18px; color: var(--muted); max-inline-size: 60ch; margin-block-start: -4px; }
 .proj-media figcaption { margin-block-start: 12px; font-size: 14px; color: var(--subtle); }
 .proj-quote { border-radius: 24px; padding: 22px 26px; background: var(--sand-soft); max-inline-size: 760px; }
 .proj-quote blockquote { font-size: 18px; line-height: 1.55; color: var(--navy); }
