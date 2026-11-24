@@ -42,7 +42,7 @@ Small and medium businesses and organizations in Israel with repetitive manual w
 - [Smart WhatsApp agent](https://takeitaizy.dev/whatsapp-agent): the WhatsApp customer-service bot that writes every inquiry into the CRM, with a demo clip and questions
 - [Custom management systems](https://takeitaizy.dev/management-system): what a custom system includes, off the shelf versus custom, examples and questions
 - [AI agents](https://takeitaizy.dev/ai-agents): what an AI agent does, the morning summary, back-office reports and documents, examples and questions
-- [Our work](https://takeitaizy.dev/work): all six example systems, with what hurt, what was built, demo clips and client quotes
+- [Our work](https://takeitaizy.dev/work): all six example systems, with what hurt, what was built, screenshots from the systems themselves and client quotes
 - [AI workshops](https://takeitaizy.dev/workshops): formats, topics, what every workshop includes, questions, and a contact form for workshops
 - [Privacy policy](https://takeitaizy.dev/privacy)
 - [Accessibility statement](https://takeitaizy.dev/accessibility)
